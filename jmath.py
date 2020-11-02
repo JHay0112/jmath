@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.3
+    Version: 0.4
 
     Jordan's Math Module
 
@@ -20,8 +20,7 @@ import operator # Python operators
 # -- nVector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.3
-# 
+# Version: 0.4
 # A vector with n dimensions
 class nVector:
 
@@ -29,11 +28,35 @@ class nVector:
     # Initialise nVector object
     #
     # self
-    # *components (Int) - Scalar vector components, e.g. x, y, z
-    def __init__(self, *components):
+    # *components (List/*args) - Scalar vector components, e.g. x, y, z
+    def __init__(self, components):
 
-        # Store parameters
-        self._components = components
+        # If components[0] is list store that list
+        if(type(components[0]) == list):
+            self._components = components[0]
+        else:
+            # Else it's *args
+            self._components = components
+
+    # --- __add__()
+    # Add another nVector object to this nVector
+    #
+    # self
+    # vector (nVector) - The foreign nVector to add
+    def __add__(self, vector):
+
+        # Add the foreign components to local components and return
+        return(nVector(list(map(operator.add, self._components, vector.get_components()))))
+
+    # --- __sub__()
+    # Subtract another nVector object from this vector
+    #
+    # self
+    # vector (nVector) - The foreign nVector to subtract
+    def __sub__(self, vector):
+
+        # Subtract the foreign components from local components and return
+        return(nVector(list(map(operator.sub, self._components, vector.get_components()))))
 
     # --- get_components()
     # Returns the components of the vector
@@ -60,35 +83,15 @@ class nVector:
 
         return(magnitude)
 
-    # --- add()
-    # Add another nVector object to this nVector
-    #
-    # self
-    # vector (nVector) - The foreign nVector to add
-    def add(self, vector):
-
-        # Add the foreign components to local components and set local components as equal
-        self._components = list(map(operator.add, self._components, vector.get_components()))
-
-    # --- subtract()
-    # Subtract another nVector object from this vector
-    #
-    # self
-    # vector (nVector) - The foreign nVector to subtract
-    def subtract(self, vector):
-
-        # Subtract the foreign components from local components and set local components as equal
-        self._components = list(map(operator.sub, self._components, vector.get_components()))
-
 # - Main
 
 # Used for testing components as I develop them
 if(__name__ == "__main__"):
 
-    v = nVector(2, 3, 10)
-    fv = nVector(1, 2, 3)
+    v = nVector([2, 3, 10])
+    fv = nVector([1, 2, 3])
 
-    v.add(fv)
-    v.subtract(fv)
+    v += fv
+    v -= fv
 
     print(v.get_components())
