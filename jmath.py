@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.0.0
+    Version: 0.1
 
     Jordan's Math Module
 
@@ -19,7 +19,7 @@ import math # Mathematical functions, e.g. sqrt()
 # -- nVector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.0.0
+# Version: 0.1
 # 
 # A vector with n dimensions
 class nVector:
