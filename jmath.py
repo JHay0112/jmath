@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.1
+    Version: 0.2
 
     Jordan's Math Module
 
@@ -13,13 +13,14 @@
 # - Modules
 
 import math # Mathematical functions, e.g. sqrt()
+import operator # Python operators
 
 # - Classes
 
 # -- nVector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.1
+# Version: 0.2
 # 
 # A vector with n dimensions
 class nVector:
@@ -59,11 +60,24 @@ class nVector:
 
         return(magnitude)
 
+    # --- add_vector()
+    # Add another nVector object to this nVector
+    #
+    # self
+    # vector (nVector) - The foreign nVector to add
+    def add_vector(self, vector):
+
+        # Add the foreign components to local components and set local components as equal
+        self._components = list(map(operator.add, self._components, vector.get_components()))
+
 # - Main
 
 # Used for testing components as I develop them
 if(__name__ == "__main__"):
 
     v = nVector(2, 3, 10)
+    fv = nVector(1, 2, 3)
 
-    print(v.get_magnitude())
+    v.add_vector(fv)
+
+    print(v.get_components())
