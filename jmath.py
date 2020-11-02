@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.2
+    Version: 0.3
 
     Jordan's Math Module
 
@@ -20,7 +20,7 @@ import operator # Python operators
 # -- nVector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.2
+# Version: 0.3
 # 
 # A vector with n dimensions
 class nVector:
@@ -60,15 +60,25 @@ class nVector:
 
         return(magnitude)
 
-    # --- add_vector()
+    # --- add()
     # Add another nVector object to this nVector
     #
     # self
     # vector (nVector) - The foreign nVector to add
-    def add_vector(self, vector):
+    def add(self, vector):
 
         # Add the foreign components to local components and set local components as equal
         self._components = list(map(operator.add, self._components, vector.get_components()))
+
+    # --- subtract()
+    # Subtract another nVector object from this vector
+    #
+    # self
+    # vector (nVector) - The foreign nVector to subtract
+    def subtract(self, vector):
+
+        # Subtract the foreign components from local components and set local components as equal
+        self._components = list(map(operator.sub, self._components, vector.get_components()))
 
 # - Main
 
@@ -78,6 +88,7 @@ if(__name__ == "__main__"):
     v = nVector(2, 3, 10)
     fv = nVector(1, 2, 3)
 
-    v.add_vector(fv)
+    v.add(fv)
+    v.subtract(fv)
 
     print(v.get_components())
