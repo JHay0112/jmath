@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.4
+    Version: 0.4.1
 
     Jordan's Math Module
 
@@ -20,7 +20,7 @@ import operator # Python operators
 # -- nVector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.4
+# Version: 0.4.1
 # A vector with n dimensions
 class nVector:
 
@@ -29,7 +29,7 @@ class nVector:
     #
     # self
     # *components (List/*args) - Scalar vector components, e.g. x, y, z
-    def __init__(self, components):
+    def __init__(self, *components):
 
         # If components[0] is list store that list
         if(type(components[0]) == list):
@@ -88,8 +88,8 @@ class nVector:
 # Used for testing components as I develop them
 if(__name__ == "__main__"):
 
-    v = nVector([2, 3, 10])
-    fv = nVector([1, 2, 3])
+    v = nVector(2, 3, 10)
+    fv = nVector(1, 2, 3)
 
     v += fv
     v -= fv
