@@ -83,6 +83,25 @@ class Vector:
 
         return(magnitude)
 
+# -- PhysObj
+# Author: Jordan Hay
+# Date: 2020-11-06
+# Version: 0.0.1
+# Physical Object
+class PhysObj:
+
+    # --- __init__()
+    # Initialise the PhysObj Object
+    #
+    # self
+    # init_vel (Vector) - An initial velocity vector
+    # mass (Int) - The mass of the object
+    def __init__(self, init_vel = Vector(0, 0, 0), mass = 1):
+
+        # Assign object variables
+        self._init_vel = init_vel
+        self._mass = mass
+
 # - Main
 
 # Used for testing components as I develop them
