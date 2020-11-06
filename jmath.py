@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.4.1
+    Version: 0.4.2
 
     Jordan's Math Module
 
@@ -17,15 +17,15 @@ import operator # Python operators
 
 # - Classes
 
-# -- nVector
+# -- Vector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.4.1
+# Version: 0.4.2
 # A vector with n dimensions
-class nVector:
+class Vector:
 
     # --- __init__()
-    # Initialise nVector object
+    # Initialise Vector object
     #
     # self
     # *components (List/*args) - Scalar vector components, e.g. x, y, z
@@ -39,24 +39,24 @@ class nVector:
             self._components = components
 
     # --- __add__()
-    # Add another nVector object to this nVector
+    # Add another Vector object to this Vector
     #
     # self
-    # vector (nVector) - The foreign nVector to add
+    # vector (Vector) - The foreign Vector to add
     def __add__(self, vector):
 
         # Add the foreign components to local components and return
-        return(nVector(list(map(operator.add, self._components, vector.get_components()))))
+        return(Vector(list(map(operator.add, self._components, vector.get_components()))))
 
     # --- __sub__()
-    # Subtract another nVector object from this vector
+    # Subtract another Vector object from this vector
     #
     # self
-    # vector (nVector) - The foreign nVector to subtract
+    # vector (Vector) - The foreign Vector to subtract
     def __sub__(self, vector):
 
         # Subtract the foreign components from local components and return
-        return(nVector(list(map(operator.sub, self._components, vector.get_components()))))
+        return(Vector(list(map(operator.sub, self._components, vector.get_components()))))
 
     # --- get_components()
     # Returns the components of the vector
@@ -88,8 +88,8 @@ class nVector:
 # Used for testing components as I develop them
 if(__name__ == "__main__"):
 
-    v = nVector(2, 3, 10)
-    fv = nVector(1, 2, 3)
+    v = Vector(2, 3, 10)
+    fv = Vector(1, 2, 3)
 
     v += fv
     v -= fv
