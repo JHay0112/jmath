@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.4.3
+    Version: 0.4.4
 
     Jordan's Math Module
 
@@ -86,7 +86,7 @@ class Vector:
 # -- PhysEnv
 # Author: Jordan Hay
 # Date: 2020-11-08
-# Version: 0.0.1
+# Version: 0.0.2
 # Physical Environment
 class PhysEnv:
 
@@ -98,6 +98,25 @@ class PhysEnv:
 
         # Initialise empty list of PhysObj's
         self._objects = []
+        # Set time to zero
+        self._time = 0
+
+    # --- get_time()
+    # Returns time
+    #
+    # self
+    def get_time(self):
+
+        return(self._time)
+
+    # --- increment_time()
+    # Increment the time by an amount
+    #
+    # self
+    # increment (Float) - The amount to increase the time by
+    def increment_time(self, increment):
+
+        self._time += increment
 
     # --- add_object()
     # Add PhysObj to list
