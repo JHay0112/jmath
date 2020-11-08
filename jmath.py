@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.4.5
+    Version: 0.4.6
 
     Jordan's Math Module
 
@@ -86,7 +86,7 @@ class Vector:
 # -- PhysEnv
 # Author: Jordan Hay
 # Date: 2020-11-08
-# Version: 0.0.2
+# Version: 0.0.3
 # Physical Environment
 class PhysEnv:
 
@@ -101,11 +101,11 @@ class PhysEnv:
         # Set time to zero
         self._time = 0
 
-    # --- get_time()
+    # --- time()
     # Returns time
     #
     # self
-    def get_time(self):
+    def time(self):
 
         return(self._time)
 
