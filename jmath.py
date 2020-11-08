@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.4.4
+    Version: 0.4.5
 
     Jordan's Math Module
 
@@ -20,7 +20,7 @@ import operator # Python operators
 # -- Vector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.4.2
+# Version: 0.4.3
 # A vector with n dimensions
 class Vector:
 
@@ -46,7 +46,7 @@ class Vector:
     def __add__(self, vector):
 
         # Add the foreign components to local components and return
-        return(Vector(list(map(operator.add, self._components, vector.get_components()))))
+        return(Vector(list(map(operator.add, self._components, vector.components()))))
 
     # --- __sub__()
     # Subtract another Vector object from this vector
@@ -56,21 +56,21 @@ class Vector:
     def __sub__(self, vector):
 
         # Subtract the foreign components from local components and return
-        return(Vector(list(map(operator.sub, self._components, vector.get_components()))))
+        return(Vector(list(map(operator.sub, self._components, vector.components()))))
 
-    # --- get_components()
+    # --- components()
     # Returns the components of the vector
     #
     # self
-    def get_components(self):
+    def components(self):
 
         return(self._components)
 
-    # --- get_magnitude()
+    # --- magnitude()
     # Returns the magnitude of the vector as calculated from the components
     #
     # self
-    def get_magnitude(self):
+    def magnitude(self):
 
         # Store magnitude while computing
         magnitude = 0
