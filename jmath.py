@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.4.2
+    Version: 0.4.3
 
     Jordan's Math Module
 
@@ -83,6 +83,31 @@ class Vector:
 
         return(magnitude)
 
+# -- PhysEnv
+# Author: Jordan Hay
+# Date: 2020-11-08
+# Version: 0.0.1
+# Physical Environment
+class PhysEnv:
+
+    # --- __init___()
+    # Initialise the Physics Environment
+    #
+    # self
+    def __init__(self):
+
+        # Initialise empty list of PhysObj's
+        self._objects = []
+
+    # --- add_object()
+    # Add PhysObj to list
+    #
+    # self
+    # new_obj (PhysObj) - The object to add
+    def add_object(self, new_obj):
+
+        self._objects.append(new_obj)
+
 # -- PhysObj
 # Author: Jordan Hay
 # Date: 2020-11-06
@@ -94,13 +119,18 @@ class PhysObj:
     # Initialise the PhysObj Object
     #
     # self
+    # env (PhysEnv) - The environment the object exists in
     # init_vel (Vector) - An initial velocity vector
     # mass (Int) - The mass of the object
-    def __init__(self, init_vel = Vector(0, 0, 0), mass = 1):
+    def __init__(self, env, init_vel = Vector(0, 0, 0), mass = 1):
 
         # Assign object variables
+        self._env = env
         self._init_vel = init_vel
         self._mass = mass
+
+        # Add self to list in PhysEnv
+        self._env.add_object(self)
 
 # - Main
 
