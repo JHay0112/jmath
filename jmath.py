@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.4.7
+    Version: 0.5.0
 
     Jordan's Math Module
 
@@ -86,7 +86,7 @@ class Vector:
 # -- PhysEnv
 # Author: Jordan Hay
 # Date: 2020-11-08
-# Version: 0.0.4
+# Version: 0.1.0
 # Physical Environment
 class PhysEnv:
 
@@ -94,8 +94,11 @@ class PhysEnv:
     # Initialise the Physics Environment
     #
     # self
-    def __init__(self):
+    # *forces (Vectors) - The forces that exist within the physics environment, e.g. Gravity
+    def __init__(self, *forces):
 
+        # Store forces *args
+        self._forces = forces
         # Initialise empty list of PhysObj's
         self._objects = []
         # Set time to zero
@@ -108,6 +111,24 @@ class PhysEnv:
     def time(self):
 
         return(self._time)
+
+    # --- forces_vector()
+    # The Vector object that represents all the forces present in the systems
+    #
+    # self
+    def forces_vector(self):
+
+        # Store the first vector
+        forces_vector = self._forces[0]
+
+        # Check if any other forces present
+        if(len(self._forces) > 1):
+            # If so iterate through the list and add them (except for the first)
+            for i in range(1, len(self._forces)):
+                forces_vector += self._forces[i]
+
+        # Return computed vector
+        return(forces_vector)
 
     # --- set_time()
     # Set the time to a value
@@ -165,10 +186,12 @@ class PhysObj:
 # Used for testing components as I develop them
 if(__name__ == "__main__"):
 
-    v = Vector(2, 3, 10)
-    fv = Vector(1, 2, 3)
+    # Gravity constant
+    GRAVITY = Vector(0, -9.81)
+    # Create environment with Gravity and some other "wind" vectors
+    env = PhysEnv(GRAVITY, Vector(2, 0), Vector(-3, 0))
+    # Create a new object in the environment with an initial vertical velocity of 20 directly up
+    newobj = PhysObj(env, Vector(0, 20))
 
-    v += fv
-    v -= fv
-
-    print(v.get_components())
+    # Print the total forces present in the physics environment
+    print(env.forces_vector().magnitude())
