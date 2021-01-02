@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.5.0
+    Version: 0.6.0
 
     Jordan's Math Module
 
@@ -14,13 +14,14 @@
 
 import math # Mathematical functions, e.g. sqrt()
 import operator # Python operators
+import matplotlib.pyplot as plt # Visualisation
 
 # - Classes
 
 # -- Vector
 # Author: Jordan Hay
 # Date: 2020-11-02
-# Version: 0.4.3
+# Version: 0.5.3
 # A vector with n dimensions
 class Vector:
 
@@ -82,6 +83,18 @@ class Vector:
             magnitude = math.sqrt(magnitude ** 2 + c ** 2)
 
         return(magnitude)
+
+    # --- draw()
+    # Draws a 2D arrow
+    #
+    # self
+    # x (int) - The dimension to plot on the x-axis
+    # y (int) - The dimension to plot on the y-axis
+    def draw(self, x = 0, y = 1):
+
+        ax = plt.axes()
+        ax.arrow(0, 0, self._components[x], self._components[y], head_width=0.05, head_length=0.05)
+        plt.show()
 
 # -- PhysEnv
 # Author: Jordan Hay
@@ -195,3 +208,7 @@ if(__name__ == "__main__"):
 
     # Print the total forces present in the physics environment
     print(env.forces_vector().magnitude())
+
+    # Vector
+    v = Vector(0.5, 1)
+    v.draw()
