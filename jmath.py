@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.7.1
+    Version: 0.8.0
 
     Jordan's Math Module
 
@@ -99,7 +99,7 @@ class Vector:
 # -- Node
 # Author: Jordan Hay
 # Date: 2021-01-29
-# Version: 1.0.2
+# Version: 1.1.0
 # Node of a Graph
 class Node:
 
@@ -107,10 +107,20 @@ class Node:
     # Initialise the Node
     #
     # self
+    # name (str) - Node name
     # *neighbours (Nodes) - Neighbouring nodes
-    def __init__(self, *neighbours):
+    def __init__(self, name, *neighbours):
 
+        self._name = name
         self._neighbours = list(neighbours)
+
+    # --- name()
+    # Returns the node name
+    #
+    # self
+    def name(self):
+
+        return(self._name)
 
     # --- neighbours()
     # Returns the neighbouring nodes
@@ -138,10 +148,24 @@ class Node:
 
         self._neighbours = list(set(self._neighbours) - set(neighbours))
 
+    # --- relationships()
+    # Human readable computation of what nodes this object is neighbouring
+    #
+    # self
+    def relationships(self):
+
+        relationship = f"[{self._name}]"
+
+        for neighbour in self._neighbours:
+            relationship += "\n"
+            relationship += f"  ∟[{neighbour.name()}]"
+
+        return(relationship)
+
 # -- Graph
 # Author: Jordan Hay
 # Date: 2021-01-29
-# Version: 1.0.0
+# Version: 1.1.0
 class Graph:
 
     # --- __init__()
@@ -179,6 +203,15 @@ class Graph:
 
         self._nodes.extend(nodes)
         self.check()
+
+    # --- relationships()
+    # Human readable computation of all nodes and their relationship with other nodes
+    #
+    # self
+    def relationships(self):
+
+        for node in self._nodes:
+            print(node.relationships())
 
 # -- PhysEnv
 # Author: Jordan Hay
