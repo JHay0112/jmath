@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.6.0
+    Version: 0.6.1
 
     Jordan's Math Module
 
@@ -95,6 +95,40 @@ class Vector:
         ax = plt.axes()
         ax.arrow(0, 0, self._components[x], self._components[y], head_width=0.05, head_length=0.05)
         plt.show()
+
+# -- Node
+# Author: Jordan Hay
+# Date: 2021-01-29
+# Version: 1.0.0
+# Node of a Graph
+class Node:
+
+    # --- __init__()
+    # Initialise the Node
+    #
+    # self
+    # *neighbours (Nodes) - Neighbouring nodes
+    def __init__(self, *neighbours):
+
+        self._neighbours = neighbours
+
+    # --- add_neighbours()
+    # Add new neighbouring nodes
+    #
+    # self
+    # *neighbours (Nodes) - Neighbouring nodes
+    def add_neighbours(self, *neighbours):
+
+        self._neighbours.extend(neighbours)
+
+    # --- remove_neighbours()
+    # Remove existing neighbouring nodes
+    #
+    # self
+    # *neighbours (Nodes) - Neighbouring nodes
+    def remove_neighbours(self, *neighbours):
+
+        self._neighbours = list(set(self._neighbours) - set(neighbours))
 
 # -- PhysEnv
 # Author: Jordan Hay
