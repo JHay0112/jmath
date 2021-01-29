@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.7.0
+    Version: 0.7.1
 
     Jordan's Math Module
 
@@ -99,7 +99,7 @@ class Vector:
 # -- Node
 # Author: Jordan Hay
 # Date: 2021-01-29
-# Version: 1.0.1
+# Version: 1.0.2
 # Node of a Graph
 class Node:
 
@@ -116,7 +116,9 @@ class Node:
     # Returns the neighbouring nodes
     #
     # self
-    def neighbours(self): return(self._neighbours)
+    def neighbours(self): 
+        
+        return(self._neighbours)
 
     # --- add_neighbours()
     # Add new neighbouring nodes
@@ -275,22 +277,3 @@ class PhysObj:
 
         # Add self to list in PhysEnv
         self._env.add_object(self)
-
-# - Main
-
-# Used for testing components as I develop them
-if(__name__ == "__main__"):
-
-    # Gravity constant
-    GRAVITY = Vector(0, -9.81)
-    # Create environment with Gravity and some other "wind" vectors
-    env = PhysEnv(GRAVITY, Vector(2, 0), Vector(-3, 0))
-    # Create a new object in the environment with an initial vertical velocity of 20 directly up
-    newobj = PhysObj(env, Vector(0, 20))
-
-    # Print the total forces present in the physics environment
-    print(env.forces_vector().magnitude())
-
-    # Vector
-    v = Vector(0.5, 1)
-    v.draw()
