@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.8.1
+    Version: 0.8.2
 
     Jordan's Math Module
 
@@ -165,7 +165,7 @@ class Node:
 # -- Graph
 # Author: Jordan Hay
 # Date: 2021-01-29
-# Version: 1.1.1
+# Version: 1.1.2
 class Graph:
 
     # --- __init__()
@@ -201,7 +201,15 @@ class Graph:
     # *nodes (Nodes) - Graph nodes
     def add_nodes(self, *nodes):
 
-        self._nodes.extend(nodes)
+        # Check if first "node" is a Node
+        if(isinstance(nodes[0], Node)):
+            # Therefore *nodes is being used as expected
+            # Extend nodes list with *nodes tuple
+            self._nodes.extend(nodes)
+        else:
+            # Else an iterable is being passed as nodes[0]
+            self._nodes.extend(nodes[0])
+
         self.check()
 
     # --- relationships()
