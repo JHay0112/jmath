@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.6.1
+    Version: 0.7.0
 
     Jordan's Math Module
 
@@ -99,7 +99,7 @@ class Vector:
 # -- Node
 # Author: Jordan Hay
 # Date: 2021-01-29
-# Version: 1.0.0
+# Version: 1.0.1
 # Node of a Graph
 class Node:
 
@@ -111,6 +111,12 @@ class Node:
     def __init__(self, *neighbours):
 
         self._neighbours = neighbours
+
+    # --- neighbours()
+    # Returns the neighbouring nodes
+    #
+    # self
+    def neighbours(self): return(self._neighbours)
 
     # --- add_neighbours()
     # Add new neighbouring nodes
@@ -129,6 +135,48 @@ class Node:
     def remove_neighbours(self, *neighbours):
 
         self._neighbours = list(set(self._neighbours) - set(neighbours))
+
+# -- Graph
+# Author: Jordan Hay
+# Date: 2021-01-29
+# Version: 1.0.0
+class Graph:
+
+    # --- __init__()
+    # Initialise a graph
+    #
+    # self
+    # check (bool) - Default true, runs check that all nodes are correctly formatted
+    def __init__(self, check = True):
+
+        self._check = check
+        self._nodes = []
+
+    # --- check()
+    # Check node formation
+    #
+    # self
+    def check(self):
+        # Check if check enabled
+        if(self._check):
+            # For every node
+            for node in self._nodes:
+                # For every neighbour to the node
+                for neighbour in node.neighbours():
+                    # If the neighbour doesn't know that this node is a neighbour
+                    if(node not in neighbour.neighbours()):
+                        # Add this node
+                        neighbour.add_neighbours(node)
+
+    # --- add_nodes()
+    # Add nodes to the graph
+    #
+    # self
+    # *nodes (Nodes) - Graph nodes
+    def add_nodes(self, *nodes):
+
+        self._nodes.extend(nodes)
+        self.check()
 
 # -- PhysEnv
 # Author: Jordan Hay
