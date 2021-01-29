@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.8.0
+    Version: 0.8.1
 
     Jordan's Math Module
 
@@ -165,7 +165,7 @@ class Node:
 # -- Graph
 # Author: Jordan Hay
 # Date: 2021-01-29
-# Version: 1.1.0
+# Version: 1.1.1
 class Graph:
 
     # --- __init__()
@@ -210,8 +210,12 @@ class Graph:
     # self
     def relationships(self):
 
+        relationships = ""
+
         for node in self._nodes:
-            print(node.relationships())
+            relationships += node.relationships() + "\n"
+
+        return(relationships)
 
 # -- PhysEnv
 # Author: Jordan Hay
