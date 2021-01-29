@@ -110,7 +110,7 @@ class Node:
     # *neighbours (Nodes) - Neighbouring nodes
     def __init__(self, *neighbours):
 
-        self._neighbours = neighbours
+        self._neighbours = list(neighbours)
 
     # --- neighbours()
     # Returns the neighbouring nodes
