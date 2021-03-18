@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.8.2
+    Version: 0.9.2
 
     Jordan's Math Module
 
@@ -95,6 +95,150 @@ class Vector:
         ax = plt.axes()
         ax.arrow(0, 0, self._components[x], self._components[y], head_width=0.05, head_length=0.05)
         plt.show()
+
+# -- Uncertainty
+# Author: Jordan Hay
+# Date: 2021-03-17
+# Version: 1.0.0
+# A value with an associated uncertainty
+class Uncertainty:
+
+    # --- __init__()
+    # Initialise the uncertainty
+    #
+    # self
+    # value (float) - The absolute value
+    # uncertainty - The absolute uncertainty
+    def __init__(self, value, uncertainty):
+
+        self._value = value
+        self._uncertainty = uncertainty
+
+    # --- value()
+    # Return the value
+    #
+    # self
+    def value(self): return self._value
+
+    # --- abs_uncertainty()
+    # Return the absolute uncertainty of the object
+    #
+    # self
+    def abs_uncertainty(self): return(self._uncertainty)
+
+    # --- rel_uncertainty()
+    # Return the relative uncertainty (0 to 1)
+    #
+    # self
+    def rel_uncertainty(self): return(self._uncertainty/self._value)
+
+    # --- __str__()
+    # Representation of self
+    #
+    # self
+    def __str__(self):
+        return(f"{self._value} ± {self._uncertainty}")
+
+    # --- __add__()
+    # Define what happens when an uncertainty is added
+    #
+    # self
+    # other (int/float/Uncertainty) - The other object to add
+    def __add__(self, other):
+
+        # Check type of other
+        if type(other) == Uncertainty:
+            # Add values
+            val = self.value() + other.value()
+            # Add absolute uncertainties
+            unc = self.abs_uncertainty() + other.abs_uncertainty()
+        else: # Presume int or float
+            # Add values
+            val = self.value() + other
+            # Final uncertainty stays the same
+            unc = self.abs_uncertainty()
+
+        # Return Uncertainty
+        return(Uncertainty(val, unc))
+
+    # --- __radd__()
+    # Define flipped addition
+    #
+    # self
+    def __radd__(self, other): return(self + other) 
+
+    # --- __sub__()
+    # Define subtraction
+    #
+    # self
+    # other (int/float/Uncertainty) - The object to subtract
+    def __sub__(self, other):
+
+        # Check type of other
+        if type(other) == Uncertainty:
+            # Flip other sign
+            return(self + Uncertainty(-other.value(), other.abs_uncertainty()))
+        else: # Presume int or float
+            # Flip sign
+            return(self + -other)
+
+    # --- __rsub__()
+    # Define flipped subtraction
+    #
+    # self
+    # other
+    def __rsub__(self, other): return(self - other) 
+
+    # --- __mul__()
+    # Define multiplication
+    #
+    # self
+    # other
+    def __mul__(self, other):
+
+        # Check type of other
+        if type(other) == Uncertainty:
+            # Get final value
+            val = self.value() * other.value()
+            # Add relative uncertainties and multiply the sum by final value
+            unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
+        else: # Presume int or float
+            # Get final value
+            val = self.value() * other
+            # Multiply final by current relative uncertainty
+            unc = val * self.rel_uncertainty()
+
+        # Return Uncertainty
+        return(Uncertainty(val, unc))
+
+    # --- __rmul__()
+    # Define flipped multiplication
+    #
+    # self
+    # other
+    def __rmul__(self, other): return(self * other) 
+
+    # --- __truediv__()
+    # Define division
+    #
+    # self
+    # other
+    def __truediv__(self, other):
+
+        # Check type of other
+        if type(other) == Uncertainty:
+            # Invert other and multiply
+            return(self * Uncertainty((1/other.value()), other.abs_uncertainty()))
+        else: # Presume int or float
+            # Invert other and multiply
+            return(self * (1/other))
+
+    # --- __rtruediv__()
+    # Define flipped division
+    #
+    # self
+    # other
+    def __rtruediv__(self, other): return(self / other)
 
 # -- Node
 # Author: Jordan Hay
