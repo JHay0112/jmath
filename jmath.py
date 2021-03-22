@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.10.3
+    Version: 0.10.4
 
     Jordan's Math Module
 
@@ -99,7 +99,7 @@ class Vector:
 # -- Uncertainty
 # Author: Jordan Hay
 # Date: 2021-03-17
-# Version: 1.1.1
+# Version: 1.2.0
 # A value with an associated uncertainty
 class Uncertainty:
 
@@ -194,7 +194,15 @@ class Uncertainty:
     #
     # self
     # other
-    def __rsub__(self, other): return(self - other) 
+    def __rsub__(self, other): 
+
+         # Check type of other
+        if type(other) == Uncertainty:
+            # Flip other sign
+            return(other + Uncertainty(-self.value(), self.abs_uncertainty()))
+        else: # Presume int or float
+            # Flip sign
+            return(other + Uncertainty(-self.value(), self.abs_uncertainty()))
 
     # --- __mul__()
     # Define multiplication
@@ -252,7 +260,22 @@ class Uncertainty:
     #
     # self
     # other
-    def __rtruediv__(self, other): return(self / other)
+    def __rtruediv__(self, other): 
+
+        # Check type of other
+        if type(other) == Uncertainty:
+            # Get final value
+            val = other.value() / self.value()
+            # Add relative uncertainties and multiply the sum by final value
+            unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
+        else: # Presume int or float
+            # Get final value
+            val = other / self.value()
+            # Multiply final by current relative uncertainty
+            unc = val * self.rel_uncertainty()
+
+        # Return Uncertainty
+        return(Uncertainty(val, unc))
 
 # -- Node
 # Author: Jordan Hay
