@@ -183,11 +183,18 @@ class Uncertainty:
 
         # Check type of other
         if type(other) == Uncertainty:
-            # Flip other sign
-            return(self + Uncertainty(-other.value(), other.abs_uncertainty()))
+            # Add values
+            val = self.value() - other.value()
+            # Add absolute uncertainties
+            unc = self.abs_uncertainty() + other.abs_uncertainty()
         else: # Presume int or float
-            # Flip sign
-            return(self + -other)
+            # Add values
+            val = self.value() - other
+            # Final uncertainty stays the same
+            unc = self.abs_uncertainty()
+
+        # Return Uncertainty
+        return(Uncertainty(val, unc))
 
     # --- __rsub__()
     # Define flipped subtraction
@@ -198,11 +205,18 @@ class Uncertainty:
 
          # Check type of other
         if type(other) == Uncertainty:
-            # Flip other sign
-            return(other + Uncertainty(-self.value(), self.abs_uncertainty()))
+            # Add values
+            val = other.value() - self.value()
+            # Add absolute uncertainties
+            unc = self.abs_uncertainty() + other.abs_uncertainty()
         else: # Presume int or float
-            # Flip sign
-            return(other + Uncertainty(-self.value(), self.abs_uncertainty()))
+            # Add values
+            val = other - self.value()
+            # Final uncertainty stays the same
+            unc = self.abs_uncertainty()
+
+        # Return Uncertainty
+        return(Uncertainty(val, unc))
 
     # --- __mul__()
     # Define multiplication
