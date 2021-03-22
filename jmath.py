@@ -3,7 +3,7 @@
 
     Author: Jordan Hay
     Date: 2020-11-02
-    Version: 0.10.2
+    Version: 0.10.3
 
     Jordan's Math Module
 
@@ -99,7 +99,7 @@ class Vector:
 # -- Uncertainty
 # Author: Jordan Hay
 # Date: 2021-03-17
-# Version: 1.1.0
+# Version: 1.1.1
 # A value with an associated uncertainty
 class Uncertainty:
 
@@ -137,7 +137,14 @@ class Uncertainty:
     #
     # self
     def __str__(self):
-        return(f"{self._value} ± {self._uncertainty}")
+
+        # Calculates the amount to round by for correct formatting
+        rounding = -int(math.floor(math.log10(abs(self._uncertainty))))
+        # Rounded values
+        rounded_uncertainty = round(self._uncertainty, rounding)
+        rounded_value = round(self._value, rounding)
+
+        return(f"{rounded_value} ± {rounded_uncertainty}")
 
     # --- __add__()
     # Define what happens when an uncertainty is added
