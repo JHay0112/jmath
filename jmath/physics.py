@@ -1,5 +1,5 @@
 '''
-    components/physics.py
+    jmath/physics.py
 
     Author: Jordan Hay
     Date: 2021-06-17

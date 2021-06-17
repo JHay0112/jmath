@@ -1,5 +1,5 @@
 '''
-    components/uncertainties.py
+    jmath/uncertainties.py
 
     Author: Jordan Hay
     Date: 2021-06-17

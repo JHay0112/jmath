@@ -1,15 +1,20 @@
 '''
-    components/__init__.py
+    jmath/__init__.py
 
     Author: Jordan Hay
     Date: 2021-06-17
 
-    Initialises components sub-module
+    Initialises jmath
 '''
 
-# - Components
+# Define related components
+__all__ = [
+    "linearalgebra",
+    "uncertainties",
+    "physics",
+    "discrete"
+]
 
-from discrete import *
-from linearalgebra import *
-from uncertainties import *
-from physics import *
+# Import core components
+from .linearalgebra import *
+from .uncertainties import *

@@ -5,12 +5,12 @@
     Date: 2021-06-17
 '''
 
-from distutils.core import setup
+from setuptools import find_packages, setup
 
 setup(
     name = 'jmath',
-    packages = ['jmath'],
-    version = '1.0.1',
+    packages = find_packages(include=['jmath']),
+    version = '1.0.0',
     description = "Mathematics Tools",
     author = "Jordan Hay",
     license = "MIT",

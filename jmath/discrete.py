@@ -1,5 +1,5 @@
 '''
-    components/discrete.py
+    jmath/discrete.py
 
     Author: Jordan Hay
     Date: 2021-06-17

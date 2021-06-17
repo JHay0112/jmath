@@ -1,5 +1,5 @@
 '''
-    components/linearalgebra.py
+    jmath/linearalgebra.py
 
     Author: Jordan Hay
     Date: 2021-06-17
