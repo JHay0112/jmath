@@ -48,6 +48,21 @@ class Uncertainty:
     # self
     def rel_uncertainty(self): return(self._uncertainty/self._value)
 
+    # --- apply()
+    # Apply a mathematical function to the uncertain value
+    # Uses brute force method to calculate uncertainty
+    #
+    # self
+    # func (function) - The function to apply
+    def apply(self, func):
+        
+        # Apply function to the value
+        val = func(self._value)
+        # Apply the function to the value plus the uncertainty and then take away the new val
+        unc = func(self._value + self._uncertainty) - val
+
+        return Uncertainty(val, unc)
+
     # --- __str__()
     # Representation of self
     #
