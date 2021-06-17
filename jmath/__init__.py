@@ -7,10 +7,9 @@
     Initialises components sub-module
 '''
 
-# Define modules in this sub-module
-__all__ = [
-    "linearalgebra",
-    "uncertainties",
-    "physics",
-    "discrete"
-]
+# - Components
+
+from discrete import *
+from linearalgebra import *
+from uncertainties import *
+from physics import *
