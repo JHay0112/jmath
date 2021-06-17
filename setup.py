@@ -3,8 +3,6 @@
 
     Author: Jordan Hay
     Date: 2021-06-17
-
-    
 '''
 
 from setuptools import find_packages, setup
