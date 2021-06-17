@@ -13,6 +13,6 @@ setup(
     version = '1.0',
     description = "Mathematics Tools",
     author = "Jordan Hay",
-    license = "None",
+    license = "MIT",
     install_requires=["matplotlib==3.3.4"]
 )
