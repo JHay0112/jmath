@@ -83,27 +83,9 @@ class Graph:
     # Initialise a graph
     #
     # self
-    # check (bool) - Default true, runs check that all nodes are correctly formatted
-    def __init__(self, check = True):
+    def __init__(self):
 
-        self._check = check
         self._nodes = []
-
-    # --- check()
-    # Check node formation
-    #
-    # self
-    def check(self):
-        # Check if check enabled
-        if(self._check):
-            # For every node
-            for node in self._nodes:
-                # For every neighbour to the node
-                for neighbour in node.neighbours():
-                    # If the neighbour doesn't know that this node is a neighbour
-                    if(node not in neighbour.neighbours()):
-                        # Add this node
-                        neighbour.add_neighbours(node)
 
     # --- add_nodes()
     # Add nodes to the graph
@@ -121,7 +103,20 @@ class Graph:
             # Else an iterable is being passed as nodes[0]
             self._nodes.extend(nodes[0])
 
-        self.check()
+    # --- get_node()
+    # Returns a node object in the graph from its name
+    # 
+    # self
+    # name (str) - The name of the node
+    def get_node(self, name):
+        # Loop through the nodes
+        for node in self._nodes:
+            # Check if name matches
+            if node.name() == name:
+                # If so return
+                return node
+        # No node found so return none
+        return None
 
     # --- relationships()
     # Human readable computation of all nodes and their relationship with other nodes
