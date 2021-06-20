@@ -46,14 +46,14 @@ class Node:
     #
     # self
     # neighbour (Node) - Neighbouring node
-    # magnitude (1) (float) - The size of the relationship
+    # weight (1) (float) - The size of the relationship
     # two_way (False) (Bool) - Does the relationship go both ways?
-    def add_neighbour(self, neighbour, magnitude = 1, two_way = False):
+    def add_neighbour(self, neighbour, weight = 1, two_way = False):
 
-        self._neighbours[neighbour] = magnitude
+        self._neighbours[neighbour] = weight
 
         if two_way:
-            neighbour.add_neighbour(self, magnitude)
+            neighbour.add_neighbour(self, weight)
 
     # --- remove_neighbour()
     # Remove existing neighbouring node
@@ -72,9 +72,9 @@ class Node:
 
         relationship = f"[{self._name}]"
 
-        for neighbour, magnitude in self._neighbours.items():
+        for neighbour, weight in self._neighbours.items():
             relationship += "\n"
-            relationship += f"  ∟[{neighbour.name()}: {magnitude}]"
+            relationship += f"  ∟[{neighbour.name()}: {weight}]"
 
         return(relationship)
 
