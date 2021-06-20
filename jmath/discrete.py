@@ -20,11 +20,10 @@ class Node:
     #
     # self
     # name (str) - Node name
-    # *neighbours (Nodes) - Neighbouring nodes
-    def __init__(self, name, *neighbours):
+    def __init__(self, name):
 
         self._name = name
-        self._neighbours = list(neighbours)
+        self._neighbours = {}
 
     # --- name()
     # Returns the node name
@@ -40,25 +39,30 @@ class Node:
     # self
     def neighbours(self): 
         
-        return(self._neighbours)
+        return(self._neighbours.keys())
 
-    # --- add_neighbours()
-    # Add new neighbouring nodes
+    # --- add_neighbour()
+    # Add new neighbouring node
     #
     # self
-    # *neighbours (Nodes) - Neighbouring nodes
-    def add_neighbours(self, *neighbours):
+    # neighbour (Node) - Neighbouring node
+    # magnitude (1) (float) - The size of the relationship
+    # two_way (False) (Bool) - Does the relationship go both ways?
+    def add_neighbour(self, neighbour, magnitude = 1, two_way = False):
 
-        self._neighbours.extend(neighbours)
+        self._neighbours[neighbour] = magnitude
 
-    # --- remove_neighbours()
-    # Remove existing neighbouring nodes
+        if two_way:
+            neighbour.add_neighbour(self, magnitude)
+
+    # --- remove_neighbour()
+    # Remove existing neighbouring node
     #
     # self
-    # *neighbours (Nodes) - Neighbouring nodes
-    def remove_neighbours(self, *neighbours):
+    # neighbour (Node) - Neighbouring node
+    def remove_neighbours(self, neighbour):
 
-        self._neighbours = list(set(self._neighbours) - set(neighbours))
+        self._neighbours.pop(neighbour)
 
     # --- relationships()
     # Human readable computation of what nodes this object is neighbouring
@@ -68,9 +72,9 @@ class Node:
 
         relationship = f"[{self._name}]"
 
-        for neighbour in self._neighbours:
+        for neighbour, magnitude in self._neighbours.items():
             relationship += "\n"
-            relationship += f"  ∟[{neighbour.name()}]"
+            relationship += f"  ∟[{neighbour.name()}: {magnitude}]"
 
         return(relationship)
 
