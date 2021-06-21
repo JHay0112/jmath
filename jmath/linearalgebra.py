@@ -41,7 +41,7 @@ class Vector:
         """
 
         # Add the foreign components to local components and return
-        return(Vector(list(map(operator.add, self.components, vector.components()))))
+        return(Vector(list(map(operator.add, self.components, vector.components))))
 
     def __sub__(self, vector):
         """
@@ -50,7 +50,7 @@ class Vector:
             vector (Vector) - Vector to subtract
         """
         # Subtract the foreign components from local components and return
-        return(Vector(list(map(operator.sub, self.components, vector.components()))))
+        return(Vector(list(map(operator.sub, self.components, vector.components))))
 
     def magnitude(self):
         """Calculates the vector magnitude"""
@@ -64,7 +64,7 @@ class Vector:
             magnitude = math.sqrt(magnitude ** 2 + c ** 2)
 
         return(magnitude)
-        
+
     def draw(self, x = 0, y = 1):
         """
             Draws a 2D vector with matplot lib
