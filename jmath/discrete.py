@@ -74,9 +74,6 @@ class Node:
 
         return(relationship)
 
-# -- Graph
-# Author: Jordan Hay
-# Date: 2021-01-29
 class Graph:
     """
         Author: Jordan Hay
