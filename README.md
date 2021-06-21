@@ -14,9 +14,10 @@ Calculations with uncertain values.
 ### Linear Algebra
 Currently does rudimentary vector maths. I plan to expand this to do more vector maths as well as maths with planes.
 
+### Discrete
+Node, Graph, and Loop objects for use in Graph based maths
+
 ## Additional Components
-### Discrete (jmath.discrete)
-Rudimentary graph implementation. Needs work.
 
 ### Physics (jmath.physics)
 Rudimentary classification of physical objects and environments.
