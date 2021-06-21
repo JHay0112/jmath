@@ -1,15 +1,15 @@
 '''
-    jmath/physics.py
+    jmath/physics/mechanics.py
 
     Author: Jordan Hay
     Date: 2021-06-17
 
-    Physics tools
+    Tools for mechanical systems
 '''
 
 # - Modules
 
-from .linearalgebra import Vector
+from ..linearalgebra import Vector
 
 # - Classes
 
