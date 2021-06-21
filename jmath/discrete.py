@@ -171,7 +171,7 @@ class Graph:
 
         return loops
 
-class Loop:
+class Loop(Graph):
 
     def __init__(self, nodes):
         """
@@ -182,7 +182,8 @@ class Loop:
 
             nodes (list) - List of Node objects that define the loop
         """
-        self.nodes = nodes
+        super().__init__()
+        super().add_nodes(nodes)
 
     def relationships(self):
         """Human readable representation of the relationship between nodes"""
