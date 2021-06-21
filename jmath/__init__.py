@@ -18,3 +18,4 @@ __all__ = [
 # Import core components
 from .linearalgebra import *
 from .uncertainties import *
+from .discrete import *
