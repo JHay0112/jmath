@@ -25,6 +25,22 @@ class Node:
         self._name = name
         self._neighbours = {}
 
+    # --- __str__()
+    # String representation
+    #
+    # self
+    def __str__(self):
+
+        return self._name
+
+    # --- __repr__()
+    # Programming representation
+    #
+    # self
+    def __repr__(self):
+
+        return f"Node('{self._name}')"
+
     # --- name()
     # Returns the node name
     #
@@ -39,7 +55,7 @@ class Node:
     # self
     def neighbours(self): 
         
-        return(self._neighbours.keys())
+        return(list(self._neighbours.keys()))
 
     # --- add_neighbour()
     # Add new neighbouring node
@@ -63,6 +79,14 @@ class Node:
     def remove_neighbours(self, neighbour):
 
         self._neighbours.pop(neighbour)
+
+    # --- remove_neighbours()
+    # Remove all neighbours
+    #
+    # self
+    def remove_neighbours(self):
+
+        self._neighbours = []
 
     # --- relationships()
     # Human readable computation of what nodes this object is neighbouring
@@ -107,6 +131,14 @@ class Graph:
             # Else an iterable is being passed as nodes[0]
             self._nodes.extend(nodes[0])
 
+    # --- nodes()
+    # Get nodes of the graph
+    #
+    # self
+    def nodes(self):
+
+        return self._nodes
+
     # --- get_node()
     # Returns a node object in the graph from its name
     # 
@@ -134,3 +166,48 @@ class Graph:
             relationships += node.relationships() + "\n"
 
         return(relationships)
+
+    # --- walk()
+    # Walks a loop around the Graph
+    #
+    # self
+    # start (Node) - Node to start at
+    # stop (Node) - Node to stop at
+    def walk(self, start, stop = None, neighbour = 0, default_neighbour = 0):
+
+        if stop == None:
+            stop = start
+
+        loop = [start]
+        node = start.neighbours()[neighbour]
+        
+        while node != stop:
+            loop.append(node)
+            if len(node.neighbours()) != 0:
+                node = node.neighbours()[default_neighbour]
+            else:
+                # Dead end
+                return None
+        return loop
+
+    # --- loops()
+    # Finds the loops
+    #
+    # self
+    def loops(self):
+
+        loops = []
+        intersections = [node for node in self._nodes if len(node.neighbours()) > 1 and self._nodes.index(node) != 0]
+
+        # For every neighbour on the primary node
+        for i in range(len(self._nodes[0].neighbours())):
+            loops.append(self.walk(self._nodes[0], neighbour = i))
+
+        # For the rest of the intersections do not walk the zeroth option
+        for i in range(len(intersections)):
+            # For every intersection
+            for j in range(1, len(intersections[i].neighbours())):
+                # For every neighbour on the intersection except 0
+                loops.append(self.walk(intersections[i], neighbour = j))
+
+        return loops
