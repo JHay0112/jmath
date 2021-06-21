@@ -29,7 +29,7 @@ class Node:
     def __str__(self):
         """String representation"""
 
-        return self.id
+        return f"[{self.id}:{self.weight}]"
 
     def __repr__(self):
         """Programming Representation"""
@@ -65,13 +65,13 @@ class Node:
     def relationships(self):
         """Returns human readable string of relationships between node and neighbours"""
 
-        relationship = f"[{self.id}:{self.weight}]"
+        relationship = f"{self}"
 
         for neighbour, weight in self.neighbours.items():
             relationship += "\n"
-            relationship += f"  -{weight}-[{neighbour.id}:{neighbour.weight}]"
+            relationship += f"  -{weight}-{neighbour}"
 
-        return(relationship)
+        print(relationship)
 
 class Graph:
 
@@ -117,13 +117,10 @@ class Graph:
         return None
 
     def relationships(self):
-        """Returns a human readable description of the relationship between all nodes"""
-        relationships = ""
+        """Prints a human readable description of the relationship between all nodes"""
 
         for node in self.nodes:
-            relationships += node.relationships() + "\n"
-
-        return(relationships)
+            node.relationships()
 
     def walk(self, start, stop = None, neighbour = 0, default_neighbour = 0):
         """
@@ -167,7 +164,9 @@ class Graph:
             # For every intersection
             for j in range(1, len(intersections[i].neighbours)):
                 # For every neighbour on the intersection except 0
-                loops.append(self.walk(intersections[i], neighbour = j))
+                walk = self.walk(intersections[i], neighbour = j)
+                if walk != None:       
+                    loops.append(walk)
 
         return loops
 
@@ -186,14 +185,14 @@ class Loop(Graph):
         super().add_nodes(nodes)
 
     def relationships(self):
-        """Human readable representation of the relationship between nodes"""
+        """Prints a human readable representation of the relationship between nodes"""
 
-        relationships = f"[{self.nodes[0].id}:{self.nodes[0].weight}]"
+        relationships = f"{self.nodes[0]}"
 
         for i in range(1, len(self.nodes)):
             relationships += "-"
             relationships += f"{self.nodes[i - 1].neighbours[self.nodes[i]]}"
-            relationships += "->"
-            relationships += f"[{self.nodes[i].id}:{self.nodes[i].weight}]"
+            relationships += "-"
+            relationships += f"{self.nodes[i].id}"
 
-        return relationships
+        print(relationships)
