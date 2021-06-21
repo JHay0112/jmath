@@ -9,96 +9,68 @@
 
 # - Classes
 
-# -- Node
-# Author: Jordan Hay
-# Date: 2021-01-29
-# Node of a Graph
 class Node:
+    """
+        Author: Jordan Hay
+        Date: 2021-01-29
 
-    # --- __init__()
-    # Initialise the Node
-    #
-    # self
-    # name (str) - Node name
-    def __init__(self, name):
+        Node of a graph
 
-        self._name = name
-        self._neighbours = {}
+        id (str) - Unique ID string describing the object
+        weight (float:1) - Weighting of node
+    """
 
-    # --- __str__()
-    # String representation
-    #
-    # self
+    def __init__(self, id, weight = 1):
+        """Node Constructor"""
+
+        self.id = id
+        self.weight = weight
+        self.neighbours = {}
+
     def __str__(self):
+        """String representation"""
 
-        return self._name
+        return self.id
 
-    # --- __repr__()
-    # Programming representation
-    #
-    # self
     def __repr__(self):
+        """Programming Representation"""
 
-        return f"Node('{self._name}')"
+        return f"Node('{self.id}', {self.weight})"
 
-    # --- name()
-    # Returns the node name
-    #
-    # self
-    def name(self):
+    def neighbours_list(self): 
+        """Returns the IDs of the neighbouring nodes"""
+        return(list(self.neighbours.keys()))
 
-        return(self._name)
-
-    # --- neighbours()
-    # Returns the neighbouring nodes
-    #
-    # self
-    def neighbours(self): 
-        
-        return(list(self._neighbours.keys()))
-
-    # --- add_neighbour()
-    # Add new neighbouring node
-    #
-    # self
-    # neighbour (Node) - Neighbouring node
-    # weight (1) (float) - The size of the relationship
-    # two_way (False) (Bool) - Does the relationship go both ways?
     def add_neighbour(self, neighbour, weight = 1, two_way = False):
+        """
+            Adds a neighbouring node
 
-        self._neighbours[neighbour] = weight
+            neighbour (Node) - Node object describing the neighbour
+            weight (float:1) - The weighting of the relationship
+            two_way (bool:False) - Whether the relationship goes both ways
+        """
+        self.neighbours[neighbour] = weight
 
         if two_way:
             neighbour.add_neighbour(self, weight)
 
-    # --- remove_neighbour()
-    # Remove existing neighbouring node
-    #
-    # self
-    # neighbour (Node) - Neighbouring node
-    def remove_neighbours(self, neighbour):
+    def remove_neighbour(self, neighbour):
+        """
+            Removes the relationship between the nodes (ONLY FROM THIS NODE)
 
-        self._neighbours.pop(neighbour)
+            neighbour (Node) - Node object describing the neighbour node
+        """
+        self.neighbours.pop(neighbour)
 
-    # --- remove_neighbours()
-    # Remove all neighbours
-    #
-    # self
-    def remove_neighbours(self):
-
-        self._neighbours = []
-
-    # --- relationships()
-    # Human readable computation of what nodes this object is neighbouring
-    #
-    # self
+    
     def relationships(self):
+        """Returns human readable string of relationships between node and neighbours"""
 
-        relationship = f"[{self._name}]"
+        relationship = f"[{self.id}:{self.weight}]"
 
-        for neighbour, weight in self._neighbours.items():
+        for neighbour, weight in self.neighbours.items():
             relationship += "\n"
-            relationship += f"  ∟[{neighbour.name()}: {weight}]"
+            relationship += f"  -{weight}-[{neighbour.id}:{neighbour.weight}]"
 
         return(relationship)
 
@@ -106,85 +78,78 @@ class Node:
 # Author: Jordan Hay
 # Date: 2021-01-29
 class Graph:
+    """
+        Author: Jordan Hay
+        Date: 2021-01-29
 
-    # --- __init__()
-    # Initialise a graph
-    #
-    # self
+        Graph made of nodes
+    """
+
     def __init__(self):
+        """Graph constructor"""
 
-        self._nodes = []
+        self.nodes = []
 
-    # --- add_nodes()
-    # Add nodes to the graph
-    #
-    # self
-    # *nodes (Nodes) - Graph nodes
     def add_nodes(self, *nodes):
+        """
+            Adds node/s to the graph
+
+            *nodes (Nodes) - Graph nodes
+        """
 
         # Check if first "node" is a Node
         if(isinstance(nodes[0], Node)):
             # Therefore *nodes is being used as expected
             # Extend nodes list with *nodes tuple
-            self._nodes.extend(nodes)
+            self.nodes.extend(nodes)
         else:
             # Else an iterable is being passed as nodes[0]
-            self._nodes.extend(nodes[0])
+            self.nodes.extend(nodes[0])
 
-    # --- nodes()
-    # Get nodes of the graph
-    #
-    # self
-    def nodes(self):
+    def get_node(self, id):
+        """
+            Returns a node object in the graph based upon its ID
 
-        return self._nodes
-
-    # --- get_node()
-    # Returns a node object in the graph from its name
-    # 
-    # self
-    # name (str) - The name of the node
-    def get_node(self, name):
+            id (str) - The ID of the node
+        """
         # Loop through the nodes
-        for node in self._nodes:
+        for node in self.nodes:
             # Check if name matches
-            if node.name() == name:
+            if node.id == id:
                 # If so return
                 return node
         # No node found so return none
         return None
 
-    # --- relationships()
-    # Human readable computation of all nodes and their relationship with other nodes
-    #
-    # self
     def relationships(self):
-
+        """Returns a human readable description of the relationship between all nodes"""
         relationships = ""
 
-        for node in self._nodes:
+        for node in self.nodes:
             relationships += node.relationships() + "\n"
 
         return(relationships)
 
-    # --- walk()
-    # Walks a loop around the Graph
-    #
-    # self
-    # start (Node) - Node to start at
-    # stop (Node) - Node to stop at
     def walk(self, start, stop = None, neighbour = 0, default_neighbour = 0):
+        """
+            "Walks" a loop around the graph, intended for generating loops for self.loops()
+
+            start (Node) - Node the walk starts at
+            stop (Node) - Node the walk stops at
+            neighbour (int:0) - Initial neighbour to move to
+            default_neighbour (int:0) - Neighbour to automatically move to
+        """
 
         if stop == None:
             stop = start
 
         loop = [start]
-        node = start.neighbours()[neighbour]
+        node = start.neighbours_list()[neighbour]
         
         while node != stop:
             loop.append(node)
-            if len(node.neighbours()) != 0:
-                node = node.neighbours()[default_neighbour]
+            if len(node.neighbours) != 0:
+                node = node.neighbours_list()[default_neighbour]
             else:
                 # Dead end
                 return None
@@ -194,23 +159,19 @@ class Graph:
         graph.add_nodes(loop)
         return graph
 
-    # --- loops()
-    # Finds the loops
-    #
-    # self
     def loops(self):
-
+        """Finds loops in the graph"""
         loops = []
-        intersections = [node for node in self._nodes if len(node.neighbours()) > 1 and self._nodes.index(node) != 0]
+        intersections = [node for node in self.nodes if len(node.neighbours) > 1 and self.nodes.index(node) != 0]
 
         # For every neighbour on the primary node
-        for i in range(len(self._nodes[0].neighbours())):
-            loops.append(self.walk(self._nodes[0], neighbour = i))
+        for i in range(len(self.nodes[0].neighbours)):
+            loops.append(self.walk(self.nodes[0], neighbour = i))
 
         # For the rest of the intersections do not walk the zeroth option
         for i in range(len(intersections)):
             # For every intersection
-            for j in range(1, len(intersections[i].neighbours())):
+            for j in range(1, len(intersections[i].neighbours)):
                 # For every neighbour on the intersection except 0
                 loops.append(self.walk(intersections[i], neighbour = j))
 
