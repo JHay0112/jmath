@@ -10,18 +10,17 @@
 # - Classes
 
 class Node:
-    """
-        Author: Jordan Hay
-        Date: 2021-01-29
-
-        Node of a graph
-
-        id (str) - Unique ID string describing the object
-        weight (float:1) - Weighting of node
-    """
 
     def __init__(self, id, weight = 1):
-        """Node Constructor"""
+        """
+            Author: Jordan Hay
+            Date: 2021-01-29
+
+            Node of a graph
+
+            id (str) - Unique ID string describing the object
+            weight (float:1) - Weighting of node
+        """
 
         self.id = id
         self.weight = weight
@@ -75,15 +74,14 @@ class Node:
         return(relationship)
 
 class Graph:
-    """
-        Author: Jordan Hay
-        Date: 2021-01-29
-
-        Graph made of nodes
-    """
 
     def __init__(self):
-        """Graph constructor"""
+        """
+            Author: Jordan Hay
+            Date: 2021-01-29
+
+            Graph made of nodes
+        """
 
         self.nodes = []
 
@@ -174,17 +172,16 @@ class Graph:
         return loops
 
 class Loop:
-    """
-        Sub-graph structure
-
-        Author: Jordan Hay
-        Date: 2021-06-21
-
-        nodes (list) - List of Node objects that define the loop
-    """
 
     def __init__(self, nodes):
-        """Loop Constructor"""
+        """
+            Sub-graph structure
+
+            Author: Jordan Hay
+            Date: 2021-06-21
+
+            nodes (list) - List of Node objects that define the loop
+        """
         self.nodes = nodes
 
     def relationships(self):
