@@ -12,210 +12,172 @@
 import math
 
 # - Classes
-
-# -- Uncertainty
-# Author: Jordan Hay
-# Date: 2021-03-17
-# A value with an associated uncertainty
 class Uncertainty:
 
-    # --- __init__()
-    # Initialise the uncertainty
-    #
-    # self
-    # value (float) - The absolute value
-    # uncertainty - The absolute uncertainty
     def __init__(self, value, uncertainty):
+        """
+            A value with an associated uncertainty
 
-        self._value = value
-        self._uncertainty = uncertainty
+            value (float) - The absolute value
+            uncertainty (float) - The absolute uncertainty
 
-    # --- value()
-    # Return the value
-    #
-    # self
-    def value(self): return self._value
+            Author: Jordan Hay
+            Date: 2021-03-17
+        """
+        self.value = value
+        self.uncertainty = uncertainty
 
-    # --- abs_uncertainty()
-    # Return the absolute uncertainty of the object
-    #
-    # self
-    def abs_uncertainty(self): return(self._uncertainty)
+    def abs_uncertainty(self): 
+        """Returns the absolute uncertainty"""
+        return(self.uncertainty)
 
-    # --- rel_uncertainty()
-    # Return the relative uncertainty (0 to 1)
-    #
-    # self
-    def rel_uncertainty(self): return(self._uncertainty/self._value)
+    def rel_uncertainty(self): 
+        """Returns the relative uncertainty as proportion"""
+        return(self.uncertainty/self.value)
 
-    # --- apply()
-    # Apply a mathematical function to the uncertain value
-    # Uses brute force method to calculate uncertainty
-    #
-    # self
-    # func (function) - The function to apply
     def apply(self, func):
-        
+        """
+            Applies a mathematical function to the value using the bruteforce method to calculate the new uncertainty
+
+            func (function) - The function to apply
+        """
         # Apply function to the value
-        val = func(self._value)
+        val = func(self.value)
         # Apply the function to the value plus the uncertainty and then take away the new val
-        unc = func(self._value + self._uncertainty) - val
+        unc = func(self.value + self.uncertainty) - val
 
         return Uncertainty(val, unc)
 
-    # --- __str__()
-    # Representation of self
-    #
-    # self
     def __str__(self):
-
+        """String representation"""
         # Calculates the amount to round by for correct formatting
-        rounding = -int(math.floor(math.log10(abs(self._uncertainty))))
+        rounding = -int(math.floor(math.log10(abs(self.uncertainty))))
         # Rounded values
-        rounded_uncertainty = round(self._uncertainty, rounding)
-        rounded_value = round(self._value, rounding)
+        rounded_uncertainty = round(self.uncertainty, rounding)
+        rounded_value = round(self.value, rounding)
 
         return(f"{rounded_value} ± {rounded_uncertainty}")
 
-    # --- __add__()
-    # Define what happens when an uncertainty is added
-    #
-    # self
-    # other (int/float/Uncertainty) - The other object to add
     def __add__(self, other):
+        """
+            Uncertainty addition
 
+            other (int/float/Uncertainty) - Object to be added
+        """
         # Check type of other
         if type(other) == Uncertainty:
             # Add values
-            val = self.value() + other.value()
+            val = self.value + other.value
             # Add absolute uncertainties
             unc = self.abs_uncertainty() + other.abs_uncertainty()
         else: # Presume int or float
             # Add values
-            val = self.value() + other
+            val = self.value + other
             # Final uncertainty stays the same
             unc = self.abs_uncertainty()
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    # --- __radd__()
-    # Define flipped addition
-    #
-    # self
-    def __radd__(self, other): return(self + other) 
+    def __radd__(self, other): 
+        """Flipped uncertainty addition"""
+        return(self + other) 
 
-    # --- __sub__()
-    # Define subtraction
-    #
-    # self
-    # other (int/float/Uncertainty) - The object to subtract
     def __sub__(self, other):
+        """
+            Uncertainty subtraction
 
+            other (int/float/Uncertainty) - The object to subtract
+        """
         # Check type of other
         if type(other) == Uncertainty:
             # Add values
-            val = self.value() - other.value()
+            val = self.value - other.value
             # Add absolute uncertainties
             unc = self.abs_uncertainty() + other.abs_uncertainty()
         else: # Presume int or float
             # Add values
-            val = self.value() - other
+            val = self.value - other
             # Final uncertainty stays the same
             unc = self.abs_uncertainty()
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    # --- __rsub__()
-    # Define flipped subtraction
-    #
-    # self
-    # other
     def __rsub__(self, other): 
-
+        """Flipped uncertainty subtraction"""
          # Check type of other
         if type(other) == Uncertainty:
             # Add values
-            val = other.value() - self.value()
+            val = other.value - self.value
             # Add absolute uncertainties
             unc = self.abs_uncertainty() + other.abs_uncertainty()
         else: # Presume int or float
             # Add values
-            val = other - self.value()
+            val = other - self.value
             # Final uncertainty stays the same
             unc = self.abs_uncertainty()
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    # --- __mul__()
-    # Define multiplication
-    #
-    # self
-    # other
     def __mul__(self, other):
+        """
+            Uncertainty multiplication
 
+            other (int/float/Uncertainty) - Uncertainty to multiply by
+        """
         # Check type of other
         if type(other) == Uncertainty:
             # Get final value
-            val = self.value() * other.value()
+            val = self.value * other.value
             # Add relative uncertainties and multiply the sum by final value
             unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
         else: # Presume int or float
             # Get final value
-            val = self.value() * other
+            val = self.value * other
             # Multiply final by current relative uncertainty
             unc = val * self.rel_uncertainty()
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    # --- __rmul__()
-    # Define flipped multiplication
-    #
-    # self
-    # other
-    def __rmul__(self, other): return(self * other) 
+    def __rmul__(self, other): 
+        """Flipped uncertainty multiplication"""
+        return(self * other) 
 
-    # --- __truediv__()
-    # Define division
-    #
-    # self
-    # other
     def __truediv__(self, other):
+        """
+            Uncertainty multiplication
 
+            other (int/float/Uncertainty) - Object to divide by
+        """
         # Check type of other
         if type(other) == Uncertainty:
             # Get final value
-            val = self.value() / other.value()
+            val = self.value / other.value
             # Add relative uncertainties and multiply the sum by final value
             unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
         else: # Presume int or float
             # Get final value
-            val = self.value() / other
+            val = self.value / other
             # Multiply final by current relative uncertainty
             unc = val * self.rel_uncertainty()
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    # --- __rtruediv__()
-    # Define flipped division
-    #
-    # self
-    # other
     def __rtruediv__(self, other): 
-
+        """Flipped uncertainty division"""
         # Check type of other
         if type(other) == Uncertainty:
             # Get final value
-            val = other.value() / self.value()
+            val = other.value / self.value
             # Add relative uncertainties and multiply the sum by final value
             unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
         else: # Presume int or float
             # Get final value
-            val = other / self.value()
+            val = other / self.value
             # Multiply final by current relative uncertainty
             unc = val * self.rel_uncertainty()
 
