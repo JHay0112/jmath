@@ -152,9 +152,8 @@ class Graph:
                 return None
 
         # Generate graph representation
-        graph = Graph()
-        graph.add_nodes(loop)
-        return graph
+        loop = Loop(loop)
+        return loop
 
     def loops(self):
         """Finds loops in the graph"""
@@ -173,3 +172,30 @@ class Graph:
                 loops.append(self.walk(intersections[i], neighbour = j))
 
         return loops
+
+class Loop:
+    """
+        Sub-graph structure
+
+        Author: Jordan Hay
+        Date: 2021-06-21
+
+        nodes (list) - List of Node objects that define the loop
+    """
+
+    def __init__(self, nodes):
+        """Loop Constructor"""
+        self.nodes = nodes
+
+    def relationships(self):
+        """Human readable representation of the relationship between nodes"""
+
+        relationships = f"[{self.nodes[0].id}:{self.nodes[0].weight}]"
+
+        for i in range(1, len(self.nodes)):
+            relationships += "-"
+            relationships += f"{self.nodes[i - 1].neighbours[self.nodes[i]]}"
+            relationships += "->"
+            relationships += f"[{self.nodes[i].id}:{self.nodes[i].weight}]"
+
+        return relationships
