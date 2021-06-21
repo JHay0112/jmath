@@ -188,7 +188,11 @@ class Graph:
             else:
                 # Dead end
                 return None
-        return loop
+
+        # Generate graph representation
+        graph = Graph()
+        graph.add_nodes(loop)
+        return graph
 
     # --- loops()
     # Finds the loops
