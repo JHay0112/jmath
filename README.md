@@ -20,4 +20,4 @@ Node, Graph, and Loop objects for use in Graph based maths
 ## Additional Components
 
 ### Physics (jmath.physics)
-Rudimentary classification of physical objects and environments.
+Rudimentary classification of physical objects (jmath.physics.mechanics) and circuits (jmath.physics.circuits).
