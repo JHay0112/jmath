@@ -164,16 +164,10 @@ class Graph:
             # For every intersection
             for j in range(1, len(intersections[i].neighbours)):
                 # For every neighbour on the intersection except 0
-                walk = self.walk(intersections[i], neighbour = j)
+                walk = self.walk(intersections[i], self.nodes[0], neighbour = j)
                 if walk != None:       
                     loops.append(walk)
-        # For every loop
-        for loop in loops:
-            # If the loop does not start at the reference node
-            if (loop.nodes[0] != self.nodes[0]) and (self.nodes[0] in loop.nodes):
-                # Rearrange to be in terms of the reference node
-                index = loop.nodes.index(self.nodes[0])
-                loop.nodes = loop.nodes[index:] + loop.nodes[:index]
+
         return loops
 class Loop(Graph):
 
@@ -203,3 +197,15 @@ class Loop(Graph):
             relationships += f"{self.nodes[i]}"
 
         print(relationships)
+
+    def reorder(self, node):
+        """
+            Reorders the loop to start at the specified node
+
+            node (Node) - Node to start at
+        """
+        # If the loop does not start at the reference node
+        if (node != self.nodes[0]):
+            # Rearrange to be in terms of the reference node
+            index = self.nodes.index(node)
+            self.nodes = self.nodes[index:] + self.nodes[:index]
