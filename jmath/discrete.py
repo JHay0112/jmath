@@ -196,8 +196,10 @@ class Loop(Graph):
 
         for i in range(1, len(self.nodes)):
             relationships += "-"
-            relationships += f"{self.nodes[i - 1].neighbours[self.nodes[i]]}"
-            relationships += "-"
+            # Only print if there is a weight
+            if self.nodes[i - 1].neighbours[self.nodes[i]] != 0:
+                relationships += f"{self.nodes[i - 1].neighbours[self.nodes[i]]}"
+                relationships += "-"
             relationships += f"{self.nodes[i]}"
 
         print(relationships)
