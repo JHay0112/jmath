@@ -9,11 +9,11 @@
 
 # - Modules
 
-from ..discrete import *
+from ..discrete import Graph, Node, Loop as dGraph, dNode, dLoop
 
 # - Classes
 
-class Circuit(Graph):
+class Circuit(dGraph):
     
     def add_components(self, *components):
         """
@@ -22,7 +22,32 @@ class Circuit(Graph):
             *components (Components) - Components to add to circuit
         """
         super().add_nodes(*components)
-class Component(Node):
+
+    def loops(self):
+        """Returns a list of the loops in the circuit around the primary node"""
+        loops = super().loops()
+
+        # For every loop
+        for loop in loops:
+            # Reclassify the loops as circuit loops
+            loop = Loop(loop.nodes)
+
+        return loops
+class Loop(dLoop):
+
+    def __init__(self, components):
+        """
+            Loop in a circuit
+
+            components (list) - Ordered list of components to classify as a node
+
+            Author: Jordan Hay
+            Date: 2021-06-22
+        """
+        self.components = components
+        super().__init__(components)
+
+class Component(dNode):
     
     def __init__(self, id, weight = 0):
         """
