@@ -22,7 +22,6 @@ class Circuit(Graph):
             *components (Components) - Components to add to circuit
         """
         super().add_nodes(*components)
-
 class Component(Node):
     
     def __init__(self, id, weight = 0):
@@ -44,7 +43,7 @@ class Component(Node):
 
             neighbour (Component) - Neighbouring component to add
         """
-        super().add_neighbour(neighbour, 0, True)
+        super().add_neighbour(neighbour, 0, False)
 
 class Resistor(Component):
 
@@ -61,6 +60,13 @@ class Resistor(Component):
         self.resistance = resistance
         super().__init__(id, resistance)
 
+    def power(self, current):
+        """
+            Calculate power consumption from current
+
+            current (float) - Current in amps flowing through resistor
+        """
+        return (current ** 2) * self.resistance
 class DCVoltageSource(Component):
 
     def __init__(self, id, voltage):

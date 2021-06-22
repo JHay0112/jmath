@@ -167,9 +167,14 @@ class Graph:
                 walk = self.walk(intersections[i], neighbour = j)
                 if walk != None:       
                     loops.append(walk)
-
+        # For every loop
+        for loop in loops:
+            # If the loop does not start at the reference node
+            if (loop.nodes[0] != self.nodes[0]) and (self.nodes[0] in loop.nodes):
+                # Rearrange to be in terms of the reference node
+                index = loop.nodes.index(self.nodes[0])
+                loop.nodes = loop.nodes[index:] + loop.nodes[:index]
         return loops
-
 class Loop(Graph):
 
     def __init__(self, nodes):
@@ -193,6 +198,6 @@ class Loop(Graph):
             relationships += "-"
             relationships += f"{self.nodes[i - 1].neighbours[self.nodes[i]]}"
             relationships += "-"
-            relationships += f"{self.nodes[i].id}"
+            relationships += f"{self.nodes[i]}"
 
         print(relationships)
