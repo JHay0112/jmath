@@ -9,11 +9,11 @@
 
 # - Modules
 
-from ..discrete import Graph, Node, Loop as dGraph, dNode, dLoop
+from .. import discrete
 
 # - Classes
 
-class Circuit(dGraph):
+class Circuit(discrete.Graph):
     
     def add_components(self, *components):
         """
@@ -33,7 +33,8 @@ class Circuit(dGraph):
             loop = Loop(loop.nodes)
 
         return loops
-class Loop(dLoop):
+
+class Loop(discrete.Loop):
 
     def __init__(self, components):
         """
@@ -47,7 +48,7 @@ class Loop(dLoop):
         self.components = components
         super().__init__(components)
 
-class Component(dNode):
+class Component(discrete.Node):
     
     def __init__(self, id, weight = 0):
         """
