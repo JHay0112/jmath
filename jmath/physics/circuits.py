@@ -67,17 +67,19 @@ class Resistor(Component):
             current (float) - Current in amps flowing through resistor
         """
         return (current ** 2) * self.resistance
-class DCVoltageSource(Component):
+class DCSupply(Component):
 
-    def __init__(self, id, voltage):
+    def __init__(self, id, voltage, current):
         """
-            Supplies a DC voltage to a circuit
+            Supplies a DC voltage and current to a circuit
 
             id (str) - ID of component
             voltage (float) - Voltage in Volts to supply
+            current (float) - CUrrent in Amps to supply
 
             Author: Jordan Hay
             Date: 2021-06-22
         """
         self.voltage = voltage
-        super().__init__(id, voltage)
+        self.current = current
+        super().__init__(id, (voltage, current))
