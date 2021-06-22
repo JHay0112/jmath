@@ -33,6 +33,14 @@ class Vector:
             # Else it's *args
             self.components = components
 
+    def __str__(self):
+        """String representation"""
+        string = "("
+        for component in self.components:
+            string += f"{component}, "
+        string = string[:-2] + ")"
+        return string
+
     def __add__(self, vector):
         """
             Add vectors together
@@ -51,6 +59,17 @@ class Vector:
         """
         # Subtract the foreign components from local components and return
         return(Vector(list(map(operator.sub, self.components, vector.components))))
+
+    def __matmul__(self, vector):
+        """
+            The dot product of two vectors
+
+            vector (Vector) - Vector to dot with
+        """
+        dot = 0
+        for i in len(self.components):
+            dot += self.components[i] * vector.components[i]
+        return dot
 
     def magnitude(self):
         """Calculates the vector magnitude"""
