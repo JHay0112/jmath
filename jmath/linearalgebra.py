@@ -16,7 +16,6 @@ from . import exceptions
 import matplotlib.pyplot as plt # Visualisation
 import operator # Python operators
 import math # Mathematical functions, e.g. sqrt()
-from functools import wraps
 
 # - Classes
 class Vector:
@@ -52,7 +51,6 @@ class Vector:
 
             func (function) - Function to check
         """
-        @wraps(func)
 
         def inner(*args, **kwargs):
             if len(args[0]) == len(args[1]):
@@ -109,6 +107,18 @@ class Vector:
         """Reverse scalar multiplication"""
         return self * scalar
 
+    def __truediv__(self, scalar):
+        """
+            Scalar division
+
+            scalar (float) - Scalar amount to divide by
+        """
+        return 1/scalar * self
+
+    def __rtruediv__(self, scalar):
+        """Reverse scalar division"""
+        return self * 1/scalar
+
     def __len__(self):
         """Amount of components in vector"""
         return len(self.components)
@@ -138,6 +148,20 @@ class Vector:
 
         return(magnitude)
 
+    @same_size
+    def on_line(self, line):
+        """
+            Determines whether a point is on a line, returns bool
+
+            line (Line) - Line to determine if on
+        """
+        results = []
+        # For every component in both
+        for i in range(len(self)):
+            results.append(self.components[i] / line.vector.components[i])
+        # Go through results, if any don't match, return false
+        return all(result == results[0] for result in results)
+
     def draw(self, x = 0, y = 1):
         """
             Draws a 2D vector with matplot lib
@@ -162,14 +186,9 @@ class Line:
         """
         self.vector = vector
 
-    def point_on_line(self, point):
-        """
-            Determines whether a point is on a line
-
-            point (Vector) - Point to determine if on line
-        """
-
-        
+    def __len__(self):
+        """Returns size of direction vector"""
+        return len(self.vector.components)
 
 class Plane:
 

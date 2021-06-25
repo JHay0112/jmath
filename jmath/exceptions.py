@@ -9,7 +9,7 @@
 
 class VectorsNotSameSize(Exception):
 
-    def __init__(self):
+    def __init__(self, message = "Operation invalid for vectors of different sizes."):
         """Exception throw for operations on vectors of different sizes"""
-        self.message = "Operation invalid for vectors of different sizes."
+        self.message = message
         super().__init__(self.message)
