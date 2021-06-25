@@ -83,11 +83,11 @@ class Vector:
 
     def __rmul__(self, scalar):
         """Reverse scalar multiplication"""
-        return scalar * self
+        return self * scalar
 
     def projection(self, vector):
         """
-            Calculates the projection of the current vector onto the other vector
+            Returns projection of current vector onto passed vector
 
             vector (Vector/Line) - Vector or line to calculate the projection onto
         """
