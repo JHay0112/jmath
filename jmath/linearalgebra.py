@@ -35,7 +35,7 @@ class Vector:
             self.components = components[0]
         else:
             # Else it's *args
-            self.components = components
+            self.components = list(components)
 
     def __str__(self):
         """String representation"""
