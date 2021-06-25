@@ -119,3 +119,32 @@ class Vector:
         ax = plt.axes()
         ax.arrow(0, 0, self.components[x], self.components[y], head_width=0.05, head_length=0.05)
         plt.show()
+
+class Line:
+
+    def __init__(self, vector):
+        """
+            Defines a line from a vector
+
+            vector (Vector) - Direction vector for line
+
+            Author: Jordan Hay
+            Date: 2021-06-24
+        """
+        self.vector = vector
+
+class Plane:
+
+    def __init__(self, point, vector1, vector2):
+        """
+            Defines a plane 
+
+            point (Vector) - Point on the plane
+            vector1 (Vector) - Direction vector
+            vector 2 (Vector) - Direction vector
+
+            Author: Jordan Hay
+            Date: 2021-06-24
+        """
+        self.point = point
+        self.vectors = [vector1, vector2]
