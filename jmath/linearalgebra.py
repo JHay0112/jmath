@@ -67,7 +67,7 @@ class Vector:
             vector (Vector) - Vector to dot with
         """
         dot = 0
-        for i in len(self.components):
+        for i in range(len(self.components)):
             dot += self.components[i] * vector.components[i]
         return dot
 
