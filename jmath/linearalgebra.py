@@ -205,3 +205,7 @@ class Plane:
         """
         self.point = point
         self.vectors = [vector1, vector2]
+
+        # Throw error if vectors different sizes
+        if len(point) != len(vector1) != len(vector2):
+            raise exceptions.VectorsNotSameSize()
