@@ -7,11 +7,16 @@
     Vectors
 '''
 
+# - Components
+
+from . import exceptions
+
 # - Modules
 
 import matplotlib.pyplot as plt # Visualisation
 import operator # Python operators
 import math # Mathematical functions, e.g. sqrt()
+from functools import wraps
 
 # - Classes
 class Vector:
@@ -41,6 +46,23 @@ class Vector:
         string = string[:-2] + ")"
         return string
 
+    def same_size(func):
+        """
+            Wrapper that checks if vectors are the same size
+
+            func (function) - Function to check
+        """
+        @wraps(func)
+
+        def inner(*args, **kwargs):
+            if len(args[0]) == len(args[1]):
+                return func(*args, **kwargs)
+            else:
+                raise exceptions.VectorsNotSameSize()
+
+        return inner
+
+    @same_size
     def __add__(self, vector):
         """
             Add vectors together
@@ -51,6 +73,7 @@ class Vector:
         # Add the foreign components to local components and return
         return(Vector(list(map(operator.add, self.components, vector.components))))
 
+    @same_size
     def __sub__(self, vector):
         """
             Subtract vectors from each other
@@ -60,6 +83,7 @@ class Vector:
         # Subtract the foreign components from local components and return
         return(Vector(list(map(operator.sub, self.components, vector.components))))
 
+    @same_size
     def __matmul__(self, vector):
         """
             The dot product of two vectors
@@ -85,6 +109,11 @@ class Vector:
         """Reverse scalar multiplication"""
         return self * scalar
 
+    def __len__(self):
+        """Amount of components in vector"""
+        return len(self.components)
+
+    @same_size
     def projection(self, vector):
         """
             Returns projection of current vector onto passed vector
@@ -132,6 +161,15 @@ class Line:
             Date: 2021-06-24
         """
         self.vector = vector
+
+    def point_on_line(self, point):
+        """
+            Determines whether a point is on a line
+
+            point (Vector) - Point to determine if on line
+        """
+
+        
 
 class Plane:
 
