@@ -1,4 +1,6 @@
 """
+    jmath/exceptions.py
+
     Defines jmath exceptions
 
     Author: Jordan Hay
