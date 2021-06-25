@@ -71,6 +71,31 @@ class Vector:
             dot += self.components[i] * vector.components[i]
         return dot
 
+    def __mul__(self, scalar):
+        """
+            Scalar multiplication
+
+            scalar (float) - Scalar amount to multiply by
+        """
+
+        new_components = [scalar * component for component in self.components]
+        return Vector(new_components)
+
+    def __rmul__(self, scalar):
+        """Reverse scalar multiplication"""
+        return scalar * self
+
+    def projection(self, vector):
+        """
+            Calculates the projection of the current vector onto the other vector
+
+            vector (Vector/Line) - Vector or line to calculate the projection onto
+        """
+        if isinstance(vector, Line):
+            vector = vector.vector
+
+        return (self @ vector)/(vector @ vector) * vector
+
     def magnitude(self):
         """Calculates the vector magnitude"""
         # Store magnitude while computing
