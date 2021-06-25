@@ -10,6 +10,7 @@
 # - Imports
 
 from ..uncertainties import *
+import math
 
 # - Functions
 
@@ -40,3 +41,10 @@ def test_division():
     expected = Uncertainty(1, 1)
     assert divided.value == expected.value
     assert divided.abs_uncertainty() == expected.abs_uncertainty()
+
+def test_function_application():
+    """Tests applying a function to an uncertainty"""
+    result = Uncertainty(5, 2).apply(math.sqrt)
+    expected = Uncertainty(2.2, 0.4)
+    assert round(result.value, 1) == expected.value
+    assert round(result.abs_uncertainty(), 1) == expected.abs_uncertainty()
