@@ -59,6 +59,15 @@ def test_magnitude():
     vector = Vector(3, 4, 5, -2)
     assert round(vector.magnitude(), 2) == 7.35
 
+def test_vector_size():
+    """Tests that a vector will return the correct size"""
+    # Vector with six entries
+    vector = Vector(1, 2, 3, 4, 5, 6)
+    assert len(vector) == 6
+    # Vector with one entry
+    vector = Vector(0)
+    assert len(vector) == 1
+
 def test_point_in_line():
     """Tests whether a point is in a line"""
     # Test point that should be on line
