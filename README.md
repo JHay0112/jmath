@@ -6,6 +6,12 @@ jmath is a hobby project developing a set of mathematical tools in the Python La
 Open a terminal in the root directory and run `python setup.py bdist_wheel`, this should create a 'dist' folder with a '.whl' file in it. Complete installation by running `pip install dist/jmath-VERSION-py3-none-any.whl`.
 
 ***
+
+## Testing
+
+Open a terminal in the root director and run `pytest jmath/tests`, this requires pytest. Tests are automatically run in Github by a Github Action.
+
+***
 ## Core Components
 
 ### Uncertainties
