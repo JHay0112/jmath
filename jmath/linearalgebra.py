@@ -148,6 +148,19 @@ class Vector:
         return(magnitude)
 
     @same_size
+    def angle_between(self, vector):
+        """
+            Determines the angle (in radians) between two vectors to 5 d.p.
+
+            vector (Vector/Line) - Vector or line to calculate angle between
+        """
+
+        if isinstance(vector, Line):
+            vector = vector.vector
+
+        return round(math.acos((self @ vector)/(self.magnitude() * vector.magnitude())), 5)
+
+    @same_size
     def on_line(self, line):
         """
             Determines whether a point is on a line, returns bool
