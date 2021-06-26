@@ -10,7 +10,7 @@ from setuptools import find_packages, setup
 setup(
     name = 'jmath',
     packages = find_packages(include=['jmath']),
-    version = 'v2.2.0',
+    version = 'v3.0.0',
     description = "Mathematics Tools",
     author = "Jordan Hay",
     license = "MIT",
