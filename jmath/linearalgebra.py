@@ -176,16 +176,21 @@ class Vector:
 
 class Line:
 
-    def __init__(self, vector):
+    def __init__(self, point, vector):
         """
             Defines a line from a vector
 
+            point (Vector) - Position vector for line
             vector (Vector) - Direction vector for line
 
             Author: Jordan Hay
             Date: 2021-06-24
         """
+        self.point = point
         self.vector = vector
+
+        if len(point) != len(vector):
+            raise exceptions.VectorsNotSameSize()
 
     def __len__(self):
         """Returns size of direction vector"""
