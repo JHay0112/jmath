@@ -179,7 +179,7 @@ class Point(Vector):
         results = []
         # For every component in both
         for i in range(len(self)):
-            results.append(self.components[i] / (line.vector.components[i] + line.direction.components[i]))
+            results.append(self.components[i] / (line.vector.components[i] + line.point.components[i]))
         # Go through results, if any don't match, return false
         return all(result == results[0] for result in results)
 
@@ -198,7 +198,10 @@ class Line:
         self.point = point
         self.vector = vector
 
-        if len(point) != len(vector):
+        if self.point == None:
+            self.point = Point([0 for i in self.vector.components])
+
+        if len(self.point) != len(self.vector):
             raise exceptions.VectorsNotSameSize()
 
     def __len__(self):
