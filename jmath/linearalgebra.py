@@ -13,7 +13,6 @@ from . import exceptions
 
 # - Modules
 
-import matplotlib.pyplot as plt # Visualisation
 import operator # Python operators
 import math # Mathematical functions, e.g. sqrt()
 
@@ -161,17 +160,6 @@ class Vector:
             results.append(self.components[i] / line.vector.components[i])
         # Go through results, if any don't match, return false
         return all(result == results[0] for result in results)
-
-    def draw(self, x = 0, y = 1):
-        """
-            Draws a 2D vector with matplot lib
-
-            x (int) - Index of component to plot on the x-axis
-            y (int) - Index of component to plot on the y-axis
-        """
-        ax = plt.axes()
-        ax.arrow(0, 0, self.components[x], self.components[y], head_width=0.05, head_length=0.05)
-        plt.show()
 
 class Line:
 
