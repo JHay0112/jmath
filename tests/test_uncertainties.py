@@ -9,7 +9,7 @@
 
 # - Imports
 
-from ..uncertainties import *
+from ..jmath.uncertainties import *
 import math
 
 # - Functions

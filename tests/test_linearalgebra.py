@@ -9,7 +9,7 @@
 
 # - Imports
 
-from ..linearalgebra import *
+from ..jmath.linearalgebra import *
 
 # - Functions
 

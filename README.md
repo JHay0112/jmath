@@ -9,7 +9,7 @@ Open a terminal in the root directory and run `python setup.py bdist_wheel`, thi
 
 ## Testing
 
-Open a terminal in the root director and run `pytest jmath/tests`, this requires pytest. Tests are automatically run in Github by a Github Action.
+Open a terminal in the root director and run `pytest tests/`, this requires pytest. Tests are automatically run in Github by a Github Action.
 
 ***
 ## Core Components

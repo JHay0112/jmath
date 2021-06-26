@@ -9,7 +9,7 @@
 
 # - Imports
 
-from ..discrete import *
+from ..jmath.discrete import *
 
 # - Functions
 
