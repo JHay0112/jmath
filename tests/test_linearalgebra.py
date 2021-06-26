@@ -77,3 +77,10 @@ def test_point_in_line():
     # Test point that shouldn't be
     point = Vector(8, 1)
     assert not point.on_line(line)
+
+def test_angle_between():
+    """Tests that angle between vectors is correct"""
+    vec1 = Vector(1, 1)
+    vec2 = Vector(2, 2)
+
+    assert vec1.angle_between(vec2) == 0
