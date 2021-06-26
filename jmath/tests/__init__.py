@@ -6,8 +6,3 @@
 
     Initialises jmath.tests
 '''
-
-# Define related components
-__all__ = [
-    "test_linearalgebra"
-]
