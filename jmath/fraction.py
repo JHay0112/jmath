@@ -68,8 +68,31 @@ class Fraction:
             new_frac = Fraction(new_num, self.denominator)
             return new_frac
         else:
-            raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be used to multiply a fraction")
+            raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be used to multiply a fraction.")
 
     def __rmul__(self, other):
         """Reversed multiplication"""
         return self * other
+
+    def __add__(self, other):
+        """
+            Add fractions
+
+            other (int/Fraction) - Object to add
+        """
+        if isinstance(other, Fraction):
+            # Fractions
+            # Multiply both denominators by the other
+            new_den = self.denominator * other.denominator
+            new_num = self.numerator * other.denominator + other.numerator * self.denominator
+            return Fraction(new_num, new_den)
+        elif isinstance(other, int):
+            # Convert int to frac
+            int_frac = Fraction(other, 1)
+            return int_frac * self
+        else:
+            raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be added to a fraction.")
+
+    def __radd__(self, other):
+        """Reversed addition"""
+        return self + other
