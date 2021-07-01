@@ -36,8 +36,19 @@ class Fraction:
             raise ZeroDivisionError("Cannot divide by zero.")
 
     def simplify(self):
-        """"""
-        pass
+        """Simplify the fraction"""
+        if isinstance(self.numerator/self.denominator, int):
+            # If division of the numerator by the denominator can be done wholly
+            self.numerator = self.numerator/self.denominator
+            self.denominator = 1
+        elif self.denominator % self.numerator == 0:
+            # Try divide the denominator by the numerator wholly
+            self.denominator = self.denominator/self.numerator
+            self.numerator = 1
+
+    def flip(self):
+        """Flips the fraction's numerator and denominator"""
+        self.numerator, self.denominator = self.denominator, self.numerator
 
     def __mul__(self, other):
         """
