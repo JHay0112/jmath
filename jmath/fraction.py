@@ -61,7 +61,6 @@ class Fraction:
             new_num = self.numerator * other.numerator
             new_den = self.denominator * other.denominator
             new_frac = Fraction(new_num, new_den)
-            new_frac.simplify()
             return new_frac
         elif isinstance(other, int):
             # Integers
