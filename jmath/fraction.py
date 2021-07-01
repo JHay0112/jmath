@@ -87,9 +87,9 @@ class Fraction:
             new_num = self.numerator * other.denominator + other.numerator * self.denominator
             return Fraction(new_num, new_den)
         elif isinstance(other, int):
-            # Convert int to frac
-            int_frac = Fraction(other, 1)
-            return int_frac * self
+            # Add an ints worth of denominator to numerator
+            new_num = self.numerator + other * self.denominator
+            return Fraction(new_num, self.denominator)
         else:
             raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be added to a fraction.")
 
