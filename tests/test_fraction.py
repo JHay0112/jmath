@@ -28,3 +28,12 @@ def test_frac_mul():
     result_frac = frac1 * frac2
     assert expected_frac.numerator == result_frac.numerator
     assert expected_frac.denominator == result_frac.denominator
+
+def test_int_mul():
+    """Tests scaling a fraction with an int"""
+    frac = Fraction(3, 8)
+    scaler = 5
+    expected = Fraction(15, 8)
+    result = scaler * frac
+    assert expected.numerator == result.numerator
+    assert expected.denominator == result.denominator
