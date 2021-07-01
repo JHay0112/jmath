@@ -12,10 +12,12 @@ __all__ = [
     "linearalgebra",
     "uncertainties",
     "physics",
-    "discrete"
+    "discrete",
+    "fractions"
 ]
 
 # Import core components
 from .linearalgebra import *
 from .uncertainties import *
 from .discrete import *
+from .fraction import *
