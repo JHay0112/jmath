@@ -18,3 +18,9 @@ class VectorsNotSameSize(Exception):
     def __init__(self, message = "Operation invalid for vectors of different sizes."):
         self.message = message
         super().__init__(self.message)
+
+class InvalidFractionOperation(Exception):
+    """Exception thrown for invalid operations on fractions"""
+    def __init__(self, message = "This operation cannot be completed on fractions."):
+        self.message = message
+        super().__init__(self.message)
