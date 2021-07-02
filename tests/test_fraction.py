@@ -17,9 +17,9 @@ from ..jmath.fraction import *
 def test_flip():
     """Test fraction flipping"""
     frac = Fraction(8, 20)
-    frac.flip()
-    assert frac.numerator == 20
-    assert frac.denominator == 8
+    result = frac.flip()
+    assert result.numerator == frac.denominator
+    assert result.denominator == frac.numerator
 
 def test_frac_mul():
     """Tests multiplying fractions together"""
@@ -64,5 +64,14 @@ def test_int_add():
     frac = Fraction(2, 3)
     result = frac + 2
     expected = Fraction(8, 3)
+    assert expected.numerator == result.numerator
+    assert expected.denominator == result.denominator
+
+def test_frac_div():
+    """Tests dividing fractions"""
+    frac1 = Fraction(2, 3)
+    frac2 = Fraction(1, 2)
+    result = frac1 / frac2
+    expected = Fraction(4, 3)
     assert expected.numerator == result.numerator
     assert expected.denominator == result.denominator
