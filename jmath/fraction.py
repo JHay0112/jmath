@@ -47,8 +47,12 @@ class Fraction:
             self.numerator = 1
 
     def flip(self):
-        """Flips the fraction's numerator and denominator"""
-        self.numerator, self.denominator = self.denominator, self.numerator
+        """Returns a flipped version of the fraction"""
+        return Fraction(self.denominator, self.numerator)
+
+    def evaluate(self):
+        """Returns an evaluated form"""
+        return self.numerator/self.denominator
 
     def __mul__(self, other):
         """
@@ -74,6 +78,21 @@ class Fraction:
         """Reversed multiplication"""
         return self * other
 
+    def __truediv__(self, other):
+        """
+            Divide fractions
+
+            other (int/Fraction) - Object to divide by
+        """
+        if isinstance(other, Fraction):
+            # Fractions
+            return self * other.flip()
+        elif isinstance(other, int):
+            # Integers
+            return self * Fraction(1, other)
+        else:
+            raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be used to divide a fraction.")
+
     def __add__(self, other):
         """
             Add fractions
@@ -96,3 +115,27 @@ class Fraction:
     def __radd__(self, other):
         """Reversed addition"""
         return self + other
+
+    def __sub__(self, other):
+        """
+            Subtract fractions
+
+            other (int/Fraction) - Object to subtract
+        """
+        if isinstance(other, Fraction):
+            # Fractions
+            # Make other negative
+            new_num = -other.numerator
+            # Add them
+            return self + Fraction(new_num, other.denominator)
+        elif isinstance(other, int):
+            # Integers
+            # Make other negative
+            new_int = -other
+            return self + new_int
+        else:
+            raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be subtracted from a fraction.")
+
+    def __rsub__(self, other):
+        """Reversed fraction subtraction"""
+        return self - other
