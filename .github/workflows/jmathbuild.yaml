@@ -32,4 +32,4 @@ jobs:
           pytest tests/
       - name: Build jmath
         run: |
-          pip setup.py install
+          python setup.py install
