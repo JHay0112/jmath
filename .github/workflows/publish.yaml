@@ -1,0 +1,31 @@
+name: jmathPublisher
+
+on:
+  release:
+    types: [published]
+    
+jobs:
+  publish:
+    name: Publish jmath to PyPi
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Install Setuptools
+        run: |
+          python -m pip install setuptools
+      - name: Install wheel
+        run: |
+          python -m pip install wheel
+      - name: Build jmath
+        run: |
+          python setup.py install bdist_wheel
+      - name: Publish jmath to PyPI
+        if: startsWith(github.ref, 'refs/tags')
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          password: ${{secrets.PYPI_API_TOKEN}}
