@@ -179,7 +179,8 @@ class Point(Vector):
         results = []
         # For every component in both
         for i in range(len(self)):
-            results.append(self.components[i] / (line.vector.components[i] + line.point.components[i]))
+            scalor = (self.components[i] - line.point.components[i])/line.vector.components[i]
+            results.append(round(scalor, 3))
         # Go through results, if any don't match, return false
         return all(result == results[0] for result in results)
 

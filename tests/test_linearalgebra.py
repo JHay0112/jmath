@@ -78,6 +78,13 @@ def test_point_in_line():
     point = Point(8, 1)
     assert not point.on_line(line)
 
+    # Testing in 3-space for certainty
+    point = Point(1, 2, 3)
+    d_vector = Vector(4, 5, 6)
+    known_point_on_line = Point(9, 12, 15)
+    line = Line(point, d_vector)
+    assert known_point_on_line.on_line(line)
+
 def test_angle_between():
     """Tests that angle between vectors is correct"""
     vec1 = Vector(1, 1)
