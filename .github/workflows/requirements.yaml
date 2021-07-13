@@ -1,8 +1,6 @@
 name: jmathRequirements
 
-on:
-  pull_request:
-    types: [opened, reopened]
+on: [push]
 
 jobs:
   generate_requirements:
