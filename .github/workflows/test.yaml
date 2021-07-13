@@ -1,10 +1,11 @@
-name: jmathBuild
+name: jmathTest
 
 on: [push]
 
 jobs:
-  build:
+  test:
 
+    name: Build and Test jmath
     runs-on: ubuntu-latest
     strategy:
       matrix:
