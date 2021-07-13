@@ -11,9 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       - uses: ryan-rozario/pipreqs-action-cpy@master
+       - uses: actions/checkout@master
        - name: Create requirements.txt
-
-      with:
-        PROJECT_PATH: ./
-        REQUIREMENT_PATH: ./requirements.txt 
+       
+      uses: ryan-rozario/pipreqs-action-cpy@master
