@@ -148,6 +148,28 @@ class Vector:
         return(magnitude)
 
     @same_size
+    def angle_between(self, vector):
+        """
+            Determines the angle (in radians) between two vectors to 5 d.p.
+
+            vector (Vector/Line) - Vector or line to calculate angle between
+        """
+
+        if isinstance(vector, Line):
+            vector = vector.vector
+
+        return round(math.acos((self @ vector)/(self.magnitude() * vector.magnitude())), 5)
+
+class Point(Vector):
+
+    def __init__(self, *components):
+        """
+            Points based on vector framework. Can be thought of as a vector from origin.
+
+            *components (*args) - Coordinates in n-space
+        """
+        return super().__init__(*components)
+    
     def on_line(self, line):
         """
             Determines whether a point is on a line, returns bool
@@ -157,22 +179,31 @@ class Vector:
         results = []
         # For every component in both
         for i in range(len(self)):
-            results.append(self.components[i] / line.vector.components[i])
+            scalor = (self.components[i] - line.point.components[i])/line.vector.components[i]
+            results.append(round(scalor, 3))
         # Go through results, if any don't match, return false
         return all(result == results[0] for result in results)
 
 class Line:
 
-    def __init__(self, vector):
+    def __init__(self, point, vector):
         """
             Defines a line from a vector
 
+            point (Point/Vector) - Position vector for line
             vector (Vector) - Direction vector for line
 
             Author: Jordan Hay
             Date: 2021-06-24
         """
+        self.point = point
         self.vector = vector
+
+        if self.point == None:
+            self.point = Point([0 for i in self.vector.components])
+
+        if len(self.point) != len(self.vector):
+            raise exceptions.VectorsNotSameSize()
 
     def __len__(self):
         """Returns size of direction vector"""
@@ -184,7 +215,7 @@ class Plane:
         """
             Defines a plane 
 
-            point (Vector) - Point on the plane
+            point (Point/Vector) - Point on the plane
             vector1 (Vector) - Direction vector
             vector 2 (Vector) - Direction vector
 

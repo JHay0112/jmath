@@ -51,7 +51,7 @@ def test_projection():
     expected = Vector(7/2, 7/2)
     assert vec1.projection(vec2).components == expected.components
     # Test with line
-    line = Line(vec2)
+    line = Line(None, vec2)
     assert vec1.projection(line).components == expected.components
 
 def test_magnitude():
@@ -71,9 +71,23 @@ def test_vector_size():
 def test_point_in_line():
     """Tests whether a point is in a line"""
     # Test point that should be on line
-    point = Vector(3, 4)
-    line = Line(2 * point)
+    point = Point(3, 4)
+    line = Line(None, 2 * point)
     assert point.on_line(line)
     # Test point that shouldn't be
-    point = Vector(8, 1)
+    point = Point(8, 1)
     assert not point.on_line(line)
+
+    # Testing in 3-space for certainty
+    point = Point(1, 2, 3)
+    d_vector = Vector(4, 5, 6)
+    known_point_on_line = Point(9, 12, 15)
+    line = Line(point, d_vector)
+    assert known_point_on_line.on_line(line)
+
+def test_angle_between():
+    """Tests that angle between vectors is correct"""
+    vec1 = Vector(1, 1)
+    vec2 = Vector(2, 2)
+
+    assert vec1.angle_between(vec2) == 0
