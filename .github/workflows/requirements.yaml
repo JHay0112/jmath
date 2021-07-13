@@ -1,9 +1,12 @@
 name: jmathRequirements
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   generate_requirements:
+
     name: Generate requirements.txt
     runs-on: ubuntu-latest
 
@@ -17,4 +20,5 @@ jobs:
         run: |
           python -m pip install pipreqs
       - name: Run pipreqs
+        run: |
           pipreqs --force
