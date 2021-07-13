@@ -13,4 +13,5 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Create requirements.txt
+        id: add-requirements
         uses: ryan-rozario/pipreqs-action-cpy@master
