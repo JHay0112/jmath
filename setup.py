@@ -14,7 +14,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name = 'jmath',
     packages = find_packages(include=['jmath']),
-    version = 'v3.0.3',
+    version = 'v3.1.0',
     description = "Mathematics Tools",
     long_description = long_description,
     long_description_content_type = "text/markdown",
