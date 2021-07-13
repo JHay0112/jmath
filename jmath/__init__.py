@@ -12,7 +12,8 @@ __all__ = [
     "linearalgebra",
     "uncertainties",
     "physics",
-    "discrete"
+    "discrete",
+    "quickplot"
 ]
 
 # Import core components
