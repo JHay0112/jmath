@@ -9,42 +9,22 @@
 
 # - Modules
 
-from ..linearalgebra import Vector
+from ..linearalgebra import Vector, Point
 
 # - Classes
 class PhysEnv:
+    """
+        Creates an environment for physical objects
 
-    def __init__(self, *forces):
-        """
-            Creates an environment for physical objects
+        Author: Jordan Hay
+        Date: 2021-06-22
+    """
+    def __init__(self):
 
-            *forces (Vectors) - The forces that exist in the environment and apply to all objects
-
-            Author: Jordan Hay
-            Date: 2021-06-22
-        """
-
-        # Store forces *args
-        self.forces = forces
         # Initialise empty list of PhysObj's
         self.objects = []
         # Set time to zero
         self.time = 0
-
-    def forces_vector(self):
-        """Computes the resultant vector of all the forces in the system"""
-
-        # Store the first vector
-        forces_vector = self.forces[0]
-
-        # Check if any other forces present
-        if(len(self.forces) > 1):
-            # If so iterate through the list and add them (except for the first)
-            for i in range(1, len(self.forces)):
-                forces_vector += self.forces[i]
-
-        # Return computed vector
-        return(forces_vector)
 
     def increment_time(self, increment):
         """
@@ -60,21 +40,23 @@ class PhysEnv:
 
             new_obj (PhysObj) - Object to add to environment
         """
-
         self.objects.append(new_obj)
+
 class PhysObj:
 
-    def __init__(self, env, init_vel = Vector(0, 0, 0), mass = 1):
+    def __init__(self, env, init_pos = Point(0, 0), init_vel = Vector(0, 0), mass = 1):
         """
             Creates an object with physical properties
 
             env (PhysEnv) - The environment that the object exists in
-            init_vel (Vector) - The initial velocity of the object
-            mass (int) - The mass of the object
+            init_pos (Point:(0, 0)) - The initial position of the object
+            init_vel (Vector:(0, 0)) - The initial velocity of the object in metres per second
+            mass (int:1) - The mass of the object in kilograms
         """
 
         # Assign object variables
         self.env = env
+        self.init_pos = init_pos
         self.init_vel = init_vel
         self.mass = mass
 
