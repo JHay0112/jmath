@@ -150,6 +150,10 @@ class Graph:
         loop = Loop(loop)
         return loop
 
+    def intersections(self):
+        """Returns a list of nodes that have more than one connection"""
+        return [node for node in self.nodes if len(node.neighbours) > 1]
+
     def loops(self):
         """Finds loops in the graph"""
         loops = []
