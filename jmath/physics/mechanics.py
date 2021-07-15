@@ -44,21 +44,25 @@ class PhysEnv:
 
 class PhysObj:
 
-    def __init__(self, env, init_pos = Point(0, 0), init_vel = Vector(0, 0), mass = 1):
+    def __init__(self, env, position, velocity, mass):
         """
             Creates an object with physical properties
 
             env (PhysEnv) - The environment that the object exists in
-            init_pos (Point:(0, 0)) - The initial position of the object
-            init_vel (Vector:(0, 0)) - The initial velocity of the object in metres per second
-            mass (int:1) - The mass of the object in kilograms
+            position (Point) - The initial position of the object
+            velocity (Vector) - The initial velocity of the object in metres per second
+            mass (int) - The mass of the object in kilograms
         """
 
         # Assign object variables
         self.env = env
-        self.init_pos = init_pos
-        self.init_vel = init_vel
+        self.position = position
+        self.velocity = velocity
         self.mass = mass
 
         # Add self to list in PhysEnv
         self.env.add_object(self)
+
+    def momentum(self):
+        """Calculates the momentum of the object"""
+        return self.mass * self.velocity
