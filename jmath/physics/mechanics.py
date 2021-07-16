@@ -11,6 +11,10 @@
 
 from ..linearalgebra import Vector, Point
 
+# - Constants
+
+GRAVITATIONAL_CONSTANT = 6.67 * 10 ** -11
+
 # - Classes
 class PhysEnv:
     """
@@ -66,3 +70,14 @@ class PhysObj:
     def momentum(self):
         """Calculates the momentum of the object"""
         return self.mass * self.velocity
+
+    def gravity(self, other):
+        """
+            Calculates the force of gravity between two objects
+
+            other (PhysObj) - Other physics object
+        """
+        # Distance vector between the objects
+        distance = other.position - self.position
+
+        return (GRAVITATIONAL_CONSTANT * self.mass * other.mass)/(distance.magnitude() ** 2) * distance.unit_vector()
