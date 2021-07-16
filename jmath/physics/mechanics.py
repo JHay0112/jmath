@@ -9,74 +9,136 @@
 
 # - Modules
 
-from ..linearalgebra import Vector
+from ..linearalgebra import Vector, Point
+from ..exceptions import ZeroDistance
+
+# - Constants
+
+GRAVITATIONAL_CONSTANT = 6.67e-11
+COULOMBS_CONSTANT = 8.99e9
 
 # - Classes
 class PhysEnv:
+    """
+        Creates an environment for physical objects
 
-    def __init__(self, *forces):
-        """
-            Creates an environment for physical objects
+        Author: Jordan Hay
+        Date: 2021-06-22
+    """
+    def __init__(self):
 
-            *forces (Vectors) - The forces that exist in the environment and apply to all objects
-
-            Author: Jordan Hay
-            Date: 2021-06-22
-        """
-
-        # Store forces *args
-        self.forces = forces
         # Initialise empty list of PhysObj's
         self.objects = []
         # Set time to zero
         self.time = 0
 
-    def forces_vector(self):
-        """Computes the resultant vector of all the forces in the system"""
-
-        # Store the first vector
-        forces_vector = self.forces[0]
-
-        # Check if any other forces present
-        if(len(self.forces) > 1):
-            # If so iterate through the list and add them (except for the first)
-            for i in range(1, len(self.forces)):
-                forces_vector += self.forces[i]
-
-        # Return computed vector
-        return(forces_vector)
-
-    def increment_time(self, increment):
+    def increment_time(self, increment: float) -> None:
         """
             Increments the time by the given value
+
+            Parameters:
 
             increment (float) - The amount to increase the time by
         """
         self.time += increment
 
-    def add_object(self, new_obj):
+    def add_object(self, new_obj: 'PhysObj') -> None:
         """
             Add a new Physics Object to the environment
 
+            Parameters:
+
             new_obj (PhysObj) - Object to add to environment
         """
-
         self.objects.append(new_obj)
+
 class PhysObj:
+    """
+        Creates an object with physical properties.
 
-    def __init__(self, env, init_vel = Vector(0, 0, 0), mass = 1):
-        """
-            Creates an object with physical properties
+        Parameters:
 
-            env (PhysEnv) - The environment that the object exists in
-            init_vel (Vector) - The initial velocity of the object
-            mass (int) - The mass of the object
-        """
+        env (PhysEnv) - The environment that the object exists in
+        position (Point) - The initial position of the object
+        velocity (Vector) - The initial velocity of the object in metres per second
+        mass (float:1) - The mass of the object in kilograms
+        charge (float:0) - The electric charge of the object in coulombs
+    """
+    def __init__(self, env: PhysEnv, position: Point, velocity: Vector, mass: float = 0, charge: float = 0):
 
         # Assign object variables
         self.env = env
-        self.init_vel = init_vel
+        self.position = position
+        self.velocity = velocity
         self.mass = mass
+        self.charge = charge
 
         # Add self to list in PhysEnv
         self.env.add_object(self)
+
+    def non_zero_distance(func):
+        """Wrapper that checks that there is not zero distance between objects."""
+        def inner(*args, **kwargs):
+
+            distance = args[0].position - args[1].position
+
+            if distance.magnitude() != 0:
+                return func(*args, **kwargs)
+            else:
+                raise ZeroDistance()
+
+        return inner
+
+    def momentum(self) -> Vector:
+        """Calculates the momentum of the object"""
+        return self.mass * self.velocity
+
+    def force(self) -> Vector:
+        """Calculates all the forces currently on the object"""
+        total_force = 0 * self.position # Zero vector same magnitude as the rest
+        for obj in self.env.objects:
+            if obj != self:
+                # Sum every force on the object
+                # Gravity so far implemented
+                total_force += self.gravity(obj)
+                total_force += self.electrostatic(obj)
+
+        return total_force
+
+    def acceleration(self) -> Vector:
+        """Calculates the current acceleration on the object"""
+        # F = ma -> a = F/m
+        return self.force() / self.mass
+
+    @non_zero_distance
+    def gravity(self, other: 'PhysObj') -> Vector:
+        """
+            Calculates the force of gravity between two objects
+
+            Parameters:
+
+            other (PhysObj) - Other physics object
+        """
+        if not (self.mass == 0 or other.mass == 0):
+            # Distance vector between the objects
+            distance = other.position - self.position
+
+            return (GRAVITATIONAL_CONSTANT * self.mass * other.mass)/(distance.magnitude() ** 2) * distance.unit_vector()
+        else:
+            return self.position * 0 # Zero vector of correct size
+
+    @non_zero_distance
+    def electrostatic(self, other: 'PhysObj') -> Vector:
+        """
+            Calculates the force given by charge between two objects
+
+            Parameters:
+
+            other (PhysObj) - Other physics object
+        """
+        if not (self.charge == 0 or other.charge == 0):
+            # Distance vector between the objects
+            distance = other.position - self.position
+            return (COULOMBS_CONSTANT * self.charge * other.charge)/(distance.magnitude() ** 2) * distance.unit_vector()
+        else:
+            return self.position * 0 # Zero vector of correct size

@@ -91,3 +91,16 @@ def test_angle_between():
     vec2 = Vector(2, 2)
 
     assert vec1.angle_between(vec2) == 0
+
+def test_negative():
+    """Test that a negative vector does indeed give one with all the components reversed"""
+    vec = Vector(1, 2).negative()
+    expected_vec = Vector(-1, -2)
+    assert vec.components == expected_vec.components
+
+def test_unit_vector():
+    """Tests that a unit vector is produced correctly"""
+    vec = Vector(1, 2)
+    unit_vec = vec.unit_vector()
+    assert round(unit_vec.magnitude(), 10) == 1
+    assert (vec.magnitude() * unit_vec).components == vec.components
