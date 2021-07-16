@@ -10,6 +10,7 @@
 # - Modules
 
 from ..linearalgebra import Vector, Point
+from ..exceptions import ZeroDistance
 
 # - Constants
 
@@ -49,16 +50,17 @@ class PhysEnv:
 
 class PhysObj:
     """
-        Creates an object with physical properties
+        Creates an object with physical properties.
 
         Arguments:
+
         env (PhysEnv) - The environment that the object exists in
         position (Point) - The initial position of the object
         velocity (Vector) - The initial velocity of the object in metres per second
         mass (float:1) - The mass of the object in kilograms
         charge (float:0) - The electric charge of the object in coulombs
     """
-    def __init__(self, env: PhysEnv, position: Vector, velocity: Vector, mass: float = 0, charge: float = 0):
+    def __init__(self, env: PhysEnv, position: Point, velocity: Vector, mass: float = 0, charge: float = 0):
 
         # Assign object variables
         self.env = env
@@ -69,6 +71,19 @@ class PhysObj:
 
         # Add self to list in PhysEnv
         self.env.add_object(self)
+
+    def non_zero_distance(func):
+        """Wrapper that checks that there is not zero distance between objects."""
+        def inner(*args, **kwargs):
+
+            distance = args[0].position - args[1].position
+
+            if distance.magnitude() != 0:
+                return func(*args, **kwargs)
+            else:
+                raise ZeroDistance()
+
+        return inner
 
     def momentum(self) -> Vector:
         """Calculates the momentum of the object"""
@@ -91,6 +106,7 @@ class PhysObj:
         # F = ma -> a = F/m
         return self.force() / self.mass
 
+    @non_zero_distance
     def gravity(self, other: 'PhysObj') -> Vector:
         """
             Calculates the force of gravity between two objects
@@ -105,6 +121,7 @@ class PhysObj:
         else:
             return self.position * 0 # Zero vector of correct size
 
+    @non_zero_distance
     def electrostatic(self, other: 'PhysObj') -> Vector:
         """
             Calculates the force given by charge between two objects
@@ -114,7 +131,6 @@ class PhysObj:
         if not (self.charge == 0 or other.charge == 0):
             # Distance vector between the objects
             distance = other.position - self.position
-
             return (COULOMBS_CONSTANT * self.charge * other.charge)/(distance.magnitude() ** 2) * distance.unit_vector()
         else:
             return self.position * 0 # Zero vector of correct size
