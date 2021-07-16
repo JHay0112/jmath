@@ -80,8 +80,10 @@ class PhysObj:
         for obj in self.env.objects:
             # Sum every force on the object
             # Gravity so far implemented
-            total_force += self.gravity(obj)
-            total_force += self.electrostatic(obj)
+            if self.mass == 0 or obj.mass == 0:
+                total_force += self.gravity(obj)
+            if self.charge == 0 or obj.charge == 0:
+                total_force += self.electrostatic(obj)
 
         return total_force
 
