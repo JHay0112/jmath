@@ -32,17 +32,21 @@ class PhysEnv:
         # Set time to zero
         self.time = 0
 
-    def increment_time(self, increment):
+    def increment_time(self, increment: float) -> None:
         """
             Increments the time by the given value
+
+            Parameters:
 
             increment (float) - The amount to increase the time by
         """
         self.time += increment
 
-    def add_object(self, new_obj):
+    def add_object(self, new_obj: 'PhysObj') -> None:
         """
             Add a new Physics Object to the environment
+
+            Parameters:
 
             new_obj (PhysObj) - Object to add to environment
         """
@@ -52,7 +56,7 @@ class PhysObj:
     """
         Creates an object with physical properties.
 
-        Arguments:
+        Parameters:
 
         env (PhysEnv) - The environment that the object exists in
         position (Point) - The initial position of the object
@@ -111,6 +115,8 @@ class PhysObj:
         """
             Calculates the force of gravity between two objects
 
+            Parameters:
+
             other (PhysObj) - Other physics object
         """
         if not (self.mass == 0 or other.mass == 0):
@@ -125,6 +131,8 @@ class PhysObj:
     def electrostatic(self, other: 'PhysObj') -> Vector:
         """
             Calculates the force given by charge between two objects
+
+            Parameters:
 
             other (PhysObj) - Other physics object
         """
