@@ -71,6 +71,16 @@ class PhysObj:
         """Calculates the momentum of the object"""
         return self.mass * self.velocity
 
+    def force(self):
+        """Calculates all the forces currently on the object"""
+        total_force = 0 * self.position # Zero vector same magnitude as the rest
+        for obj in self.env.objects:
+            # Sum every force on the object
+            # Gravity so far implemented
+            total_force += self.gravity(obj)
+
+        return total_force
+
     def gravity(self, other):
         """
             Calculates the force of gravity between two objects
