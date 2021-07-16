@@ -81,6 +81,11 @@ class PhysObj:
 
         return total_force
 
+    def acceleration(self):
+        """Calculates the current acceleration on the object"""
+        # F = ma -> a = F/m
+        return self.force() / self.mass
+
     def gravity(self, other):
         """
             Calculates the force of gravity between two objects
