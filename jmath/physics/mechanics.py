@@ -123,7 +123,7 @@ class PhysObj:
             # Distance vector between the objects
             distance = other.position - self.position
 
-            return (GRAVITATIONAL_CONSTANT * self.mass * other.mass)/(distance.magnitude() ** 2) * distance.unit_vector()
+            return (GRAVITATIONAL_CONSTANT * self.mass * other.mass)/(distance.magnitude() ** 2) * distance.unit()
         else:
             return self.position * 0 # Zero vector of correct size
 
@@ -139,6 +139,6 @@ class PhysObj:
         if not (self.charge == 0 or other.charge == 0):
             # Distance vector between the objects
             distance = other.position - self.position
-            return (COULOMBS_CONSTANT * self.charge * other.charge)/(distance.magnitude() ** 2) * distance.unit_vector()
+            return (COULOMBS_CONSTANT * self.charge * other.charge)/(distance.magnitude() ** 2) * distance.unit()
         else:
             return self.position * 0 # Zero vector of correct size
