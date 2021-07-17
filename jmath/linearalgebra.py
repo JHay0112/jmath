@@ -122,6 +122,15 @@ class Vector:
         """Amount of components in vector"""
         return len(self.components)
 
+    def unit_vector(self):
+        """Returns a unit vector in the same direction as the vector"""
+        return self/self.magnitude()
+
+    def negative(self):
+        """Returns the negative vector"""
+        neg_comp = [-component for component in self.components]
+        return Vector(neg_comp)
+
     @same_size
     def projection(self, vector):
         """
