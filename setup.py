@@ -10,11 +10,14 @@ from setuptools import find_packages, setup
 # Open readme
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
+# Open version
+with open("version.txt", "r", encoding="utf-8") as fh:
+    version = fh.readline()
 
 setup(
     name = 'jmath',
     packages = find_packages(include=['jmath']),
-    version = 'v3.2.2',
+    version = version,
     description = "Mathematics Tools",
     long_description = long_description,
     long_description_content_type = "text/markdown",
