@@ -17,7 +17,7 @@ with open("version.txt", "r", encoding="utf-8") as fh:
 setup(
     name = 'jmath',
     packages = find_packages(include=['jmath']),
-    version = 'v3.2.2',
+    version = version,
     description = "Mathematics Tools",
     long_description = long_description,
     long_description_content_type = "text/markdown",
