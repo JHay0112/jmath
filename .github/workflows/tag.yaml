@@ -1,0 +1,25 @@
+name: jmathTagger
+
+on:
+  workflow_run:
+    workflows: ["jmathPublisher"]
+    types:
+      - completed
+
+jobs:
+  tag:
+  
+    name: Re-tag Repo
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@master
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+      - name: Update Tag
+        uses: richardsimko/update-tag@v1
+        with:
+          tag_name: ${{steps.get_version.outputs.VERSION}}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
