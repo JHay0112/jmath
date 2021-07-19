@@ -26,8 +26,14 @@ jobs:
         uses: test-room-7/action-update-file@v1
         with:
             file-path: version.txt
-            commit-msg: Update version to ${{steps.get_version.outputs.VERSION}}
+            commit-msg: Update to ${{steps.get_version.outputs.VERSION}}
             github-token: ${{secrets.GITHUB_TOKEN}}
+      - name: Update Tag
+        uses: richardsimko/update-tag@v1
+        with:
+          tag_name: ${{steps.get_version.outputs.VERSION}}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Install Setuptools
         run: |
           python -m pip install setuptools
