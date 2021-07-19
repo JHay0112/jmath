@@ -15,16 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Get the version
-        id: get_version
+        id: version
         uses: juliangruber/read-file-action@v1
         with:
           path: ./version.txt
       - name: Echo version
         run: |
-          echo "${{steps.package.outputs.content}}"
+          echo "${{steps.version.outputs.content}}"
       - name: Update Tag
         uses: richardsimko/update-tag@v1
         with:
-          tag_name: ${{steps.package.outputs.content}}
+          tag_name: ${{steps.version.outputs.content}}
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
