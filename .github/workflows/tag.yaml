@@ -18,7 +18,7 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - name: Update Tag
-        uses: richardsimko/update-tag@v1
+        uses: richardsimko/update-tag@master
         with:
           tag_name: ${{steps.get_version.outputs.VERSION}}
         env:
