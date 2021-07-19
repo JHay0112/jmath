@@ -16,10 +16,13 @@ jobs:
       - uses: actions/checkout@master
       - name: Get the version
         id: get_version
-        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
-      - name: Update Tag
-        uses: richardsimko/update-tag@master
+        uses: juliangruber/read-file-action@v1
         with:
-          tag_name: ${{steps.get_version.outputs.VERSION}}
+          path: ./version.txt
+        run: echo "${{steps.package.outputs.content}}"
+      - name: Update Tag
+        uses: richardsimko/update-tag@v1
+        with:
+          tag_name: ${{steps.package.outputs.content}}
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
