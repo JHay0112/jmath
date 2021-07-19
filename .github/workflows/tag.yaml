@@ -19,7 +19,9 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
           path: ./version.txt
-        run: echo "${{steps.package.outputs.content}}"
+      - name: Echo version
+        run: |
+          echo "${{steps.package.outputs.content}}"
       - name: Update Tag
         uses: richardsimko/update-tag@v1
         with:
