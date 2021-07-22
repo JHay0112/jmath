@@ -36,8 +36,7 @@ def test_int_mul():
     scaler = 5
     expected = Fraction(15, 8)
     result = scaler * frac
-    assert expected.numerator == result.numerator
-    assert expected.denominator == result.denominator
+    assert expected == result
 
 def test_invalid_mul():
     """Tests invalid multiplication"""
@@ -56,16 +55,14 @@ def test_frac_add():
     frac2 = Fraction(3, 5)
     result = frac1 + frac2
     expected = Fraction(19, 15)
-    assert expected.numerator == result.numerator
-    assert expected.denominator == result.denominator
+    assert expected == result
 
 def test_int_add():
     """Tests adding an integer to a fraction"""
     frac = Fraction(2, 3)
     result = frac + 2
     expected = Fraction(8, 3)
-    assert expected.numerator == result.numerator
-    assert expected.denominator == result.denominator
+    assert expected == result
 
 def test_frac_div():
     """Tests dividing fractions"""
@@ -73,5 +70,10 @@ def test_frac_div():
     frac2 = Fraction(1, 2)
     result = frac1 / frac2
     expected = Fraction(4, 3)
-    assert expected.numerator == result.numerator
-    assert expected.denominator == result.denominator
+    assert expected == result
+
+def test_frac_simplification():
+    """Tests fraction simplification"""
+    frac = Fraction(2, 4)
+    expected = Fraction(1, 2)
+    assert frac == expected

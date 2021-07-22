@@ -56,9 +56,14 @@ class Fraction:
         """Returns an evaluated form"""
         return self.numerator/self.denominator
 
-    def __mul__(self, other):
+    def __eq__(self, other: "Fraction") -> bool:
+        return self.numerator == other.numerator and self.denominator == other.denominator
+
+    def __mul__(self, other: "Fraction") -> "Fraction":
         """
             Multiply fractions
+
+            Parameters:
 
             other (int/Fraction) - Object to multiply by
         """
