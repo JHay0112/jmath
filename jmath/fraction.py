@@ -24,10 +24,10 @@ class Fraction:
         Author: Jordan Hay
         Date: 2021-07-01
     """
-    def __init__(self, numerator, denominator):
+    def __init__(self, numerator: int, denominator: int):
         
-        self.numerator = numerator
-        self.denominator = denominator
+        self.numerator = int(numerator)
+        self.denominator = int(denominator)
         # Check that denominator is not zero
         self.check_denominator()
         # Auto-simplify the fraction
