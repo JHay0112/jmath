@@ -17,6 +17,32 @@ from ..exceptions import ZeroDistance
 GRAVITATIONAL_CONSTANT = 6.67e-11
 COULOMBS_CONSTANT = 8.99e9
 
+# - Functions
+
+def gravitational_force(mass1: float, mass2: float, distance: float) -> float:
+    """
+        Calculates the force of gravity between two masses
+    
+        Parameters:
+
+        mass1 (float) - The mass of one object in kg
+        mass2 (float) - The mass of the other object in kg
+        distance (float) - The distance between the objects in m
+    """
+    return GRAVITATIONAL_CONSTANT * mass1 * mass2 / (distance**2)
+
+def electrostatic_force(charge1: float, charge2: float, distance: float) -> float:
+    """
+        Calculates the electrostatic force between two charges
+
+        Parameters:
+
+        charge1 (float) - The charge in coulombs
+        charge2 (float) - The other charge in coulombs
+        distance (float) - The distance between the charges in m
+    """
+    return COULOMBS_CONSTANT * charge1 * charge2 / (distance**2)
+
 # - Classes
 class PhysEnv:
     """
@@ -121,9 +147,8 @@ class PhysObj:
         """
         if not (self.mass == 0 or other.mass == 0):
             # Distance vector between the objects
-            distance = other.position - self.position
-
-            return (GRAVITATIONAL_CONSTANT * self.mass * other.mass)/(distance.magnitude() ** 2) * distance.unit()
+            distance = other.position - self.position # Points from self to other mass
+            return gravitational_force(self.mass, other.mass, distance.magnitude()) * distance.unit()
         else:
             return self.position * 0 # Zero vector of correct size
 
@@ -138,7 +163,7 @@ class PhysObj:
         """
         if not (self.charge == 0 or other.charge == 0):
             # Distance vector between the objects
-            distance = other.position - self.position
-            return (COULOMBS_CONSTANT * self.charge * other.charge)/(distance.magnitude() ** 2) * distance.unit()
+            distance = self.position - other.position # Points away if both same charge, points together if different charge
+            return electrostatic_force(self.charge, other.charge, distance.magnitude()) * distance.unit()
         else:
             return self.position * 0 # Zero vector of correct size
