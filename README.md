@@ -15,7 +15,10 @@ Calculations with uncertain values.
 Currently does rudimentary vector maths. I plan to expand this to do more vector maths as well as maths with planes.
 
 ### Discrete
-Node, Graph, and Loop objects for use in Graph based maths
+Node, Graph, and Loop objects for use in Graph based maths.
+
+### Fractions
+Rational maths, no floats, no irrational numbers, just good old fashioned integers over other integers.
 
 ## Additional Components
 
