@@ -44,15 +44,15 @@ class Fraction:
         self.numerator /= divisor
         self.denominator /= divisor
 
-    def flip(self):
+    def flip(self) -> "Fraction":
         """Returns a flipped version of the fraction"""
         return Fraction(self.denominator, self.numerator)
 
-    def negative(self):
+    def negative(self) -> "Fraction":
         """Returns a negative form of the fraction"""
         return Fraction(-self.numerator, self.denominator)
 
-    def evaluate(self):
+    def evaluate(self) -> float:
         """Returns an evaluated form"""
         return self.numerator/self.denominator
 
@@ -81,13 +81,15 @@ class Fraction:
         else:
             raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be used to multiply a fraction.")
 
-    def __rmul__(self, other):
+    def __rmul__(self, other: "Fraction") -> "Fraction":
         """Reversed multiplication"""
         return self * other
 
-    def __truediv__(self, other):
+    def __truediv__(self, other: "Fraction") -> "Fraction":
         """
             Divide fractions
+
+            Parameters:
 
             other (int/Fraction) - Object to divide by
         """
@@ -100,9 +102,11 @@ class Fraction:
         else:
             raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be used to divide a fraction.")
 
-    def __add__(self, other):
+    def __add__(self, other: "Fraction") -> "Fraction":
         """
             Add fractions
+
+            Parameters:
 
             other (int/Fraction) - Object to add
         """
@@ -119,13 +123,15 @@ class Fraction:
         else:
             raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be added to a fraction.")
 
-    def __radd__(self, other):
+    def __radd__(self, other: "Fraction") -> "Fraction":
         """Reversed addition"""
         return self + other
 
-    def __sub__(self, other):
+    def __sub__(self, other: "Fraction") -> "Fraction":
         """
             Subtract fractions
+
+            Parameters:
 
             other (int/Fraction) - Object to subtract
         """
@@ -143,6 +149,6 @@ class Fraction:
         else:
             raise exceptions.InvalidFractionOperation(f"{type(other)} cannot be subtracted from a fraction.")
 
-    def __rsub__(self, other):
+    def __rsub__(self, other: "Fraction") -> "Fraction":
         """Reversed fraction subtraction"""
         return self.negative() + other
