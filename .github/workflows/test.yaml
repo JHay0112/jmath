@@ -37,3 +37,7 @@ jobs:
       - name: Test jmath can be imported
         run: |
           python -c "import jmath"
+      - name: Test jmath.physics can be imported
+        run: |
+          python -c "import jmath.physics"
+          python -c "from jmath import physics"

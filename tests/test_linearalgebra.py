@@ -20,10 +20,10 @@ def test_vector_arithmetic():
     subtracted = Vector(1, 2) - Vector(3, 4)
     # Test Add
     excepted = Vector(4, 6)
-    assert added.components == excepted.components
+    assert added == excepted
     # Test Subtract
     excepted = Vector(-2, -2)
-    assert subtracted.components == excepted.components
+    assert subtracted == excepted
 
 def test_vector_scaling():
     """Tests vector multiplication and division"""
@@ -32,10 +32,10 @@ def test_vector_scaling():
     divided = Vector(1, 2) / 2
     # Test multiply
     expected = Vector(12, 16)
-    assert multiplied.components == expected.components
+    assert multiplied == expected
     # Test divide
     expected = Vector(1/2, 1)
-    assert divided.components == expected.components
+    assert divided == expected
 
 def test_dot_product():
     """Tests the dot product"""
@@ -49,10 +49,10 @@ def test_projection():
     vec1 = Vector(3, 4)
     vec2 = Vector(1, 1)
     expected = Vector(7/2, 7/2)
-    assert vec1.projection(vec2).components == expected.components
+    assert vec1.projection(vec2) == expected
     # Test with line
     line = Line(None, vec2)
-    assert vec1.projection(line).components == expected.components
+    assert vec1.projection(line) == expected
 
 def test_magnitude():
     """Tests vector magnitude"""
@@ -96,11 +96,11 @@ def test_negative():
     """Test that a negative vector does indeed give one with all the components reversed"""
     vec = Vector(1, 2).negative()
     expected_vec = Vector(-1, -2)
-    assert vec.components == expected_vec.components
+    assert vec == expected_vec
 
 def test_unit_vector():
     """Tests that a unit vector is produced correctly"""
     vec = Vector(1, 2)
-    unit_vec = vec.unit_vector()
+    unit_vec = vec.unit()
     assert round(unit_vec.magnitude(), 10) == 1
-    assert (vec.magnitude() * unit_vec).components == vec.components
+    assert vec.magnitude() * unit_vec == vec

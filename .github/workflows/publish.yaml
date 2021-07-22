@@ -16,6 +16,18 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+      - name: Update version.txt
+        run: |
+          echo ${{steps.get_version.outputs.VERSION}} > "version.txt"
+      - name: Update resources
+        uses: test-room-7/action-update-file@v1
+        with:
+            file-path: version.txt
+            commit-msg: Update to ${{steps.get_version.outputs.VERSION}}
+            github-token: ${{secrets.GITHUB_TOKEN}}
       - name: Install Setuptools
         run: |
           python -m pip install setuptools
