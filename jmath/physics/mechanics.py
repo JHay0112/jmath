@@ -148,7 +148,7 @@ class PhysObj:
         if not (self.mass == 0 or other.mass == 0):
             # Distance vector between the objects
             distance = other.position - self.position # Points from self to other mass
-            return gravitational_force(self.mass, other.mass, distance.magnitude()) * distance.unit_vector()
+            return gravitational_force(self.mass, other.mass, distance.magnitude()) * distance.unit()
         else:
             return self.position * 0 # Zero vector of correct size
 
@@ -164,6 +164,6 @@ class PhysObj:
         if not (self.charge == 0 or other.charge == 0):
             # Distance vector between the objects
             distance = self.position - other.position # Points away if both same charge, points together if different charge
-            return electrostatic_force(self.charge, other.charge, distance.magnitude()) * distance.unit_vector()
+            return electrostatic_force(self.charge, other.charge, distance.magnitude()) * distance.unit()
         else:
             return self.position * 0 # Zero vector of correct size
