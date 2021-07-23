@@ -35,3 +35,9 @@ jobs:
       - name: Make HTML docs
         run: |
           ./make docs
+      - name: Update docs
+        uses: test-room-7/action-update-file@v1
+        with:
+            file-path: docs/*
+            commit-msg: Update docs
+            github-token: ${{secrets.GITHUB_TOKEN}}
