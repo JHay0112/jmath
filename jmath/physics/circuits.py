@@ -19,7 +19,7 @@ class Circuit(discrete.Graph):
         """
             Add components to circuit
 
-            *components (Components) - Components to add to circuit
+            \*components (Components) - Components to add to circuit
         """
         super().add_nodes(*components)
 

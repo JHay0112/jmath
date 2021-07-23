@@ -89,7 +89,9 @@ class Graph:
         """
             Adds node/s to the graph
 
-            *nodes (Nodes) - Graph nodes
+            Parameters:
+
+            \*nodes (Nodes) - Graph nodes
         """
 
         # Check if first "node" is a Node
