@@ -28,13 +28,13 @@ jobs:
           cd ./docs
       - name: Clean docs
         run: |
-          ./make clean
+          make clean
       - name: Auto Generate docs
         run: |
           sphinx-apidoc -o ./source ../jmath
       - name: Make HTML docs
         run: |
-          ./make docs
+          make docs
       - name: Update docs
         uses: test-room-7/action-update-file@v1
         with:
