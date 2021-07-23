@@ -1,0 +1,37 @@
+name: jmathDocUpdate
+
+on: [push]
+
+jobs:
+  doc-update:
+
+    name: Update jmath Docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install Sphinx
+        run: |
+          pip install Sphinx
+      - name: Install Sphinx RTD Theme
+        run: |
+          pip install sphinx-rtd-theme
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+      - name: Move to Docs Folder
+        run: |
+          cd ./docs
+      - name: Clean docs
+        run: |
+          ./make clean
+      - name: Auto Generate docs
+        run: |
+          sphinx-apidoc -o ./source ../jmath
+      - name: Make HTML docs
+        run: |
+          ./make docs
