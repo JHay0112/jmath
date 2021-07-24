@@ -10,34 +10,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+      - uses: ammaraskar/sphinx-action@master
         with:
-          python-version: 3.9
-      - name: Install Sphinx
-        run: |
-          pip install Sphinx
-      - name: Install Sphinx RTD Theme
-        run: |
-          pip install sphinx-rtd-theme
-      - name: Install requirements
-        run: |
-          pip install -r requirements.txt
-      - name: Move to Docs Folder
-        run: |
-          cd ./docs
-      - name: Clean docs
-        run: |
-          ./make clean
-      - name: Auto Generate docs
-        run: |
-          sphinx-apidoc -o ./source ../jmath
-      - name: Make HTML docs
-        run: |
-          ./make html
-      - name: Update docs
-        uses: test-room-7/action-update-file@v1
-        with:
-            file-path: docs/*
-            commit-msg: Update docs
-            github-token: ${{secrets.GITHUB_TOKEN}}
+          docs-folder: "docs/"
