@@ -5,11 +5,10 @@ on: [push]
 jobs:
   doc-update:
 
-    name: Update jmath Docs
+    name: Push Sphinx Pages
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@master
-      - uses: ammaraskar/sphinx-action@master
-        with:
-          docs-folder: "docs/"
+    - uses: seanzhengw/sphinx-pages@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        create_readme: true
