@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jmath.physics package &mdash; jmath v3.3.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="jmath.approximation package" href="jmath.approximation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> jmath
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="jmath.html">jmath package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="jmath.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">jmath.physics package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.physics.circuits">jmath.physics.circuits module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.physics.mechanics">jmath.physics.mechanics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.physics.prefixes">jmath.physics.prefixes module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.physics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.discrete">jmath.discrete module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.exceptions">jmath.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.fraction">jmath.fraction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.linearalgebra">jmath.linearalgebra module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.uncertainties">jmath.uncertainties module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">jmath.physics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.physics.circuits">jmath.physics.circuits module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.physics.mechanics">jmath.physics.mechanics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.physics.prefixes">jmath.physics.prefixes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.physics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">jmath</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="jmath.html">jmath package</a> &raquo;</li>
+        
+      <li>jmath.physics package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/jmath.physics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmath-physics-package">
+<h1>jmath.physics package<a class="headerlink" href="#jmath-physics-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.physics.circuits">
+<span id="jmath-physics-circuits-module"></span><h2>jmath.physics.circuits module<a class="headerlink" href="#module-jmath.physics.circuits" title="Permalink to this headline">¶</a></h2>
+<p>jmath/physics/circuits.py</p>
+<p>Author: Jordan Hay
+Date: 2021-06-22</p>
+<p>Tools for circuit analysis</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Circuit">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><a class="headerlink" href="#jmath.physics.circuits.Circuit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="jmath.html#jmath.discrete.Graph" title="jmath.discrete.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Graph</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Circuit.add_components">
+<span class="sig-name descname"><span class="pre">add_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Circuit.add_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add components to circuit</p>
+<p>*components (Components) - Components to add to circuit</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Circuit.loops">
+<span class="sig-name descname"><span class="pre">loops</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Circuit.loops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the loops in the circuit around the primary node</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Component">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="jmath.html#jmath.discrete.Node" title="jmath.discrete.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Node</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Component.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neighbour</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Component.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a neighbouring component</p>
+<p>neighbour (Component) - Neighbouring component to add</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.physics.circuits.DCSupply">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">DCSupply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.DCSupply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.physics.circuits.Component" title="jmath.physics.circuits.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.physics.circuits.Component</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Loop">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="jmath.html#jmath.discrete.Loop" title="jmath.discrete.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Loop</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Resistor">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Resistor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resistance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Resistor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.physics.circuits.Component" title="jmath.physics.circuits.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.physics.circuits.Component</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.circuits.Resistor.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Resistor.power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate power consumption from current</p>
+<p>current (float) - Current in amps flowing through resistor</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.physics.mechanics">
+<span id="jmath-physics-mechanics-module"></span><h2>jmath.physics.mechanics module<a class="headerlink" href="#module-jmath.physics.mechanics" title="Permalink to this headline">¶</a></h2>
+<p>jmath/physics/mechanics.py</p>
+<p>Author: Jordan Hay
+Date: 2021-06-17</p>
+<p>Tools for mechanical systems</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysEnv">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysEnv</span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates an environment for physical objects</p>
+<p>Author: Jordan Hay
+Date: 2021-06-22</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysEnv.add_object">
+<span class="sig-name descname"><span class="pre">add_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><span class="pre">jmath.physics.mechanics.PhysObj</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv.add_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new Physics Object to the environment</p>
+<p>Parameters:</p>
+<p>new_obj (PhysObj) - Object to add to environment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysEnv.increment_time">
+<span class="sig-name descname"><span class="pre">increment_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv.increment_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increments the time by the given value</p>
+<p>Parameters:</p>
+<p>increment (float) - The amount to increase the time by</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysEnv" title="jmath.physics.mechanics.PhysEnv"><span class="pre">jmath.physics.mechanics.PhysEnv</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Point" title="jmath.linearalgebra.Point"><span class="pre">jmath.linearalgebra.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates an object with physical properties.</p>
+<p>Parameters:</p>
+<p>env (PhysEnv) - The environment that the object exists in
+position (Point) - The initial position of the object
+velocity (Vector) - The initial velocity of the object in metres per second
+mass (float:1) - The mass of the object in kilograms
+charge (float:0) - The electric charge of the object in coulombs</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.acceleration">
+<span class="sig-name descname"><span class="pre">acceleration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.acceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the current acceleration on the object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.electrostatic">
+<span class="sig-name descname"><span class="pre">electrostatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.electrostatic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.force">
+<span class="sig-name descname"><span class="pre">force</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates all the forces currently on the object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.gravity">
+<span class="sig-name descname"><span class="pre">gravity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.gravity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.momentum">
+<span class="sig-name descname"><span class="pre">momentum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.momentum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the momentum of the object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.non_zero_distance">
+<span class="sig-name descname"><span class="pre">non_zero_distance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.non_zero_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper that checks that there is not zero distance between objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.electrostatic_force">
+<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">electrostatic_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.electrostatic_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the electrostatic force between two charges</p>
+<p>Parameters:</p>
+<p>charge1 (float) - The charge in coulombs
+charge2 (float) - The other charge in coulombs
+distance (float) - The distance between the charges in m</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.gravitational_force">
+<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">gravitational_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mass1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.gravitational_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the force of gravity between two masses</p>
+<p>Parameters:</p>
+<p>mass1 (float) - The mass of one object in kg
+mass2 (float) - The mass of the other object in kg
+distance (float) - The distance between the objects in m</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.physics.prefixes">
+<span id="jmath-physics-prefixes-module"></span><h2>jmath.physics.prefixes module<a class="headerlink" href="#module-jmath.physics.prefixes" title="Permalink to this headline">¶</a></h2>
+<p>jmath/physics/prefixes.py</p>
+<p>Author: Jordan Hay
+Date: 2021-07-22</p>
+<p>SI prefixes, kilo, yotta etc.</p>
+</div>
+<div class="section" id="module-jmath.physics">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jmath.physics" title="Permalink to this headline">¶</a></h2>
+<p>jmath/physics/__init__.py</p>
+<p>Author: Jordan Hay
+Date: 2021-07-23</p>
+<p>Initialises folder as module</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="jmath.approximation.html" class="btn btn-neutral float-left" title="jmath.approximation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Jordan Hay.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jmath package &mdash; jmath v3.3.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="jmath.approximation package" href="jmath.approximation.html" />
+    <link rel="prev" title="jmath Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> jmath
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">jmath package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.discrete">jmath.discrete module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.exceptions">jmath.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.fraction">jmath.fraction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.linearalgebra">jmath.linearalgebra module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.uncertainties">jmath.uncertainties module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">jmath</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>jmath package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/jmath.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmath-package">
+<h1>jmath package<a class="headerlink" href="#jmath-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmath.approximation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.approximation.html#module-jmath.approximation.euler_method">jmath.approximation.euler_method module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.approximation.html#module-jmath.approximation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmath.physics.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.physics.html#module-jmath.physics.circuits">jmath.physics.circuits module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.physics.html#module-jmath.physics.mechanics">jmath.physics.mechanics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.physics.html#module-jmath.physics.prefixes">jmath.physics.prefixes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.physics.html#module-jmath.physics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.discrete">
+<span id="jmath-discrete-module"></span><h2>jmath.discrete module<a class="headerlink" href="#module-jmath.discrete" title="Permalink to this headline">¶</a></h2>
+<p>jmath/discrete.py</p>
+<p>Author: Jordan Hay
+Date: 2021-06-17</p>
+<p>Discrete mathematical tools</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.discrete.Graph">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><a class="headerlink" href="#jmath.discrete.Graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Graph.add_nodes">
+<span class="sig-name descname"><span class="pre">add_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.add_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds node/s to the graph</p>
+<p>Parameters:</p>
+<p>*nodes (Nodes) - Graph nodes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Graph.get_node">
+<span class="sig-name descname"><span class="pre">get_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.get_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a node object in the graph based upon its ID</p>
+<p>id (str) - The ID of the node</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Graph.intersections">
+<span class="sig-name descname"><span class="pre">intersections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.intersections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of nodes that have more than one connection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Graph.loops">
+<span class="sig-name descname"><span class="pre">loops</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.loops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds loops in the graph</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Graph.relationships">
+<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a human readable description of the relationship between all nodes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Graph.walk">
+<span class="sig-name descname"><span class="pre">walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_neighbour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Walks” a loop around the graph, intended for generating loops for self.loops()</p>
+<p>start (Node) - Node the walk starts at
+stop (Node) - Node the walk stops at
+neighbour (int:0) - Initial neighbour to move to
+default_neighbour (int:0) - Neighbour to automatically move to</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.discrete.Loop">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.discrete.Graph" title="jmath.discrete.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Graph</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Loop.relationships">
+<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop.relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a human readable representation of the relationship between nodes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Loop.reorder">
+<span class="sig-name descname"><span class="pre">reorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop.reorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reorders the loop to start at the specified node</p>
+<p>node (Node) - Node to start at</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.discrete.Node">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Node.add_neighbour">
+<span class="sig-name descname"><span class="pre">add_neighbour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neighbour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two_way</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.add_neighbour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a neighbouring node</p>
+<p>neighbour (Node) - Node object describing the neighbour
+weight (float:1) - The weighting of the relationship
+two_way (bool:False) - Whether the relationship goes both ways</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Node.neighbours_list">
+<span class="sig-name descname"><span class="pre">neighbours_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.neighbours_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the IDs of the neighbouring nodes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Node.relationships">
+<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.relationships" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns human readable string of relationships between node and neighbours</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.discrete.Node.remove_neighbour">
+<span class="sig-name descname"><span class="pre">remove_neighbour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neighbour</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.remove_neighbour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the relationship between the nodes (ONLY FROM THIS NODE)</p>
+<p>neighbour (Node) - Node object describing the neighbour node</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.exceptions">
+<span id="jmath-exceptions-module"></span><h2>jmath.exceptions module<a class="headerlink" href="#module-jmath.exceptions" title="Permalink to this headline">¶</a></h2>
+<p>jmath/exceptions.py</p>
+<p>Defines jmath exceptions</p>
+<p>Author: Jordan Hay
+Date: 2021-06-25</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="jmath.exceptions.InvalidFractionOperation">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidFractionOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'This</span> <span class="pre">operation</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">completed</span> <span class="pre">on</span> <span class="pre">fractions.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.InvalidFractionOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown for invalid operations on fractions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="jmath.exceptions.VectorsNotSameSize">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">VectorsNotSameSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Operation</span> <span class="pre">invalid</span> <span class="pre">for</span> <span class="pre">vectors</span> <span class="pre">of</span> <span class="pre">different</span> <span class="pre">sizes.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.VectorsNotSameSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception throw for operations on vectors of different sizes</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="jmath.exceptions.ZeroDistance">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">ZeroDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Invalid</span> <span class="pre">operation!</span> <span class="pre">Zero</span> <span class="pre">distance</span> <span class="pre">between</span> <span class="pre">objects.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.ZeroDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown for calculations with zero distance between objects.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.fraction">
+<span id="jmath-fraction-module"></span><h2>jmath.fraction module<a class="headerlink" href="#module-jmath.fraction" title="Permalink to this headline">¶</a></h2>
+<p>jmath/fraction.py</p>
+<p>Fractions, because sometimes floats are gross</p>
+<p>Author: Jordan Hay
+Date: 2021-07-01</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.fraction.Fraction">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.fraction.</span></span><span class="sig-name descname"><span class="pre">Fraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerator</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denominator</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.fraction.Fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>numerator (int) - Fraction numerator (top bit)
+denominator (int) - Fraction denominator (bottom bit)</p>
+<p>Author: Jordan Hay
+Date: 2021-07-01</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.fraction.Fraction.check_denominator">
+<span class="sig-name descname"><span class="pre">check_denominator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.fraction.Fraction.check_denominator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that denominator is not zero</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.fraction.Fraction.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.fraction.Fraction.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an evaluated form</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.fraction.Fraction.flip">
+<span class="sig-name descname"><span class="pre">flip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.fraction.Fraction" title="jmath.fraction.Fraction"><span class="pre">jmath.fraction.Fraction</span></a></span></span><a class="headerlink" href="#jmath.fraction.Fraction.flip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a flipped version of the fraction</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.fraction.Fraction.negative">
+<span class="sig-name descname"><span class="pre">negative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.fraction.Fraction" title="jmath.fraction.Fraction"><span class="pre">jmath.fraction.Fraction</span></a></span></span><a class="headerlink" href="#jmath.fraction.Fraction.negative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a negative form of the fraction</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.fraction.Fraction.simplify">
+<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.fraction.Fraction.simplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simplify the fraction</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.linearalgebra">
+<span id="jmath-linearalgebra-module"></span><h2>jmath.linearalgebra module<a class="headerlink" href="#module-jmath.linearalgebra" title="Permalink to this headline">¶</a></h2>
+<p>jmath/linearalgebra.py</p>
+<p>Author: Jordan Hay
+Date: 2021-06-17</p>
+<p>Vectors</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Line">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Point" title="jmath.linearalgebra.Point"><span class="pre">jmath.linearalgebra.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines a line from a vector</p>
+<p>Parameters:</p>
+<p>point (Point) - Position vector for line
+vector (Vector) - Direction vector for line</p>
+<p>Author: Jordan Hay
+Date: 2021-06-24</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Plane">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Point" title="jmath.linearalgebra.Point"><span class="pre">jmath.linearalgebra.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines a plane</p>
+<p>Parameters:</p>
+<p>point (Point/Vector) - Point on the plane
+vector1 (Vector) - Direction vector
+vector 2 (Vector) - Direction vector</p>
+<p>Author: Jordan Hay
+Date: 2021-06-24</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Point">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.Vector</span></code></a></p>
+<p>Points based on vector framework. Can be thought of as a vector from origin.</p>
+<p>Parameters:</p>
+<p>*components (*args) - Coordinates in n-space</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Point.on_line">
+<span class="sig-name descname"><span class="pre">on_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Line" title="jmath.linearalgebra.Line"><span class="pre">jmath.linearalgebra.Line</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Point.on_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether a point is on a line, returns bool</p>
+<p>Parameters:</p>
+<p>line (Line) - Line to determine if on</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Vector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>n-dimensional Vectors</p>
+<p>Arguments:</p>
+<p>*components (floats) - Scalar vector components</p>
+<p>Author: Jordan Hay
+Date: 2020-11-02</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.angle_between">
+<span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.magnitude">
+<span class="sig-name descname"><span class="pre">magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.magnitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the vector magnitude</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.negative">
+<span class="sig-name descname"><span class="pre">negative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.negative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the negative vector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.projection">
+<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector.projection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.same_size">
+<span class="sig-name descname"><span class="pre">same_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.same_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper that checks if vectors are the same size</p>
+<p>Parameters:</p>
+<p>func (function) - Function to check</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a unit vector in the same direction as the vector</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.uncertainties">
+<span id="jmath-uncertainties-module"></span><h2>jmath.uncertainties module<a class="headerlink" href="#module-jmath.uncertainties" title="Permalink to this headline">¶</a></h2>
+<p>jmath/uncertainties.py</p>
+<p>Author: Jordan Hay
+Date: 2021-06-17</p>
+<p>For dealing with values and their associated uncertainties</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">Uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.abs_uncertainty">
+<span class="sig-name descname"><span class="pre">abs_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.abs_uncertainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the absolute uncertainty</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a mathematical function to the value using the bruteforce method to calculate the new uncertainty</p>
+<p>func (function) - The function to apply</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.rel_uncertainty">
+<span class="sig-name descname"><span class="pre">rel_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.rel_uncertainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the relative uncertainty as proportion</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jmath" title="Permalink to this headline">¶</a></h2>
+<p>jmath/__init__.py</p>
+<p>Author: Jordan Hay
+Date: 2021-07-23</p>
+<p>Initialises folder as module</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="jmath.approximation.html" class="btn btn-neutral float-right" title="jmath.approximation package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="jmath Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Jordan Hay.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
