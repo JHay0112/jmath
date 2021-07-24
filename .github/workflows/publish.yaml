@@ -42,3 +42,8 @@ jobs:
         uses: pypa/gh-action-pypi-publish@master
         with:
           password: ${{secrets.PYPI_API_TOKEN}}
+
+  publish-docs:
+
+    name: Publish docs to RTD
+    runs-on: ubuntu-latest
