@@ -24,7 +24,7 @@ class Vector:
 
         Arguments:
 
-        *components (floats) - Scalar vector components
+        \*components (floats) - Scalar vector components
 
         Author: Jordan Hay
         Date: 2020-11-02
@@ -198,7 +198,7 @@ class Point(Vector):
 
         Parameters:
 
-        *components (*args) - Coordinates in n-space
+        \*components (\*args) - Coordinates in n-space
     """
     def __init__(self, *components: List[float]):
         return super().__init__(*components)
