@@ -1,6 +1,8 @@
-name: jmathDocUpdate
+name: jmathDocs
 
-on: [push]
+on:
+  release:
+    types: ["published"]
 
 jobs:
   doc-update:
