@@ -1,10 +1,13 @@
 '''
     jmath/approximation/__init__.py
 
-    Author: Jordan Hay
-    Date: 2021-07-23
+    Tools for approximating mathematical equations.
 
-    Initialises folder as module
+    Optional Packages
+    -----------------
+
+    jmath.approximation.euler_method
+            The euler method for approximating the integrals of differential equations.
 '''
 
 # - Namespace
