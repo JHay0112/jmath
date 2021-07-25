@@ -6,7 +6,7 @@
 
 # - Components
 
-from exceptions import VectorsNotSameSize
+from .exceptions import VectorsNotSameSize
 
 # - Modules
 
