@@ -1,10 +1,9 @@
 '''
     jmath/__init__.py
 
-    Author: Jordan Hay
-    Date: 2021-07-23
+    The jmath top level package.
 
-    Initialises folder as module
+    By default includes uncertainties and linearalgebra modules.
 '''
 
 # - Namespace
