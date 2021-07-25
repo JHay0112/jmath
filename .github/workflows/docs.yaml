@@ -19,7 +19,7 @@ jobs:
         pip install sphinx 
     - name: Update Docs
       run: |
-        sphinx-apidoc -o ./docs/source/ ./jmath
+        sphinx-apidoc -o ./docs/source/ ./jmath --force
     - name: Build and Commit
       uses: sphinx-notes/pages@master
       with:
