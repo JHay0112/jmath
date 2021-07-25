@@ -1,10 +1,40 @@
 '''
     jmath/__init__.py
 
-    Author: Jordan Hay
-    Date: 2021-07-23
+    The jmath top level package. Provides a set of default and optional sub-packages for doing maths in Python.
 
-    Initialises folder as module
+    Default Packages
+    ----------------
+
+    jmath.uncertainties
+        Provides the Uncertainty object which gives the capability for calculations that use values with associated uncertainties.
+    jmath.linearalgebra
+        Provides Vector, Point, and Line objects for linear algebra based calculations.
+
+    Optional Packages
+    -----------------
+
+    jmath.discrete
+        In development programming representation of Nodes and Graphs.
+    jmath.fraction
+        Fraction based calculations. Potentially to be removed due to built in Fraction library.
+    
+    jmath.physics
+        Tools for physical simulations. By default includes mechanics and prefixes.
+
+        jmath.physics.mechanics
+            Provides tools for modelling mechanical systems, particularly static systems with gravity and electromagnetism.
+        jmath.physics.circuits
+            Circuit modelling based on jmath.discrete. In development. Not provided by default.
+        jmath.physics.prefixes
+            Set of SI prefixes used in physics.
+    
+    jmath.approximation
+        Tools for approximating mathematical equations.
+
+        jmath.approximation.euler_method
+            The euler method for approximating the integrals of differential equations.
+        
 '''
 
 # - Namespace
@@ -14,4 +44,4 @@ __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 # - Defaults
 
 from .uncertainties import Uncertainty
-from .linearalgebra import Vector, Line
+from .linearalgebra import Vector, Point, Line

@@ -1,15 +1,12 @@
 '''
     jmath/linearalgebra.py
 
-    Author: Jordan Hay
-    Date: 2021-06-17
-
-    Vectors
+    Linear algebra objects including Vectors, Points, Lines, and Planes.
 '''
 
 # - Components
 
-from . import exceptions
+from .exceptions import VectorsNotSameSize
 
 # - Modules
 
@@ -22,12 +19,11 @@ class Vector:
     """
         n-dimensional Vectors
 
-        Arguments:
+        Parameters
+        ----------
 
-        \*components (floats) - Scalar vector components
-
-        Author: Jordan Hay
-        Date: 2020-11-02
+        \*components
+            Scalar vector components
     """
     def __init__(self, *components: List[float]):
 
@@ -46,20 +42,22 @@ class Vector:
         string = string[:-2] + ")"
         return string
 
-    def same_size(func: Callable[["Vector", "Vector"], Any]) -> Callable[["Vector", "Vector"], Any]:
+    def __same_size(func: Callable[["Vector", "Vector"], Any]) -> Callable[["Vector", "Vector"], Any]:
         """
-            Wrapper that checks if vectors are the same size
+            Wrapper that checks if vectors are the same size.
 
-            Parameters:
+            Parameters
+            ----------
 
-            func (function) - Function to check
+            func
+                Function to check
         """
 
         def inner(*args, **kwargs):
             if len(args[0]) == len(args[1]):
                 return func(*args, **kwargs)
             else:
-                raise exceptions.VectorsNotSameSize()
+                raise VectorsNotSameSize()
 
         return inner
 
@@ -70,53 +68,29 @@ class Vector:
         else:
             return False
 
-    @same_size
+    @__same_size
     def __add__(self, vector: "Vector") -> "Vector":
-        """
-            Add vectors together
-
-            Parameters
-
-            vector (Vector) - Vector to add
-        """
+        """Add vectors together"""
 
         # Add the foreign components to local components and return
         return(Vector(list(map(operator.add, self.components, vector.components))))
 
-    @same_size
+    @__same_size
     def __sub__(self, vector: "Vector") -> "Vector":
-        """
-            Subtract vectors from each other
-
-            Parameters:
-
-            vector (Vector) - Vector to subtract
-        """
+        """Subtract vectors from each other"""
         # Subtract the foreign components from local components and return
         return(Vector(list(map(operator.sub, self.components, vector.components))))
 
-    @same_size
+    @__same_size
     def __matmul__(self, vector: "Vector") -> float:
-        """
-            The dot product of two vectors
-
-            Parameters:
-
-            vector (Vector) - Vector to dot with
-        """
+        """The dot product of two vectors"""
         dot = 0
         for i in range(len(self.components)):
             dot += self.components[i] * vector.components[i]
         return dot
 
     def __mul__(self, scalar: float) -> "Vector":
-        """
-            Scalar multiplication
-
-            Parameters:
-
-            scalar (float) - Scalar amount to multiply by
-        """
+        """Scalar multiplication"""
 
         new_components = [scalar * component for component in self.components]
         return Vector(new_components)
@@ -126,13 +100,7 @@ class Vector:
         return self * scalar
 
     def __truediv__(self, scalar: float) -> "Vector":
-        """
-            Scalar division
-
-            Parameters:
-
-            scalar (float) - Scalar amount to divide by
-        """
+        """Scalar division"""
         return 1/scalar * self
 
     def __rtruediv__(self, scalar: float) -> "Vector":
@@ -144,22 +112,24 @@ class Vector:
         return len(self.components)
 
     def unit(self) -> "Vector":
-        """Returns a unit vector in the same direction as the vector"""
+        """Returns a unit vector in the same direction as the vector."""
         return self/self.magnitude()
 
     def negative(self) -> "Vector":
-        """Returns the negative vector"""
+        """Returns a vector of the same magnitude pointing in the opposite direction."""
         neg_comp = [-component for component in self.components]
         return Vector(neg_comp)
 
-    @same_size
+    @__same_size
     def projection(self, vector: Union["Vector", "Line"]) -> "Vector":
         """
-            Returns projection of current vector onto passed vector
+            Returns projection of current vector onto the passed vector or line.
 
-            Parameters:
+            Parameters
+            ----------
 
-            vector (Vector/Line) - Vector or line to calculate the projection onto
+            vector
+                Vector or line to calculate the projection onto.
         """
         if isinstance(vector, Line):
             vector = vector.vector
@@ -167,7 +137,7 @@ class Vector:
         return (self @ vector)/(vector @ vector) * vector
 
     def magnitude(self) -> float:
-        """Calculates the vector magnitude"""
+        """Calculates the vector magnitude."""
         # Store magnitude while computing
         magnitude = 0
 
@@ -179,12 +149,16 @@ class Vector:
 
         return(magnitude)
 
-    @same_size
+    @__same_size
     def angle_between(self, vector: "Vector") -> float:
         """
             Determines the angle (in radians) between two vectors to 5 d.p.
 
-            vector (Vector/Line) - Vector or line to calculate angle between
+            Parameters
+            ----------
+
+            vector
+                Vector or line to calculate angle between
         """
 
         if isinstance(vector, Line):
@@ -196,20 +170,24 @@ class Point(Vector):
     """
         Points based on vector framework. Can be thought of as a vector from origin.
 
-        Parameters:
+        Parameters
+        ----------
 
-        \*components (\*args) - Coordinates in n-space
+        \*components
+            Coordinates in n-space
     """
     def __init__(self, *components: List[float]):
         return super().__init__(*components)
     
     def on_line(self, line: "Line") -> bool:
         """
-            Determines whether a point is on a line, returns bool
+            Determines whether a point is on a line, returns bool.
 
-            Parameters:
+            Parameters
+            ----------
 
-            line (Line) - Line to determine if on
+            line
+                Line to determine if on
         """
         results = []
         # For every component in both
@@ -221,15 +199,15 @@ class Point(Vector):
 
 class Line:
     """
-        Defines a line from a vector
+        Defines a line from direction and point vectors.
 
-        Parameters:
+        Parameters
+        ----------
 
-        point (Point) - Position vector for line
-        vector (Vector) - Direction vector for line
-
-        Author: Jordan Hay
-        Date: 2021-06-24
+        point
+            Position vector for line.
+        vector
+            Direction vector for line.
     """
     def __init__(self, point: Point, vector: Vector):
         self.point = point
@@ -239,7 +217,7 @@ class Line:
             self.point = Point([0 for i in self.vector.components])
 
         if len(self.point) != len(self.vector):
-            raise exceptions.VectorsNotSameSize()
+            raise VectorsNotSameSize()
 
     def __len__(self) -> int:
         """Returns size of direction vector"""
@@ -249,14 +227,15 @@ class Plane:
     """
         Defines a plane 
 
-        Parameters:
+        Parameters
+        ----------
 
-        point (Point/Vector) - Point on the plane
-        vector1 (Vector) - Direction vector
-        vector 2 (Vector) - Direction vector
-
-        Author: Jordan Hay
-        Date: 2021-06-24
+        point
+            Point on the plane.
+        vector1
+            Direction vector.
+        vector2
+            Direction vector.
     """
     def __init__(self, point: Point, vector1: Vector, vector2: Vector):
         
@@ -265,4 +244,4 @@ class Plane:
 
         # Throw error if vectors different sizes
         if len(point) != len(vector1) != len(vector2):
-            raise exceptions.VectorsNotSameSize()
+            raise VectorsNotSameSize()

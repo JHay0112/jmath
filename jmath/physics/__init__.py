@@ -1,10 +1,21 @@
 '''
     jmath/physics/__init__.py
 
-    Author: Jordan Hay
-    Date: 2021-07-23
+    Tools for physical simulations. By default includes mechanics and prefixes.
 
-    Initialises folder as module
+    Default Packages
+    ----------------
+
+    jmath.physics.mechanics
+        Provides tools for modelling mechanical systems, particularly static systems with gravity and electromagnetism.
+    jmath.physics.prefixes
+        Set of SI prefixes used in physics.
+
+    Optional Packages
+    -----------------
+
+    jmath.physics.circuits
+        Circuit modelling based on jmath.discrete. In development. Not provided by default.
 '''
 
 # - Namespace
