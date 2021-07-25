@@ -1,69 +1,85 @@
 '''
     jmath/discrete.py
 
-    Author: Jordan Hay
-    Date: 2021-06-17
-
-    Discrete mathematical tools
+    Discrete mathematical tools.
 '''
+
+# - Imports
+
+from typing import Union, List
 
 # - Classes
 
 class Node:
+    """
+        Node of a graph.
 
-    def __init__(self, id, weight = 1):
-        """
-            Author: Jordan Hay
-            Date: 2021-01-29
+        Parameters
+        ----------
 
-            Node of a graph
-
-            id (str) - Unique ID string describing the object
-            weight (float:1) - Weighting of node
-        """
+        id
+            Unique ID string describing the object.
+        weight
+            Weighting of node.
+    """
+    def __init__(self, id: str, weight: float = 1):
 
         self.id = id
         self.weight = weight
         self.neighbours = {}
 
-    def __str__(self):
+    def __str__(self) -> str:
         """String representation"""
 
         return f"[{self.id}:{self.weight}]"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Programming Representation"""
 
         return f"Node('{self.id}', {self.weight})"
 
-    def neighbours_list(self): 
+    def neighbours_list(self) -> list: 
         """Returns the IDs of the neighbouring nodes"""
         return(list(self.neighbours.keys()))
 
-    def add_neighbour(self, neighbour, weight = 1, two_way = False):
+    def add_neighbour(self, neighbour: "Node", weight: float = 1, two_way: bool = False):
         """
             Adds a neighbouring node
 
-            neighbour (Node) - Node object describing the neighbour
-            weight (float:1) - The weighting of the relationship
-            two_way (bool:False) - Whether the relationship goes both ways
+            Parameters
+            ----------
+
+            neighbour
+                Node object describing the neighbour.
+            weight
+                The weighting of the relationship.
+            two_way
+                Whether the relationship goes both ways.
         """
         self.neighbours[neighbour] = weight
 
         if two_way:
             neighbour.add_neighbour(self, weight)
 
-    def remove_neighbour(self, neighbour):
+    def remove_neighbour(self, neighbour: "Node"):
         """
-            Removes the relationship between the nodes (ONLY FROM THIS NODE)
+            Removes the relationship between the nodes.
 
-            neighbour (Node) - Node object describing the neighbour node
+            Parameters
+            ----------
+
+            neighbour
+                Node object describing the neighbour node
+
+            Notes
+            -----
+            Only removes the neighbourship from THIS NODE.
         """
         self.neighbours.pop(neighbour)
 
     
-    def relationships(self):
-        """Returns human readable string of relationships between node and neighbours"""
+    def relationships(self) -> str:
+        """Returns human readable string of relationships between node and neighbours."""
 
         relationship = f"{self}"
 
@@ -74,14 +90,10 @@ class Node:
         print(relationship)
 
 class Graph:
-
+    """
+        Graph object defined by a set of nodes.
+    """
     def __init__(self):
-        """
-            Author: Jordan Hay
-            Date: 2021-01-29
-
-            Graph made of nodes
-        """
 
         self.nodes = []
 
@@ -89,9 +101,11 @@ class Graph:
         """
             Adds node/s to the graph
 
-            Parameters:
+            Parameters
+            ----------
 
-            \*nodes (Nodes) - Graph nodes
+            \*nodes
+                Graph nodes to be added.
         """
 
         # Check if first "node" is a Node
@@ -103,11 +117,15 @@ class Graph:
             # Else an iterable is being passed as nodes[0]
             self.nodes.extend(nodes[0])
 
-    def get_node(self, id):
+    def get_node(self, id) -> Union[Node, None]:
         """
-            Returns a node object in the graph based upon its ID
+            Returns a node object in the graph based upon its ID. Returns None if not found.
 
-            id (str) - The ID of the node
+            Parameters
+            ----------
+
+            id
+                The ID of the node
         """
         # Loop through the nodes
         for node in self.nodes:
@@ -118,20 +136,27 @@ class Graph:
         # No node found so return none
         return None
 
-    def relationships(self):
+    def relationships(self) -> str:
         """Prints a human readable description of the relationship between all nodes"""
 
         for node in self.nodes:
             node.relationships()
 
-    def walk(self, start, stop = None, neighbour = 0, default_neighbour = 0):
+    def walk(self, start: Node, stop: Node = None, neighbour: int = 0, default_neighbour: int = 0) -> "Loop":
         """
             "Walks" a loop around the graph, intended for generating loops for self.loops()
 
-            start (Node) - Node the walk starts at
-            stop (Node) - Node the walk stops at
-            neighbour (int:0) - Initial neighbour to move to
-            default_neighbour (int:0) - Neighbour to automatically move to
+            Parameters
+            ----------
+
+            start
+                Node the walk starts at.
+            stop
+                Node the walk stops at.
+            neighbour
+                Initial neighbour to move to.
+            default_neighbour
+                Neighbour to move to on consequential moves.
         """
 
         if stop == None:
@@ -152,11 +177,11 @@ class Graph:
         loop = Loop(loop)
         return loop
 
-    def intersections(self):
+    def intersections(self) -> List[Node]:
         """Returns a list of nodes that have more than one connection"""
         return [node for node in self.nodes if len(node.neighbours) > 1]
 
-    def loops(self):
+    def loops(self) -> List["Loop"]:
         """Finds loops in the graph"""
         loops = []
         intersections = [node for node in self.nodes if len(node.neighbours) > 1 and self.nodes.index(node) != 0]
@@ -175,21 +200,23 @@ class Graph:
                     loops.append(walk)
 
         return loops
+
 class Loop(Graph):
+    """
+        A sub-graph structure generated by Graph.loops(), represents a distinct path around the graph.
 
-    def __init__(self, nodes):
-        """
-            Sub-graph structure
+        Parameters
+        ----------
 
-            Author: Jordan Hay
-            Date: 2021-06-21
+        nodes
+            List of node objects that define the loop.
+    """
+    def __init__(self, nodes: List[Node]):
 
-            nodes (list) - List of Node objects that define the loop
-        """
         super().__init__()
         super().add_nodes(nodes)
 
-    def relationships(self):
+    def relationships(self) -> str:
         """Prints a human readable representation of the relationship between nodes"""
 
         relationships = f"{self.nodes[0]}"
@@ -204,11 +231,15 @@ class Loop(Graph):
 
         print(relationships)
 
-    def reorder(self, node):
+    def reorder(self, node: Node):
         """
-            Reorders the loop to start at the specified node
+            Reorders the loop to start at the specified node.
 
-            node (Node) - Node to start at
+            Parameters
+            ----------
+
+            node
+                Node to reconfigure to start at.
         """
         # If the loop does not start at the reference node
         if (node != self.nodes[0]):

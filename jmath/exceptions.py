@@ -1,15 +1,8 @@
 """
     jmath/exceptions.py
 
-    Defines jmath exceptions
-
-    Author: Jordan Hay
-    Date: 2021-06-25
+    Defines exceptions for jmath.
 """
-
-# - Imports
-
-import copy
 
 # - Classes
 
