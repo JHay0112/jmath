@@ -1,45 +1,49 @@
 '''
     jmath/uncertainties.py
 
-    Author: Jordan Hay
-    Date: 2021-06-17
-
-    For dealing with values and their associated uncertainties
+    Provides a class to deal with values with associated uncertainty.
 '''
 
 # - Modules
 
 import math
+from typing import Callable, Union
 
 # - Classes
 class Uncertainty:
+    """
+        A value with an associated uncertainty.
 
-    def __init__(self, value, uncertainty):
-        """
-            A value with an associated uncertainty
+        Parameters
+        ----------
 
-            value (float) - The absolute value
-            uncertainty (float) - The absolute uncertainty
-
-            Author: Jordan Hay
-            Date: 2021-03-17
-        """
+        value
+            The value associated with an uncertainty
+        uncertainty
+            Uncertainty associated with the value
+    """
+    def __init__(self, value: float, uncertainty: float):
+        
         self.value = value
         self.uncertainty = uncertainty
 
-    def abs_uncertainty(self): 
-        """Returns the absolute uncertainty"""
+    def abs_uncertainty(self) -> float: 
+        """Returns the absolute uncertainty."""
         return(self.uncertainty)
 
-    def rel_uncertainty(self): 
-        """Returns the relative uncertainty as proportion"""
+    def rel_uncertainty(self) -> float: 
+        """Returns the relative uncertainty as proportion."""
         return(self.uncertainty/self.value)
 
-    def apply(self, func):
+    def apply(self, func: Callable[[float], float]) -> "Uncertainty":
         """
-            Applies a mathematical function to the value using the bruteforce method to calculate the new uncertainty
+            Applies a mathematical function to the value using the bruteforce method to calculate the new uncertainty.
 
-            func (function) - The function to apply
+            Parameters
+            ----------
+
+            func
+                The function to apply.
         """
         # Apply function to the value
         val = func(self.value)
@@ -58,12 +62,8 @@ class Uncertainty:
 
         return(f"{rounded_value} ± {rounded_uncertainty}")
 
-    def __add__(self, other):
-        """
-            Uncertainty addition
-
-            other (int/float/Uncertainty) - Object to be added
-        """
+    def __add__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty":
+        """Uncertainty addition"""
         # Check type of other
         if type(other) == Uncertainty:
             # Add values
@@ -79,16 +79,12 @@ class Uncertainty:
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    def __radd__(self, other): 
+    def __radd__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty": 
         """Flipped uncertainty addition"""
         return(self + other) 
 
-    def __sub__(self, other):
-        """
-            Uncertainty subtraction
-
-            other (int/float/Uncertainty) - The object to subtract
-        """
+    def __sub__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty":
+        """Uncertainty subtraction"""
         # Check type of other
         if type(other) == Uncertainty:
             # Add values
@@ -104,7 +100,7 @@ class Uncertainty:
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    def __rsub__(self, other): 
+    def __rsub__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty": 
         """Flipped uncertainty subtraction"""
          # Check type of other
         if type(other) == Uncertainty:
@@ -121,12 +117,8 @@ class Uncertainty:
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    def __mul__(self, other):
-        """
-            Uncertainty multiplication
-
-            other (int/float/Uncertainty) - Uncertainty to multiply by
-        """
+    def __mul__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty":
+        """Uncertainty multiplication"""
         # Check type of other
         if type(other) == Uncertainty:
             # Get final value
@@ -142,16 +134,12 @@ class Uncertainty:
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    def __rmul__(self, other): 
+    def __rmul__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty": 
         """Flipped uncertainty multiplication"""
         return(self * other) 
 
-    def __truediv__(self, other):
-        """
-            Uncertainty multiplication
-
-            other (int/float/Uncertainty) - Object to divide by
-        """
+    def __truediv__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty":
+        """Uncertainty multiplication"""
         # Check type of other
         if type(other) == Uncertainty:
             # Get final value
@@ -167,7 +155,7 @@ class Uncertainty:
         # Return Uncertainty
         return(Uncertainty(val, unc))
 
-    def __rtruediv__(self, other): 
+    def __rtruediv__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty": 
         """Flipped uncertainty division"""
         # Check type of other
         if type(other) == Uncertainty:
