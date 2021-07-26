@@ -21,14 +21,6 @@ project = 'jmath'
 copyright = '2021, Jordan Hay'
 author = 'Jordan Hay'
 
-
-
-# The full version, including alpha/beta/rc tags
-# Get version
-release = ""
-with open("../../version.txt") as f:
-    release == f.readline()
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
