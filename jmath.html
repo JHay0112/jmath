@@ -507,23 +507,28 @@ Date: 2021-07-01</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>Addition
-&gt;&gt;&gt; Vector(3, 2, 1) + Vector(2, 1, 1)
-Vector(5, 3, 2)</p>
-<p>Subtraction
-&gt;&gt;&gt; Vector(3, 1, 0) - Vector(9, 8, 8)
-Vector(-6, -7, -8)</p>
-<p>Scaling
-&gt;&gt;&gt; 3 * Vector(1, 2, -4)
-Vector(3, 6, -12)
-&gt;&gt;&gt; Vector(3, 6, 9)/3
-Vector(1, 2, 3)</p>
-<p>Dot Product
-&gt;&gt;&gt; Vector(10, 2, 1) &#64; Vector(1, 2, 3)
-17</p>
-<p>Magnitude
-&gt;&gt;&gt; Vector(1, 1).magnitude()
-2</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Vector(5, 3, 2)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">Vector(-6, -7, -8)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Vector(3, 6, -12)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+<span class="go">Vector(1, 2, 3)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">@</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">17</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span><span class="p">()</span>
+<span class="go">2</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Vector.angle_between">
 <span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
@@ -572,21 +577,26 @@ Vector(1, 2, 3)</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>Addition
-&gt;&gt;&gt; Uncertainty(3, 1) + Uncertainty(4, 2)
-Uncertainty(7, 3)</p>
-<p>Subtraction
-&gt;&gt;&gt; Uncertainty(10, 1) - Uncertainty(2, 1)
-Uncertainty(8, 2)</p>
-<p>Scaling
-&gt;&gt;&gt; 2 * Uncertainty(2, 1)
-Uncertainty(4, 2.0)</p>
-<p>Multiplication
-&gt;&gt;&gt; Uncertainty(2, 1) + Uncertainty(4, 1)
-Uncertainty(8, 6.0)</p>
-<p>Division
-&gt;&gt;&gt; Uncertainty(20, 2) / Uncertainty(2, 0.5)
-Uncertainty(10.0, 3.5)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Uncertainty</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Uncertainty</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">Uncertainty(7, 3)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Uncertainty</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Uncertainty</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Uncertainty(8, 2)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">Uncertainty</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Uncertainty(4, 2.0)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Uncertainty</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Uncertainty</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Uncertainty(8, 6.0)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Uncertainty</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">Uncertainty</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="go">Uncertainty(10.0, 3.5)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.abs_uncertainty">
 <span class="sig-name descname"><span class="pre">abs_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.abs_uncertainty" title="Permalink to this definition">¶</a></dt>
