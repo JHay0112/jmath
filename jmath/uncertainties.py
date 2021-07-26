@@ -1,6 +1,4 @@
 '''
-    jmath/uncertainties.py
-
     Provides a class to deal with values with associated uncertainty.
 '''
 
@@ -21,6 +19,29 @@ class Uncertainty:
             The value associated with an uncertainty
         uncertainty
             Uncertainty associated with the value
+
+        Examples
+        --------
+
+        Addition
+        >>> Uncertainty(3, 1) + Uncertainty(4, 2)
+        Uncertainty(7, 3)
+
+        Subtraction
+        >>> Uncertainty(10, 1) - Uncertainty(2, 1)
+        Uncertainty(8, 2)
+
+        Scaling
+        >>> 2 * Uncertainty(2, 1)
+        Uncertainty(4, 2.0)
+
+        Multiplication
+        >>> Uncertainty(2, 1) + Uncertainty(4, 1)
+        Uncertainty(8, 6.0)
+
+        Division
+        >>> Uncertainty(20, 2) / Uncertainty(2, 0.5)
+        Uncertainty(10.0, 3.5)
     """
     def __init__(self, value: float, uncertainty: float):
         
@@ -51,6 +72,10 @@ class Uncertainty:
         unc = func(self.value + self.uncertainty) - val
 
         return Uncertainty(val, unc)
+
+    def __repr__(self):
+        """Programming representation"""
+        return f"Uncertainty({self.value}, {self.uncertainty})"
 
     def __str__(self):
         """String representation"""
