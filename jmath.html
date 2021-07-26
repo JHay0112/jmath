@@ -104,6 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#default-packages">Default Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#optional-packages">Optional Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
 </li>
 </ul>
@@ -437,7 +438,6 @@ Date: 2021-07-01</p>
 </div>
 <div class="section" id="module-jmath.linearalgebra">
 <span id="jmath-linearalgebra-module"></span><h2>jmath.linearalgebra module<a class="headerlink" href="#module-jmath.linearalgebra" title="Permalink to this headline">¶</a></h2>
-<p>jmath/linearalgebra.py</p>
 <p>Linear algebra objects including Vectors, Points, Lines, and Planes.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Line">
@@ -466,6 +466,9 @@ Date: 2021-07-01</p>
 <li><p><strong>vector1</strong> – Direction vector.</p></li>
 <li><p><strong>vector2</strong> – Direction vector.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -503,6 +506,24 @@ Date: 2021-07-01</p>
 <dd class="field-odd"><p><strong>*components</strong> – Scalar vector components</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Addition
+&gt;&gt;&gt; Vector(3, 2, 1) + Vector(2, 1, 1)
+Vector(5, 3, 2)</p>
+<p>Subtraction
+&gt;&gt;&gt; Vector(3, 1, 0) - Vector(9, 8, 8)
+Vector(-6, -7, -8)</p>
+<p>Scaling
+&gt;&gt;&gt; 3 * Vector(1, 2, -4)
+Vector(3, 6, -12)
+&gt;&gt;&gt; Vector(3, 6, 9)/3
+Vector(1, 2, 3)</p>
+<p>Dot Product
+&gt;&gt;&gt; Vector(10, 2, 1) &#64; Vector(1, 2, 3)
+17</p>
+<p>Magnitude
+&gt;&gt;&gt; Vector(1, 1).magnitude()
+2</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Vector.angle_between">
 <span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
@@ -536,7 +557,6 @@ Date: 2021-07-01</p>
 </div>
 <div class="section" id="module-jmath.uncertainties">
 <span id="jmath-uncertainties-module"></span><h2>jmath.uncertainties module<a class="headerlink" href="#module-jmath.uncertainties" title="Permalink to this headline">¶</a></h2>
-<p>jmath/uncertainties.py</p>
 <p>Provides a class to deal with values with associated uncertainty.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty">
@@ -551,6 +571,22 @@ Date: 2021-07-01</p>
 </ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Addition
+&gt;&gt;&gt; Uncertainty(3, 1) + Uncertainty(4, 2)
+Uncertainty(7, 3)</p>
+<p>Subtraction
+&gt;&gt;&gt; Uncertainty(10, 1) - Uncertainty(2, 1)
+Uncertainty(8, 2)</p>
+<p>Scaling
+&gt;&gt;&gt; 2 * Uncertainty(2, 1)
+Uncertainty(4, 2.0)</p>
+<p>Multiplication
+&gt;&gt;&gt; Uncertainty(2, 1) + Uncertainty(4, 1)
+Uncertainty(8, 6.0)</p>
+<p>Division
+&gt;&gt;&gt; Uncertainty(20, 2) / Uncertainty(2, 0.5)
+Uncertainty(10.0, 3.5)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.abs_uncertainty">
 <span class="sig-name descname"><span class="pre">abs_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.abs_uncertainty" title="Permalink to this definition">¶</a></dt>
@@ -579,7 +615,6 @@ Date: 2021-07-01</p>
 </div>
 <div class="section" id="module-jmath">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jmath" title="Permalink to this headline">¶</a></h2>
-<p>jmath/__init__.py</p>
 <p>The jmath top level package. Provides a set of default and optional sub-packages for doing maths in Python.</p>
 <div class="section" id="default-packages">
 <h3>Default Packages<a class="headerlink" href="#default-packages" title="Permalink to this headline">¶</a></h3>
@@ -614,6 +649,14 @@ Date: 2021-07-01</p>
 </dl>
 </dd>
 </dl>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>Testing can be performed upon the entire jmath codebase using</p>
+<blockquote>
+<div><p>$ pytest</p>
+</div></blockquote>
+<p>when in the jmath root directory.</p>
 </div>
 </div>
 </div>
