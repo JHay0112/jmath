@@ -26,25 +26,20 @@ class Vector:
         Examples
         --------
 
-        Addition
         >>> Vector(3, 2, 1) + Vector(2, 1, 1)
         Vector(5, 3, 2)
 
-        Subtraction
         >>> Vector(3, 1, 0) - Vector(9, 8, 8)
         Vector(-6, -7, -8)
 
-        Scaling
         >>> 3 * Vector(1, 2, -4)
         Vector(3, 6, -12)
         >>> Vector(3, 6, 9)/3
         Vector(1, 2, 3)
 
-        Dot Product
         >>> Vector(10, 2, 1) @ Vector(1, 2, 3)
         17
 
-        Magnitude
         >>> Vector(1, 1).magnitude()
         2
 

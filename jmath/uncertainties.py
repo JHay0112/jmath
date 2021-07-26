@@ -23,23 +23,18 @@ class Uncertainty:
         Examples
         --------
 
-        Addition
         >>> Uncertainty(3, 1) + Uncertainty(4, 2)
         Uncertainty(7, 3)
 
-        Subtraction
         >>> Uncertainty(10, 1) - Uncertainty(2, 1)
         Uncertainty(8, 2)
 
-        Scaling
         >>> 2 * Uncertainty(2, 1)
         Uncertainty(4, 2.0)
 
-        Multiplication
         >>> Uncertainty(2, 1) + Uncertainty(4, 1)
         Uncertainty(8, 6.0)
 
-        Division
         >>> Uncertainty(20, 2) / Uncertainty(2, 0.5)
         Uncertainty(10.0, 3.5)
     """
