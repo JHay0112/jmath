@@ -21,9 +21,13 @@ project = 'jmath'
 copyright = '2021, Jordan Hay'
 author = 'Jordan Hay'
 
-# The full version, including alpha/beta/rc tags
-release = 'v3.3.2'
 
+
+# The full version, including alpha/beta/rc tags
+# Get version
+release = ""
+with open("../../version.txt") as f:
+    release == f.readline()
 
 # -- General configuration ---------------------------------------------------
 
