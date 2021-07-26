@@ -440,6 +440,51 @@ Date: 2021-07-01</p>
 <span id="jmath-linearalgebra-module"></span><h2>jmath.linearalgebra module<a class="headerlink" href="#module-jmath.linearalgebra" title="Permalink to this headline">¶</a></h2>
 <p>Linear algebra objects including Vectors, Points, Lines, and Planes.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Complex">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.Vector</span></code></a></p>
+<p>Complex numbers based on vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>real</strong> – Real component of a complex number</p></li>
+<li><p><strong>imaginary</strong> – Imaginary component of a complex number</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.argument">
+<span class="sig-name descname"><span class="pre">argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Complex.argument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the argument of the complex number in radians.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.imaginary">
+<span class="sig-name descname"><span class="pre">imaginary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Complex.imaginary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the imaginary component of the complex number.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.modulus">
+<span class="sig-name descname"><span class="pre">modulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Complex.modulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename of magnitude.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.quadrant">
+<span class="sig-name descname"><span class="pre">quadrant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.linearalgebra.Complex.quadrant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns which quadrant the number is in. Returns None if on a quadrant border.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.real">
+<span class="sig-name descname"><span class="pre">real</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Complex.real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the real component of the complex number.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Line">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Point" title="jmath.linearalgebra.Point"><span class="pre">jmath.linearalgebra.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
