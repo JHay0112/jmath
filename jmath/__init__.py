@@ -1,6 +1,4 @@
 '''
-    jmath/__init__.py
-
     The jmath top level package. Provides a set of default and optional sub-packages for doing maths in Python.
 
     Default Packages
@@ -34,6 +32,15 @@
 
         jmath.approximation.euler_method
             The euler method for approximating the integrals of differential equations.
+
+    Testing
+    -------
+
+    Testing can be performed upon the entire jmath codebase using
+
+        $ pytest
+
+    when in the jmath root directory.
         
 '''
 

@@ -1,6 +1,4 @@
 '''
-    jmath/linearalgebra.py
-
     Linear algebra objects including Vectors, Points, Lines, and Planes.
 '''
 
@@ -24,6 +22,32 @@ class Vector:
 
         \*components
             Scalar vector components
+
+        Examples
+        --------
+
+        Addition
+        >>> Vector(3, 2, 1) + Vector(2, 1, 1)
+        Vector(5, 3, 2)
+
+        Subtraction
+        >>> Vector(3, 1, 0) - Vector(9, 8, 8)
+        Vector(-6, -7, -8)
+
+        Scaling
+        >>> 3 * Vector(1, 2, -4)
+        Vector(3, 6, -12)
+        >>> Vector(3, 6, 9)/3
+        Vector(1, 2, 3)
+
+        Dot Product
+        >>> Vector(10, 2, 1) @ Vector(1, 2, 3)
+        17
+
+        Magnitude
+        >>> Vector(1, 1).magnitude()
+        2
+
     """
     def __init__(self, *components: List[float]):
 
@@ -33,6 +57,10 @@ class Vector:
         else:
             # Else it's *args
             self.components = list(components)
+
+    def __repr__(self) -> str:
+        """Programming Representation"""
+        return f"Vector{self.__str__()}"
 
     def __str__(self) -> str:
         """String representation"""
@@ -51,6 +79,12 @@ class Vector:
 
             func
                 Function to check
+
+            Raises
+            ------
+
+            VectorsNotSameSize
+                If the vectors are not the same size this error will be raised.
         """
 
         def inner(*args, **kwargs):
@@ -130,6 +164,12 @@ class Vector:
 
             vector
                 Vector or line to calculate the projection onto.
+
+            Raises
+            ------
+
+            VectorsNotSameSize
+                If the vectors are not the same size this error will be raised.
         """
         if isinstance(vector, Line):
             vector = vector.vector
@@ -158,7 +198,13 @@ class Vector:
             ----------
 
             vector
-                Vector or line to calculate angle between
+                Vector or line to calculate angle between.
+
+            Raises
+            ------
+
+            VectorsNotSameSize
+                If the vectors are not the same size this error will be raised.
         """
 
         if isinstance(vector, Line):
@@ -236,6 +282,12 @@ class Plane:
             Direction vector.
         vector2
             Direction vector.
+
+        Raises
+        ------
+
+        VectorsNotSameSize
+            If the vectors are not the same size this error will be raised.
     """
     def __init__(self, point: Point, vector1: Vector, vector2: Vector):
         
