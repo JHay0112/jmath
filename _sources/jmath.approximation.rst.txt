@@ -12,6 +12,14 @@ jmath.approximation.euler\_method module
    :undoc-members:
    :show-inheritance:
 
+jmath.approximation.newton\_method module
+-----------------------------------------
+
+.. automodule:: jmath.approximation.newton_method
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
