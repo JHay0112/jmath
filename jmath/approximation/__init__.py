@@ -3,15 +3,20 @@
 
     Tools for approximating mathematical equations.
 
-    Optional Packages
+    Default Packages
     -----------------
 
     jmath.approximation.euler_method
-            The euler method for approximating the integrals of differential equations.
+        The Euler Method for approximating the integrals of differential equations.
+    jmath.approximation.newton_method
+        The Newton Method for approximating the roots of an equation.
 '''
 
 # - Namespace
 
 __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 
-# No Defaults
+# - Defaults
+
+from .euler_method import euler_step, euler_step_interval, iterate_euler_step
+from .newton_method import newton_method
