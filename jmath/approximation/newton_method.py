@@ -10,7 +10,7 @@ from warnings import warn
 
 # - Functions
 
-def newton_method(f: Callable[[float], float], f_prime: Callable[[float], float], x_0: float, threshold: float = 1e-6, max_iter: int = 100) -> float:
+def newton_method(f: Callable[[float], float], f_prime: Callable[[float], float], x_0: float, threshold: float = 0.5e-6, max_iter: int = 100) -> float:
     """
         Newton's Method for approximation of the root of an equation.
 
@@ -23,9 +23,9 @@ def newton_method(f: Callable[[float], float], f_prime: Callable[[float], float]
             The derivative of the function to determine the root of.
         x_0
             The starting point for determining the root from.
-        threshold (optional)
+        threshold
             The threshold error to approximate the root to.
-        max_iter (optional)
+        max_iter
             The maximum iterations to apply.
     """
 
@@ -56,3 +56,17 @@ def newton_method(f: Callable[[float], float], f_prime: Callable[[float], float]
     # Error under threshold
     # Return value
     return(Uncertainty(x_n, threshold))
+
+def newton_sqrt(n: float) -> float:
+    """
+        Uses Newton's Method to compute square roots.
+
+        Parameters
+        ----------
+        
+        n
+            The number to approximate the square root of.
+    """
+    f = lambda x : x**2 - n
+    f_prime = lambda x : n*x
+    return newton_method(f, f_prime, n)
