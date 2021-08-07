@@ -9,7 +9,7 @@ Open a terminal/command prompt and use `pip install jmath`.
 
 ## Documentation
 
-Documentation can be found at [https://jordanhay.com/jmath]
+Documentation can be found at https://jordanhay.com/jmath
 
 ***
 ## Components
