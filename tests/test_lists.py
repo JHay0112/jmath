@@ -46,3 +46,18 @@ def test_binode_prepend():
 
     assert n1.prev == None
     assert n2.next == None
+
+def test_linked_list_iter():
+    """Tests linked list iteration."""
+
+    list = LinkedList()
+    # Fill list with subsequent numbers
+    for i in range(0, 100):
+        list.append(i)
+
+    # Iterate through list
+    i = 0
+    for item in list:
+        # Assert i is equivalent to the item
+        assert i == item
+        i += 1
