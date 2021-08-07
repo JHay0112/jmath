@@ -29,6 +29,9 @@ Rudimentary classification of physical objects (jmath.physics.mechanics), circui
 ### Approximation (jmath.approximation)
 Euler (jmath.approximation.euler_method) and Newton Method (jmath.approximation.newton_method) for approximation of Differential equations and Roots (respectively).
 
+### Abstract (jmath.abstract)
+Provides implementations of abstract data types, including linked lists, stacks, queues, and dequeues.
+
 *** 
 ## Testing
 
