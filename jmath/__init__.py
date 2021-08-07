@@ -14,8 +14,6 @@
 
     jmath.discrete
         In development programming representation of Nodes and Graphs.
-    jmath.fraction
-        Fraction based calculations. Potentially to be removed due to built in Fraction library.
     
     jmath.physics
         Tools for physical simulations. By default includes mechanics and prefixes.
@@ -32,6 +30,9 @@
 
         jmath.approximation.euler_method
             The euler method for approximating the integrals of differential equations.
+
+    jmath.abstract
+        Implementations of Abstract Data Types.
 
     Testing
     -------
