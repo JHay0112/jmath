@@ -58,10 +58,42 @@ class BiNode(Node):
 
         super().__init__(data, next)
 
+    def append(self, node: "BiNode"):
+        """
+            Appends a node to the back of this node.
+            
+            Parameters
+            ----------
+            
+            node
+                Node to be appended.
+        """
+        if self.next != node:
+            super().append(node)
+            node.prev = self
+
+    def prepend(self, node: "BiNode"):
+        """
+            Prepends a node to the front of this node.
+
+            Parameters
+            ----------
+
+            node
+                Node to be prepended.
+        """
+        if node.prev != self:
+            node.append(self)
+            self.prev = node
+
 class LinkedList:
     """
         Linked List abstract data type.
     """
+
+    # Defines the node type used by this type of list.
+    NODE = Node
+
     def __init__(self):
 
         self.head = None
@@ -78,7 +110,7 @@ class LinkedList:
             # Update current
             current = current.next
 
-    def append(self, data: Any):
+    def append(self, data: Any) -> "Node":
         """
             Appends a node to the end of the list. O(1).
 
@@ -87,8 +119,13 @@ class LinkedList:
 
             data
                 The data to be appended.
+
+            Returns
+            -------
+
+            Returns the node object created in the append.
         """
-        node = Node(data)
+        node = self.NODE(data)
 
         if self.bottom == None:
             # No node in the bottom.
@@ -101,6 +138,8 @@ class LinkedList:
             # Replace bottom node
             self.bottom = node
 
+        return node
+
     def extend(self, list: "LinkedList"):
         """
             Extends list. O(1).
@@ -110,23 +149,32 @@ class LinkedList:
             
             list
                 List to be appended onto this list.
+
         """
 
         self.append(list.head.data)
         self.bottom = list.bottom
 
-    def insert(self, index: int, data: Any):
+    def insert(self, index: int, data: Any) -> Node:
         """
             Inserts data at the specified index into the list. O(index) operation.
             Negative indices other than -1 unsupported.
+
+            Parameters
+            ----------
 
             index
                 Index for data to be inserted at.
             data
                 Data to be inserted.
+
+            Returns
+            -------
+
+            Returns the node object created in the insertion process.
         """
 
-        node = Node(data)
+        node = self.NODE(data)
 
         if index == 0:
             # Head
@@ -145,6 +193,8 @@ class LinkedList:
             for item in self:
                 if i == index:
                     item.append(node)
-                    return
+                    break
                 else:
                     i += 1
+        
+        return node
