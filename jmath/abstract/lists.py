@@ -198,3 +198,10 @@ class LinkedList:
                     i += 1
         
         return node
+
+class DoubleLinkedList(LinkedList):
+    """
+        Double Linked List implementation.
+    """
+
+    NODE = BiNode
