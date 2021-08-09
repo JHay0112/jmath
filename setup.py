@@ -5,7 +5,7 @@
     Date: 2021-06-17
 '''
 
-from setuptools import setup, find_namespace_packages
+from setuptools import setup, find_packages
 
 # Open readme
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -16,7 +16,9 @@ with open("version.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name = 'jmath',
-    packages = find_namespace_packages(include=['jmath.*']),
+    packages = [
+        "jmath"
+    ],
     version = version,
     description = "Mathematics Tools",
     long_description = long_description,
