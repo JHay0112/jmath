@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   jmath.abstract
    jmath.approximation
    jmath.physics
 
@@ -25,14 +26,6 @@ jmath.exceptions module
 -----------------------
 
 .. automodule:: jmath.exceptions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jmath.fraction module
----------------------
-
-.. automodule:: jmath.fraction
    :members:
    :undoc-members:
    :show-inheritance:
