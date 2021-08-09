@@ -4,7 +4,6 @@
 
 # - Imports
 
-from typing import Deque
 from ..jmath.abstract.queues import Queue
 
 # - Tests

@@ -23,7 +23,7 @@ class Queue(LinkedList):
         """
         super().append(data)
 
-    def dequeue(self):
+    def dequeue(self) -> Any:
         """Returns and removes the first queue item."""
         head = self.head
         self.head = head.next
