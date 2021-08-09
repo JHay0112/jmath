@@ -4,7 +4,7 @@
 
 # - Imports
 
-from typing import Any
+from typing import Any, List
 
 # - Classes
 
@@ -68,9 +68,8 @@ class BiNode(Node):
             node
                 Node to be appended.
         """
-        if self.next != node:
-            super().append(node)
-            node.prev = self
+        super().append(node)
+        node.prev = self
 
     def prepend(self, node: "BiNode"):
         """
@@ -82,9 +81,7 @@ class BiNode(Node):
             node
                 Node to be prepended.
         """
-        if node.prev != self:
-            node.append(self)
-            self.prev = node
+        node.append(self)
 
 class LinkedList:
     """
@@ -105,10 +102,19 @@ class LinkedList:
         current = self.head
         # While the current object is not none
         while current != None:
-            # Yield the current object's data
-            yield current.data
+            # Yield the current node
+            yield current
             # Update current
             current = current.next
+
+    def list(self) -> List[Any]:
+        """Returns an equivalent Python List."""
+        lst = []
+
+        for i in self:
+            lst.append(i.data)
+
+        return lst
 
     def append(self, data: Any) -> "Node":
         """
@@ -189,7 +195,7 @@ class LinkedList:
             raise IndexError()
         else:
             # Somewhere else, iterate!
-            i = 0
+            i = 1
             for item in self:
                 if i == index:
                     item.append(node)

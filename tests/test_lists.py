@@ -59,5 +59,33 @@ def test_linked_list_iter():
     i = 0
     for item in list:
         # Assert i is equivalent to the item
-        assert i == item
+        assert i == item.data
         i += 1
+
+def test_linked_list_append():
+    """Tests that appending to a linked list works as expected."""
+    data = ["1", 1, 2, "q"]
+    lst = LinkedList()
+
+    for item in data:
+        lst.append(item)
+
+    assert lst.head.data == data[0]
+    assert lst.bottom.data == data[-1]
+    assert lst.list() == data
+
+def test_linked_list_insert():
+    """Tests that inserting into a list works as expected."""
+
+    data = ["1", 1, 3, "q"]
+    lst = LinkedList()
+
+    for item in data:
+        lst.append(item)
+
+    lst.insert(3, "test")
+    lst = lst.list()
+
+    print(lst)
+
+    assert lst[3] == "test"
