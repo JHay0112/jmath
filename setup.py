@@ -16,9 +16,10 @@ with open("version.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name = 'jmath',
-    packages = [
-        "jmath"
-    ],
+    packages = find_packages(include = [
+        "jmath",
+        "jmath.*"
+    ]),
     version = version,
     description = "Mathematics Tools",
     long_description = long_description,
