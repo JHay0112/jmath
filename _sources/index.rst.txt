@@ -11,6 +11,7 @@ jmath Documentation
    :caption: Contents:
 
    jmath
+   jmath.abstract
    jmath.approximation
    jmath.physics
 
