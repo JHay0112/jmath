@@ -30,8 +30,9 @@ def vector_component_pair(len: int = random_integer()) -> Tuple[Vector, List[int
 
 def test_vector_addition():
     """Tests vector addition."""
-    v1, c1 = vector_component_pair()
-    v2, c2 = vector_component_pair()
+    len = random_integer()
+    v1, c1 = vector_component_pair(len)
+    v2, c2 = vector_component_pair(len)
 
     expected = Vector([i + j for i, j in zip(c1, c2)])
 
@@ -39,8 +40,9 @@ def test_vector_addition():
 
 def test_vector_subtraction():
     """Tests vector subtraction."""
-    v1, c1 = vector_component_pair()
-    v2, c2 = vector_component_pair()
+    len = random_integer()
+    v1, c1 = vector_component_pair(len)
+    v2, c2 = vector_component_pair(len)
 
     expected = Vector([i - j for i, j in zip(c1, c2)])
 
