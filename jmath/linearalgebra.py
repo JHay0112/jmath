@@ -20,7 +20,7 @@ class Vector:
         Parameters
         ----------
 
-        \*components
+        components
             Scalar vector components
 
         Examples
@@ -291,7 +291,7 @@ class Point(Vector):
         Parameters
         ----------
 
-        \*components
+        components
             Coordinates in n-space
     """
     def __init__(self, *components: List[float]):
