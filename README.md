@@ -1,6 +1,8 @@
 # jmath
 jmath is a hobby project developing a set of mathematical tools in the Python Language.
 
+[![wakatime](https://wakatime.com/badge/github/JHay0112/jmath.svg)](https://wakatime.com/badge/github/JHay0112/jmath)
+
 ***
 ## Installation
 Open a terminal/command prompt and use `pip install jmath`.
