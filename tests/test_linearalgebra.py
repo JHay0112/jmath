@@ -28,6 +28,14 @@ def vector_component_pair(len: int = random_integer()) -> Tuple[Vector, List[int
     components = random_integers(len)
     return (Vector(components), components)
 
+def test_vector_equality():
+    """Tests that vectors are equal as expected."""
+    v, c = vector_component_pair()
+
+    assert v == v
+    assert v == Vector(c)
+    assert v != v.negative()
+
 def test_vector_addition():
     """Tests vector addition."""
     len = random_integer()
