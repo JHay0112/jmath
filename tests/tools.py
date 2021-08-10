@@ -9,6 +9,17 @@ from typing import List
 
 # - Functions
 
+def repeat(func):
+    """
+        Wrapper that repeats a function 10 times.
+    """
+
+    def inner():
+        for i in range(10):
+            return func()
+
+    return inner
+
 def random_integer(min: int = 0, max: int = 100) -> int:
     """
         Generates a random integer. Wrapper of random.randint.

@@ -9,8 +9,8 @@
 
 # - Imports
 
-from ..jmath.linearalgebra import *
-from .tools import random_integer, random_integers
+from ..jmath.linearalgebra import Vector, Point, Line
+from .tools import random_integer, random_integers, repeat
 from typing import Tuple, List
 
 # - Functions
@@ -28,6 +28,7 @@ def vector_component_pair(len: int = random_integer()) -> Tuple[Vector, List[int
     components = random_integers(len)
     return (Vector(components), components)
 
+@repeat
 def test_vector_equality():
     """Tests that vectors are equal as expected."""
     v, c = vector_component_pair()
@@ -36,6 +37,7 @@ def test_vector_equality():
     assert v == Vector(c)
     assert v != v.negative()
 
+@repeat
 def test_vector_addition():
     """Tests vector addition."""
     len = random_integer()
@@ -46,6 +48,7 @@ def test_vector_addition():
 
     assert (v1 + v2) == expected
 
+@repeat
 def test_vector_subtraction():
     """Tests vector subtraction."""
     len = random_integer()
