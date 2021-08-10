@@ -10,20 +10,41 @@
 # - Imports
 
 from ..jmath.linearalgebra import *
+from .tools import random_integer, random_integers
+from typing import Tuple, List
 
 # - Functions
 
-def test_vector_arithmetic():
-    """Tests vector addition and subtraction"""
-    # Add/Subtract
-    added = Vector(1, 2) + Vector(3, 4)
-    subtracted = Vector(1, 2) - Vector(3, 4)
-    # Test Add
-    excepted = Vector(4, 6)
-    assert added == excepted
-    # Test Subtract
-    excepted = Vector(-2, -2)
-    assert subtracted == excepted
+def vector_component_pair(len: int = random_integer()) -> Tuple[Vector, List[int]]:
+    """
+        Generates a vector and component pair randomly.
+        
+        Parameters
+        ----------
+
+        len
+            The length vector/components to generate
+    """
+    components = random_integers(len)
+    return (Vector(components), components)
+
+def test_vector_addition():
+    """Tests vector addition."""
+    v1, c1 = vector_component_pair()
+    v2, c2 = vector_component_pair()
+
+    expected = Vector([i + j for i, j in zip(c1, c2)])
+
+    assert (v1 + v2) == expected
+
+def test_vector_subtraction():
+    """Tests vector subtraction."""
+    v1, c1 = vector_component_pair()
+    v2, c2 = vector_component_pair()
+
+    expected = Vector([i - j for i, j in zip(c1, c2)])
+
+    assert (v1 - v2) == expected
 
 def test_vector_scaling():
     """Tests vector multiplication and division"""
