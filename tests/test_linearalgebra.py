@@ -35,6 +35,7 @@ def test_vector_equality():
 
     assert v == v
     assert v == Vector(c)
+    assert v.components == c
     assert v != v.negative()
 
 @repeat
@@ -59,23 +60,45 @@ def test_vector_subtraction():
 
     assert (v1 - v2) == expected
 
+@repeat
 def test_vector_scaling():
     """Tests vector multiplication and division"""
-    # Divide/multiply
-    multiplied = Vector(3, 4) * 4
-    divided = Vector(1, 2) / 2
-    # Test multiply
-    expected = Vector(12, 16)
-    assert multiplied == expected
-    # Test divide
-    expected = Vector(1/2, 1)
-    assert divided == expected
+    # Produce initial conditions
+    length = random_integer(min = 3, max = 10)
+    scalor = random_integer(min = 1, max = 10)
+    v, c = vector_component_pair(length)
 
+    # Mult/div vectors
+    mult = v * scalor
+    div = v / scalor
+
+    # Compute expected
+    mult_expected = Vector([scalor * i for i in c])
+    div_expected = Vector([round(i / scalor, 5) for i in c])
+
+    # Round division vector to factor out floating point error
+    div.components = [round(i, 5) for i in div.components]
+
+    # Test multiply
+    assert mult_expected == mult
+    # Test divide
+    assert div_expected == div
+
+@repeat
 def test_dot_product():
     """Tests the dot product"""
-    dot = Vector(1, 2) @ Vector(3, 4)
-    expected = 1*3 + 2*4
-    assert dot == expected
+    # Generate vectors and components
+    len = random_integer()
+    v1, c1 = vector_component_pair(len)
+    v2, c2 = vector_component_pair(len)
+
+    # Compute dot product
+    dot = v1 @ v2
+
+    # Predict dot product
+    predicted_dot = sum([i * j for i, j in zip(c1, c2)])
+
+    assert dot == predicted_dot
 
 def test_projection():
     """Tests projecting vectors"""
