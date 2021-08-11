@@ -102,21 +102,19 @@ class Vector:
         """Add vectors together"""
 
         # Add the foreign components to local components and return
-        return(Vector(list(map(operator.add, self.components, vector.components))))
+        return Vector([i + j for i, j in zip(self.components, vector.components)])
 
     @__same_size
     def __sub__(self, vector: "Vector") -> "Vector":
         """Subtract vectors from each other"""
+        
         # Subtract the foreign components from local components and return
-        return(Vector(list(map(operator.sub, self.components, vector.components))))
+        return Vector([i - j for i, j in zip(self.components, vector.components)])
 
     @__same_size
     def __matmul__(self, vector: "Vector") -> float:
         """The dot product of two vectors"""
-        dot = 0
-        for i in range(len(self.components)):
-            dot += self.components[i] * vector.components[i]
-        return dot
+        return sum([i * j for i, j in zip(self.components, vector.components)])
 
     def __mul__(self, scalar: float) -> "Vector":
         """Scalar multiplication"""
