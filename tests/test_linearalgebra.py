@@ -9,39 +9,97 @@
 
 # - Imports
 
-from ..jmath.linearalgebra import *
+from ..jmath.linearalgebra import Vector, Point, Line
+from .tools import random_integer, random_integers, repeat
+from typing import Tuple, List
+from math import sqrt
 
 # - Functions
 
-def test_vector_arithmetic():
-    """Tests vector addition and subtraction"""
-    # Add/Subtract
-    added = Vector(1, 2) + Vector(3, 4)
-    subtracted = Vector(1, 2) - Vector(3, 4)
-    # Test Add
-    excepted = Vector(4, 6)
-    assert added == excepted
-    # Test Subtract
-    excepted = Vector(-2, -2)
-    assert subtracted == excepted
+def vector_component_pair(len: int = random_integer()) -> Tuple[Vector, List[int]]:
+    """
+        Generates a vector and component pair randomly.
+        
+        Parameters
+        ----------
 
+        len
+            The length vector/components to generate
+    """
+    components = random_integers(len)
+    return (Vector(components), components)
+
+@repeat
+def test_vector_equality():
+    """Tests that vectors are equal as expected."""
+    v, c = vector_component_pair()
+
+    assert v == v
+    assert v == Vector(c)
+    assert v.components == c
+    assert v != v.negative()
+
+@repeat
+def test_vector_addition():
+    """Tests vector addition."""
+    len = random_integer()
+    v1, c1 = vector_component_pair(len)
+    v2, c2 = vector_component_pair(len)
+
+    expected = Vector([i + j for i, j in zip(c1, c2)])
+
+    assert (v1 + v2) == expected
+
+@repeat
+def test_vector_subtraction():
+    """Tests vector subtraction."""
+    len = random_integer()
+    v1, c1 = vector_component_pair(len)
+    v2, c2 = vector_component_pair(len)
+
+    expected = Vector([i - j for i, j in zip(c1, c2)])
+
+    assert (v1 - v2) == expected
+
+@repeat
 def test_vector_scaling():
     """Tests vector multiplication and division"""
-    # Divide/multiply
-    multiplied = Vector(3, 4) * 4
-    divided = Vector(1, 2) / 2
-    # Test multiply
-    expected = Vector(12, 16)
-    assert multiplied == expected
-    # Test divide
-    expected = Vector(1/2, 1)
-    assert divided == expected
+    # Produce initial conditions
+    length = random_integer(min = 3, max = 10)
+    scalor = random_integer(min = 1, max = 10)
+    v, c = vector_component_pair(length)
 
+    # Mult/div vectors
+    mult = v * scalor
+    div = v / scalor
+
+    # Compute expected
+    mult_expected = Vector([scalor * i for i in c])
+    div_expected = Vector([round(i / scalor, 5) for i in c])
+
+    # Round division vector to factor out floating point error
+    div.components = [round(i, 5) for i in div.components]
+
+    # Test multiply
+    assert mult_expected == mult
+    # Test divide
+    assert div_expected == div
+
+@repeat
 def test_dot_product():
     """Tests the dot product"""
-    dot = Vector(1, 2) @ Vector(3, 4)
-    expected = 1*3 + 2*4
-    assert dot == expected
+    # Generate vectors and components
+    len = random_integer()
+    v1, c1 = vector_component_pair(len)
+    v2, c2 = vector_component_pair(len)
+
+    # Compute dot product
+    dot = v1 @ v2
+
+    # Predict dot product
+    predicted_dot = sum([i * j for i, j in zip(c1, c2)])
+
+    assert dot == predicted_dot
 
 def test_projection():
     """Tests projecting vectors"""
@@ -54,19 +112,24 @@ def test_projection():
     line = Line(None, vec2)
     assert vec1.projection(line) == expected
 
+@repeat
 def test_magnitude():
     """Tests vector magnitude"""
-    vector = Vector(3, 4, 5, -2)
-    assert round(vector.magnitude(), 2) == 7.35
+    
+    v, c = vector_component_pair()
 
+    # Square components, sum, and sqrt
+    predicted_magnitude = sqrt(sum([i ** 2 for i in c]))
+
+    assert round(predicted_magnitude, 5) == round(v.magnitude(), 5)
+
+@repeat
 def test_vector_size():
     """Tests that a vector will return the correct size"""
-    # Vector with six entries
-    vector = Vector(1, 2, 3, 4, 5, 6)
-    assert len(vector) == 6
-    # Vector with one entry
-    vector = Vector(0)
-    assert len(vector) == 1
+    
+    v, c = vector_component_pair()
+
+    assert len(v) == len(c)
 
 def test_point_in_line():
     """Tests whether a point is in a line"""
@@ -92,11 +155,18 @@ def test_angle_between():
 
     assert vec1.angle_between(vec2) == 0
 
+@repeat
 def test_negative():
     """Test that a negative vector does indeed give one with all the components reversed"""
-    vec = Vector(1, 2).negative()
-    expected_vec = Vector(-1, -2)
-    assert vec == expected_vec
+
+    # Generate vector component pair
+    v, c = vector_component_pair()
+    # Make negative vector
+    v = v.negative()
+    # Make components negative
+    c = Vector([-i for i in c])
+    
+    assert v == c
 
 def test_unit_vector():
     """Tests that a unit vector is produced correctly"""

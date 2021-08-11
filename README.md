@@ -1,4 +1,7 @@
 # jmath
+
+[![wakatime](https://wakatime.com/badge/github/JHay0112/jmath.svg)](https://wakatime.com/badge/github/JHay0112/jmath)
+
 jmath is a hobby project developing a set of mathematical tools in the Python Language.
 
 ***
