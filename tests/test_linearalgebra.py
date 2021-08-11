@@ -37,7 +37,6 @@ def test_vector_equality():
     assert v == v
     assert v == Vector(c)
     assert v.components == c
-    assert v != v.negative()
 
 @repeat
 def test_vector_addition():
