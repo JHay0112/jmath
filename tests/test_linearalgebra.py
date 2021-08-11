@@ -121,7 +121,7 @@ def test_magnitude():
     # Square components, sum, and sqrt
     predicted_magnitude = sqrt(sum([i ** 2 for i in c]))
 
-    assert predicted_magnitude == v.magnitude()
+    assert round(predicted_magnitude, 5) == round(v.magnitude(), 5)
 
 @repeat
 def test_vector_size():
