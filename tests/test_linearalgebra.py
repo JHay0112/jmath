@@ -12,6 +12,7 @@
 from ..jmath.linearalgebra import Vector, Point, Line
 from .tools import random_integer, random_integers, repeat
 from typing import Tuple, List
+from math import sqrt
 
 # - Functions
 
@@ -111,19 +112,24 @@ def test_projection():
     line = Line(None, vec2)
     assert vec1.projection(line) == expected
 
+@repeat
 def test_magnitude():
     """Tests vector magnitude"""
-    vector = Vector(3, 4, 5, -2)
-    assert round(vector.magnitude(), 2) == 7.35
+    
+    v, c = vector_component_pair()
 
+    # Square components, sum, and sqrt
+    predicted_magnitude = sqrt(sum([i ** 2 for i in c]))
+
+    assert predicted_magnitude == v.magnitude()
+
+@repeat
 def test_vector_size():
     """Tests that a vector will return the correct size"""
-    # Vector with six entries
-    vector = Vector(1, 2, 3, 4, 5, 6)
-    assert len(vector) == 6
-    # Vector with one entry
-    vector = Vector(0)
-    assert len(vector) == 1
+    
+    v, c = vector_component_pair()
+
+    assert len(v) == len(c)
 
 def test_point_in_line():
     """Tests whether a point is in a line"""
@@ -149,11 +155,18 @@ def test_angle_between():
 
     assert vec1.angle_between(vec2) == 0
 
+@repeat
 def test_negative():
     """Test that a negative vector does indeed give one with all the components reversed"""
-    vec = Vector(1, 2).negative()
-    expected_vec = Vector(-1, -2)
-    assert vec == expected_vec
+
+    # Generate vector component pair
+    v, c = vector_component_pair()
+    # Make negative vector
+    v = v.negative()
+    # Make components negative
+    c = Vector([-i for i in c])
+    
+    assert v == c
 
 def test_unit_vector():
     """Tests that a unit vector is produced correctly"""
