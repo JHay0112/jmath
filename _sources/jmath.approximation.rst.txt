@@ -4,6 +4,14 @@ jmath.approximation package
 Submodules
 ----------
 
+jmath.approximation.differentiation module
+------------------------------------------
+
+.. automodule:: jmath.approximation.differentiation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.approximation.euler\_method module
 ----------------------------------------
 

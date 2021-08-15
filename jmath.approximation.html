@@ -94,6 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">jmath.approximation package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation.differentiation">jmath.approximation.differentiation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation.euler_method">jmath.approximation.euler_method module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation.newton_method">jmath.approximation.newton_method module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation">Module contents</a></li>
@@ -113,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">jmath.approximation package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation.differentiation">jmath.approximation.differentiation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation.euler_method">jmath.approximation.euler_method module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation.newton_method">jmath.approximation.newton_method module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation">Module contents</a><ul>
@@ -196,6 +198,26 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-jmath.approximation.differentiation">
+<span id="jmath-approximation-differentiation-module"></span><h2>jmath.approximation.differentiation module<a class="headerlink" href="#module-jmath.approximation.differentiation" title="Permalink to this headline">¶</a></h2>
+<p>Approximations of the results of differential equations.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.approximation.differentiation.differentiate">
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">differentiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.differentiation.differentiate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numerically differentiate the given function at a point x.
+Uses the symmetric difference quotient to approximate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – The function to numerically differentiate.</p></li>
+<li><p><strong>x</strong> – The point at which to differentiate at.</p></li>
+<li><p><strong>h</strong> – The change in x to approximate with.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="module-jmath.approximation.euler_method">
 <span id="jmath-approximation-euler-method-module"></span><h2>jmath.approximation.euler_method module<a class="headerlink" href="#module-jmath.approximation.euler_method" title="Permalink to this headline">¶</a></h2>
 <p>jmath/approximation/euler_method.py</p>
@@ -241,7 +263,7 @@ h (float) - Step size</p>
 <p>Newton’s method for approximating the roots of equations.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.newton_method.newton_method">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_prime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">5e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.newton_method.newton_method" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_prime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">5e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.newton_method.newton_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Newton’s Method for approximation of the root of an equation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -258,7 +280,7 @@ h (float) - Step size</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.newton_method.newton_sqrt">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.newton_method.newton_sqrt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.newton_method.newton_sqrt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses Newton’s Method to compute square roots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -293,6 +315,8 @@ h (float) - Step size</p>
 <dt>jmath.approximation.euler_method</dt><dd><p>The Euler Method for approximating the integrals of differential equations.</p>
 </dd>
 <dt>jmath.approximation.newton_method</dt><dd><p>The Newton Method for approximating the roots of an equation.</p>
+</dd>
+<dt>jmath.approximation.differentiation</dt><dd><p>Numerical method for approximating differntials of functions.</p>
 </dd>
 </dl>
 </div>
