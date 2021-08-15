@@ -6,6 +6,7 @@
 
 from random import randint
 from typing import List
+from functools import wraps
 
 # - Functions
 
@@ -13,7 +14,7 @@ def repeat(func):
     """
         Wrapper that repeats a function 10 times.
     """
-
+    @wraps(func)
     def inner():
         for i in range(10):
             return func()

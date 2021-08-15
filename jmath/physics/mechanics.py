@@ -11,6 +11,8 @@
 
 from ..linearalgebra import Vector, Point
 from ..exceptions import ZeroDistance
+from typing import Callable
+from functools import wraps
 
 # - Constants
 
@@ -102,8 +104,9 @@ class PhysObj:
         # Add self to list in PhysEnv
         self.env.add_object(self)
 
-    def non_zero_distance(func):
+    def __non_zero_distance(func: Callable[["PhysObj", "PhysObj"], Vector]) -> Callable[["PhysObj", "PhysObj"], Vector]:
         """Wrapper that checks that there is not zero distance between objects."""
+        @wraps(func)
         def inner(*args, **kwargs):
 
             distance = args[0].position - args[1].position
@@ -136,7 +139,7 @@ class PhysObj:
         # F = ma -> a = F/m
         return self.force() / self.mass
 
-    @non_zero_distance
+    @__non_zero_distance
     def gravity(self, other: 'PhysObj') -> Vector:
         """
             Calculates the force of gravity between two objects
@@ -152,7 +155,7 @@ class PhysObj:
         else:
             return self.position * 0 # Zero vector of correct size
 
-    @non_zero_distance
+    @__non_zero_distance
     def electrostatic(self, other: 'PhysObj') -> Vector:
         """
             Calculates the force given by charge between two objects

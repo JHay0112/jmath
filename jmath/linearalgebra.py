@@ -8,9 +8,9 @@ from .exceptions import VectorsNotSameSize
 
 # - Modules
 
-import operator # Python operators
 import math # Mathematical functions, e.g. sqrt()
 from typing import List, Union, Callable, Any
+from functools import wraps
 
 # - Classes
 class Vector:
@@ -81,7 +81,7 @@ class Vector:
             VectorsNotSameSize
                 If the vectors are not the same size this error will be raised.
         """
-
+        @wraps(func)
         def inner(*args, **kwargs):
             if len(args[0]) == len(args[1]):
                 return func(*args, **kwargs)
