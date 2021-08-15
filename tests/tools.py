@@ -20,7 +20,7 @@ def repeat(func):
 
     return inner
 
-def random_integer(min: int = 0, max: int = 100) -> int:
+def random_integer(min: int = -100, max: int = 100) -> int:
     """
         Generates a random integer. Wrapper of random.randint.
 
