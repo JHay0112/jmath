@@ -9,7 +9,7 @@ from ..uncertainties import Uncertainty
 
 # - Functions
 
-def differentiate(f: Callable[[float], float], x: float, h: float = 1.5e-6) -> float:
+def differentiate(f: Callable[[float], float], x: float, h: float = 1e-6) -> Uncertainty:
     """
         Numerically differentiate the given function at a point x.
         Uses the symmetric difference quotient to approximate.
@@ -27,5 +27,5 @@ def differentiate(f: Callable[[float], float], x: float, h: float = 1.5e-6) -> f
 
     derivative = (f(x + h) - f(x- h))/(2*h)
 
-    return Uncertainty(derivative, h)
+    return Uncertainty(derivative, h ** 2)
 
