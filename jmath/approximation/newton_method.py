@@ -27,7 +27,7 @@ def newton_step(f: Callable[[float], float], f_prime: Callable[[float], float], 
 
     return x_0 - f(x_0)/f_prime(x_0)
 
-def newton_method(f: Callable[[float], float], f_prime: Callable[[float], float], x_0: float, threshold: float = 0.5e-6, max_iter: int = 100) -> float:
+def newton_method(f: Callable[[float], float], f_prime: Callable[[float], float], x_0: float, threshold: float = 0.5e-6, max_iter: int = 100) -> Uncertainty:
     """
         Newton's Method for approximation of the root of an equation.
 
@@ -73,7 +73,7 @@ def newton_method(f: Callable[[float], float], f_prime: Callable[[float], float]
     # Return value
     return(Uncertainty(x_n, threshold))
 
-def newton_sqrt(n: float) -> float:
+def newton_sqrt(n: float) -> Uncertainty:
     """
         Uses Newton's Method to compute square roots.
 
