@@ -25,11 +25,15 @@ def gravitational_force(mass1: float, mass2: float, distance: float) -> float:
     """
         Calculates the force of gravity between two masses
     
-        Parameters:
+        Parameters
+        ----------
 
-        mass1 (float) - The mass of one object in kg
-        mass2 (float) - The mass of the other object in kg
-        distance (float) - The distance between the objects in m
+        mass1
+            The mass of one object in kg
+        mass2
+            The mass of the other object in kg
+        distance
+            The distance between the objects in m
     """
     return GRAVITATIONAL_CONSTANT * mass1 * mass2 / (distance**2)
 
@@ -37,11 +41,15 @@ def electrostatic_force(charge1: float, charge2: float, distance: float) -> floa
     """
         Calculates the electrostatic force between two charges
 
-        Parameters:
+        Parameters
+        ----------
 
-        charge1 (float) - The charge in coulombs
-        charge2 (float) - The other charge in coulombs
-        distance (float) - The distance between the charges in m
+        charge1
+            The charge in coulombs
+        charge2
+            The other charge in coulombs
+        distance
+            The distance between the charges in m
     """
     return COULOMBS_CONSTANT * charge1 * charge2 / (distance**2)
 
@@ -64,9 +72,11 @@ class PhysEnv:
         """
             Increments the time by the given value
 
-            Parameters:
+            Parameters
+            ----------
 
-            increment (float) - The amount to increase the time by
+            increment
+                The amount to increase the time by
         """
         self.time += increment
 
@@ -74,9 +84,11 @@ class PhysEnv:
         """
             Add a new Physics Object to the environment
 
-            Parameters:
+            Parameters
+            ----------
 
-            new_obj (PhysObj) - Object to add to environment
+            new_obj
+                Object to add to environment
         """
         self.objects.append(new_obj)
 
@@ -84,13 +96,19 @@ class PhysObj:
     """
         Creates an object with physical properties.
 
-        Parameters:
+        Parameters
+        ----------
 
-        env (PhysEnv) - The environment that the object exists in
-        position (Point) - The initial position of the object
-        velocity (Vector) - The initial velocity of the object in metres per second
-        mass (float:1) - The mass of the object in kilograms
-        charge (float:0) - The electric charge of the object in coulombs
+        env
+            The environment that the object exists in
+        position
+            The initial position of the object
+        velocity
+            The initial velocity of the object in metres per second
+        mass
+            The mass of the object in kilograms
+        charge
+            The electric charge of the object in coulombs
     """
     def __init__(self, env: PhysEnv, position: Point, velocity: Vector, mass: float = 0, charge: float = 0):
 
@@ -144,9 +162,11 @@ class PhysObj:
         """
             Calculates the force of gravity between two objects
 
-            Parameters:
+            Parameters
+            ----------
 
-            other (PhysObj) - Other physics object
+            other
+                Other physics object
         """
         if not (self.mass == 0 or other.mass == 0):
             # Distance vector between the objects
@@ -160,9 +180,11 @@ class PhysObj:
         """
             Calculates the force given by charge between two objects
 
-            Parameters:
+            Parameters
+            ----------
 
-            other (PhysObj) - Other physics object
+            other
+                Other physics object
         """
         if not (self.charge == 0 or other.charge == 0):
             # Distance vector between the objects
