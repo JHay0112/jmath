@@ -540,8 +540,17 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Vector.angle_between">
-<span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the angle (in radians) between two vectors to 5 d.p.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate angle between.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Vector.magnitude">
@@ -557,8 +566,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Vector.projection">
-<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector.projection" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#jmath.linearalgebra.Line" title="jmath.linearalgebra.Line"><span class="pre">jmath.linearalgebra.Line</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.projection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns projection of current vector onto the passed vector or line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate the projection onto.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.Vector.unit">

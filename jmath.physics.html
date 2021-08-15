@@ -312,8 +312,11 @@ charge (float:0) - The electric charge of the object in coulombs</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.electrostatic">
-<span class="sig-name descname"><span class="pre">electrostatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.electrostatic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">electrostatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><span class="pre">jmath.physics.mechanics.PhysObj</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.electrostatic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the force given by charge between two objects</p>
+<p>Parameters:</p>
+<p>other (PhysObj) - Other physics object</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.force">
@@ -323,19 +326,16 @@ charge (float:0) - The electric charge of the object in coulombs</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.gravity">
-<span class="sig-name descname"><span class="pre">gravity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.gravity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">gravity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><span class="pre">jmath.physics.mechanics.PhysObj</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.gravity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the force of gravity between two objects</p>
+<p>Parameters:</p>
+<p>other (PhysObj) - Other physics object</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.momentum">
 <span class="sig-name descname"><span class="pre">momentum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.momentum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the momentum of the object</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.non_zero_distance">
-<span class="sig-name descname"><span class="pre">non_zero_distance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.non_zero_distance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wrapper that checks that there is not zero distance between objects.</p>
 </dd></dl>
 
 </dd></dl>
