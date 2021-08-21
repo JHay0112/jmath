@@ -53,7 +53,7 @@ def electrostatic_force(charge1: float, charge2: float, distance: float) -> floa
     """
     return COULOMBS_CONSTANT * charge1 * charge2 / (distance**2)
 
-def kinematic_position(position: Vector, velocity: Vector, acceleration: Vector, time: float) -> Vector:
+def kinematic_position(position: Point, velocity: Vector, acceleration: Vector, time: float) -> Point:
     """
         Calculates the new position from position, velocity, acceleration, and time
 
@@ -71,6 +71,23 @@ def kinematic_position(position: Vector, velocity: Vector, acceleration: Vector,
     """
 
     return position + velocity * time - 0.5 * acceleration * time **2
+
+def kinematic_velocity(velocity: Vector, acceleration: Vector, time: float) -> Vector:
+    """
+        Calculates the new velocity from velocity, acceleration, and time.
+
+        Parameters
+        ----------
+
+        velocity
+            The inital velocity.
+        acceleration
+            The acceleration.
+        time
+            The time to approximate over
+    """
+
+    return acceleration * time + velocity
 
 # - Classes
 class PhysEnv:
@@ -179,6 +196,7 @@ class PhysObj:
     def increment_position(self, time: float = 0.1):
         """
             Increments the position kinematically over a time interval.
+            Also updates velocity.
 
             Parameters
             ----------
@@ -186,7 +204,8 @@ class PhysObj:
             time
                 The time interval to approximate over.
         """
-        self.position = kinematic_position(self.position, self.velocity(), self.acceleration(), time)
+        self.position = kinematic_position(self.position, self.velocity, self.acceleration(), time)
+        self.velocity = kinematic_velocity(self.velocity, self.acceleration(), time)
 
     @__non_zero_distance
     def gravity(self, other: 'PhysObj') -> Vector:
