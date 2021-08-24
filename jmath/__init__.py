@@ -34,6 +34,15 @@
     jmath.abstract
         Implementations of Abstract Data Types.
 
+    jmath.modular
+        Simple functions for working with modular arithmetic
+
+    jmath.cryptography
+        Tools for working with cryptography. By default includes the affine cipher.
+
+        jmath.cryptography.affine
+            Affine cipher object for encrypting/decrypting affine.
+
     Testing
     -------
 
@@ -64,3 +73,4 @@ __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 
 from .uncertainties import Uncertainty
 from .linearalgebra import Vector, Point, Line
+from .modular import extended_gcd, modular_inverse
