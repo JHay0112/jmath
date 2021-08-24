@@ -48,10 +48,12 @@ class Affine:
 
     @property
     def a(self):
+        '''Value that x is multiplied by in the encryption process.'''
         return self._a
 
     @property
     def b(self):
+        '''Value that x is added to in the encryption process.'''
         return self._b
 
     @a.setter
