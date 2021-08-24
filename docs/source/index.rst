@@ -11,6 +11,7 @@ jmath Documentation
    :caption: Contents:
    :glob:
 
+   jmath
    jmath.*
 
 Indices and tables
