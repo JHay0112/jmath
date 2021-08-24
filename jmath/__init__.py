@@ -57,7 +57,7 @@
 
     Upon addition of a new sub-module the documentation must be updated with
 
-        $ sphinx-apidoc -o ./docs/source/ ./jmath
+        $ sphinx-apidoc -o ./docs/source/ ./jmath --force
 
     when in the jmath root directory.
 
