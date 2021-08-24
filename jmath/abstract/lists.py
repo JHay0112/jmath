@@ -83,6 +83,35 @@ class BiNode(Node):
         """
         node.append(self)
 
+class MultiNode:
+    """
+        Node that refers to a set of adjoining nodes
+
+        Parameters
+        ----------
+
+        data
+            The data value associated with the node.
+        nodes
+            Set of neighbours this node is attached to.
+    """
+    def __init__(self, data: Any, nodes: set = set()):
+
+        self.data = data
+        self.nodes = nodes
+
+    def append(self, node: "MultiNode"):
+        """
+            Appends a node to the set of nodes related to this node.
+
+            Parameters
+            ----------
+
+            node
+                Node to be appended.
+        """
+        self.nodes.add(node)
+
 class LinkedList:
     """
         Linked List abstract data type.

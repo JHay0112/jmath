@@ -42,6 +42,17 @@
         $ pytest
 
     when in the jmath root directory.
+
+    Documentation
+    -------------
+
+    Upon addition of a new sub-module the documentation must be updated with
+
+        $ sphinx-apidoc -o ./docs/source/ ./jmath
+
+    when in the jmath root directory.
+
+    Documentation is automatically built by a workflow in github and published to https://jordanhay.com/jmath
         
 '''
 
