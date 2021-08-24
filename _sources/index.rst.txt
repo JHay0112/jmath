@@ -9,12 +9,9 @@ jmath Documentation
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :glob:
 
-   jmath
-   jmath.abstract
-   jmath.approximation
-   jmath.physics
-   jmath.cryptography
+   jmath.*
 
 Indices and tables
 ==================
