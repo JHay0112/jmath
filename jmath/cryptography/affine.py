@@ -162,7 +162,7 @@ class Affine:
         # Convert num to char
         return self._num_to_char(num)
 
-    def encrypt(self, string: str) -> str:
+    def encrypt(self, string: str, split_char: str = " ") -> str:
         """
             Encrypts a string of letters as per the affine cipher.
 
@@ -171,6 +171,8 @@ class Affine:
 
             string
                 The string to be encrypted by the affine cipher
+            split_char
+                The value to insert between encrypted values.
         """
         output_list = []
 
@@ -179,9 +181,9 @@ class Affine:
             if char != " ":
                 output_list.append(str(self._encrypt_char(char)))
         
-        return " ".join(output_list)
+        return split_char.join(output_list)
 
-    def decrypt(self, string: str) -> str:
+    def decrypt(self, string: str, split_char: str = " ") -> str:
         """
             Decrypts a string of numbers as per the affine cipher
 
@@ -190,6 +192,8 @@ class Affine:
 
             string
                 The string to be decrypted by the affine cipher, expects splits by spaces.
+            split_char
+                The character between encrypted values.
         """
 
         output_string = ""
