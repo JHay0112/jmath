@@ -4,7 +4,7 @@
 
 # - Imports
 
-from ..jmath.abstract.lists import Node, BiNode, LinkedList
+from ..jmath.abstract.lists import MultiNode, Node, BiNode, LinkedList
 
 # - Tests
 
@@ -46,6 +46,22 @@ def test_binode_prepend():
 
     assert n1.prev == None
     assert n2.next == None
+
+def test_multinode_append():
+    """Tests multinode append."""
+
+    n1 = MultiNode("a")
+    n2 = MultiNode("b")
+    n3 = MultiNode("c")
+    n4 = MultiNode("d")
+
+    attached_nodes = {n2, n3, n4}
+
+    n1.append(n2)
+    n1.append(n3)
+    n1.append(n4)
+
+    assert n1.nodes == attached_nodes
 
 def test_linked_list_iter():
     """Tests linked list iteration."""
