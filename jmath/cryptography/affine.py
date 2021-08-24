@@ -4,9 +4,8 @@
 
 # - Imports
 
-from math import gcd
 import string
-from ..modular import extended_gcd, modular_inverse
+from ..modular import modular_inverse
 from ..exceptions import OutOfRange
 from typing import Tuple
 
