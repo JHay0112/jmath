@@ -107,31 +107,6 @@ class Affine:
 
         return self.char_set[number % len(self.char_set)]
 
-    def _affine_cipher(self, num: int) -> int:
-        """
-            Applies the affine cipher to a number
-
-            Parameters
-            ----------
-
-            num
-                The number to apply the affine cipher to
-        """
-        return (num*self.a + self.b) % len(self.char_set)
-
-    def _affine_decipher(self, num: int) -> int:
-        """
-            Reverses the affine cipher on the number
-
-            Parameters
-            ----------
-
-            num
-                The number to decipher
-        """
-
-        return self.a_inverse*(num - self.b) % len(self.char_set)
-
     def _encrypt_char(self, char: str) -> int:
         """
             Encrypts a character as per the affine cipher.
@@ -145,7 +120,8 @@ class Affine:
 
         num = self._char_to_num(char[0])
         # Convert num per affine cipher
-        return self._affine_cipher(num)
+        num = (num*self.a + self.b) % len(self.char_set)
+        return num
 
     def _decrypt_num(self, num: int) -> str:
         """
@@ -158,7 +134,8 @@ class Affine:
                 The number to decrypt
         """
 
-        num = self._affine_decipher(int(num))
+        num = int(num)
+        num = self.a_inverse*(num - self.b) % len(self.char_set)
         # Convert num to char
         return self._num_to_char(num)
 
