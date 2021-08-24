@@ -14,6 +14,7 @@ jmath Documentation
    jmath.abstract
    jmath.approximation
    jmath.physics
+   jmath.cryptography
 
 Indices and tables
 ==================
