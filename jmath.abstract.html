@@ -100,6 +100,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 </ul>
 </li>
@@ -107,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.discrete">jmath.discrete module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.exceptions">jmath.exceptions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.linearalgebra">jmath.linearalgebra module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.modular">jmath.modular module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.uncertainties">jmath.uncertainties module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath">Module contents</a></li>
 </ul>
@@ -313,6 +315,32 @@ Negative indices other than -1 unsupported.</p>
 <dt class="sig sig-object py" id="jmath.abstract.lists.LinkedList.list">
 <span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an equivalent Python List.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.abstract.lists.MultiNode">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">MultiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">set</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Node that refers to a set of adjoining nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – The data value associated with the node.</p></li>
+<li><p><strong>nodes</strong> – Set of neighbours this node is attached to.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.lists.MultiNode.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.abstract.lists.MultiNode" title="jmath.abstract.lists.MultiNode"><span class="pre">jmath.abstract.lists.MultiNode</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends a node to the set of nodes related to this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>node</strong> – Node to be appended.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

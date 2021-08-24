@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 </ul>
 </li>
@@ -100,11 +101,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.discrete">jmath.discrete module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.exceptions">jmath.exceptions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.linearalgebra">jmath.linearalgebra module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.modular">jmath.modular module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.uncertainties">jmath.uncertainties module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#default-packages">Default Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#optional-packages">Optional Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -200,6 +203,15 @@
 <li class="toctree-l2"><a class="reference internal" href="jmath.approximation.html#module-jmath.approximation.newton_method">jmath.approximation.newton_method module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.approximation.html#module-jmath.approximation">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html#default-packages">Default Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmath.cryptography.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.cryptography.html#module-jmath.cryptography.affine">jmath.cryptography.affine module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.cryptography.html#module-jmath.cryptography">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jmath.cryptography.html#default-packages">Default Packages</a></li>
 </ul>
 </li>
 </ul>
@@ -379,17 +391,27 @@
 <p>jmath/exceptions.py</p>
 <p>Defines exceptions for jmath.</p>
 <dl class="py exception">
-<dt class="sig sig-object py" id="jmath.exceptions.InvalidFractionOperation">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidFractionOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'This</span> <span class="pre">operation</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">completed</span> <span class="pre">on</span> <span class="pre">fractions.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.InvalidFractionOperation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="jmath.exceptions.OutOfRange">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">OutOfRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.OutOfRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-<p>Exception thrown for invalid operations on fractions</p>
+<p>Exception thrown for values that are not within expected bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_input</strong> – The input number</p></li>
+<li><p><strong>lower_bound</strong> – The lower boundary</p></li>
+<li><p><strong>upper_bound</strong> – The upper boundary</p></li>
+<li><p><strong>message</strong> – Appended additional message</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="jmath.exceptions.VectorsNotSameSize">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">VectorsNotSameSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Operation</span> <span class="pre">invalid</span> <span class="pre">for</span> <span class="pre">vectors</span> <span class="pre">of</span> <span class="pre">different</span> <span class="pre">sizes.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.VectorsNotSameSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-<p>Exception throw for operations on vectors of different sizes</p>
+<p>Exception thrown for operations on vectors of different sizes</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -587,6 +609,39 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-jmath.modular">
+<span id="jmath-modular-module"></span><h2>jmath.modular module<a class="headerlink" href="#module-jmath.modular" title="Permalink to this headline">¶</a></h2>
+<p>Tools for modular arithmetic</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.modular.extended_gcd">
+<span class="sig-prename descclassname"><span class="pre">jmath.modular.</span></span><span class="sig-name descname"><span class="pre">extended_gcd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.modular.extended_gcd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive extended euclidean algorithm to find the greatest common denominator and its linear combination
+Returns g, m, n such that gcd(a, b) = g = m*a + n*b</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – Number to find the greatest common denominator of with b</p></li>
+<li><p><strong>b</strong> – Number to find the greatest common denominator of with a</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.modular.modular_inverse">
+<span class="sig-prename descclassname"><span class="pre">jmath.modular.</span></span><span class="sig-name descname"><span class="pre">modular_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.modular.modular_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the modular inverse of a number in a set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – The number to find the modular inverse of</p></li>
+<li><p><strong>set_size</strong> – The size of the set to find the inverse in</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="module-jmath.uncertainties">
 <span id="jmath-uncertainties-module"></span><h2>jmath.uncertainties module<a class="headerlink" href="#module-jmath.uncertainties" title="Permalink to this headline">¶</a></h2>
 <p>Provides a class to deal with values with associated uncertainty.</p>
@@ -685,6 +740,14 @@
 </dd>
 <dt>jmath.abstract</dt><dd><p>Implementations of Abstract Data Types.</p>
 </dd>
+<dt>jmath.modular</dt><dd><p>Simple functions for working with modular arithmetic</p>
+</dd>
+<dt>jmath.cryptography</dt><dd><p>Tools for working with cryptography. By default includes the affine cipher.</p>
+<dl class="simple">
+<dt>jmath.cryptography.affine</dt><dd><p>Affine cipher object for encrypting/decrypting affine.</p>
+</dd>
+</dl>
+</dd>
 </dl>
 </div>
 <div class="section" id="testing">
@@ -694,6 +757,15 @@
 <div><p>$ pytest</p>
 </div></blockquote>
 <p>when in the jmath root directory.</p>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>Upon addition of a new sub-module the documentation must be updated with</p>
+<blockquote>
+<div><p>$ sphinx-apidoc -o ./docs/source/ ./jmath</p>
+</div></blockquote>
+<p>when in the jmath root directory.</p>
+<p>Documentation is automatically built by a workflow in github and published to <a class="reference external" href="https://jordanhay.com/jmath">https://jordanhay.com/jmath</a></p>
 </div>
 </div>
 </div>
