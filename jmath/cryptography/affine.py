@@ -14,6 +14,8 @@ from typing import Tuple
 ENGLISH_LOWER = string.ascii_lowercase
 ENGLISH_UPPER = string.ascii_uppercase
 ENGLISH_ALL = string.ascii_letters
+ENGLISH_SPECIAL_CHAR = ENGLISH_ALL + "~!@#$%^&*()_+`1234567890-=[]{}|;':\\\",./<>?"
+ENGLISH_NUMERIC = ENGLISH_ALL + "1234567890.,"
 
 # - Classes
 
