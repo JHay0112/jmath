@@ -2,9 +2,13 @@
     Tools for analysing cipher text
 '''
 
+# - Imports
+
+from typing import Dict
+
 # - Functions
 
-def character_frequencies(cipher_text: str, split_char: str = ""):
+def character_frequencies(cipher_text: str, split_char: str = "") -> Dict[str, int]:
     """
         Records the most commonly occuring frequencies in the cipher text.
 
@@ -13,6 +17,8 @@ def character_frequencies(cipher_text: str, split_char: str = ""):
 
         cipher_text
             The text to analyse
+        split_char
+            The character to split items around, defaults to none.
     """
     frequencies = {}
 
