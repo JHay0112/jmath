@@ -17,19 +17,6 @@ ENGLISH_ALL = string.ascii_letters
 ENGLISH_SPECIAL_CHAR = ENGLISH_ALL + "~!@#$%^&*()_+`1234567890-=[]{}|;':\\\",./<>?"
 ENGLISH_NUMERIC = ENGLISH_ALL + "1234567890.,"
 
-# - Functions
-
-def common_occurences(cipher_text: str, split_char: str = " "):
-    """
-        Records the most commonly occuring numbers in the cipher text.
-
-        Paramaters
-        ----------
-
-        cipher_text
-            The text to analyse
-    """
-
 # - Classes
 
 class Affine:
@@ -189,7 +176,7 @@ class Affine:
         """
 
         output_string = ""
-        
+
         if split_char != "":
             string = string.split(split_char)
 
