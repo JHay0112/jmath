@@ -17,6 +17,19 @@ ENGLISH_ALL = string.ascii_letters
 ENGLISH_SPECIAL_CHAR = ENGLISH_ALL + "~!@#$%^&*()_+`1234567890-=[]{}|;':\\\",./<>?"
 ENGLISH_NUMERIC = ENGLISH_ALL + "1234567890.,"
 
+# - Functions
+
+def common_occurences(cipher_text: str, split_char: str = " "):
+    """
+        Records the most commonly occuring numbers in the cipher text.
+
+        Paramaters
+        ----------
+
+        cipher_text
+            The text to analyse
+    """
+
 # - Classes
 
 class Affine:
@@ -93,7 +106,7 @@ class Affine:
                 The string to find the numeric value of.
         """
 
-        return self.char_set.index(char)
+        return self.char_set.index(str(char))
 
     def _num_to_char(self, number: int) -> str:
         """
@@ -109,7 +122,7 @@ class Affine:
 
         return self.char_set[number % len(self.char_set)]
 
-    def _encrypt_char(self, char: str) -> int:
+    def _encrypt_char(self, char: str) -> str:
         """
             Encrypts a character as per the affine cipher.
 
@@ -123,25 +136,25 @@ class Affine:
         num = self._char_to_num(char[0])
         # Convert num per affine cipher
         num = (num*self.a + self.b) % len(self.char_set)
-        return num
+        return self._num_to_char(num)
 
-    def _decrypt_num(self, num: int) -> str:
+    def _decrypt_num(self, char: str) -> str:
         """
             Decrypts a number as per the reversed affine cipher.
 
             Parameters
             ----------
 
-            num
-                The number to decrypt
+            char
+                The string to decrypt
         """
 
-        num = int(num)
+        num = self._char_to_num(char)
         num = self.a_inverse*(num - self.b) % len(self.char_set)
         # Convert num to char
         return self._num_to_char(num)
 
-    def encrypt(self, string: str, split_char: str = " ") -> str:
+    def encrypt(self, string: str, split_char: str = "") -> str:
         """
             Encrypts a string of letters as per the affine cipher.
 
@@ -162,7 +175,7 @@ class Affine:
         
         return split_char.join(output_list)
 
-    def decrypt(self, string: str, split_char: str = " ") -> str:
+    def decrypt(self, string: str, split_char: str = "") -> str:
         """
             Decrypts a string of numbers as per the affine cipher
 
@@ -176,7 +189,9 @@ class Affine:
         """
 
         output_string = ""
-        string = string.split(" ")
+        
+        if split_char != "":
+            string = string.split(split_char)
 
         for num in string:
             output_string += self._decrypt_num(num)
