@@ -29,6 +29,6 @@ def character_frequencies(cipher_text: str, split_char: str = "") -> Dict[str, i
         if char in frequencies:
             frequencies[char] += 1
         else:
-            frequencies[char] = 0
+            frequencies[char] = 1
 
     return frequencies
