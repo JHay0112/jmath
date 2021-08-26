@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Indices and tables &mdash; jmath  documentation</title>
+  <title>jmath &mdash; jmath  documentation</title>
   
 
   
@@ -141,7 +141,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Indices and tables</li>
+      <li>jmath</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -160,7 +160,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="toctree-wrapper compound">
+  <div class="section" id="jmath">
+<h1>jmath<a class="headerlink" href="#jmath" title="Permalink to this headline">¶</a></h1>
+<p>jmath is a hobby project developing a set of mathematical tools in the Python Language.</p>
+<hr class="docutils" />
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Open a terminal/command prompt and use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jmath</span></code>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>Documentation can be found at <a class="reference external" href="https://jordanhay.com/jmath">https://jordanhay.com/jmath</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uncertainties-jmath-uncertainties">
+<h3>Uncertainties (jmath.uncertainties)<a class="headerlink" href="#uncertainties-jmath-uncertainties" title="Permalink to this headline">¶</a></h3>
+<p>Provides the Uncertainty object for doing calculations upon values with associated uncertainties.
+The jmath.Uncertainty object is provided by default in the top-level package.</p>
+</div>
+<div class="section" id="linear-algebra-jmath-linearalgebra">
+<h3>Linear Algebra (jmath.linearalgebra)<a class="headerlink" href="#linear-algebra-jmath-linearalgebra" title="Permalink to this headline">¶</a></h3>
+<p>Provides Vector, Point, and Line objects to do linearalgebra with. These are also used as building blocks for other submodules.
+The jmath.Vector, jmath.Point, and jmath.Vector objects are provided by default in the top-level package.</p>
+</div>
+<div class="section" id="modular-jmath-modular">
+<h3>Modular (jmath.modular)<a class="headerlink" href="#modular-jmath-modular" title="Permalink to this headline">¶</a></h3>
+<p>Simple tools for use in modular arithmetic.
+jmath.modular_inverse and jmath.extended_gcd are provided by default in the top-level package.</p>
+</div>
+<div class="section" id="physics-jmath-physics">
+<h3>Physics (jmath.physics)<a class="headerlink" href="#physics-jmath-physics" title="Permalink to this headline">¶</a></h3>
+<p>Rudimentary classification of physical objects (jmath.physics.mechanics), circuits (jmath.physics.circuits), and SI prefixes (jmath.physics.prefixes).</p>
+</div>
+<div class="section" id="approximation-jmath-approximation">
+<h3>Approximation (jmath.approximation)<a class="headerlink" href="#approximation-jmath-approximation" title="Permalink to this headline">¶</a></h3>
+<p>Euler (jmath.approximation.euler_method) and Newton Method (jmath.approximation.newton_method) for approximation of Differential equations and Roots (respectively).</p>
+</div>
+<div class="section" id="abstract-jmath-abstract">
+<h3>Abstract (jmath.abstract)<a class="headerlink" href="#abstract-jmath-abstract" title="Permalink to this headline">¶</a></h3>
+<p>Provides implementations of abstract data types, including linked lists, stacks, and queues.</p>
+</div>
+<div class="section" id="cryptography-jmath-cryptography">
+<h3>Cryptography (jmath.cryptography)<a class="headerlink" href="#cryptography-jmath-cryptography" title="Permalink to this headline">¶</a></h3>
+<p>Provides tools for rudimentary cryptography. Currently provides Affine cipher (jmath.cryptography.affine) as well as character frequency analysis (jmath.cryptography.tools).</p>
+</div>
+<div class="section" id="discrete-jmath-discrete">
+<h3>Discrete (jmath.discrete)<a class="headerlink" href="#discrete-jmath-discrete" title="Permalink to this headline">¶</a></h3>
+<p>Node, Graph, and Loop objects for use in Graph based maths.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Open a terminal in the root director and run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/</span></code>, this requires pytest. Tests are automatically run in Github by a Github Action.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="github-workflows">
+<h2>Github Workflows<a class="headerlink" href="#github-workflows" title="Permalink to this headline">¶</a></h2>
+<p>Github workflows help automate testing, updating the requirements, and publishing this repo.</p>
+<div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="jmath.html">jmath package</a><ul>
@@ -206,6 +267,8 @@
 </ul>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
