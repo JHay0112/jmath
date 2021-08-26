@@ -12,6 +12,14 @@ jmath.cryptography.affine module
    :undoc-members:
    :show-inheritance:
 
+jmath.cryptography.tools module
+-------------------------------
+
+.. automodule:: jmath.cryptography.tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
