@@ -31,3 +31,10 @@ def test_encrypt_decrypt_english_numeric():
     encrypted_text = cipher.encrypt(test_text)
     decrypted_text = cipher.decrypt(encrypted_text)
     assert decrypted_text == test_text
+
+def test_duplicate_ciphers():
+    """Tests that different instances produce the same cipher text."""
+    cipher1 = Affine(3, 10)
+    cipher2 = Affine(3, 10)
+    text = "ohgodhelpmetherearethousandsofbeespleasehelp"
+    assert cipher1.encrypt(text) == cipher2.encrypt(text)
