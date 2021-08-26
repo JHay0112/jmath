@@ -29,9 +29,11 @@ author = 'Jordan Hay'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.githubpages',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'm2r2'
 ]
-
+# For readme
+source_suffix = [".rst", ".md"]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
