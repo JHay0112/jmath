@@ -44,7 +44,7 @@ class Affine:
 
     def __init__(self, a: int, b: int, char_set: Tuple["str"] = ENGLISH_LOWER):
         
-        self.char_set = tuple(set(char_set)) # Convert to set first to remove duplicates
+        self.char_set = char_set
         self.a = a
         self.b = b
 
@@ -57,6 +57,11 @@ class Affine:
     def b(self):
         '''Value that x is added to in the encryption process.'''
         return self._b
+
+    @property
+    def char_set(self):
+        '''Ordered set of unique characters to used in the cipher.'''
+        return self._char_set
 
     @a.setter
     def a(self, a: int):
@@ -81,6 +86,11 @@ class Affine:
 
         # No errors, assign
         self._b = b
+
+    @char_set.setter
+    def char_set(self, char_set: Tuple["str"]):
+        """Check's charset assignment"""
+        self._char_set = tuple(dict.fromkeys(char_set)) # Assigns char set retaining order and uniqueness
         
     def _char_to_num(self, char: str) -> int:
         """
