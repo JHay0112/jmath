@@ -6,8 +6,7 @@
 
 import math
 from typing import List, Union
-from .vectors import Vector
-from .lines import Line
+from . import Vector, Line
 
 # - Classes
 

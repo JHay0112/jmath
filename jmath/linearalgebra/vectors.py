@@ -8,8 +8,7 @@ import math
 from functools import wraps
 from typing import List, Callable, Any, Union
 from ..exceptions import VectorsNotSameSize
-from .points import Point
-from .lines import Line
+from . import Point, Line
 
 # - Classes
 class Vector:
