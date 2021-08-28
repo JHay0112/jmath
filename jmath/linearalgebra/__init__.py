@@ -13,7 +13,6 @@ __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 
 # - Defaults
 
-from .vectors import Vector
-from .points import Point, Complex
+from .vectors import Vector, Point, Complex
 from .lines import Line
 from .planes import Plane

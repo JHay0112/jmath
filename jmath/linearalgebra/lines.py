@@ -4,8 +4,14 @@
 
 # - Imports
 
-from . import Vector, Point
 from ..exceptions import VectorsNotSameSize
+from typing import TypeVar
+
+# - Globals
+
+# Typing for Vectors and Points
+Point = TypeVar("Point")
+Vector = TypeVar("Vector")
 
 # - Classes
 
@@ -22,11 +28,9 @@ class Line:
             Direction vector for line.
     """
     def __init__(self, point: Point, vector: Vector):
+
         self.point = point
         self.vector = vector
-
-        if self.point == None:
-            self.point = Point([0 for i in self.vector.components])
 
         if len(self.point) != len(self.vector):
             raise VectorsNotSameSize()

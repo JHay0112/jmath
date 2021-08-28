@@ -4,7 +4,7 @@
 
 # - Imports
 
-from . import Point, Vector
+from .vectors import Vector, Point
 from ..exceptions import VectorsNotSameSize
 
 class Plane:
