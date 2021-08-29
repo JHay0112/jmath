@@ -94,13 +94,14 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.complex">jmath.complex module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.discrete">jmath.discrete module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.exceptions">jmath.exceptions module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-jmath.linearalgebra">jmath.linearalgebra module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.modular">jmath.modular module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.uncertainties">jmath.uncertainties module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath">Module contents</a><ul>
@@ -113,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 </ul>
 
@@ -216,6 +218,17 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmath.linearalgebra.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.linearalgebra.html#module-jmath.linearalgebra.lines">jmath.linearalgebra.lines module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.linearalgebra.html#module-jmath.linearalgebra.planes">jmath.linearalgebra.planes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.linearalgebra.html#module-jmath.linearalgebra.vectors">jmath.linearalgebra.vectors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.linearalgebra.html#module-jmath.linearalgebra">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html#default-packages">Default Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jmath.physics.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.physics.html#module-jmath.physics.circuits">jmath.physics.circuits module</a></li>
@@ -233,6 +246,55 @@
 </div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.complex">
+<span id="jmath-complex-module"></span><h2>jmath.complex module<a class="headerlink" href="#module-jmath.complex" title="Permalink to this headline">¶</a></h2>
+<p>Complex form of points.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.complex.Complex">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.complex.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.vectors.Point</span></code></a></p>
+<p>Complex numbers based on vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>real</strong> – Real component of a complex number</p></li>
+<li><p><strong>imaginary</strong> – Imaginary component of a complex number</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.complex.Complex.argument">
+<span class="sig-name descname"><span class="pre">argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.complex.Complex.argument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the argument of the complex number in radians.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.complex.Complex.imaginary">
+<span class="sig-name descname"><span class="pre">imaginary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex.imaginary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the imaginary component of the complex number.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.complex.Complex.modulus">
+<span class="sig-name descname"><span class="pre">modulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.complex.Complex.modulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename of magnitude.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.complex.Complex.quadrant">
+<span class="sig-name descname"><span class="pre">quadrant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.complex.Complex.quadrant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns which quadrant the number is in. Returns None if on a quadrant border.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.complex.Complex.real">
+<span class="sig-name descname"><span class="pre">real</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex.real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the real component of the complex number.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-jmath.discrete">
 <span id="jmath-discrete-module"></span><h2>jmath.discrete module<a class="headerlink" href="#module-jmath.discrete" title="Permalink to this headline">¶</a></h2>
@@ -419,193 +481,6 @@
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">ZeroDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Invalid</span> <span class="pre">operation!</span> <span class="pre">Zero</span> <span class="pre">distance</span> <span class="pre">between</span> <span class="pre">objects.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.ZeroDistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown for calculations with zero distance between objects.</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-jmath.linearalgebra">
-<span id="jmath-linearalgebra-module"></span><h2>jmath.linearalgebra module<a class="headerlink" href="#module-jmath.linearalgebra" title="Permalink to this headline">¶</a></h2>
-<p>Linear algebra objects including Vectors, Points, Lines, and Planes.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Complex">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Complex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.Vector</span></code></a></p>
-<p>Complex numbers based on vectors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>real</strong> – Real component of a complex number</p></li>
-<li><p><strong>imaginary</strong> – Imaginary component of a complex number</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.argument">
-<span class="sig-name descname"><span class="pre">argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Complex.argument" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the argument of the complex number in radians.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.imaginary">
-<span class="sig-name descname"><span class="pre">imaginary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Complex.imaginary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the imaginary component of the complex number.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.modulus">
-<span class="sig-name descname"><span class="pre">modulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Complex.modulus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rename of magnitude.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.quadrant">
-<span class="sig-name descname"><span class="pre">quadrant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.linearalgebra.Complex.quadrant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns which quadrant the number is in. Returns None if on a quadrant border.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Complex.real">
-<span class="sig-name descname"><span class="pre">real</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Complex.real" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the real component of the complex number.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Line">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Point" title="jmath.linearalgebra.Point"><span class="pre">jmath.linearalgebra.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Defines a line from direction and point vectors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>point</strong> – Position vector for line.</p></li>
-<li><p><strong>vector</strong> – Direction vector for line.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Plane">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Point" title="jmath.linearalgebra.Point"><span class="pre">jmath.linearalgebra.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Plane" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Defines a plane</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>point</strong> – Point on the plane.</p></li>
-<li><p><strong>vector1</strong> – Direction vector.</p></li>
-<li><p><strong>vector2</strong> – Direction vector.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Point">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Point" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.Vector</span></code></a></p>
-<p>Points based on vector framework. Can be thought of as a vector from origin.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>components</strong> – Coordinates in n-space</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Point.on_line">
-<span class="sig-name descname"><span class="pre">on_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Line" title="jmath.linearalgebra.Line"><span class="pre">jmath.linearalgebra.Line</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Point.on_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determines whether a point is on a line, returns bool.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>line</strong> – Line to determine if on</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Vector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.</span></span><span class="sig-name descname"><span class="pre">Vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.Vector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>n-dimensional Vectors</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>components</strong> – Scalar vector components</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="go">Vector(5, 3, 2)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="go">Vector(-6, -7, -8)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">Vector(3, 6, -12)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
-<span class="go">Vector(1, 2, 3)</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">@</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">17</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span><span class="p">()</span>
-<span class="go">2</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.angle_between">
-<span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determines the angle (in radians) between two vectors to 5 d.p.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate angle between.</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.magnitude">
-<span class="sig-name descname"><span class="pre">magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.magnitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the vector magnitude.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.negative">
-<span class="sig-name descname"><span class="pre">negative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.negative" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a vector of the same magnitude pointing in the opposite direction.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.projection">
-<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#jmath.linearalgebra.Line" title="jmath.linearalgebra.Line"><span class="pre">jmath.linearalgebra.Line</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.projection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns projection of current vector onto the passed vector or line.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate the projection onto.</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="jmath.linearalgebra.Vector.unit">
-<span class="sig-name descname"><span class="pre">unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.Vector" title="jmath.linearalgebra.Vector"><span class="pre">jmath.linearalgebra.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.Vector.unit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a unit vector in the same direction as the vector.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>

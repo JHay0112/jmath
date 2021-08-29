@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jmath.linearalgebra package &mdash; jmath  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="jmath.physics package" href="jmath.physics.html" />
+    <link rel="prev" title="jmath.cryptography package" href="jmath.cryptography.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> jmath
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="jmath.html">jmath package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="jmath.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">jmath.linearalgebra package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.linearalgebra.lines">jmath.linearalgebra.lines module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.linearalgebra.planes">jmath.linearalgebra.planes module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.linearalgebra.vectors">jmath.linearalgebra.vectors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.linearalgebra">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.complex">jmath.complex module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.discrete">jmath.discrete module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.exceptions">jmath.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.modular">jmath.modular module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.uncertainties">jmath.uncertainties module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">jmath.linearalgebra package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.linearalgebra.lines">jmath.linearalgebra.lines module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.linearalgebra.planes">jmath.linearalgebra.planes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.linearalgebra.vectors">jmath.linearalgebra.vectors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.linearalgebra">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default-packages">Default Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">jmath</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="jmath.html">jmath package</a> &raquo;</li>
+        
+      <li>jmath.linearalgebra package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/jmath.linearalgebra.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmath-linearalgebra-package">
+<h1>jmath.linearalgebra package<a class="headerlink" href="#jmath-linearalgebra-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.linearalgebra.lines">
+<span id="jmath-linearalgebra-lines-module"></span><h2>jmath.linearalgebra.lines module<a class="headerlink" href="#module-jmath.linearalgebra.lines" title="Permalink to this headline">¶</a></h2>
+<p>Line defined by vectors and point.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.lines.Line">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.lines.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.lines.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.lines.Vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.lines.Line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines a line from direction and point vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> – Position vector for line.</p></li>
+<li><p><strong>vector</strong> – Direction vector for line.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.linearalgebra.planes">
+<span id="jmath-linearalgebra-planes-module"></span><h2>jmath.linearalgebra.planes module<a class="headerlink" href="#module-jmath.linearalgebra.planes" title="Permalink to this headline">¶</a></h2>
+<p>Plane defined by vectors and point.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.planes.Plane">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.planes.</span></span><span class="sig-name descname"><span class="pre">Plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.planes.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.planes.Vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.planes.Vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.planes.Plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines a plane</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> – Point on the plane.</p></li>
+<li><p><strong>vector1</strong> – Direction vector.</p></li>
+<li><p><strong>vector2</strong> – Direction vector.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.linearalgebra.vectors">
+<span id="jmath-linearalgebra-vectors-module"></span><h2>jmath.linearalgebra.vectors module<a class="headerlink" href="#module-jmath.linearalgebra.vectors" title="Permalink to this headline">¶</a></h2>
+<p>Vector Objects</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Point">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.vectors.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.vectors.Vector</span></code></a></p>
+<p>Points based on vector framework. Can be thought of as a vector from origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>components</strong> – Coordinates in n-space</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Point.on_line">
+<span class="sig-name descname"><span class="pre">on_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.lines.Line" title="jmath.linearalgebra.lines.Line"><span class="pre">jmath.linearalgebra.lines.Line</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Point.on_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether a point is on a line, returns bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>line</strong> – Line to determine if on</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.vectors.</span></span><span class="sig-name descname"><span class="pre">Vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>n-dimensional Vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>components</strong> – Scalar vector components</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Vector(5, 3, 2)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">Vector(-6, -7, -8)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">Vector(3, 6, -12)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+<span class="go">Vector(1, 2, 3)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">@</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">17</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span><span class="p">()</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.angle_between">
+<span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the angle (in radians) between two vectors to 5 d.p.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate angle between.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.magnitude">
+<span class="sig-name descname"><span class="pre">magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.magnitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the vector magnitude.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.negative">
+<span class="sig-name descname"><span class="pre">negative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.negative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a vector of the same magnitude pointing in the opposite direction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.projection">
+<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#jmath.linearalgebra.lines.Line" title="jmath.linearalgebra.lines.Line"><span class="pre">jmath.linearalgebra.lines.Line</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#jmath.linearalgebra.planes.Plane" title="jmath.linearalgebra.planes.Plane"><span class="pre">jmath.linearalgebra.planes.Plane</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.projection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns projection of current vector onto the passed vector or line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate the projection onto.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a unit vector in the same direction as the vector.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.linearalgebra">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jmath.linearalgebra" title="Permalink to this headline">¶</a></h2>
+<p>Linear Algebra Tools</p>
+<div class="section" id="default-packages">
+<h3>Default Packages<a class="headerlink" href="#default-packages" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="jmath.physics.html" class="btn btn-neutral float-right" title="jmath.physics package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jmath.cryptography.html" class="btn btn-neutral float-left" title="jmath.cryptography package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Jordan Hay.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
