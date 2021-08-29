@@ -4,8 +4,14 @@
 
 # - Imports
 
-from .vectors import Vector, Point
 from ..exceptions import VectorsNotSameSize
+from typing import TypeVar
+
+# - Globals
+
+# Typing for Vectors and Points
+Point = TypeVar("Point")
+Vector = TypeVar("Vector")
 
 class Plane:
     """
@@ -35,3 +41,7 @@ class Plane:
         # Throw error if vectors different sizes
         if len(point) != len(vector1) != len(vector2):
             raise VectorsNotSameSize()
+
+    def __len__(self):
+        # Size of point vector
+        return len(self.point)

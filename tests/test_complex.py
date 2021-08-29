@@ -4,7 +4,7 @@
 
 # - Imports
 
-from ..jmath.linearalgebra import Complex
+from ..jmath.complex import Complex
 
 # - Tests
 

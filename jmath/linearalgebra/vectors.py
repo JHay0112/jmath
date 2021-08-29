@@ -9,6 +9,7 @@ from functools import wraps
 from typing import List, Callable, Any, Union
 from ..exceptions import VectorsNotSameSize
 from .lines import Line
+from .planes import Plane
 
 # - Classes
 class Vector:
@@ -146,7 +147,7 @@ class Vector:
         return Vector(neg_comp)
 
     @__same_size
-    def projection(self, vector: Union["Vector", "Line"]) -> "Vector":
+    def projection(self, vector: Union["Vector", "Line", "Plane"]) -> "Vector":
         """
             Returns projection of current vector onto the passed vector or line.
 
@@ -162,10 +163,16 @@ class Vector:
             VectorsNotSameSize
                 If the vectors are not the same size this error will be raised.
         """
-        if isinstance(vector, Line):
-            vector = vector.vector
-
-        return (self @ vector)/(vector @ vector) * vector
+        if isinstance(vector, Plane):
+            plane = vector
+            # Compute projections onto both vectors and add
+            return self.projection(plane.vectors[0]) + self.projection(plane.vectors[1])
+        else:
+            # Not plane, check for line
+            if isinstance(vector, Line):
+                vector = vector.vector
+            # Compute projection
+            return (self @ vector)/(vector @ vector) * vector
 
     def magnitude(self) -> float:
         """Calculates the vector magnitude."""
