@@ -108,7 +108,7 @@ def test_projection():
     expected = Vector(7/2, 7/2)
     assert vec1.projection(vec2) == expected
     # Test with line
-    line = Line(None, vec2)
+    line = Line(Point(0, 0), vec2)
     assert vec1.projection(line) == expected
 
 @repeat
@@ -134,7 +134,7 @@ def test_point_in_line():
     """Tests whether a point is in a line"""
     # Test point that should be on line
     point = Point(3, 4)
-    line = Line(None, 2 * point)
+    line = Line(Point(0, 0), 2 * point)
     assert point.on_line(line)
     # Test point that shouldn't be
     point = Point(8, 1)

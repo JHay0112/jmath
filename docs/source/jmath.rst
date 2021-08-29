@@ -10,10 +10,19 @@ Subpackages
    jmath.abstract
    jmath.approximation
    jmath.cryptography
+   jmath.linearalgebra
    jmath.physics
 
 Submodules
 ----------
+
+jmath.complex module
+--------------------
+
+.. automodule:: jmath.complex
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 jmath.discrete module
 ---------------------
@@ -27,14 +36,6 @@ jmath.exceptions module
 -----------------------
 
 .. automodule:: jmath.exceptions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-jmath.linearalgebra module
---------------------------
-
-.. automodule:: jmath.linearalgebra
    :members:
    :undoc-members:
    :show-inheritance:

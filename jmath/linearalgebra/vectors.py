@@ -1,16 +1,15 @@
 '''
-    Linear algebra objects including Vectors, Points, Lines, and Planes.
+    Vector Objects
 '''
 
-# - Components
+# - Imports
 
-from .exceptions import VectorsNotSameSize
-
-# - Modules
-
-import math # Mathematical functions, e.g. sqrt()
-from typing import List, Union, Callable, Any
+import math
 from functools import wraps
+from typing import List, Callable, Any, Union
+from ..exceptions import VectorsNotSameSize
+from .lines import Line
+from .planes import Plane
 
 # - Classes
 class Vector:
@@ -148,7 +147,7 @@ class Vector:
         return Vector(neg_comp)
 
     @__same_size
-    def projection(self, vector: Union["Vector", "Line"]) -> "Vector":
+    def projection(self, vector: Union["Vector", "Line", "Plane"]) -> "Vector":
         """
             Returns projection of current vector onto the passed vector or line.
 
@@ -164,10 +163,16 @@ class Vector:
             VectorsNotSameSize
                 If the vectors are not the same size this error will be raised.
         """
-        if isinstance(vector, Line):
-            vector = vector.vector
-
-        return (self @ vector)/(vector @ vector) * vector
+        if isinstance(vector, Plane):
+            plane = vector
+            # Compute projections onto both vectors and add
+            return self.projection(plane.vectors[0]) + self.projection(plane.vectors[1])
+        else:
+            # Not plane, check for line
+            if isinstance(vector, Line):
+                vector = vector.vector
+            # Compute projection
+            return (self @ vector)/(vector @ vector) * vector
 
     def magnitude(self) -> float:
         """Calculates the vector magnitude."""
@@ -205,83 +210,6 @@ class Vector:
 
         return round(math.acos((self @ vector)/(self.magnitude() * vector.magnitude())), 5)
 
-class Complex(Vector):
-    """
-        Complex numbers based on vectors.
-
-        Parameters
-        ----------
-
-        real
-            Real component of a complex number
-        imaginary
-            Imaginary component of a complex number
-    """
-
-    def __init__(self, real: float, imaginary: float):
-        
-        super().__init__(real, imaginary)
-
-    def __repr__(self) -> str:
-        """Programming Representation"""
-        return f"ComplexNumber({self.real}, {self.imaginary})"
-
-    def __str__(self) -> str:
-        """String representation"""
-        operand = ""
-        if self.imaginary >= 0:
-            operand = "+"
-        return f"{self.real()} {self.operand} {self.imaginary()}j"
-
-    def real(self):
-        """Returns the real component of the complex number."""
-        return self.components[0]
-
-    def imaginary(self):
-        """Returns the imaginary component of the complex number."""
-        return self.components[1]
-
-    def quadrant(self) -> Union[int, None]:
-        """Returns which quadrant the number is in. Returns None if on a quadrant border."""
-        if self.real() > 0 and self.imaginary() > 0:
-            # Both greater than zero
-            # Quadrant 2
-            return 1
-        elif self.real() < 0 and self.imaginary() > 0:
-            # Real is less than zero and imaginary greater than
-            # Quadrant 2
-            return 2
-        elif self.real() < 0 and self.imaginary() < 0:
-            # Real and imaginary less than zero
-            # Quadrant 3
-            return 3
-        elif self.real() > 0 and self.imaginary() < 0:
-            # Real greater than zero but imaginary negative
-            # Quadrant 4
-            return 4
-        else:
-            # On a border
-            return None
-
-    def argument(self) -> float:
-        """Computes the argument of the complex number in radians."""
-        theta = math.atan(self.imaginary()/self.real())
-        # Check quadrant
-        if self.quadrant() == 2:
-            # If in the second quadrant
-            # Add pi
-            theta += math.pi
-        elif self.quadrant() == 3:
-            # If in third quadrant
-            # Subtract pi
-            theta -= math.pi
-
-        return theta
-
-    def modulus(self) -> float:
-        """Rename of magnitude."""
-        return self.magnitude()
-
 class Point(Vector):
     """
         Points based on vector framework. Can be thought of as a vector from origin.
@@ -312,58 +240,3 @@ class Point(Vector):
             results.append(round(scalor, 3))
         # Go through results, if any don't match, return false
         return all(result == results[0] for result in results)
-
-class Line:
-    """
-        Defines a line from direction and point vectors.
-
-        Parameters
-        ----------
-
-        point
-            Position vector for line.
-        vector
-            Direction vector for line.
-    """
-    def __init__(self, point: Point, vector: Vector):
-        self.point = point
-        self.vector = vector
-
-        if self.point == None:
-            self.point = Point([0 for i in self.vector.components])
-
-        if len(self.point) != len(self.vector):
-            raise VectorsNotSameSize()
-
-    def __len__(self) -> int:
-        """Returns size of direction vector"""
-        return len(self.vector.components)
-
-class Plane:
-    """
-        Defines a plane 
-
-        Parameters
-        ----------
-
-        point
-            Point on the plane.
-        vector1
-            Direction vector.
-        vector2
-            Direction vector.
-
-        Raises
-        ------
-
-        VectorsNotSameSize
-            If the vectors are not the same size this error will be raised.
-    """
-    def __init__(self, point: Point, vector1: Vector, vector2: Vector):
-        
-        self.point = point
-        self.vectors = [vector1, vector2]
-
-        # Throw error if vectors different sizes
-        if len(point) != len(vector1) != len(vector2):
-            raise VectorsNotSameSize()
