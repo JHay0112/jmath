@@ -100,9 +100,9 @@ class Uncertainty:
         elif isinstance(other, Uncertainty):
             # Check for overlap between values
             # Check for overlap in lower bound
-            lower_bound = (self.value - self.uncertainty) in other
+            lower_bound = (self.value - self.uncertainty) in other or (other.value - other.uncertainty) in self
             # Check for overlap in upper bound
-            upper_bound = (self.value + self.uncertainty) in other
+            upper_bound = (self.value + self.uncertainty) in other or (other.value + other.uncertainty) in self
 
             return upper_bound or lower_bound
 
