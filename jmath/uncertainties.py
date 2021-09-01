@@ -82,6 +82,30 @@ class Uncertainty:
 
         return(f"{rounded_value} ± {rounded_uncertainty}")
 
+    def __contains__(self, other: Union[int, float, "Uncertainty"]) -> bool:
+        """
+            Checks if uncertainties overlap.
+            
+            Parameters
+            ----------
+            
+            other
+                The int, float, or Uncertainty to check for overlap
+        """
+
+        # Float/Int
+        if isinstance(other, int) or isinstance(other, float):
+            # Check if value lies within uncertainty bounds
+            return other <= (self.value + self.uncertainty) and other >= (self.value - self.uncertainty)
+        elif isinstance(other, Uncertainty):
+            # Check for overlap between values
+            # Check for overlap in lower bound
+            lower_bound = (self.value - self.uncertainty) in other or (other.value - other.uncertainty) in self
+            # Check for overlap in upper bound
+            upper_bound = (self.value + self.uncertainty) in other or (other.value + other.uncertainty) in self
+
+            return upper_bound or lower_bound
+
     def __add__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty":
         """Uncertainty addition"""
         # Check type of other
