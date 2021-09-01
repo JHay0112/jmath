@@ -96,7 +96,7 @@ class Uncertainty:
         # Float/Int
         if isinstance(other, int) or isinstance(other, float):
             # Check if value lies within uncertainty bounds
-            return other < (self.value + self.uncertainty) and other > (self.value - self.uncertainty)
+            return other <= (self.value + self.uncertainty) and other >= (self.value - self.uncertainty)
         elif isinstance(other, Uncertainty):
             # Check for overlap between values
             # Check for overlap in lower bound

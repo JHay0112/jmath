@@ -10,6 +10,7 @@
 # - Imports
 
 from ..jmath.uncertainties import *
+from .tools import repeat, random_integer
 import math
 
 # - Functions
@@ -48,3 +49,26 @@ def test_function_application():
     expected = Uncertainty(2.2, 0.4)
     assert round(result.value, 1) == expected.value
     assert round(result.abs_uncertainty(), 1) == expected.abs_uncertainty()
+
+@repeat
+def test_int_in_uncertainty():
+    """Tests for an int inside an uncertain range."""
+    value = random_integer()
+    abs_unc = random_integer(1, 50)
+    unc = Uncertainty(value, abs_unc)
+
+    assert value in unc
+    assert (value + abs_unc) in unc
+    assert (value - abs_unc) in unc
+    assert (value + abs_unc + 1) not in unc
+    assert (value - abs_unc - 1) not in unc
+
+def test_uncertainty_overlap():
+    """Tests that uncertainties overlap as expected."""
+    u1 = Uncertainty(3, 2)
+    u2 = Uncertainty(5, 1)
+    u3 = Uncertainty(6, 0.5)
+
+    assert u1 in u2
+    assert u2 in u3
+    assert u3 not in u1
