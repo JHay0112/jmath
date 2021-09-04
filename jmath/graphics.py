@@ -4,11 +4,9 @@
 
 # - Imports
 
-# GUI
 import tkinter as tk
-from tkinter import ttk
-# Processing
-from multiprocessing import Process
+from functools import wraps
+from typing import Callable
 
 # - Classes
 
@@ -48,9 +46,7 @@ class Window:
         self.root.geometry(f"{width}x{height}")
         self.root.attributes("-fullscreen", self.fullscreen)
         
-        # Start mainloop in seperate process
-        self.mainloop = Process(target = self.root.mainloop)
-        self.mainloop.start()
+        self.root.mainloop()
 
     @property
     def title(self):
@@ -62,6 +58,23 @@ class Window:
         """Sets a new value of the title"""
         self._title = new_title
         self.root.title(self.title)
+
+    def run(self, func: Callable, ms: float = 0, **kwargs):
+        """
+            Runs a function after a given amount of time.
+            Implemented through root.after.
+
+            Parameters
+            ----------
+
+            func
+                The function to run.
+            ms
+                Number of milliseconds to run it after.
+            **kwargs
+                Keyword arguments to be passed to the function.
+        """
+        self.root.after(ms, lambda: func(**kwargs))
 
 class Canvas(Window):
     '''
@@ -83,8 +96,8 @@ class Canvas(Window):
     def __init__(self, title: str, width: int = 800, height: int = 800, fullscreen: bool = False):
         
         # Initialise GUI
-        super().__init__(title, width, height, fullscreen)
+        self.super().__init__(title, width, height, fullscreen)
 
         # Add canvas
-        self.canvas = tk.Canvas(self.root)
+        self.canvas = tk.Canvas()
         self.canvas.pack(expand = True)
