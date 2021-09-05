@@ -56,7 +56,7 @@ class Window:
         self._title = new_title
         self.root.title(self.title)
         
-    def start(self, func: Callable[[Any], Any], delay: int = 100, **kwargs):
+    def start(self, func: Callable[[Any], Any], delay: int = 100, *args):
         """
             Start mainloop
         
@@ -66,24 +66,24 @@ class Window:
                 Anything returned by the function will be passed back to it in the next loop.
             delay
                 The delay between calls to the mainloop function in milliseconds.
-            **kwargs
-                Key word arguments to be passed to the loop.
+            *args
+                Arguments to be passed to the loop.
         """
 
         # Building mainloop
-        def loop(**kwargs):
+        def loop(*args):
             # Call main function
-            kwargs = func(**kwargs)
-            self.run(loop, delay, **kwargs)
+            args = func(*args)
+            self.run(loop, delay, *args)
 
-        loop(**kwargs)
+        loop(*args)
         self.root.mainloop()
 
     def end(self):
         """Ends the GUI mainloop"""
         self.root.destroy()
 
-    def run(self, func: Callable, delay: int = 0, **kwargs):
+    def run(self, func: Callable, delay: int = 0, *args):
         """
             Runs a function in context of GUI.
 
@@ -91,11 +91,11 @@ class Window:
                 The function to be executed
             delay
                 Time delay in milliseconds
-            **kwargs
-                Key word arguments to be passed to the function
+            *args
+                Arguments to be passed to the function
         """
 
-        self.root.after(delay, lambda: func(**kwargs))
+        self.root.after(delay, lambda: func(*args))
 
 class Canvas(Window):
     '''
