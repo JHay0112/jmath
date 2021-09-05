@@ -56,7 +56,7 @@ class Window:
         self._title = new_title
         self.root.title(self.title)
         
-    def mainloop(self, func: Callable[[Any], Any], delay: int = 100, *args):
+    def start(self, func: Callable[[Any], Any], delay: int = 100, *args):
         """
             Start mainloop
         
@@ -78,6 +78,10 @@ class Window:
 
         loop(*args)
         self.root.mainloop()
+
+    def end(self):
+        """Ends the GUI mainloop"""
+        self.root.destroy()
 
     def run(self, func: Callable, delay: int = 0, *args):
         """
