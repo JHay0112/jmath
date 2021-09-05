@@ -5,8 +5,7 @@
 # - Imports
 
 import tkinter as tk
-from functools import wraps
-from typing import Callable
+from typing import Callable, Any
 
 # - Classes
 
@@ -37,16 +36,14 @@ class Window:
         self.root = tk.Tk()
 
         # Reconfigure width and height if fullscreen
-        if fullscreen:
+        if self.fullscreen:
             self.width = self.root.winfo_width()
             self.height = self.root.winfo_height()
         
         # Configure
         self.root.title(self.title)
-        self.root.geometry(f"{width}x{height}")
+        self.root.geometry(f"{self.width}x{self.height}")
         self.root.attributes("-fullscreen", self.fullscreen)
-        
-        self.root.mainloop()
 
     @property
     def title(self):
@@ -58,23 +55,43 @@ class Window:
         """Sets a new value of the title"""
         self._title = new_title
         self.root.title(self.title)
-
-    def run(self, func: Callable, ms: float = 0, **kwargs):
+        
+    def mainloop(self, func: Callable[[Any], Any], delay: int = 100, *args):
         """
-            Runs a function after a given amount of time.
-            Implemented through root.after.
+            Start mainloop
+        
+            func
+                The function to be run as apart of the mainloop.
+                Additional arguments are passed to the function.
+                Anything returned by the function will be passed back to it in the next loop.
+            delay
+                The delay between calls to the mainloop function in milliseconds.
+            *args
+                Arguments to be passed to the loop.
+        """
 
-            Parameters
-            ----------
+        # Building mainloop
+        def loop(*args):
+            # Call main function
+            args = func(*args)
+            self.run(loop, delay, *args)
+
+        loop(*args)
+        self.root.mainloop()
+
+    def run(self, func: Callable, delay: int = 0, *args):
+        """
+            Runs a function in context of GUI.
 
             func
-                The function to run.
-            ms
-                Number of milliseconds to run it after.
-            **kwargs
-                Keyword arguments to be passed to the function.
+                The function to be executed
+            delay
+                Time delay in milliseconds
+            *args
+                Arguments to be passed to the function
         """
-        self.root.after(ms, lambda: func(**kwargs))
+
+        self.root.after(delay, lambda: func(*args))
 
 class Canvas(Window):
     '''
@@ -96,8 +113,8 @@ class Canvas(Window):
     def __init__(self, title: str, width: int = 800, height: int = 800, fullscreen: bool = False):
         
         # Initialise GUI
-        self.super().__init__(title, width, height, fullscreen)
+        super().__init__(title, width, height, fullscreen)
 
         # Add canvas
-        self.canvas = tk.Canvas()
+        self.canvas = tk.Canvas(self.root)
         self.canvas.pack(expand = True)
