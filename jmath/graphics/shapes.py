@@ -42,6 +42,7 @@ class Shape:
             This method is intended to be used by the jmath.graphics.Canvas.draw() method, not accessed directly.
         """
         pass
+
 class Rectangle(Shape):
     """
         Rectangle
@@ -58,6 +59,7 @@ class Rectangle(Shape):
         y
             Position on the y-axis
         **kwargs
+            Additional tkinter configuration for canvas.create_rectangle
     """
 
     def __init__(self, width: int, height: int, x: int, y: int, **kwargs):
