@@ -4,7 +4,6 @@
 
 # - Imports
 
-from typing import TypeVar
 from tkinter import Canvas
 
 # - Classes

@@ -5,12 +5,8 @@
 # - Imports
 
 import tkinter as tk
-from typing import Callable, Any, TypeVar
-
-# - Globals
-
-# Typing for Shape, stops circular imports
-Shape = TypeVar("Shape")
+from .shapes import Shape
+from typing import Callable, Any
 
 # - Classes
 
