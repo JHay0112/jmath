@@ -5,7 +5,12 @@
 # - Imports
 
 import tkinter as tk
-from typing import Callable, Any
+from typing import Callable, Any, TypeVar
+
+# - Globals
+
+# Typing for Shape, stops circular imports
+Shape = TypeVar("Shape")
 
 # - Classes
 
@@ -24,6 +29,8 @@ class Window:
             Height in pixels
         fullscreen
             Make screen take up full width
+        **kwargs
+            Additional tkinter style configurations
     '''
 
     def __init__(self, title: str, width: int = 800, height: int = 800, fullscreen: bool = False):
@@ -112,18 +119,20 @@ class Canvas(Window):
             Height in pixels
         fullscreen
             Make screen take up full width
+        **kwargs
+            Additional tkinter style configurations
     '''
 
-    def __init__(self, title: str, width: int = 800, height: int = 800, fullscreen: bool = False):
+    def __init__(self, title: str, width: int = 800, height: int = 800, fullscreen: bool = False, **kwargs):
         
         # Initialise GUI
         super().__init__(title, width, height, fullscreen)
 
         # Add canvas
-        self.canvas = tk.Canvas(self.root)
-        self.canvas.pack(expand = True)
+        self.canvas = tk.Canvas(self.root, height = self.height, width = self.width, **kwargs)
+        self.canvas.pack(fill = tk.BOTH)
 
-    def draw(self, shape: "Shape"):
+    def draw(self, shape: Shape):
         """
             Draws a shape
 
@@ -133,4 +142,4 @@ class Canvas(Window):
             shape
                 Shape object to draw
         """
-        pass
+        shape.draw(self.canvas)
