@@ -10,6 +10,7 @@ Subpackages
    jmath.abstract
    jmath.approximation
    jmath.cryptography
+   jmath.graphics
    jmath.linearalgebra
    jmath.physics
 
