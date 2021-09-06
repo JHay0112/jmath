@@ -24,7 +24,24 @@ class Shape:
         self.x = x
         self.y = y
         self.kwargs = kwargs
+        self.canvas_obj = None
 
+    def draw(self, canvas: Canvas):
+        """
+            Draws the object onto a canvas.
+            
+            Parameters
+            ----------
+        
+            canvas
+                The tkinter canvas to be drawn on
+                
+            Notes
+            -----
+            
+            This method is intended to be used by the jmath.graphics.Canvas.draw() method, not accessed directly.
+        """
+        pass
 class Rectangle(Shape):
     """
         Rectangle
@@ -51,19 +68,8 @@ class Rectangle(Shape):
         super().__init__(x, y, **kwargs)
 
     def draw(self, canvas: Canvas):
-        """
-            Draws the object onto a canvas.
-            
-            Parameters
-            ----------
-        
-            canvas
-                The tkinter canvas to be drawn on
-                
-            Notes
-            -----
-            
-            This method is intended to be used by the jmath.graphics.Canvas.draw() method, not accessed directly.
-        """
 
-        canvas.create_rectangle(self.x, self.y, self.x + self.width, self.y - self.height, **self.kwargs)
+        if self.canvas_obj != None:
+            canvas.delete(self.canvas_obj)
+
+        self.canvas_obj = canvas.create_rectangle(self.x, self.y, self.x + self.width, self.y - self.height, **self.kwargs)
