@@ -122,3 +122,15 @@ class Canvas(Window):
         # Add canvas
         self.canvas = tk.Canvas(self.root)
         self.canvas.pack(expand = True)
+
+    def draw(self, shape: "Shape"):
+        """
+            Draws a shape
+
+            Parameters
+            ----------
+
+            shape
+                Shape object to draw
+        """
+        pass
