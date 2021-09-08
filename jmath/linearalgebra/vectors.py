@@ -64,6 +64,10 @@ class Vector:
         string = string[:-2] + ")"
         return string
 
+    def __getitem__(self, index: int) -> float:
+        """Subscripting."""
+        return self.components[index]
+
     def __same_size(func: Callable[["Vector", "Vector"], Any]) -> Callable[["Vector", "Vector"], Any]:
         """
             Wrapper that checks if vectors are the same size.
