@@ -6,6 +6,7 @@
 
 from .mechanics import PhysEnv, PhysObj, Vector, Point
 from ..graphics import Canvas, Shape, Rectangle
+from tkinter import Canvas as TkCanvas
 
 # - Classes
 
@@ -112,3 +113,12 @@ class GraphObj(PhysObj):
         self.shape.y = (self.env.height - self.position[1]) * self.env.pixels_per_metre
         # Redraw
         self.env.draw(self.shape)
+
+    def draw(self, canvas: TkCanvas):
+        """
+            Draw shape onto graphical environment
+            
+            canvas
+                The graphical environment to draw upon
+        """
+        self.shape.draw(canvas)
