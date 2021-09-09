@@ -63,14 +63,26 @@ class GraphEnv(Canvas, PhysEnv):
         # Calculate pixels per metre
         self._pixels_per_metre = 1/self._metres_per_pixel
 
-    def start():
-        """Begins the simulation."""
+    def start(self, time_interval: int = 10):
+        """
+            Begins the simulation.
+            
+            time_interval
+                The time interval to simulate over in milliseconds
+        """
 
         # Construct the mainloop
-        def mainloop():
-            pass
+        def mainloop(self, time_interval):
+            
+            self.increment_time(time_interval)
 
-        super().start(mainloop)
+            for object in self.objects:
+                object.increment_position(time_interval/1000)
+                self.draw(object)
+
+            return self, time_interval
+
+        super().start(mainloop, 10, self, time_interval)
 
 class GraphObj(PhysObj):
     """
