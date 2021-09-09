@@ -7,6 +7,7 @@
 from .mechanics import PhysEnv, PhysObj, Vector, Point
 from ..graphics import Canvas, Shape, Rectangle
 from tkinter import Canvas as TkCanvas
+from typing import Callable, Any
 
 # - Classes
 
@@ -63,26 +64,33 @@ class GraphEnv(Canvas, PhysEnv):
         # Calculate pixels per metre
         self._pixels_per_metre = 1/self._metres_per_pixel
 
-    def start(self, time_interval: int = 10):
+    def start(self, time_interval: int, func: Callable[[Any], Any] = lambda *args: (None,), *args):
         """
             Begins the simulation.
-            
+
             time_interval
-                The time interval to simulate over in milliseconds
+                The time interval to simulate over in seconds
+            func
+                Additional function to run in mainloop
+            *args
+                Arguments to be passed to the function
         """
 
         # Construct the mainloop
-        def mainloop(self, time_interval):
+        def mainloop(self, time_interval, *args):
             
             self.increment_time(time_interval)
 
             for object in self.objects:
-                object.increment_position(time_interval/1000)
+                object.increment_position(time_interval)
                 self.draw(object)
 
-            return self, time_interval
+            # Run custom function
+            args = func(*args)
 
-        super().start(mainloop, 10, self, time_interval)
+            return self, time_interval, *args
+
+        super().start(mainloop, int(time_interval * 1000), self, time_interval, *args)
 
 class GraphObj(PhysObj):
     """
