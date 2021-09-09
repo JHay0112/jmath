@@ -51,6 +51,8 @@ class GraphEnv(Canvas, PhysEnv):
         self._pixels_per_metre = new
         # Calculate metres per pixel
         self._metres_per_pixel = 1/self.pixels_per_metre
+        # Scale all objects by new factor
+        [object.scale(self.pixels_per_metre) for object in self.objects]
 
     @property
     def metres_per_pixel(self) -> float:
@@ -63,10 +65,31 @@ class GraphEnv(Canvas, PhysEnv):
         self._metres_per_pixel = new
         # Calculate pixels per metre
         self._pixels_per_metre = 1/self._metres_per_pixel
+        # Scale all objects by factor
+        [object.scale(self.pixels_per_metre) for object in self.objects]
+
+    def add_object(self, new_obj: "GraphObj"):
+        """
+            Add a new Graphics Object to the environment
+
+            Parameters
+            ----------
+
+            new_obj
+                Object to add to environment
+        """
+
+        # Scale an object before adding it
+        new_obj.scale(self.pixels_per_metre)
+
+        super().add_object(new_obj)
 
     def start(self, time_interval: int, func: Callable[[Any], Any] = lambda *args: (None,), *args):
         """
             Begins the simulation.
+
+            Parameters
+            ----------
 
             time_interval
                 The time interval to simulate over in seconds
@@ -130,15 +153,30 @@ class GraphObj(PhysObj):
         self._position = new_position
         # Calculate graphical position
         self.shape.x = self.position[0] * self.env.pixels_per_metre
-        self.shape.y = (self.env.height - self.position[1]) * self.env.pixels_per_metre
+        self.shape.y = self.env.height - (self.position[1] * self.env.pixels_per_metre)
         # Redraw
         self.env.draw(self.shape)
 
     def draw(self, canvas: TkCanvas):
         """
             Draw shape onto graphical environment
+
+            Parameters
+            ----------
             
             canvas
                 The graphical environment to draw upon
         """
         self.shape.draw(canvas)
+
+    def scale(self, factor: float):
+        """
+            Scale the object's size by a factor
+
+            Parameters
+            ----------
+
+            factor
+                The amount to scale the object by
+        """
+        self.shape.scale(factor)

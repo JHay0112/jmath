@@ -41,7 +41,19 @@ class Shape:
             
             This method is intended to be used by the jmath.graphics.Canvas.draw() method, not accessed directly.
         """
-        pass
+        return NotImplemented
+
+    def scale(self, factor: float):
+        """
+            Scales the object by a given factor
+
+            Parameters
+            ----------
+
+            factor
+                The factor to scale the object by
+        """
+        return NotImplemented
 
 class Rectangle(Shape):
     """
@@ -75,3 +87,8 @@ class Rectangle(Shape):
             canvas.delete(self.canvas_obj)
 
         self.canvas_obj = canvas.create_rectangle(self.x, self.y, self.x + self.width, self.y - self.height, **self.kwargs)
+
+    def scale(self, factor: float):
+
+        self.width *= factor
+        self.height *= factor
