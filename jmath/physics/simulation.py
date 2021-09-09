@@ -5,11 +5,11 @@
 # - Imports
 
 from .mechanics import PhysEnv, PhysObj, Vector, Point
-from ..graphics import Canvas, Rectangle
+from ..graphics import Canvas, Shape, Rectangle
 
 # - Classes
 
-class GraphEnv(PhysEnv, Canvas):
+class GraphEnv(Canvas, PhysEnv):
     '''
         The Graphical Environment for Physical Simulations
 
@@ -34,6 +34,7 @@ class GraphEnv(PhysEnv, Canvas):
     def __init__(self, title: str, width: int = 800, height: int = 800, pixels_per_metre: float = 1, fullscreen: bool = False, **kwargs):
 
         super().__init__(title, width, height, fullscreen, **kwargs)
+        PhysEnv.__init__(self)
 
         self.pixels_per_metre = pixels_per_metre
 
@@ -63,7 +64,12 @@ class GraphEnv(PhysEnv, Canvas):
 
     def start():
         """Begins the simulation."""
-        super().start()
+
+        # Construct the mainloop
+        def mainloop():
+            pass
+
+        super().start(mainloop)
 
 class GraphObj(PhysObj):
     """
@@ -73,6 +79,36 @@ class GraphObj(PhysObj):
         ----------
 
         env
-            The graphical environment the 
+            The graphical environment the object belongs to
+        shape
+            The shape of the object, note that position associated with the shape will be overriden
+        position
+            The position of the object
+        velocity
+            The initial velocity of the object
+        mass
+            The mass in kilograms
+        charge
+            The charge in coulombs
     """
-    pass
+    def __init__(self, env: GraphEnv, shape: Shape, position: Point, velocity: Vector, mass: float = 0, charge: float = 0):
+
+        self.shape = shape
+
+        super().__init__(env, position, velocity, mass, charge)
+
+    @property
+    def position(self) -> Point:
+        """The position of the object."""
+        return self._position
+
+    @position.setter
+    def position(self, new_position: Point):
+        """Sets a new position."""
+        # Set position
+        self._position = new_position
+        # Calculate graphical position
+        self.shape.x = self.position[0] * self.env.pixels_per_metre
+        self.shape.y = (self.env.height - self.position[1]) * self.env.pixels_per_metre
+        # Redraw
+        self.env.draw(self.shape)

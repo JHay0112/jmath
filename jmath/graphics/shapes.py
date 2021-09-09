@@ -19,7 +19,7 @@ class Shape:
         **kwargs
             Additional tkinter configuration
     """
-    def __init__(self, x: int, y: int, **kwargs):
+    def __init__(self, x: int = 0, y: int = 0, **kwargs):
 
         self.x = x
         self.y = y
@@ -62,7 +62,7 @@ class Rectangle(Shape):
             Additional tkinter configuration for canvas.create_rectangle
     """
 
-    def __init__(self, width: int, height: int, x: int, y: int, **kwargs):
+    def __init__(self, width: int, height: int, x: int = 0, y: int = 0, **kwargs):
         
         self.width = width
         self.height = height
