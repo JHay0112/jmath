@@ -113,7 +113,7 @@ class GraphEnv(Canvas, PhysEnv):
             # Run custom function
             args = func(*args)
 
-            return self, time_interval, *args
+            return self, time_interval, args
 
         super().start(mainloop, int((time_interval * 1000)/rate), self, time_interval, *args)
 
