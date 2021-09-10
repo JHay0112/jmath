@@ -48,6 +48,7 @@ class Window:
         self.root.title(self.title)
         self.root.geometry(f"{self.width}x{self.height}")
         self.root.attributes("-fullscreen", self.fullscreen)
+        self.root.configure(background = "white")
 
     @property
     def title(self):
@@ -130,7 +131,7 @@ class Canvas(Window):
         super().__init__(title, width, height, fullscreen)
 
         # Add canvas
-        self.canvas = tk.Canvas(self.root, height = self.height, width = self.width, **kwargs)
+        self.canvas = tk.Canvas(self.root, height = self.height, width = self.width, background = "white", **kwargs)
         self.canvas.pack(fill = tk.BOTH)
 
     def draw(self, shape: Shape):
