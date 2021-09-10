@@ -84,7 +84,7 @@ class GraphEnv(Canvas, PhysEnv):
 
         super().add_object(new_obj)
 
-    def start(self, time_interval: int, func: Callable[[Any], Any] = lambda *args: (None,), *args):
+    def start(self, time_interval: int, rate: float = 1, func: Callable[[Any], Any] = lambda *args: (None,), *args):
         """
             Begins the simulation.
 
@@ -93,6 +93,8 @@ class GraphEnv(Canvas, PhysEnv):
 
             time_interval
                 The time interval to simulate over in seconds
+            rate
+                Factor to speed or slow down time by
             func
                 Additional function to run in mainloop
             *args
@@ -113,7 +115,7 @@ class GraphEnv(Canvas, PhysEnv):
 
             return self, time_interval, *args
 
-        super().start(mainloop, int(time_interval * 1000), self, time_interval, *args)
+        super().start(mainloop, int((time_interval * 1000)/rate), self, time_interval, *args)
 
 class GraphObj(PhysObj):
     """
