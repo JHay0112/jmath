@@ -6,6 +6,7 @@
 
 import tkinter as tk
 from .shapes import Shape
+from ..linearalgebra import Point
 from typing import Callable, Any
 
 # - Classes
@@ -99,6 +100,10 @@ class Window:
         """
 
         self.root.after(delay, lambda: func(*args))
+
+    def centre(self) -> Point:
+        """Computes the central point of the screen"""
+        return Point(self.width/2, self.height/2)
 
 class Canvas(Window):
     '''

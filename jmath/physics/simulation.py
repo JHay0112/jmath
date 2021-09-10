@@ -117,6 +117,10 @@ class GraphEnv(Canvas, PhysEnv):
 
         super().start(mainloop, int((time_interval * 1000)/rate), self, time_interval, *args)
 
+    def centre(self) -> Point:
+        """Computes the centre of the environment."""
+        return self.metres_per_pixel * super().centre()
+
 class GraphObj(PhysObj):
     """
         Graphical Representation of a Physical Object
