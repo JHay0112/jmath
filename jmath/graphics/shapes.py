@@ -92,3 +92,37 @@ class Rectangle(Shape):
 
         self.width *= factor
         self.height *= factor
+
+class Circle(Shape):
+    """
+        Circle
+
+        Parameters
+        ----------
+
+        radius
+            The pixel width of the rectangle
+        x
+            Position on the x-axis
+        y
+            Position on the y-axis
+        **kwargs
+            Additional tkinter configuration for canvas.create_rectangle
+    """
+
+    def __init__(self, radius: float, x: int = 0, y: int = 0, **kwargs):
+        
+        self.radius = radius
+
+        super().__init__(x, y, **kwargs)
+
+    def draw(self, canvas: Canvas):
+
+        if self.canvas_obj != None:
+            canvas.delete(self.canvas_obj)
+
+        self.canvas_obj = canvas.create_oval(self.x - self.radius, self.y - self.radius, self.x + self.radius, self.y + self.radius, **self.kwargs)
+
+    def scale(self, factor: float):
+
+        self.radius *= factor
