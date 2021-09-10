@@ -108,6 +108,11 @@ class GraphEnv(Canvas, PhysEnv):
 
             for object in self.objects:
                 object.increment_position(time_interval)
+
+                if self.width < object.position[0] or object.position[0] < 0 or self.height < object.position[1] or object.position[1] < 0:
+                    self.objects.remove(object)
+                    self.canvas.delete(object.shape.canvas_obj)
+
                 self.draw(object)
 
             # Run custom function
