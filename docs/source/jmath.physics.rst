@@ -28,6 +28,14 @@ jmath.physics.prefixes module
    :undoc-members:
    :show-inheritance:
 
+jmath.physics.simulation module
+-------------------------------
+
+.. automodule:: jmath.physics.simulation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

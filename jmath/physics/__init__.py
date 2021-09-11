@@ -16,6 +16,8 @@
 
     jmath.physics.circuits
         Circuit modelling based on jmath.discrete. In development. Not provided by default.
+    jmath.physics.simulation
+        A graphical approach to kinematic/gravitational/charged system modelling.
 '''
 
 # - Namespace

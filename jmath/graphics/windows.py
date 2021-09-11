@@ -6,6 +6,7 @@
 
 import tkinter as tk
 from .shapes import Shape
+from ..linearalgebra import Point
 from typing import Callable, Any
 
 # - Classes
@@ -47,6 +48,7 @@ class Window:
         self.root.title(self.title)
         self.root.geometry(f"{self.width}x{self.height}")
         self.root.attributes("-fullscreen", self.fullscreen)
+        self.root.configure(background = "white")
 
     @property
     def title(self):
@@ -100,6 +102,10 @@ class Window:
 
         self.root.after(delay, lambda: func(*args))
 
+    def centre(self) -> Point:
+        """Computes the central point of the screen"""
+        return Point(self.width/2, self.height/2)
+
 class Canvas(Window):
     '''
         Permutation of Window for drawing shapes on.
@@ -125,7 +131,7 @@ class Canvas(Window):
         super().__init__(title, width, height, fullscreen)
 
         # Add canvas
-        self.canvas = tk.Canvas(self.root, height = self.height, width = self.width, **kwargs)
+        self.canvas = tk.Canvas(self.root, height = self.height, width = self.width, background = "white", **kwargs)
         self.canvas.pack(fill = tk.BOTH)
 
     def draw(self, shape: Shape):

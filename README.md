@@ -42,6 +42,9 @@ Provides tools for rudimentary cryptography. Currently provides Affine cipher (j
 ### Discrete (jmath.discrete)
 Node, Graph, and Loop objects for use in Graph based maths.
 
+### Graphics (jmath.graphics)
+Objects for easy creation of graphics, used by physics to draw 2d simulations.
+
 *** 
 ## Testing
 

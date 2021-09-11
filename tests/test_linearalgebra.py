@@ -173,3 +173,12 @@ def test_unit_vector():
     unit_vec = vec.unit()
     assert round(unit_vec.magnitude(), 10) == 1
     assert vec.magnitude() * unit_vec == vec
+
+@repeat
+def test_vector_subscripts():
+    """Tests that a vector can be subscripted."""
+    # Generate vector component pair
+    v, c = vector_component_pair()
+    # Iterate through components and check they match
+    for i in range(len(c)):
+        assert v[i] == c[i]
