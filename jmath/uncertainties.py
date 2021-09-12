@@ -5,7 +5,35 @@
 # - Modules
 
 import math
-from typing import Callable, Union
+from typing import Callable, Union, List
+
+# - Functions
+
+def half_range(data: List[float]) -> float:
+    """
+        Calculates the absolute uncertainty associated with a set of data.
+
+        Parameters
+        ----------
+
+        data
+            List/tuple of the data
+    """
+
+    return (max(data) - min(data))/2
+
+def mean(data: List[float]) -> "Uncertainty":
+    """
+        Calculates the mean of a set of data and it's uncertainty.
+
+        Parameters
+        ----------
+
+        data
+            List/tuple of data to take the mean of.
+    """
+    
+    return Uncertainty(sum(data)/len(data), half_range(data))
 
 # - Classes
 class Uncertainty:
