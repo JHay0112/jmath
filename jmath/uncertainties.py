@@ -24,7 +24,7 @@ def half_range(data: List[float]) -> float:
 
 def mean(data: List[float]) -> "Uncertainty":
     """
-        Calculates the mean of a set of data and it's uncertainty.
+        Calculates the mean of a set of data and it's uncertainty by the half range rule.
 
         Parameters
         ----------
