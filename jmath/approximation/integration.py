@@ -35,7 +35,7 @@ def partition(f: Callable[[float], float], start: float, end: float, divisions: 
 
         current_position += delta
 
-def left_hand_rule(f: Callable[[float], float], start: float, end: float, divisions: int):
+def left_hand_rule(f: Callable[[float], float], start: float, end: float, divisions: int) -> float:
     '''
         Approximates area under curve with the left hand rule.
 
@@ -62,7 +62,7 @@ def left_hand_rule(f: Callable[[float], float], start: float, end: float, divisi
 
     return signed_area * delta_x
 
-def right_hand_rule(f: Callable[[float], float], start: float, end: float, divisions: int):
+def right_hand_rule(f: Callable[[float], float], start: float, end: float, divisions: int) -> float:
     '''
         Approximates area under curve with the right hand rule.
 
@@ -89,7 +89,7 @@ def right_hand_rule(f: Callable[[float], float], start: float, end: float, divis
 
     return signed_area * delta_x
 
-def trapezium_rule(f: Callable[[float], float], start: float, end: float, divisions: int):
+def trapezium_rule(f: Callable[[float], float], start: float, end: float, divisions: int) -> float:
     '''
         Approximates area under curve with the trapezium hand rule.
 
@@ -116,7 +116,7 @@ def trapezium_rule(f: Callable[[float], float], start: float, end: float, divisi
 
     return signed_area * delta_x/2
 
-def discrete_trapezium_rule(x: Iterable[float], y: Iterable[float]):
+def discrete_trapezium_rule(x: Iterable[float], y: Iterable[float]) -> float:
     '''
         Performs the trapezium rule on discrete sets of data
 
