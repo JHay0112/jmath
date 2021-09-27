@@ -20,6 +20,14 @@ jmath.approximation.euler\_method module
    :undoc-members:
    :show-inheritance:
 
+jmath.approximation.integration module
+--------------------------------------
+
+.. automodule:: jmath.approximation.integration
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.approximation.newton\_method module
 -----------------------------------------
 

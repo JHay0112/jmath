@@ -96,6 +96,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation.differentiation">jmath.approximation.differentiation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation.euler_method">jmath.approximation.euler_method module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation.integration">jmath.approximation.integration module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation.newton_method">jmath.approximation.newton_method module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.approximation">Module contents</a></li>
 </ul>
@@ -120,6 +121,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation.differentiation">jmath.approximation.differentiation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation.euler_method">jmath.approximation.euler_method module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation.integration">jmath.approximation.integration module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation.newton_method">jmath.approximation.newton_method module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.approximation">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#default-packages">Default Packages</a></li>
@@ -265,6 +267,90 @@ h (float) - Step size</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-jmath.approximation.integration">
+<span id="jmath-approximation-integration-module"></span><h2>jmath.approximation.integration module<a class="headerlink" href="#module-jmath.approximation.integration" title="Permalink to this headline">¶</a></h2>
+<p>Approximations of definite integrals</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.approximation.integration.discrete_trapezium_rule">
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">discrete_trapezium_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.discrete_trapezium_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the trapezium rule on discrete sets of data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – Data associated with the x-axis</p></li>
+<li><p><strong>y</strong> – Data associated with the y-axis</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>x and y should be of the same length.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.approximation.integration.left_hand_rule">
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">left_hand_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.left_hand_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approximates area under curve with the left hand rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – The function to approximate the area under</p></li>
+<li><p><strong>start</strong> – The lower limit of the definite integral.</p></li>
+<li><p><strong>end</strong> – The upper limit of the definite integral.</p></li>
+<li><p><strong>divisions</strong> – The amount of divisions to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.approximation.integration.partition">
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.approximation.integration.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partitions a function, returning the start and end points of each partition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – The function to partition</p></li>
+<li><p><strong>start</strong> – Lower limit</p></li>
+<li><p><strong>end</strong> – Upper limit</p></li>
+<li><p><strong>divisions</strong> – Amount of divisions to cut the function into</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.approximation.integration.right_hand_rule">
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">right_hand_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.right_hand_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approximates area under curve with the right hand rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – The function to approximate the area under</p></li>
+<li><p><strong>start</strong> – The lower limit of the definite integral.</p></li>
+<li><p><strong>end</strong> – The upper limit of the definite integral.</p></li>
+<li><p><strong>divisions</strong> – The amount of divisions to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.approximation.integration.trapezium_rule">
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">trapezium_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.trapezium_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approximates area under curve with the trapezium hand rule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – The function to approximate the area under</p></li>
+<li><p><strong>start</strong> – The lower limit of the definite integral.</p></li>
+<li><p><strong>end</strong> – The upper limit of the definite integral.</p></li>
+<li><p><strong>divisions</strong> – The amount of divisions to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="module-jmath.approximation.newton_method">
 <span id="jmath-approximation-newton-method-module"></span><h2>jmath.approximation.newton_method module<a class="headerlink" href="#module-jmath.approximation.newton_method" title="Permalink to this headline">¶</a></h2>
 <p>Newton’s method for approximating the roots of equations.</p>
@@ -323,7 +409,9 @@ h (float) - Step size</p>
 </dd>
 <dt>jmath.approximation.newton_method</dt><dd><p>The Newton Method for approximating the roots of an equation.</p>
 </dd>
-<dt>jmath.approximation.differentiation</dt><dd><p>Numerical method for approximating differntials of functions.</p>
+<dt>jmath.approximation.differentiation</dt><dd><p>Numerical method for approximating differentials of functions.</p>
+</dd>
+<dt>jmath.approximation.integration</dt><dd><p>Numerical methods for approximating definite integrals.</p>
 </dd>
 </dl>
 </div>
