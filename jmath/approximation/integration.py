@@ -61,3 +61,57 @@ def left_hand_rule(f: Callable[[float], float], start: float, end: float, divisi
         signed_area += left
 
     return signed_area * delta_x
+
+def right_hand_rule(f: Callable[[float], float], start: float, end: float, divisions: int):
+    '''
+        Approximates area under curve with the right hand rule.
+
+        Parameters
+        ----------
+
+        f
+            The function to approximate the area under
+        start
+            The lower limit of the definite integral.
+        end
+            The upper limit of the definite integral.
+        divisions
+            The amount of divisions to use.
+    '''
+
+    signed_area = 0
+    delta_x = (end - start)/divisions
+
+    # For every partition
+    for _, right in partition(f, start, end, divisions):
+        # Calculate the area of a rectangle from the left side of the partition
+        signed_area += right
+
+    return signed_area * delta_x
+
+def trapezium_rule(f: Callable[[float], float], start: float, end: float, divisions: int):
+    '''
+        Approximates area under curve with the trapezium hand rule.
+
+        Parameters
+        ----------
+
+        f
+            The function to approximate the area under
+        start
+            The lower limit of the definite integral.
+        end
+            The upper limit of the definite integral.
+        divisions
+            The amount of divisions to use.
+    '''
+
+    signed_area = 0
+    delta_x = (end - start)/divisions
+
+    # For every partition
+    for left, right in partition(f, start, end, divisions):
+        # Calculate the area of a rectangle from the left side of the partition
+        signed_area += left + right
+
+    return signed_area * delta_x/2
