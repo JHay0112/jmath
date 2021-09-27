@@ -32,3 +32,4 @@ __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 from .uncertainties import Uncertainty
 from .linearalgebra import Vector, Point, Line
 from .modular import extended_gcd, modular_inverse
+from .approximation import differentiate, trapezium_rule
