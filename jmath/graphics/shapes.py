@@ -16,7 +16,7 @@ class Shape:
             Position on the x-axis
         y
             Position on the y-axis
-        **kwargs
+        kwargs
             Additional tkinter configuration
     """
     def __init__(self, x: int = 0, y: int = 0, **kwargs):
@@ -70,7 +70,7 @@ class Rectangle(Shape):
             Position on the x-axis
         y
             Position on the y-axis
-        **kwargs
+        kwargs
             Additional tkinter configuration for canvas.create_rectangle
     """
 
@@ -106,7 +106,7 @@ class Circle(Shape):
             Position on the x-axis
         y
             Position on the y-axis
-        **kwargs
+        kwargs
             Additional tkinter configuration for canvas.create_rectangle
     """
 
