@@ -4,7 +4,7 @@
 
 # - Imports
 
-from typing import Callable, Generator
+from typing import Callable, Generator, Iterable
 
 # - Functions
 
@@ -115,3 +115,32 @@ def trapezium_rule(f: Callable[[float], float], start: float, end: float, divisi
         signed_area += left + right
 
     return signed_area * delta_x/2
+
+def discrete_trapezium_rule(x: Iterable[float], y: Iterable[float]):
+    '''
+        Performs the trapezium rule on discrete sets of data
+
+        Parameters
+        ----------
+
+        x
+            Data associated with the x-axis
+        y
+            Data associated with the y-axis
+
+        Notes
+        -----
+
+        x and y should be of the same length.
+    '''
+
+    assert len(x) == len(y)
+
+    delta = (x[-1] - x[0])/(len(x) - 1)
+
+    signed_area = y[0]/2 + y[-1]/2
+
+    for i in range(1, len(y) - 1):
+        signed_area += y[i]
+
+    return signed_area * delta
