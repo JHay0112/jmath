@@ -94,7 +94,8 @@ class BinaryHeap:
         """
 
         # While there are children
-        while (children := self.children_of(index)) is not None:
+        while self.children_of(index) is not None:
+            children = self.children_of(index)
             # For two children
             if len(children) == 2:
                 # Get child values
@@ -132,7 +133,8 @@ class BinaryHeap:
                 The index to perform the sift up operation on
         """
 
-        while (parent := self.parent_of(index)) is not None:
+        while self.parent_of(index) is not None:
+            parent = self.parent_of(index)
             # Compare child and parent
             best_val = self.compare(self.items[index], self.items[parent])
             # If the parent is not the better value
