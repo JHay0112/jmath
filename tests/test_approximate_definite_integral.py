@@ -16,7 +16,7 @@ def test_on_increasing_func():
     linear_function = lambda x : coeffecient*x
     lower_bound = random_integer(0, 99)
     upper_bound = random_integer(lower_bound, 100)
-    samples = random_integer(1, upper_bound - lower_bound)
+    samples = upper_bound - lower_bound
     
     # Find exact area since it is linear
     exact_area = 0.5*upper_bound*linear_function(upper_bound) - 0.5*lower_bound*linear_function(lower_bound)
@@ -39,7 +39,7 @@ def test_on_decreasing_func():
     linear_function = lambda x : coeffecient*x
     lower_bound = random_integer(0, 99)
     upper_bound = random_integer(lower_bound, 100)
-    samples = random_integer(1, upper_bound - lower_bound)
+    samples = upper_bound - lower_bound
     
     # Find exact area since it is linear
     exact_area = 0.5*upper_bound*linear_function(upper_bound) - 0.5*lower_bound*linear_function(lower_bound)
