@@ -141,3 +141,32 @@ class BinaryHeap:
             else:
                 # There is no swap to do, break
                 break
+
+    def push(self, value):
+        """
+            Pushes a value onto the heap
+
+            Parameters
+            ----------
+
+            value
+                The value to push on
+        """
+        # Append value
+        self.items.append(value)
+        # Sift up value
+        self.sift_up(len(self.items) - 1)
+
+    def pop(self):
+        """
+            Pops a value from the heap
+        """
+
+        # Get value from top
+        top = self.items[0]
+        # Put new value on top
+        self.items[0] = self.items.pop()
+        # Sift top down
+        self.sift_down(0)
+
+        return top
