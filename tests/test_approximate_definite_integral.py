@@ -14,8 +14,8 @@ def test_on_increasing_func():
     """Tests that on an increasing linear function the left hand rule underestimates, the right hand rule over estimates, and trapezium rule is exact"""
     coeffecient = random_integer(1, 100)
     linear_function = lambda x : coeffecient*x
-    lower_bound = random_integer(0, 99)
-    upper_bound = random_integer(lower_bound, 100)
+    lower_bound = random_integer(0, 98)
+    upper_bound = random_integer(lower_bound + 1, 100)
     samples = upper_bound - lower_bound
     
     # Find exact area since it is linear
@@ -37,8 +37,8 @@ def test_on_decreasing_func():
     """Tests that on a decreasing linear function the left hand rule overestimates, the right hand rule underestimates, and trapezium rule is exact"""
     coeffecient = random_integer(-100, -1)
     linear_function = lambda x : coeffecient*x
-    lower_bound = random_integer(0, 99)
-    upper_bound = random_integer(lower_bound, 100)
+    lower_bound = random_integer(0, 98)
+    upper_bound = random_integer(lower_bound + 1, 100)
     samples = upper_bound - lower_bound
     
     # Find exact area since it is linear
