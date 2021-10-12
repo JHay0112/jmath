@@ -172,6 +172,9 @@ class BinaryHeap:
             self.items[0] = self.items.pop()
             # Sift top down
             self.sift_down(0)
+        else:
+            # Ensure list emptiess
+            self.items.pop()
 
         return top
 
