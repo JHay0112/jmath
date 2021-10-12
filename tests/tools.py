@@ -12,11 +12,11 @@ from functools import wraps
 
 def repeat(func):
     """
-        Wrapper that repeats a function 10 times.
+        Wrapper that repeats a function 100 times.
     """
     @wraps(func)
     def inner():
-        for i in range(10):
+        for i in range(100):
             return func()
 
     return inner
