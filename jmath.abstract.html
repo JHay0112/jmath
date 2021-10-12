@@ -93,6 +93,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="jmath.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">jmath.abstract package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.abstract.heaps">jmath.abstract.heaps module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.abstract.lists">jmath.abstract.lists module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.abstract.queues">jmath.abstract.queues module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.abstract.stacks">jmath.abstract.stacks module</a></li>
@@ -117,6 +118,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">jmath.abstract package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-jmath.abstract.heaps">jmath.abstract.heaps module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.abstract.lists">jmath.abstract.lists module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.abstract.queues">jmath.abstract.queues module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-jmath.abstract.stacks">jmath.abstract.stacks module</a></li>
@@ -201,6 +203,143 @@
 <h1>jmath.abstract package<a class="headerlink" href="#jmath-abstract-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.abstract.heaps">
+<span id="jmath-abstract-heaps-module"></span><h2>jmath.abstract.heaps module<a class="headerlink" href="#module-jmath.abstract.heaps" title="Permalink to this headline">¶</a></h2>
+<p>Implementation of Heap types</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">BinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Implementation of a Generic Binary Heap</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the comparison operator for the heap, should take a set of values and return one per an ordering.
+For example the comparison operator for a min heap is the min function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.children_of">
+<span class="sig-name descname"><span class="pre">children_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.children_of" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the locations of the children of a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – The index of to find the children of</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>An iterable containing the indices of the child nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">compare</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.parent_of">
+<span class="sig-name descname"><span class="pre">parent_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.parent_of" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the location of the parent of a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – The index to calculate the parent of</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>The index of the parent node or None if it does not have a parent</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pops a value from the heap</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.push">
+<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pushes a value onto the heap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – The value to push on</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.sift_down">
+<span class="sig-name descname"><span class="pre">sift_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.sift_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a sift down operation on a given index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – The index to perform the sift down operation on</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.sift_up">
+<span class="sig-name descname"><span class="pre">sift_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.sift_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a sift up operation on a given index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> – The index to perform the sift up operation on</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.MaxBinaryHeap">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">MaxBinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.MaxBinaryHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.abstract.heaps.BinaryHeap" title="jmath.abstract.heaps.BinaryHeap"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.heaps.BinaryHeap</span></code></a></p>
+<p>Binary Heap with maximum value stored at root.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.MaxBinaryHeap.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.MaxBinaryHeap.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>max(iterable, <a href="#id1"><span class="problematic" id="id2">*</span></a>[, default=obj, key=func]) -&gt; value
+max(arg1, arg2, <a href="#id3"><span class="problematic" id="id4">*</span></a>args, <a href="#id5"><span class="problematic" id="id6">*</span></a>[, key=func]) -&gt; value</p>
+<p>With a single iterable argument, return its biggest item. The
+default keyword-only argument specifies an object to return if
+the provided iterable is empty.
+With two or more arguments, return the largest argument.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.MinBinaryHeap">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">MinBinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.MinBinaryHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#jmath.abstract.heaps.BinaryHeap" title="jmath.abstract.heaps.BinaryHeap"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.heaps.BinaryHeap</span></code></a></p>
+<p>Binary Heap with minimum value stored at root.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.abstract.heaps.MinBinaryHeap.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.MinBinaryHeap.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>min(iterable, <a href="#id7"><span class="problematic" id="id8">*</span></a>[, default=obj, key=func]) -&gt; value
+min(arg1, arg2, <a href="#id9"><span class="problematic" id="id10">*</span></a>args, <a href="#id11"><span class="problematic" id="id12">*</span></a>[, key=func]) -&gt; value</p>
+<p>With a single iterable argument, return its smallest item. The
+default keyword-only argument specifies an object to return if
+the provided iterable is empty.
+With two or more arguments, return the smallest argument.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-jmath.abstract.lists">
 <span id="jmath-abstract-lists-module"></span><h2>jmath.abstract.lists module<a class="headerlink" href="#module-jmath.abstract.lists" title="Permalink to this headline">¶</a></h2>

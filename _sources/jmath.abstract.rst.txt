@@ -4,6 +4,14 @@ jmath.abstract package
 Submodules
 ----------
 
+jmath.abstract.heaps module
+---------------------------
+
+.. automodule:: jmath.abstract.heaps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.abstract.lists module
 ---------------------------
 
