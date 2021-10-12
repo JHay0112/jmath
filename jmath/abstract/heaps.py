@@ -4,7 +4,7 @@
 
 # - Imports
 
-from typing import Optional, Union, List
+from typing import Optional, List
 
 # - Classes
 
@@ -48,7 +48,7 @@ class BinaryHeap:
             # Calculate and return parent index
             return (index - 1)//2
 
-    def children_of(self, index: int) -> Optional[Union[List[int, int], List[int]]]:
+    def children_of(self, index: int) -> Optional[List[int]]:
         '''
             Calculates the locations of the children of a node
 
@@ -76,6 +76,9 @@ class BinaryHeap:
         if child2 < len(self.items):
             children.append(child2)
 
+        if children == []:
+            children = None
+
         # Return as tuple
         return children
 
@@ -91,14 +94,14 @@ class BinaryHeap:
         """
 
         # While there are children
-        while children := self.children_of(index) is not None:
+        while (children := self.children_of(index)) is not None:
             # For two children
             if len(children) == 2:
                 # Get child values
                 child_vals = [self.items[i] for i in children]
                 # Compare values
                 child_val = self.compare(child_vals)
-                # If child 1 matches
+                # Get the better
                 if self.items[children[0]] == child_val:
                     child = children[0]
                 else:
@@ -108,10 +111,10 @@ class BinaryHeap:
                 child = children[0]
             # Compare child to parent
             best_val = self.compare(self.items[child], self.items[index])
-            # If the child is the in order value
+            # If the child is the best
             if best_val == self.items[child]:
                 # Swap parent and item
-                self.items[index], self.items[child] == self.items[child], self.items[index]
+                self.items[index], self.items[child] = self.items[child], self.items[index]
                 # Mark child index as new index to look at 
                 index = child
             else:
@@ -129,13 +132,13 @@ class BinaryHeap:
                 The index to perform the sift up operation on
         """
 
-        while parent := self.parent_of(index) is not None:
+        while (parent := self.parent_of(index)) is not None:
             # Compare child and parent
             best_val = self.compare(self.items[index], self.items[parent])
-            # If the parent is the better value
-            if best_val == self.items[parent]:
+            # If the parent is not the better value
+            if best_val != self.items[parent]:
                 # Swap parent and item
-                self.items[index], self.items[parent] == self.items[parent], self.items[index]
+                self.items[index], self.items[parent] = self.items[parent], self.items[index]
                 # Mark parent as next to look at
                 index = parent
             else:
@@ -165,8 +168,21 @@ class BinaryHeap:
         # Get value from top
         top = self.items[0]
         # Put new value on top
-        self.items[0] = self.items.pop()
-        # Sift top down
-        self.sift_down(0)
+        if len(self.items) > 1:
+            self.items[0] = self.items.pop()
+            # Sift top down
+            self.sift_down(0)
 
         return top
+
+class MinBinaryHeap(BinaryHeap):
+    '''
+        Binary Heap with minimum value stored at root.
+    '''
+    compare = min
+
+class MaxBinaryHeap(BinaryHeap):
+    '''
+        Binary Heap with maximum value stored at root.
+    '''
+    compare = max
