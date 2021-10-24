@@ -1,1 +1,1 @@
-
+setuptools==40.6.2
