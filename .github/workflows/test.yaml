@@ -19,11 +19,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          pip3 install --upgrade setuptools
-          pip3 install --upgrade pip
-          pip3 install --upgrade distlib
-          pip3 install flake8 pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python3 -m pip install --upgrade setuptools pip distlib
+          python3 -m pip install flake8 pytest
+          if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
@@ -35,11 +33,11 @@ jobs:
           pytest tests/
       - name: Build and install jmath
         run: |
-          python setup.py install
+          python3 setup.py install
       - name: Test jmath can be imported
         run: |
-          python -c "import jmath"
+          python3 -c "import jmath"
       - name: Test jmath.physics can be imported
         run: |
-          python -c "import jmath.physics"
-          python -c "from jmath import physics"
+          python3 -c "import jmath.physics"
+          python3 -c "from jmath import physics"
