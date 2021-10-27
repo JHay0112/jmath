@@ -12,6 +12,7 @@ Subpackages
    jmath.cryptography
    jmath.graphics
    jmath.linearalgebra
+   jmath.loud
    jmath.physics
 
 Submodules
