@@ -72,7 +72,7 @@ def modular_inverse_brute_force(a: int, b: int) -> Optional[int]:
         # None of the easy cases so brute force it
         for i in range(2, b - 1):
             if (a * i) % b == 1:
-                print("\n {i} is the modular inverse of {a} in {b}")
+                print("\n{i} is the modular inverse of {a} in {b}")
                 return i
             else:
                  print(f"{a} * {i} mod {b} = {(a * i) % b}")
