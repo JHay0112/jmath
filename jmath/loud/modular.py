@@ -80,3 +80,33 @@ def modular_inverse_brute_force(a: int, b: int) -> Optional[int]:
             # None found, return None
             print(f"\nOptions exhausted, {a} has no modular inverse in {b}")
             return None
+
+def extended_gcd(a: int, b: int):
+    '''
+        Loud implementation of an extended Euclidean Algorithm
+        Produces a linear combination of a and b equal to gcd(a, b)
+
+        Notes
+        -----
+
+        NOT FUNCTIONAL
+    '''
+
+    if a > b:
+        # Move lower value into a
+        a, b = b, a
+
+    # Loud compute of gcd
+    gcd(a, b)
+    # Compute factors
+
+    print()
+
+    # We know initially that b = b//a + b%a
+    i = 1
+    while (b%a) != 0:
+        print(f"({i}): {b%a} = {b} - {b//a}*{a}")
+        a, b = b%a, a
+        i += 1
+
+    return a, b
