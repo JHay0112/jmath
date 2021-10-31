@@ -9,10 +9,11 @@ from ..uncertainties import Uncertainty
 
 # - Functions
 
-def differentiate(f: Callable[[float], float], x: float, h: float = 1e-6) -> Uncertainty:
+def differentiate(f: Callable[[float], float], x: float, h: float = 1e-6, n: int = 1) -> Uncertainty:
     """
         Numerically differentiate the given function at a point x.
         Uses the symmetric difference quotient to approximate.
+        Recurses for n-th derivative.
 
         Parameters
         ----------
@@ -23,9 +24,12 @@ def differentiate(f: Callable[[float], float], x: float, h: float = 1e-6) -> Unc
             The point at which to differentiate at.
         h
             The change in x to approximate with.
+        n
+            Order of derivative.
     """
 
-    derivative = (f(x + h) - f(x- h))/(2*h)
-
-    return Uncertainty(derivative, h ** 2)
+    if n > 1:
+        return differentiate(lambda x: (f(x + h) - f(x - h))/(2*h), x, h, n - 1)
+    else:
+        return Uncertainty((f(x + h) - f(x - h))/(2*h), h ** 2)
 
