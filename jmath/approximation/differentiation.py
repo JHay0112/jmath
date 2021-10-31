@@ -89,6 +89,8 @@ def second_partials_test(f: Callable[[float, float], float], crit_points: List[T
         else: # d > 0
             if f_xx(x, y).value > 0:
                 output[point] = LOCAL_MINIMUM
+            elif round(f_xx(x, y).value, 6) == 0:
+                output[point] = None
             else: # f_xx < 0
                 output[point] = LOCAL_MAXIMUM
 
