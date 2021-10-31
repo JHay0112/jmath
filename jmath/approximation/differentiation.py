@@ -7,6 +7,12 @@
 from typing import Callable, Dict, Tuple, List
 from ..uncertainties import Uncertainty
 
+# - Globals
+
+LOCAL_MINIMUM = "Local Minimum"
+LOCAL_MAXIMUM = "Local Maximum"
+SADDLE = "Saddle"
+
 # - Functions
 
 def differentiate(f: Callable[[float], float], x: float, h: float = 1e-6, n: int = 1) -> Uncertainty:
@@ -53,7 +59,37 @@ def second_partials_test(f: Callable[[float, float], float], crit_points: List[T
         A dictionary mapping critical point tuples to descriptions of the points.
     """
 
-    f_xx = lambda x, y: differentiate(lambda x: f(x, y), x, n = 2)
-    f_yy = lambda x, y: differentiate(lambda y: f(x, y), y, n = 2)
+    # Output dictionary
+    output = {}
 
-    
+    # Single partial derivatives
+    f_x = lambda x1, y1: differentiate(lambda x2: f(x2, y1), x1)
+    f_y = lambda x1, y1: differentiate(lambda y2: f(x1, y2), y1)
+    # Second partial derivatives
+    f_xx = lambda x1, y1: differentiate(lambda x2: f(x2, y1), x1, n = 2)
+    f_yy = lambda x1, y1: differentiate(lambda y2: f(x1, y2), y1, n = 2)
+    # Mixed second partial derivatives
+    f_xy = lambda x1, _: differentiate(lambda y2: f_x(x1, y2), x1)
+    f_yx = lambda _, y1: differentiate(lambda x2: f_y(x2, y1), y1)
+
+    for point in crit_points:
+        x, y = point
+        # Assert equality of derivatives at critical points
+        # Since SPT only works for f_xy == f_yx
+        assert round(f_xy(x, y), 6) == round(f_yx(x, y), 6)
+
+        # Calculate d
+        d = round(f_xx(x, y) * f_yy(x, y) - f_xy(x, y) ** 2, 6)
+
+        # Classify
+        if d == 0:
+            output[point] = None
+        elif d < 0:
+            output[point] = SADDLE
+        else: # d > 0
+            if f_xx(x, y).value > 0:
+                output[point] = LOCAL_MINIMUM
+            else: # f_xx < 0
+                output[point] = LOCAL_MAXIMUM
+
+    return output
