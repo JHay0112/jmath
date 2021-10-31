@@ -254,3 +254,8 @@ class Uncertainty:
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
+
+    def __pow__(self, power: float):
+        """Raise to power, brute forced"""
+        f = lambda x: x ** power
+        return self.apply(f)
