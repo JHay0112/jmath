@@ -134,6 +134,14 @@ class Uncertainty:
 
             return upper_bound or lower_bound
 
+    def __round__(self, dp: int):
+        """Returns the value rounded"""
+        return round(self.value, dp)
+
+    def __float__(self):
+        """Float form"""
+        return self.value
+
     def __add__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty":
         """Uncertainty addition"""
         # Check type of other
