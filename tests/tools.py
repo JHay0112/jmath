@@ -4,7 +4,7 @@
 
 # - Imports
 
-from random import randint
+from random import randint, choice
 from typing import List
 from functools import wraps
 
@@ -64,3 +64,7 @@ def random_list(min: int = 3, max: int = 30) -> List[int]:
     length = random_integer(min, max)
 
     return random_integers(length)
+
+def plus_or_minus() -> int:
+    """Returns either 1 or -1"""
+    return choice([1, -1])

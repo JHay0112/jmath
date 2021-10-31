@@ -77,7 +77,10 @@ class Uncertainty:
 
     def rel_uncertainty(self) -> float: 
         """Returns the relative uncertainty as proportion."""
-        return(self.uncertainty/self.value)
+        try:
+            return abs(self.uncertainty/self.value)
+        except ZeroDivisionError:
+            return 0
 
     def apply(self, func: Callable[[float], float]) -> "Uncertainty":
         """
@@ -133,6 +136,14 @@ class Uncertainty:
             upper_bound = (self.value + self.uncertainty) in other or (other.value + other.uncertainty) in self
 
             return upper_bound or lower_bound
+
+    def __round__(self, dp: int):
+        """Returns the value rounded"""
+        return round(self.value, dp)
+
+    def __float__(self):
+        """Float form"""
+        return self.value
 
     def __add__(self, other: Union["Uncertainty", float, int]) -> "Uncertainty":
         """Uncertainty addition"""
@@ -243,3 +254,8 @@ class Uncertainty:
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
+
+    def __pow__(self, power: float):
+        """Raise to power, brute forced"""
+        f = lambda x: x ** power
+        return self.apply(f)
