@@ -77,7 +77,10 @@ class Uncertainty:
 
     def rel_uncertainty(self) -> float: 
         """Returns the relative uncertainty as proportion."""
-        return(self.uncertainty/self.value)
+        try:
+            return abs(self.uncertainty/self.value)
+        except ZeroDivisionError:
+            return 0
 
     def apply(self, func: Callable[[float], float]) -> "Uncertainty":
         """
