@@ -32,6 +32,11 @@ def differentiate(f: Callable[[float], float], x: float, h: float = 1e-6, n: int
             The change in x to approximate with.
         n
             Order of derivative.
+
+        Notes
+        -----
+
+        Occasional accuracy issues for n > 1, investigation ongoing.
     """
 
     if n > 1:
