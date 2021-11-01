@@ -214,16 +214,41 @@
 <p>Approximations of the results of differential equations.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.differentiation.differentiate">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">differentiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.differentiation.differentiate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">differentiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.differentiation.differentiate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Numerically differentiate the given function at a point x.
-Uses the symmetric difference quotient to approximate.</p>
+Uses the symmetric difference quotient to approximate.
+Recurses for n-th derivative.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> – The function to numerically differentiate.</p></li>
 <li><p><strong>x</strong> – The point at which to differentiate at.</p></li>
 <li><p><strong>h</strong> – The change in x to approximate with.</p></li>
+<li><p><strong>n</strong> – Order of derivative.</p></li>
 </ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Occasional accuracy issues for n &gt; 1, investigation ongoing.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.approximation.differentiation.second_partials_test">
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">second_partials_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crit_points</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.approximation.differentiation.second_partials_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second Partials Test.
+Classifies the critical points of a function of two variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – The function to classify the critical points of.</p></li>
+<li><p><strong>crit_points</strong> – The critical points of the function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A dictionary mapping critical point tuples to descriptions of the points.</p>
 </dd>
 </dl>
 </dd></dl>
