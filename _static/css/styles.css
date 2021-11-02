@@ -1,0 +1,17 @@
+/* 
+    Custom CSS for jmath docs
+*/
+
+* {
+    color: #252525;
+}
+
+/* Sidebar colour */
+nav.wy-nav-side {
+    background: #252525 !important;
+}
+
+/* Version Number */
+div.version {
+    color: #252525 !important;
+}

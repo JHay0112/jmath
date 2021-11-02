@@ -7,7 +7,8 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.cryptography package &mdash; jmath  documentation</title>
+  <title>jmath.cryptography package &mdash; jmath v3.7.11
+ documentation</title>
   
 
   
@@ -15,6 +16,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/styles.css" type="text/css" />
 
   
   
@@ -52,18 +54,26 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: white" >
           
 
           
-            <a href="index.html" class="icon icon-home"> jmath
+            <a href="index.html">
           
 
+          
+            
+            <img src="_static/jmath.png" class="logo" alt="Logo"/>
           
           </a>
 
           
             
+            
+              <div class="version">
+                v3.7.11
+
+              </div>
             
           
 
@@ -87,8 +97,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="jmath.html">jmath package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="jmath.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
@@ -115,22 +124,6 @@
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">jmath.cryptography package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-jmath.cryptography.affine">jmath.cryptography.affine module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-jmath.cryptography.tools">jmath.cryptography.tools module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-jmath.cryptography">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#default-packages">Default Packages</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="jmath.graphics.html">jmath.graphics package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 </ul>
 
             
@@ -282,10 +275,12 @@
 <dt class="sig sig-object py" id="jmath.cryptography.tools.character_frequencies">
 <span class="sig-prename descclassname"><span class="pre">jmath.cryptography.tools.</span></span><span class="sig-name descname"><span class="pre">character_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_char</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.cryptography.tools.character_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Records the most commonly occuring frequencies in the cipher text.</p>
-<dl class="simple">
-<dt>cipher_text</dt><dd><p>The text to analyse</p>
-</dd>
-<dt>split_char</dt><dd><p>The character to split items around, defaults to none.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cipher_text</strong> – The text to analyse</p></li>
+<li><p><strong>split_char</strong> – The character to split items around, defaults to none.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
