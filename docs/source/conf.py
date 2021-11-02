@@ -14,12 +14,17 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../../'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'jmath'
 copyright = '2021, Jordan Hay'
 author = 'Jordan Hay'
+
+# -- Version Info ------------------------------------------------------------
+
+with open("../../version.txt", "r", encoding="utf-8") as fh:
+    version = fh.readline()
+    release = version
 
 # -- General configuration ---------------------------------------------------
 
