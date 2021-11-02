@@ -12,7 +12,7 @@ def character_frequencies(cipher_text: str, split_char: str = "") -> Dict[str, i
     """
         Records the most commonly occuring frequencies in the cipher text.
 
-        Paramaters
+        Parameters
         ----------
 
         cipher_text

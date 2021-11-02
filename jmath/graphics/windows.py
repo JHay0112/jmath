@@ -64,6 +64,9 @@ class Window:
     def start(self, func: Callable[[Any], Any], delay: int = 100, *args):
         """
             Start mainloop
+
+            Parameters
+            ----------
         
             func
                 The function to be run as apart of the mainloop.
@@ -71,7 +74,7 @@ class Window:
                 Anything returned by the function will be passed back to it in the next loop.
             delay
                 The delay between calls to the mainloop function in milliseconds.
-            *args
+            args
                 Arguments to be passed to the loop.
         """
 
@@ -92,11 +95,14 @@ class Window:
         """
             Runs a function in context of GUI.
 
+            Parameters
+            ----------
+
             func
                 The function to be executed
             delay
                 Time delay in milliseconds
-            *args
+            args
                 Arguments to be passed to the function
         """
 
@@ -121,7 +127,7 @@ class Canvas(Window):
             Height in pixels
         fullscreen
             Make screen take up full width
-        **kwargs
+        kwargs
             Additional tkinter style configurations
     '''
 
