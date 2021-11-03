@@ -1,17 +1,63 @@
+@charset "UTF-8";
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Lato&display=swap';
+
 /* 
     Custom CSS for jmath docs
 */
 
+/* All Text */
 * {
+    color: #252525;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Headings */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open-Sans', sans-serif;
+}
+
+/* Links */
+
+a {
     color: #252525;
 }
 
-/* Sidebar colour */
+/* Side Nav */
 nav.wy-nav-side {
-    background: #252525 !important;
+    background: #252525;
+}
+
+div.wy-side-nav-search {
+    height: 200px;
+}
+
+/* Top Nav*/
+nav.wy-nav-top {
+    background-color: #252525;
+}
+
+nav.wy-nav-top i.fa-bars {
+    color: white;
+}
+
+/* Search */
+
+form#rtd-search-form {
+    position: relative;
+    top: -30px;
+}
+
+form#rtd-search-form input {
+    border-radius: 0;
+    border-color: #252525 !important;
 }
 
 /* Version Number */
 div.version {
+    position: relative;
+    top: -40px;
+    left: -15px;
+    text-align: right;
     color: #252525 !important;
 }
