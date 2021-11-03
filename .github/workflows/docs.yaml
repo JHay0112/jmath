@@ -1,8 +1,10 @@
 name: jmathDocs
 
 on:
-  release:
-    types: ["published"]
+  workflow_run:
+    workflows: ["jmathTagger"]
+    types:
+      - completed
 
 jobs:
   doc-update:
