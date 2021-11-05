@@ -19,7 +19,7 @@ def test_unit_creation():
     # Per metre
     unit = 1/unit
     assert unit.units["m"] == -1
-    assert str(unit) == "1.0 [(m^-1)]"
+    assert str(unit) == "1.0 [m^(-1)]"
 
 def test_unit_union():
     """Tests that units can be unioned."""

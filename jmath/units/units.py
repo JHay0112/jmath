@@ -36,10 +36,14 @@ class Unit:
         unit_str = ""
 
         for unit, power in self.units.items():
-            if power != 1:
-                unit_str += f"({unit}^{power})"
+            if power < 0:
+                unit_str += f"{unit}^({power})"
+            elif power > 1:
+                unit_str += f"{unit}^{power} "
             else:
                 unit_str += f"{unit}"
+
+        unit_str.strip()
 
         # Show value + unit_str
         return f"{self.value} [{unit_str}]"
