@@ -124,6 +124,26 @@ class Unit:
 
         return new_unit
 
+    def __eq__(self, other: "Unit") -> bool:
+        """Equality comparison."""
+        return (self.value == other.value) and (self.units == other.units)
+
+    def __lt__(self, other: "Unit") -> bool:
+        """Less than comparison."""
+        return self.value < other.value
+
+    def __leq__(self, other: "Unit") -> bool:
+        """Less than or equal comparison."""
+        return self.value <= other.value
+
+    def __gt__(self, other: "Unit") -> bool:
+        """Greater than comparison."""
+        return self.value > other.value
+
+    def __geq__(self, other: "Unit") -> bool:
+        """Greather than or equal comparison."""
+        return self.value >= other.value
+
     def __or__(self, other: "Unit") -> "Unit":
         """Union operator."""
         return self.union(other)
