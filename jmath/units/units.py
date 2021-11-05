@@ -187,3 +187,34 @@ class Unit:
         # Multiply
         return new_unit * other
         
+    def __add__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
+        """Addition."""
+        if isinstance(other, Unit) and self.units == other.units:
+            # Only permit unit addition on equal values
+            return self.copy(value = self.value + other.value)
+        else:
+            # Non unitary addition
+            return self.copy(value = self.value + other)
+
+    def __radd__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
+        """Reversed Addition."""
+        # Directionless
+        return self + other
+
+    def __sub__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
+        """Subtraction."""
+        if isinstance(other, Unit) and self.units == other.units:
+            # Only permit unit addition on equal values
+            return self.copy(value = self.value - other.value)
+        else:
+            # Non unitary addition
+            return self.copy(value = self.value - other)
+
+    def __rsub__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
+        """Reversed Subtraction."""
+        if isinstance(other, Unit) and self.units == other.units:
+            # Only permit unit addition on equal values
+            return self.copy(value = other.value - self.value)
+        else:
+            # Non unitary addition
+            return self.copy(value = other - self.value)
