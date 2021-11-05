@@ -230,7 +230,7 @@ class Unit:
     def __pow__(self, other: Union[float, int]) -> "Unit":
         """Raise to power."""
         # Create a copy
-        new_unit = self.copy()
+        new_unit = self.copy(value = self.value ** other)
         # Multiply powers
         for unit in new_unit.units.keys():
             new_unit.units[unit] *= other
