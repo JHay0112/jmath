@@ -22,12 +22,12 @@ class Unit:
 
     def __init__(self, unit: str = None):
         
-        self.value = None
+        self.value = 1
         
         if unit is not None:
             self.units = {unit: 1}
         else:
-            self.units = None
+            self.units = {}
 
     def __str__(self):
         """String representation."""
@@ -41,12 +41,8 @@ class Unit:
             else:
                 unit_str += f"{unit}"
 
-        if self.value is None:
-            # Just show string of units
-            return unit_str
-        else:
-            # Show value + unit_str
-            return f"{self.value} [{unit_str}]"
+        # Show value + unit_str
+        return f"{self.value} [{unit_str}]"
 
     def __hash__(self):
         """Hashing based on string representation."""
@@ -119,11 +115,8 @@ class Unit:
         """Multiplication. Also used for unit value instantiaton."""
         # Floats/ints
         if isinstance(other, (float, int)):
-            # Check value exists
-            if self.value is None: 
-                self.value = 1
             # Return new unit with value
-            return self.copy(self.value * self.other)
+            return self.copy(self.value * other)
         else:
             # Presuming the other one is a unit
             # Calculate new unit with union
