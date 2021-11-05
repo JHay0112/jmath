@@ -16,7 +16,7 @@ conversion_table = {}
 
 # - Functions
 
-def define_conversion(from_unit: Union[Unit, str], to_unit: Union[Unit, str], factor: Union[float, Callable[[float], float]]):
+def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Callable[[float], float]]):
     """
         Defines the conversion between two units
         
@@ -24,9 +24,9 @@ def define_conversion(from_unit: Union[Unit, str], to_unit: Union[Unit, str], fa
         ----------
         
         from_unit
-            The unit to convert from
+            The unit to convert from.
         to_unit
-            The unit to convert to
+            The unit to convert to.
         factor
             The factor to multiply by or a function to produce the difference.
             If a factor is passed then the reverse conversion is added by default.
@@ -34,12 +34,6 @@ def define_conversion(from_unit: Union[Unit, str], to_unit: Union[Unit, str], fa
     """
 
     global conversion_table
-    
-    # Change units to strings if appropriate
-    if not isinstance(from_unit, str):
-        from_unit = from_unit.unit
-    if not isinstance(to_unit, str):
-        to_unit = to_unit.unit
 
     # If factor is float/int then make a lambda
     if isinstance(factor, (float, int)):
