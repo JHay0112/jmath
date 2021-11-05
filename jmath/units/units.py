@@ -34,7 +34,7 @@ class Unit:
             if power != 1:
                 unit_str += f"{unit}^{power} "
             else:
-                unit_str += f"{unit}"
+                unit_str += f"{unit} "
 
         unit_str = unit_str[:-1]
 
