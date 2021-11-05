@@ -74,7 +74,7 @@ class Unit:
         # If flip signs is true
         if flip_powers:
             # Go through dictionary and flip them
-            for unit, power in new_unit.units:
+            for unit, power in new_unit.units.items():
                 new_unit.units[unit] = -power
 
         # Return
