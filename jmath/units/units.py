@@ -48,7 +48,7 @@ class Unit:
         """Hashing based on string representation."""
         return hash(str(self))
 
-    def copy(self, value: float = None) -> "Unit":
+    def copy(self, value: float = None, flip_powers = False) -> "Unit":
         """
             Produces a copy of the unit.
 
@@ -57,6 +57,8 @@ class Unit:
 
             value
                 Optional overwrite of value.
+            flip_powers
+                Optional flipping of powers.
         """
         # Placeholder unit
         new_unit = Unit()
@@ -68,6 +70,12 @@ class Unit:
             new_unit.value = self.value
         # Copy units over
         new_unit.units = dict(self.units)
+
+        # If flip signs is true
+        if flip_powers:
+            # Go through dictionary and flip them
+            for unit, power in new_unit.units:
+                new_unit.units[unit] = -power
 
         # Return
         return new_unit
@@ -127,3 +135,26 @@ class Unit:
     def __rmul__(self, other: Union[int, float, "Unit"]) -> "Unit":
         """Reversed multiplication, same as normal."""
         return self * other
+
+    def __truediv__(self, other: Union[int, float, "Unit"]) -> "Unit":
+        """Float division."""
+        # Floats/ints
+        if isinstance(other, (float, int)):
+            # Returns new unit with new value
+            self.copy(self.value / other)
+        else:
+            # Presuming other is a unit now
+            # Flip its signs
+            other = other.copy(flip_powers = True)
+            # Compute union
+            new_unit = self | other
+            # Return new unit 
+            return new_unit * self.value/other.value
+
+    def __rtruediv__(self, other: Union[int, float, "Unit"]) -> "Unit":
+        """Reversed float division."""
+        # Flip own values
+        new_unit = self.copy(value = 1/self.value, flip_powers = True)
+        # Multiply
+        return new_unit * other
+        
