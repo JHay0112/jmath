@@ -68,9 +68,20 @@ def define_alias(base_unit: Unit, end_unit: Unit):
             The base level unit.
         end_unit
             The unit that is an alias for the base unit.
+
+        Notes
+        -----
+
+        Would be good for this to calculate decays of the alias to so that they can revert.
     """
 
     global alias_table
 
     # Add to alias table
     alias_table[base_unit.copy(1)] = end_unit.copy(1)
+
+    # Simple alias decay cases
+    for unit in base_unit.units.keys():
+        copy = base_unit.copy(1)
+        copy.pop(unit)
+        alias_table[end_unit.copy(1)] = copy
