@@ -32,9 +32,6 @@ class Unit:
         else:
             self.units = {}
 
-        # Add own conversion to conversion_table
-        define_conversion(self, self, 1)
-
     def __str__(self):
         """String representation."""
 
@@ -224,6 +221,16 @@ class Unit:
             # Non unitary addition
             return self.copy(value = other - self.value)
 
+    def __pow__(self, other: Union[float, int]) -> "Unit":
+        """Raise to power."""
+        # Create a copy
+        new_unit = self.copy()
+        # Multiply powers
+        for unit in new_unit.units.keys():
+            new_unit.units[unit] *= other
+
+        return new_unit
+
     def convert_to(self, other: "Unit"):
         """
             Converts the current unit to the given unit.
@@ -236,6 +243,10 @@ class Unit:
         """
 
         global conversion_table
+
+        # Trivial conversion case
+        if self.units == other.units:
+            return self
 
         # Convert numeric value
         self.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
