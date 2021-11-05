@@ -44,6 +44,10 @@ def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Calla
         # Create standard factor
         factor = lambda x: x * factor
 
+    # Overwrite units to be "base" units 
+    to_unit = to_unit.copy(1)
+    from_unit = from_unit.copy(1)
+
     # Add to conversion table
     if from_unit not in conversion_table:
         conversion_table[from_unit] = {to_unit: factor}
