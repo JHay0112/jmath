@@ -1,0 +1,44 @@
+'''
+    Defines a set of SI units and their conversion factors
+'''
+
+# - Imports
+
+from .units import Unit
+from .conversion import define_alias, define_conversion
+
+# - Globals
+
+# Base Units
+
+metre = Unit("m")
+second = Unit("s")
+kilogram = Unit("kg")
+ampere = Unit("A")
+kelvin = Unit("K")
+mole = Unit("mol")
+candela = Unit("cd")
+
+# Derived Units
+
+newton = Unit("N")
+define_alias(kilogram * metre / (second ** 2), newton)
+
+joule = Unit("J")
+define_alias(newton * metre, joule)
+
+coulomb = Unit("C")
+define_alias(ampere * second, coulomb)
+
+# Base Constants
+
+c = 3.000e8 * metre/second
+h = 6.626e-34 * joule*second
+e = 1.602e-19 * coulomb
+k = 1.381e-23 * joule/kelvin
+N = 6.022e23 / mole
+
+# Unit conversions
+
+# Mass to energy
+define_conversion(kilogram, joule, c**2)
