@@ -5,7 +5,7 @@
 # - Imports
 
 from typing import Union
-from .conversion import conversion_table
+from .conversion import conversion_table, define_conversion
 from ..uncertainties import Uncertainty
 
 # - Classes
@@ -22,6 +22,8 @@ class Unit:
     '''
 
     def __init__(self, unit: str = None):
+
+        global conversion_table
         
         self.value = 1
         
@@ -29,6 +31,9 @@ class Unit:
             self.units = {unit: 1}
         else:
             self.units = {}
+
+        # Add own conversion to conversion_table
+        define_conversion(self, self, 1)
 
     def __str__(self):
         """String representation."""
@@ -218,3 +223,25 @@ class Unit:
         else:
             # Non unitary addition
             return self.copy(value = other - self.value)
+
+    def convert_to(self, other: "Unit"):
+        """
+            Converts the current unit to the given unit.
+
+            Parameters
+            ----------
+
+            other
+                The type of unit to convert to.    
+        """
+
+        global conversion_table
+
+        # Convert numeric value
+        self.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
+
+        # Convert unit value
+        self.units = other.units
+
+        # Incase used in formula
+        return self
