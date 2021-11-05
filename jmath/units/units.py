@@ -32,10 +32,15 @@ class Unit:
         else:
             self.units = {}
 
+    def __repr__(self):
+        """Programming Representation."""
+
+        return str(self)
+
     def __str__(self):
         """String representation."""
 
-        # Produce a strign of the units
+        # Produce a string of the units
         unit_str = ""
 
         for unit, power in self.units.items():

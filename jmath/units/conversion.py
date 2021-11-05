@@ -77,5 +77,26 @@ def define_alias(base_unit: Unit, end_unit: Unit):
 
     global alias_table
 
+    base_unit = base_unit.copy(1)
+    end_unit = end_unit.copy(1)
+
     # Add to alias table
-    alias_table[base_unit.copy(1)] = end_unit.copy(1)
+    alias_table[base_unit] = end_unit
+
+    # Simple alias decay cases
+    # For each sub unit of the base unit
+    for unit, power in base_unit.units.items():
+        # Create copies
+        new_end_unit = end_unit.copy()
+        # Invert
+        new_end_unit.units[unit] = -power
+        
+        # Create a case in alias table going back to the base units
+        # Make sure it's not already in the table before doing more work
+        # We don't want to overwrite other aliases
+        if new_end_unit not in alias_table:
+            # Create the base unit
+            new_base_unit = base_unit.copy()
+            new_base_unit.units.pop(unit)
+            # Now alias
+            alias_table[new_end_unit] = new_base_unit
