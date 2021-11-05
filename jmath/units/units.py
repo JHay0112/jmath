@@ -6,6 +6,7 @@
 
 from typing import Union
 from .conversion import conversion_table
+from ..uncertainties import Uncertainty
 
 # - Classes
 
@@ -45,8 +46,12 @@ class Unit:
 
         unit_str.strip()
 
-        # Show value + unit_str
-        return f"{self.value} [{unit_str}]"
+        if isinstance(self.value, Uncertainty):
+            # Special uncertainty display
+            return f"({self.value}) [{unit_str}]"
+        else:
+            # Show value + unit_str
+            return f"{self.value} [{unit_str}]"
 
     def __hash__(self):
         """Hashing based on string representation."""
@@ -123,10 +128,10 @@ class Unit:
         """Union operator."""
         return self.union(other)
 
-    def __mul__(self, other: Union[int, float, "Unit"]) -> "Unit":
+    def __mul__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
         """Multiplication. Also used for unit value instantiaton."""
         # Floats/ints
-        if isinstance(other, (float, int)):
+        if isinstance(other, (float, int, Uncertainty)):
             # Return new unit with value
             return self.copy(self.value * other)
         else:
@@ -136,14 +141,14 @@ class Unit:
             # Multiply new unit by value
             return new_unit * other.value * self.value
 
-    def __rmul__(self, other: Union[int, float, "Unit"]) -> "Unit":
+    def __rmul__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
         """Reversed multiplication, same as normal."""
         return self * other
 
-    def __truediv__(self, other: Union[int, float, "Unit"]) -> "Unit":
+    def __truediv__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
         """Float division."""
         # Floats/ints
-        if isinstance(other, (float, int)):
+        if isinstance(other, (float, int, Uncertainty)):
             # Returns new unit with new value
             return self.copy(self.value / other)
         else:
@@ -155,7 +160,7 @@ class Unit:
             # Return new unit 
             return new_unit * self.value/other.value
 
-    def __rtruediv__(self, other: Union[int, float, "Unit"]) -> "Unit":
+    def __rtruediv__(self, other: Union[int, float, "Unit", Uncertainty]) -> "Unit":
         """Reversed float division."""
         # Flip own values
         new_unit = self.copy(value = 1/self.value, flip_powers = True)
