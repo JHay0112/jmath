@@ -141,7 +141,7 @@ class Unit:
         # Floats/ints
         if isinstance(other, (float, int)):
             # Returns new unit with new value
-            self.copy(self.value / other)
+            return self.copy(self.value / other)
         else:
             # Presuming other is a unit now
             # Flip its signs
