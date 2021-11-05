@@ -254,11 +254,18 @@ class Unit:
         if self.units == other.units:
             return self
 
+        new_unit = Unit()
+
         # Convert numeric value
-        self.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
+        new_unit.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
+
+        # Check if units have got into one another
+        # Hacky solution but it will do
+        while isinstance(new_unit.value, Unit):
+            new_unit.value = new_unit.value.value
 
         # Convert unit value
-        self.units = other.units
+        new_unit.units = other.units
 
         # Incase used in formula
-        return self
+        return new_unit
