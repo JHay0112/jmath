@@ -52,6 +52,30 @@ class Unit:
         """Hashing based on string representation."""
         return hash(str(self))
 
+    def copy(self, value: float = None) -> "Unit":
+        """
+            Produces a copy of the unit.
+
+            Parameters
+            ----------
+
+            value
+                Optional overwrite of value.
+        """
+        # Placeholder unit
+        new_unit = Unit()
+        # If value is not none then write new value
+        if value is not None:
+            new_unit.value = value
+        else:
+            # Else keep the current
+            new_unit.value = self.value
+        # Copy units over
+        new_unit.units = dict(self.units)
+
+        # Return
+        return new_unit
+
     def union(self, other: "Unit") -> "Unit":
         """
             Constructs the union of two units.
@@ -99,3 +123,14 @@ class Unit:
             if self.value is None: 
                 self.value = 1
             # Return new unit with value
+            return self.copy(self.value * self.other)
+        else:
+            # Presuming the other one is a unit
+            # Calculate new unit with union
+            new_unit = self | other
+            # Multiply new unit by value
+            return new_unit * other.value * self.value
+
+    def __rmul__(self, other: Union[int, float, "Unit"]) -> "Unit":
+        """Reversed multiplication, same as normal."""
+        return self * other
