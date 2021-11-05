@@ -79,9 +79,3 @@ def define_alias(base_unit: Unit, end_unit: Unit):
 
     # Add to alias table
     alias_table[base_unit.copy(1)] = end_unit.copy(1)
-
-    # Simple alias decay cases
-    for unit in base_unit.units.keys():
-        copy = base_unit.copy(1)
-        copy.pop(unit)
-        alias_table[end_unit.copy(1)] = copy
