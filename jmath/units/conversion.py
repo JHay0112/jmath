@@ -17,7 +17,7 @@ alias_table = {}
 
 # - Functions
 
-def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Callable[[float], float]]):
+def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Unit, Callable[[float], float]]):
     """
         Defines the conversion between two units
         
@@ -37,13 +37,15 @@ def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Calla
     global conversion_table
 
     # If factor is float/int then make a lambda
-    if isinstance(factor, (float, int)):
+    if not callable(factor):
         # Create reverse
         reversed = lambda x: x / factor
         # Add reversed to table
         define_conversion(to_unit, from_unit, reversed)
         # Create standard factor
-        factor = lambda x: x * factor
+        func = lambda x: x * factor
+    else:
+        func = factor
 
     # Overwrite units to be "base" units 
     to_unit = to_unit.copy(1)
@@ -51,9 +53,9 @@ def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Calla
 
     # Add to conversion table
     if from_unit not in conversion_table:
-        conversion_table[from_unit] = {to_unit: factor}
+        conversion_table[from_unit] = {to_unit: func}
     else:
-        conversion_table[from_unit][to_unit] = factor
+        conversion_table[from_unit][to_unit] = func
 
 def define_alias(base_unit: Unit, end_unit: Unit):
     """
