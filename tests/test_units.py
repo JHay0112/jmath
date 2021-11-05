@@ -14,3 +14,11 @@ def test_unit_creation():
     unit = Unit("m")
     assert unit.units["m"] == 1
     assert str(unit) == "m"
+
+def test_unit_union():
+    """Tests that units can be unioned."""
+    # Simple test
+    metres = Unit("m")
+    newtons = Unit("N")
+    newton_metres = newtons | metres
+    assert str(newton_metres) == "Nm"
