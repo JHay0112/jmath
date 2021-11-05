@@ -5,7 +5,7 @@
 # - Imports
 
 from typing import Union
-from .conversion import conversion_table, define_conversion
+from .conversion import conversion_table, alias_table
 from ..uncertainties import Uncertainty
 
 # - Classes
@@ -103,6 +103,8 @@ class Unit:
                 The other set to construct the union with.
         """
 
+        global alias_table
+
         # Place holder unit
         new_unit = Unit()
         
@@ -123,6 +125,10 @@ class Unit:
         # New units constructed
         # Replace in the placeholder unit
         new_unit.units = units
+
+        # Check for alias
+        if new_unit.copy(1) in alias_table:
+            new_unit = new_unit.value * alias_table[new_unit.copy(1)]
 
         return new_unit
 

@@ -13,6 +13,7 @@ Unit = TypeVar("Unit")
 # - Globals
 
 conversion_table = {}
+alias_table = {}
 
 # - Functions
 
@@ -53,3 +54,21 @@ def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Calla
         conversion_table[from_unit] = {to_unit: factor}
     else:
         conversion_table[from_unit][to_unit] = factor
+
+def define_alias(base_unit: Unit, end_unit: Unit):
+    """
+        Defines an alias for a unit
+
+        Parameters
+        ----------
+
+        base_unit
+            The base level unit.
+        end_unit
+            The unit that is an alias for the base unit.
+    """
+
+    global alias_table
+
+    # Add to alias table
+    alias_table[base_unit.copy(1)] = end_unit.copy(1)
