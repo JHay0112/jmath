@@ -4,8 +4,8 @@
 
 # - Imports
 
-from typing import Union, Dict
-from .default import conversion_table
+from typing import Union
+from .conversion import conversion_table
 
 # - Classes
 

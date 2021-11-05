@@ -4,6 +4,6 @@
 
 # - Imports
 
-from .default import conversion_table
+from .conversion import conversion_table
 
 # - Main
