@@ -24,7 +24,7 @@ define_conversion(kelvin, centigrade, lambda x: x - 273.15)
 # Physics
 # -- Light Speed
 lightspeed = Unit("c")
-define_conversion(lightspeed, metre/(second ** 2), c)
+define_conversion(lightspeed, metre/second, c)
 # -- Electron Volts
 electron_volt = Unit("eV")
 define_conversion(electron_volt, joule, e)
