@@ -4,18 +4,26 @@ jmath.units package
 Submodules
 ----------
 
-jmath.units.common\_units module
---------------------------------
-
-.. automodule:: jmath.units.common_units
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 jmath.units.conversion module
 -----------------------------
 
 .. automodule:: jmath.units.conversion
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jmath.units.other module
+------------------------
+
+.. automodule:: jmath.units.other
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jmath.units.si module
+---------------------
+
+.. automodule:: jmath.units.si
    :members:
    :undoc-members:
    :show-inheritance:
