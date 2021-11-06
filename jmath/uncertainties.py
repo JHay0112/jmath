@@ -69,7 +69,7 @@ class Uncertainty:
     def __init__(self, value: float, uncertainty: float):
         
         self.value = value
-        self.uncertainty = uncertainty
+        self.uncertainty = abs(uncertainty)
 
     def abs_uncertainty(self) -> float: 
         """Returns the absolute uncertainty."""
@@ -106,11 +106,33 @@ class Uncertainty:
     def __str__(self):
         """String representation"""
         # Calculates the amount to round by for correct formatting
-        rounding = -int(math.floor(math.log10(abs(self.uncertainty))))
-        # Rounded values
-        rounded_uncertainty = round(self.uncertainty, rounding)
+        # "Round" uncertainty to one significant digit
+        rounded_uncertainty = round(self.uncertainty, -int(math.floor(math.log10(abs(self.uncertainty)))))
+        # Find index of significant digit
+        # If the rounded uncertainty is an integer
+        if rounded_uncertainty.is_integer():
+            # Then we know the first signifigant digit is at its negative length
+            rounding = -len(str(rounded_uncertainty)) + 2
+        else:
+            # Not integer, so first signifigant digit is at positive length
+            rounding = len(str(rounded_uncertainty)) - 2 # Offset for correct position
+
+        if self.value < 0 and rounding < 0:
+            # For negative numbers
+            # Add extra to rounding
+            rounding -= 1
+        if self.value > 0 and rounding < 0:
+            rounding += 1
+        
+        # Round the main value with this
         rounded_value = round(self.value, rounding)
 
+        if rounded_uncertainty.is_integer():
+            # Integer matching
+            rounded_value = int(rounded_value)
+            rounded_uncertainty = int(rounded_uncertainty)
+
+        # Rounded values
         return(f"{rounded_value} ± {rounded_uncertainty}")
 
     def __contains__(self, other: Union[int, float, "Uncertainty"]) -> bool:
@@ -153,11 +175,13 @@ class Uncertainty:
             val = self.value + other.value
             # Add absolute uncertainties
             unc = self.abs_uncertainty() + other.abs_uncertainty()
-        else: # Presume int or float
+        elif isinstance(other, (float, int)): # Presume int or float
             # Add values
             val = self.value + other
             # Final uncertainty stays the same
             unc = self.abs_uncertainty()
+        else:
+            return NotImplemented
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
@@ -174,11 +198,13 @@ class Uncertainty:
             val = self.value - other.value
             # Add absolute uncertainties
             unc = self.abs_uncertainty() + other.abs_uncertainty()
-        else: # Presume int or float
+        elif isinstance(other, (float, int)): # Presume int or float
             # Add values
             val = self.value - other
             # Final uncertainty stays the same
             unc = self.abs_uncertainty()
+        else:
+            return NotImplemented
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
@@ -191,11 +217,13 @@ class Uncertainty:
             val = other.value - self.value
             # Add absolute uncertainties
             unc = self.abs_uncertainty() + other.abs_uncertainty()
-        else: # Presume int or float
+        elif isinstance(other, (float, int)): # Presume int or float
             # Add values
             val = other - self.value
             # Final uncertainty stays the same
             unc = self.abs_uncertainty()
+        else:
+            return NotImplemented
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
@@ -208,11 +236,13 @@ class Uncertainty:
             val = self.value * other.value
             # Add relative uncertainties and multiply the sum by final value
             unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
-        else: # Presume int or float
+        elif isinstance(other, (float, int)): # Presume int or float
             # Get final value
             val = self.value * other
             # Multiply final by current relative uncertainty
             unc = val * self.rel_uncertainty()
+        else:
+            return NotImplemented
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
@@ -229,11 +259,13 @@ class Uncertainty:
             val = self.value / other.value
             # Add relative uncertainties and multiply the sum by final value
             unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
-        else: # Presume int or float
+        elif isinstance(other, (float, int)): # Presume int or float
             # Get final value
             val = self.value / other
             # Multiply final by current relative uncertainty
             unc = val * self.rel_uncertainty()
+        else:
+            return NotImplemented
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
@@ -246,11 +278,13 @@ class Uncertainty:
             val = other.value / self.value
             # Add relative uncertainties and multiply the sum by final value
             unc = val * (self.rel_uncertainty() + other.rel_uncertainty())
-        else: # Presume int or float
+        elif isinstance(other, (float, int)): # Presume int or float
             # Get final value
             val = other / self.value
             # Multiply final by current relative uncertainty
             unc = val * self.rel_uncertainty()
+        else:
+            return NotImplemented
 
         # Return Uncertainty
         return(Uncertainty(val, unc))
