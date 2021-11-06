@@ -4,7 +4,7 @@
 
 # - Imports
 
-from ..jmath.units import Unit
+from ..jmath.units import Unit, define_conversion, define_alias
 from .tools import repeat, random_integer
 
 # - Testing
@@ -42,3 +42,14 @@ def test_unit_multiplication():
     metres = Unit("m")
     coeffecient = random_integer()
     assert str(metres * coeffecient) == f"{coeffecient} [m]"
+
+@repeat
+def test_conversion():
+    """Tests that unit conversion happens as expected."""
+    a = Unit("a")
+    b = Unit("b")
+    coeffecient = random_integer()
+    define_conversion(a, b, coeffecient)
+
+    assert a.convert_to(b).value == (a*coeffecient).value
+    assert b.convert_to(a).value == (b/coeffecient).value
