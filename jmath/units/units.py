@@ -64,6 +64,22 @@ class Unit:
         """Hashing based on string representation."""
         return hash(str(self))
 
+    def __abs__(self):
+        """Returns absolute value."""
+        return abs(self.value)
+
+    def __float__(self):
+        """Returns float representation."""
+        return float(self.value)
+
+    def __int__(self):
+        """Returns integer representation."""
+        return int(self.value)
+
+    def __round__(self, precision):
+        """Rounds to precision."""
+        return self.copy(value = round(self.value, precision))
+
     def copy(self, value: float = None, flip_powers = False) -> "Unit":
         """
             Produces a copy of the unit.
