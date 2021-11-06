@@ -24,14 +24,7 @@ class Unit:
         --------
 
         >>> print(3 * Unit("m")/Unit("s"))
-        3 [ms^(-1)]
-
-        >>> from jmath.units import si
-        >>> voltage_drop = Uncertainty(3, 0.2) * si.volt
-        >>> current = Uncertainty(0.1, 0.02) * si.ampere
-        >>> resistance = voltage_drop/current
-        >>> print(resistance)
-        (30 ± 8) [Ω]    
+        3 [ms^(-1)]   
     '''
 
     def __init__(self, unit: str = None):

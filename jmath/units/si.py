@@ -1,5 +1,15 @@
 '''
-    Defines a set of SI units and their conversion factors
+    Defines a set of SI units and their conversion factors.
+
+    Examples
+    --------
+
+    >>> from jmath.units import si
+    >>> voltage_drop = Uncertainty(3, 0.2) * si.volt
+    >>> current = Uncertainty(0.1, 0.02) * si.ampere
+    >>> resistance = voltage_drop/current
+    >>> print(resistance)
+    (30 ± 8) [Ω] 
 '''
 
 # - Imports
