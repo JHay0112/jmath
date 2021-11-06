@@ -7,66 +7,69 @@
 from .units import Unit
 from .conversion import define_alias, define_conversion, alias_table, conversion_table
 
-# - Globals
+# - Main
 
-# Base Units
+# Protect from unwanted init
+if __name__ == "jmath.units.si":
 
-metre = Unit("m")
-second = Unit("s")
-kilogram = Unit("kg")
-ampere = Unit("A")
-kelvin = Unit("K")
-mole = Unit("mol")
-candela = Unit("cd")
+    # Base Units
 
-# Derived Units
+    metre = Unit("m")
+    second = Unit("s")
+    kilogram = Unit("kg")
+    ampere = Unit("A")
+    kelvin = Unit("K")
+    mole = Unit("mol")
+    candela = Unit("cd")
 
-newton = Unit("N")
-define_alias(kilogram * metre / (second ** 2), newton)
+    # Derived Units
 
-joule = Unit("J")
-define_alias(newton * metre, joule)
+    newton = Unit("N")
+    define_alias(kilogram * metre / (second ** 2), newton)
 
-coulomb = Unit("C")
-define_alias(ampere * second, coulomb)
+    joule = Unit("J")
+    define_alias(newton * metre, joule)
 
-pascal = Unit("Pa")
-define_alias(newton/(metre ** 2), pascal)
+    coulomb = Unit("C")
+    define_alias(ampere * second, coulomb)
 
-watt = Unit("W")
-define_alias(joule/second, watt)
+    pascal = Unit("Pa")
+    define_alias(newton/(metre ** 2), pascal)
 
-volt = Unit("V")
-define_alias(watt/ampere, volt)
+    watt = Unit("W")
+    define_alias(joule/second, watt)
 
-farad = Unit("F")
-define_alias(coulomb/volt, farad)
+    volt = Unit("V")
+    define_alias(watt/ampere, volt)
 
-ohm = Unit("Ω")
-define_alias(ampere * ohm, volt)
-define_alias(volt/ampere, ohm)
+    farad = Unit("F")
+    define_alias(coulomb/volt, farad)
 
-siemens = Unit("S")
-define_alias(ampere/volt, siemens)
+    ohm = Unit("Ω")
+    define_alias(ampere * ohm, volt)
+    define_alias(volt/ampere, ohm)
 
-weber = Unit("Wb")
-define_alias(volt * second, weber)
+    siemens = Unit("S")
+    define_alias(ampere/volt, siemens)
 
-tesla = Unit("T")
-define_alias(weber/(metre**2), tesla)
+    weber = Unit("Wb")
+    define_alias(volt * second, weber)
 
-henry = Unit("H")
-define_alias(weber/ampere, henry)
+    tesla = Unit("T")
+    define_alias(weber/(metre**2), tesla)
 
-# Base Constants
+    henry = Unit("H")
+    define_alias(weber/ampere, henry)
 
-c = 3.000e8 * metre/second
-h = 6.626e-34 * joule*second
-e = 1.602e-19 * coulomb
-k = 1.381e-23 * joule/kelvin
-N = 6.022e23 / mole
+    # Base Constants
 
-# Unit conversions
+    c = 3.000e8 * metre/second
+    h = 6.626e-34 * joule*second
+    e = 1.602e-19 * coulomb
+    k = 1.381e-23 * joule/kelvin
+    N = 6.022e23 / mole
 
-# Mass to energy
-define_conversion(kilogram, joule, c**2)
+    # Unit conversions
+
+    # Mass to energy
+    define_conversion(kilogram, joule, c**2)
