@@ -28,7 +28,6 @@ if __name__ == "jmath.units.si":
     define_alias(kilogram * metre / (second ** 2), newton)
 
     joule = Unit("J")
-    define_alias(newton * metre, joule)
 
     coulomb = Unit("C")
     define_alias(ampere * second, coulomb)
