@@ -5,6 +5,7 @@
 # - Imports
 
 from ..jmath.units import Unit, define_conversion, define_alias
+from ..jmath.uncertainties import Uncertainty
 from .tools import repeat, random_integer
 
 # - Testing
@@ -53,3 +54,13 @@ def test_conversion():
 
     assert a.convert_to(b).value == (a*coeffecient).value
     assert b.convert_to(a).value == (b/coeffecient).value
+
+@repeat
+def test_uncertain_units():
+    """Tests that units and uncertainties play nice."""
+    a = random_integer(10, 99)
+    b = random_integer(0, 9)
+    unc = Uncertainty(a, b)
+    unit = unc * Unit("m")
+
+    assert str(unit) == f"({a} ± {b}) [m]"
