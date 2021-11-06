@@ -30,6 +30,33 @@ define_alias(newton * metre, joule)
 coulomb = Unit("C")
 define_alias(ampere * second, coulomb)
 
+pascal = Unit("Pa")
+define_alias(newton/(metre ** 2), pascal)
+
+watt = Unit("W")
+define_alias(joule/second, watt)
+
+volt = Unit("V")
+define_alias(watt/ampere, volt)
+
+farad = Unit("F")
+define_alias(coulomb/volt, farad)
+
+ohm = Unit("Ω")
+define_alias(volt/ampere, ohm)
+
+siemens = Unit("S")
+define_alias(ampere/volt, siemens)
+
+weber = Unit("Wb")
+define_alias(volt * second, weber)
+
+tesla = Unit("T")
+define_alias(weber/(metre**2), tesla)
+
+henry = Unit("H")
+define_alias(weber/ampere, henry)
+
 # Base Constants
 
 c = 3.000e8 * metre/second
