@@ -5,7 +5,7 @@
 # - Imports
 
 from .units import Unit
-from .conversion import define_alias, define_conversion
+from .conversion import define_alias, define_conversion, alias_table, conversion_table
 
 # - Globals
 
@@ -43,6 +43,7 @@ farad = Unit("F")
 define_alias(coulomb/volt, farad)
 
 ohm = Unit("Ω")
+define_alias(ampere * ohm, volt)
 define_alias(volt/ampere, ohm)
 
 siemens = Unit("S")
