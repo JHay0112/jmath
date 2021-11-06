@@ -57,6 +57,14 @@ define_alias(weber/(metre**2), tesla)
 henry = Unit("H")
 define_alias(weber/ampere, henry)
 
+# Standard Forms
+
+displacement = metre
+
+velocity = metre/second
+
+acceleration = metre/(second**2)
+
 # Base Constants
 
 c = 3.000e8 * metre/second
