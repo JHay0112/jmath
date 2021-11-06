@@ -11,28 +11,25 @@ from math import pi
 
 # - Main
 
-# Protect from unwanted init
-if __name__ == "jmath.units.other":
+# Angles
+radian = Unit("rad")
+degree = Unit("°")
+define_conversion(radian, degree, 180/pi)
 
-    # Angles
-    radian = Unit("rad")
-    degree = Unit("°")
-    define_conversion(radian, degree, 180/pi)
+# Temperature
+centigrade = Unit("°C")
+define_conversion(centigrade, kelvin, lambda x: x + 273.15)
+define_conversion(kelvin, centigrade, lambda x: x - 273.15)
 
-    # Temperature
-    centigrade = Unit("°C")
-    define_conversion(centigrade, kelvin, lambda x: x + 273.15)
-    define_conversion(kelvin, centigrade, lambda x: x - 273.15)
-
-    # Physics
-    # -- Light Speed
-    lightspeed = Unit("c")
-    define_conversion(lightspeed, metre/second, c)
-    # -- Electron Volts
-    electron_volt = Unit("eV")
-    define_conversion(electron_volt, joule, e)
-    # -- Electron Volt Mass Energy
-    electron_volt_mass = electron_volt/(lightspeed**2)
-    define_conversion(electron_volt_mass, electron_volt, 1)
-    define_conversion(electron_volt_mass, kilogram, e/(c**2))
-    define_conversion(electron_volt_mass, joule, e)
+# Physics
+# -- Light Speed
+lightspeed = Unit("c")
+define_conversion(lightspeed, metre/second, c)
+# -- Electron Volts
+electron_volt = Unit("eV")
+define_conversion(electron_volt, joule, e)
+# -- Electron Volt Mass Energy
+electron_volt_mass = electron_volt/(lightspeed**2)
+define_conversion(electron_volt_mass, electron_volt, 1)
+define_conversion(electron_volt_mass, kilogram, e/(c**2))
+define_conversion(electron_volt_mass, joule, e)
