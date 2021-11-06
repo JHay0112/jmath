@@ -54,6 +54,8 @@ def test_conversion():
 
     assert a.convert_to(b).value == (a*coeffecient).value
     assert b.convert_to(a).value == (b/coeffecient).value
+    assert a.convert_to(b).convert_to(a) == a
+    assert b.convert_to(a).convert_to(b) == b
 
 @repeat
 def test_uncertain_units():
