@@ -107,30 +107,35 @@ class Uncertainty:
         """String representation"""
         # Calculates the amount to round by for correct formatting
         # "Round" uncertainty to one significant digit
-        rounded_uncertainty = round(self.uncertainty, -int(math.floor(math.log10(abs(self.uncertainty)))))
-        # Find index of significant digit
-        # If the rounded uncertainty is an integer
-        if rounded_uncertainty.is_integer():
-            # Then we know the first signifigant digit is at its negative length
-            rounding = -len(str(rounded_uncertainty)) + 2
+        if self.uncertainty != 0:
+            rounded_uncertainty = round(self.uncertainty, -int(math.floor(math.log10(abs(self.uncertainty)))))
+            # Find index of significant digit
+            # If the rounded uncertainty is an integer
+            if rounded_uncertainty.is_integer():
+                # Then we know the first signifigant digit is at its negative length
+                rounding = -len(str(rounded_uncertainty)) + 2
+            else:
+                # Not integer, so first signifigant digit is at positive length
+                rounding = len(str(rounded_uncertainty)) - 2 # Offset for correct position
+
+            if self.value < 0 and rounding < 0:
+                # For negative numbers
+                # Add extra to rounding
+                rounding -= 1
+            if self.value > 0 and rounding < 0:
+                rounding += 1
+            
+            # Round the main value with this
+            rounded_value = round(self.value, rounding)
+
+            if rounded_uncertainty.is_integer():
+                # Integer matching
+                rounded_value = int(rounded_value)
+                rounded_uncertainty = int(rounded_uncertainty)
         else:
-            # Not integer, so first signifigant digit is at positive length
-            rounding = len(str(rounded_uncertainty)) - 2 # Offset for correct position
-
-        if self.value < 0 and rounding < 0:
-            # For negative numbers
-            # Add extra to rounding
-            rounding -= 1
-        if self.value > 0 and rounding < 0:
-            rounding += 1
-        
-        # Round the main value with this
-        rounded_value = round(self.value, rounding)
-
-        if rounded_uncertainty.is_integer():
-            # Integer matching
-            rounded_value = int(rounded_value)
-            rounded_uncertainty = int(rounded_uncertainty)
+            # If uncertainty is zero
+            rounded_value = self.value
+            rounded_uncertainty = self.uncertainty
 
         # Rounded values
         return(f"{rounded_value} ± {rounded_uncertainty}")
