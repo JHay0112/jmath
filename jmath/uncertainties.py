@@ -128,14 +128,15 @@ class Uncertainty:
             # Round the main value with this
             rounded_value = round(self.value, rounding)
 
-            if rounded_uncertainty.is_integer():
-                # Integer matching
-                rounded_value = int(rounded_value)
-                rounded_uncertainty = int(rounded_uncertainty)
         else:
             # If uncertainty is zero
             rounded_value = self.value
             rounded_uncertainty = self.uncertainty
+
+        if rounded_uncertainty.is_integer():
+            # Integer matching
+            rounded_value = int(rounded_value)
+            rounded_uncertainty = int(rounded_uncertainty)
 
         # Rounded values
         return(f"{rounded_value} ± {rounded_uncertainty}")
