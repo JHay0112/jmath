@@ -4,11 +4,13 @@
 
 # - Imports
 
-from typing import Callable, TypeVar, Union
+from typing import Callable, Union, TYPE_CHECKING
 
 # - Types
 
-Unit = TypeVar("Unit")
+if TYPE_CHECKING:
+    # Only import for type checking
+    from .units import Unit
 
 # - Globals
 
@@ -17,7 +19,7 @@ alias_table = {}
 
 # - Functions
 
-def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Unit, Callable[[float], float]]):
+def define_conversion(from_unit: 'Unit', to_unit: 'Unit', factor: Union[float, 'Unit', Callable[[float], float]]):
     """
         Defines the conversion between two units
         
@@ -57,7 +59,7 @@ def define_conversion(from_unit: Unit, to_unit: Unit, factor: Union[float, Unit,
     else:
         conversion_table[from_unit][to_unit] = func
 
-def define_alias(base_unit: Unit, end_unit: Unit):
+def define_alias(base_unit: 'Unit', end_unit: 'Unit'):
     """
         Defines an alias for a unit
 
