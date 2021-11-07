@@ -4,6 +4,14 @@ jmath.loud package
 Submodules
 ----------
 
+jmath.loud.graphs module
+------------------------
+
+.. automodule:: jmath.loud.graphs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.loud.modular module
 -------------------------
 

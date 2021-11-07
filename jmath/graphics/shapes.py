@@ -12,6 +12,9 @@ class Shape:
     """
         Shape parent class
 
+        Parameters
+        ----------
+
         x
             Position on the x-axis
         y

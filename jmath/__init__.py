@@ -33,3 +33,4 @@ from .uncertainties import Uncertainty
 from .linearalgebra import Vector, Point, Line
 from .modular import extended_gcd, modular_inverse
 from .approximation import differentiate, trapezium_rule
+from .units import Unit, si
