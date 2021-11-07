@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; jmath v3.7.15
+  <title>Index &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -259,19 +259,23 @@
 </li>
       <li><a href="jmath.abstract.html#id0">compare (jmath.abstract.heaps.BinaryHeap attribute)</a>, <a href="jmath.abstract.html#jmath.abstract.heaps.BinaryHeap.compare">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jmath.abstract.html#jmath.abstract.heaps.MaxBinaryHeap.compare">compare() (jmath.abstract.heaps.MaxBinaryHeap method)</a>
 
       <ul>
         <li><a href="jmath.abstract.html#jmath.abstract.heaps.MinBinaryHeap.compare">(jmath.abstract.heaps.MinBinaryHeap method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jmath.html#jmath.complex.Complex">Complex (class in jmath.complex)</a>
 </li>
       <li><a href="jmath.physics.html#jmath.physics.circuits.Component">Component (class in jmath.physics.circuits)</a>
 </li>
       <li><a href="jmath.physics.html#jmath.physics.circuits.Component.connect">connect() (jmath.physics.circuits.Component method)</a>
+</li>
+      <li><a href="jmath.units.html#jmath.units.units.Unit.convert_to">convert_to() (jmath.units.units.Unit method)</a>
+</li>
+      <li><a href="jmath.units.html#jmath.units.units.Unit.copy">copy() (jmath.units.units.Unit method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -283,10 +287,14 @@
 </li>
       <li><a href="jmath.cryptography.html#jmath.cryptography.affine.Affine.decrypt">decrypt() (jmath.cryptography.affine.Affine method)</a>
 </li>
-      <li><a href="jmath.abstract.html#jmath.abstract.queues.Queue.dequeue">dequeue() (jmath.abstract.queues.Queue method)</a>
+      <li><a href="jmath.units.html#jmath.units.conversion.define_alias">define_alias() (in module jmath.units.conversion)</a>
+</li>
+      <li><a href="jmath.units.html#jmath.units.conversion.define_conversion">define_conversion() (in module jmath.units.conversion)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jmath.abstract.html#jmath.abstract.queues.Queue.dequeue">dequeue() (jmath.abstract.queues.Queue method)</a>
+</li>
       <li><a href="jmath.approximation.html#jmath.approximation.differentiation.differentiate">differentiate() (in module jmath.approximation.differentiation)</a>
 </li>
       <li><a href="jmath.approximation.html#jmath.approximation.integration.discrete_trapezium_rule">discrete_trapezium_rule() (in module jmath.approximation.integration)</a>
@@ -489,8 +497,6 @@
         <li><a href="jmath.html#module-jmath.discrete">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     jmath.exceptions
 
@@ -505,6 +511,8 @@
         <li><a href="jmath.linearalgebra.html#module-jmath.linearalgebra">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     jmath.linearalgebra.lines
 
@@ -594,6 +602,41 @@
 
       <ul>
         <li><a href="jmath.html#module-jmath.uncertainties">module</a>
+</li>
+      </ul></li>
+      <li>
+    jmath.units
+
+      <ul>
+        <li><a href="jmath.units.html#module-jmath.units">module</a>
+</li>
+      </ul></li>
+      <li>
+    jmath.units.conversion
+
+      <ul>
+        <li><a href="jmath.units.html#module-jmath.units.conversion">module</a>
+</li>
+      </ul></li>
+      <li>
+    jmath.units.other
+
+      <ul>
+        <li><a href="jmath.units.html#module-jmath.units.other">module</a>
+</li>
+      </ul></li>
+      <li>
+    jmath.units.si
+
+      <ul>
+        <li><a href="jmath.units.html#module-jmath.units.si">module</a>
+</li>
+      </ul></li>
+      <li>
+    jmath.units.units
+
+      <ul>
+        <li><a href="jmath.units.html#module-jmath.units.units">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -719,6 +762,16 @@
         <li><a href="jmath.physics.html#module-jmath.physics.prefixes">jmath.physics.prefixes</a>
 </li>
         <li><a href="jmath.html#module-jmath.uncertainties">jmath.uncertainties</a>
+</li>
+        <li><a href="jmath.units.html#module-jmath.units">jmath.units</a>
+</li>
+        <li><a href="jmath.units.html#module-jmath.units.conversion">jmath.units.conversion</a>
+</li>
+        <li><a href="jmath.units.html#module-jmath.units.other">jmath.units.other</a>
+</li>
+        <li><a href="jmath.units.html#module-jmath.units.si">jmath.units.si</a>
+</li>
+        <li><a href="jmath.units.html#module-jmath.units.units">jmath.units.units</a>
 </li>
       </ul></li>
   </ul></td>
@@ -889,8 +942,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jmath.html#jmath.uncertainties.Uncertainty">Uncertainty (class in jmath.uncertainties)</a>
 </li>
+      <li><a href="jmath.units.html#jmath.units.units.Unit.union">union() (jmath.units.units.Unit method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jmath.units.html#jmath.units.units.Unit">Unit (class in jmath.units.units)</a>
+</li>
       <li><a href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector.unit">unit() (jmath.linearalgebra.vectors.Vector method)</a>
 </li>
   </ul></td>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath package &mdash; jmath v3.7.15
+  <title>jmath package &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -107,6 +107,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
@@ -265,6 +266,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.units.html">jmath.units package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.conversion">jmath.units.conversion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.other">jmath.units.other module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.si">jmath.units.si module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.units">jmath.units.units module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units">Module contents</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -276,21 +286,26 @@
 <p>Complex form of points.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.complex.Complex">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.complex.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.complex.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.vectors.Point</span></code></a></p>
 <p>Complex numbers based on vectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>real</strong> – Real component of a complex number</p></li>
-<li><p><strong>imaginary</strong> – Imaginary component of a complex number</p></li>
+<li><p><strong>real</strong> (<em>float</em>) – Real component of a complex number</p></li>
+<li><p><strong>imaginary</strong> (<em>float</em>) – Imaginary component of a complex number</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.complex.Complex.argument">
-<span class="sig-name descname"><span class="pre">argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.complex.Complex.argument" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex.argument" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the argument of the complex number in radians.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -301,14 +316,24 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.complex.Complex.modulus">
-<span class="sig-name descname"><span class="pre">modulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.complex.Complex.modulus" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">modulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex.modulus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rename of magnitude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.complex.Complex.quadrant">
-<span class="sig-name descname"><span class="pre">quadrant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.complex.Complex.quadrant" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">quadrant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex.quadrant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns which quadrant the number is in. Returns None if on a quadrant border.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[int]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -342,45 +367,66 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Graph.get_node">
-<span class="sig-name descname"><span class="pre">get_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.discrete.Graph.get_node" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.get_node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a node object in the graph based upon its ID. Returns None if not found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> – The ID of the node</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node">jmath.discrete.Node</a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Graph.intersections">
-<span class="sig-name descname"><span class="pre">intersections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.discrete.Graph.intersections" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">intersections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.intersections" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of nodes that have more than one connection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node">jmath.discrete.Node</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Graph.loops">
-<span class="sig-name descname"><span class="pre">loops</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.discrete.Loop" title="jmath.discrete.Loop"><span class="pre">jmath.discrete.Loop</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.discrete.Graph.loops" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">loops</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.loops" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds loops in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#jmath.discrete.Loop" title="jmath.discrete.Loop">jmath.discrete.Loop</a>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Graph.relationships">
-<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#jmath.discrete.Graph.relationships" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints a human readable description of the relationship between all nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Graph.walk">
-<span class="sig-name descname"><span class="pre">walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbour</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_neighbour</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.discrete.Loop" title="jmath.discrete.Loop"><span class="pre">jmath.discrete.Loop</span></a></span></span><a class="headerlink" href="#jmath.discrete.Graph.walk" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_neighbour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Graph.walk" title="Permalink to this definition">¶</a></dt>
 <dd><p>“Walks” a loop around the graph, intended for generating loops for self.loops()</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> – Node the walk starts at.</p></li>
-<li><p><strong>stop</strong> – Node the walk stops at.</p></li>
-<li><p><strong>neighbour</strong> – Initial neighbour to move to.</p></li>
-<li><p><strong>default_neighbour</strong> – Neighbour to move to on consequential moves.</p></li>
+<li><p><strong>start</strong> (<a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><em>jmath.discrete.Node</em></a>) – Node the walk starts at.</p></li>
+<li><p><strong>stop</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><em>jmath.discrete.Node</em></a><em>]</em>) – Node the walk stops at.</p></li>
+<li><p><strong>neighbour</strong> (<em>int</em>) – Initial neighbour to move to.</p></li>
+<li><p><strong>default_neighbour</strong> (<em>int</em>) – Neighbour to move to on consequential moves.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.discrete.Loop" title="jmath.discrete.Loop">jmath.discrete.Loop</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -389,27 +435,32 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.discrete.Loop">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.discrete.Graph" title="jmath.discrete.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Graph</span></code></a></p>
 <p>A sub-graph structure generated by Graph.loops(), represents a distinct path around the graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>nodes</strong> – List of node objects that define the loop.</p>
+<dd class="field-odd"><p><strong>nodes</strong> (<em>List</em><em>[</em><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><em>jmath.discrete.Node</em></a><em>]</em>) – List of node objects that define the loop.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Loop.relationships">
-<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#jmath.discrete.Loop.relationships" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop.relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints a human readable representation of the relationship between nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Loop.reorder">
-<span class="sig-name descname"><span class="pre">reorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop.reorder" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop.reorder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reorders the loop to start at the specified node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>node</strong> – Node to reconfigure to start at.</p>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><em>jmath.discrete.Node</em></a>) – Node to reconfigure to start at.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -418,27 +469,27 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.discrete.Node">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Node of a graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> – Unique ID string describing the object.</p></li>
-<li><p><strong>weight</strong> – Weighting of node.</p></li>
+<li><p><strong>id</strong> (<em>str</em>) – Unique ID string describing the object.</p></li>
+<li><p><strong>weight</strong> (<em>float</em>) – Weighting of node.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Node.add_neighbour">
-<span class="sig-name descname"><span class="pre">add_neighbour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neighbour</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two_way</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.add_neighbour" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_neighbour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neighbour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two_way</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.add_neighbour" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a neighbouring node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>neighbour</strong> – Node object describing the neighbour.</p></li>
-<li><p><strong>weight</strong> – The weighting of the relationship.</p></li>
-<li><p><strong>two_way</strong> – Whether the relationship goes both ways.</p></li>
+<li><p><strong>neighbour</strong> (<a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><em>jmath.discrete.Node</em></a>) – Node object describing the neighbour.</p></li>
+<li><p><strong>weight</strong> (<em>float</em>) – The weighting of the relationship.</p></li>
+<li><p><strong>two_way</strong> (<em>bool</em>) – Whether the relationship goes both ways.</p></li>
 </ul>
 </dd>
 </dl>
@@ -446,23 +497,33 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Node.neighbours_list">
-<span class="sig-name descname"><span class="pre">neighbours_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#jmath.discrete.Node.neighbours_list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">neighbours_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.neighbours_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the IDs of the neighbouring nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Node.relationships">
-<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#jmath.discrete.Node.relationships" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns human readable string of relationships between node and neighbours.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.discrete.Node.remove_neighbour">
-<span class="sig-name descname"><span class="pre">remove_neighbour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neighbour</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><span class="pre">jmath.discrete.Node</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.remove_neighbour" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">remove_neighbour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neighbour</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node.remove_neighbour" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes the relationship between the nodes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>neighbour</strong> – Node object describing the neighbour node</p>
+<dd class="field-odd"><p><strong>neighbour</strong> (<a class="reference internal" href="#jmath.discrete.Node" title="jmath.discrete.Node"><em>jmath.discrete.Node</em></a>) – Node object describing the neighbour node</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -478,16 +539,16 @@
 <p>Defines exceptions for jmath.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="jmath.exceptions.OutOfRange">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">OutOfRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.OutOfRange" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">OutOfRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.OutOfRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown for values that are not within expected bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_input</strong> – The input number</p></li>
-<li><p><strong>lower_bound</strong> – The lower boundary</p></li>
-<li><p><strong>upper_bound</strong> – The upper boundary</p></li>
-<li><p><strong>message</strong> – Appended additional message</p></li>
+<li><p><strong>num_input</strong> (<em>float</em>) – The input number</p></li>
+<li><p><strong>lower_bound</strong> (<em>float</em>) – The lower boundary</p></li>
+<li><p><strong>upper_bound</strong> (<em>float</em>) – The upper boundary</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – Appended additional message</p></li>
 </ul>
 </dd>
 </dl>
@@ -513,29 +574,35 @@
 <p>Tools for modular arithmetic</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.modular.extended_gcd">
-<span class="sig-prename descclassname"><span class="pre">jmath.modular.</span></span><span class="sig-name descname"><span class="pre">extended_gcd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.modular.extended_gcd" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.modular.</span></span><span class="sig-name descname"><span class="pre">extended_gcd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.modular.extended_gcd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive extended euclidean algorithm to find the greatest common denominator and its linear combination
 Returns g, m, n such that gcd(a, b) = g = m*a + n*b</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> – Number to find the greatest common denominator of with b</p></li>
-<li><p><strong>b</strong> – Number to find the greatest common denominator of with a</p></li>
+<li><p><strong>a</strong> (<em>int</em>) – Number to find the greatest common denominator of with b</p></li>
+<li><p><strong>b</strong> (<em>int</em>) – Number to find the greatest common denominator of with a</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Tuple[int, int, int]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.modular.modular_inverse">
-<span class="sig-prename descclassname"><span class="pre">jmath.modular.</span></span><span class="sig-name descname"><span class="pre">modular_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.modular.modular_inverse" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.modular.</span></span><span class="sig-name descname"><span class="pre">modular_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.modular.modular_inverse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the modular inverse of a number in a set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> – The number to find the modular inverse of</p></li>
-<li><p><strong>set_size</strong> – The size of the set to find the inverse in</p></li>
+<li><p><strong>a</strong> (<em>int</em>) – The number to find the modular inverse of</p></li>
+<li><p><strong>set_size</strong> (<em>int</em>) – The size of the set to find the inverse in</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Optional[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -546,14 +613,14 @@ Returns g, m, n such that gcd(a, b) = g = m*a + n*b</p>
 <p>Provides a class to deal with values with associated uncertainty.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">Uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">Uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A value with an associated uncertainty.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – The value associated with an uncertainty</p></li>
-<li><p><strong>uncertainty</strong> – Uncertainty associated with the value</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – The value associated with an uncertainty</p></li>
+<li><p><strong>uncertainty</strong> (<em>float</em>) – Uncertainty associated with the value</p></li>
 </ul>
 </dd>
 </dl>
@@ -580,47 +647,66 @@ Returns g, m, n such that gcd(a, b) = g = m*a + n*b</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.abs_uncertainty">
-<span class="sig-name descname"><span class="pre">abs_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.abs_uncertainty" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">abs_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.abs_uncertainty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the absolute uncertainty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.apply" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies a mathematical function to the value using the bruteforce method to calculate the new uncertainty.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>func</strong> – The function to apply.</p>
+<dd class="field-odd"><p><strong>func</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to apply.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.rel_uncertainty">
-<span class="sig-name descname"><span class="pre">rel_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.rel_uncertainty" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rel_uncertainty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.rel_uncertainty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the relative uncertainty as proportion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.uncertainties.half_range">
-<span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">half_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.uncertainties.half_range" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">half_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.half_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the absolute uncertainty associated with a set of data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> – List/tuple of the data</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – List/tuple of the data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.uncertainties.mean">
-<span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.uncertainties.mean" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.mean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the mean of a set of data and it’s uncertainty by the half range rule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> – List/tuple of data to take the mean of.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – List/tuple of data to take the mean of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a></p>
 </dd>
 </dl>
 </dd></dl>

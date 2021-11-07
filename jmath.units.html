@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jmath.units package &mdash; jmath v4.0.0
+ documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/styles.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="jmath.physics package" href="jmath.physics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/jmath.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v4.0.0
+
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="jmath.html">jmath package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="jmath.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.graphics.html">jmath.graphics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">jmath.units package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.conversion">jmath.units.conversion module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.other">jmath.units.other module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.si">jmath.units.si module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.units">jmath.units.units module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.units">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.complex">jmath.complex module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.discrete">jmath.discrete module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.exceptions">jmath.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.modular">jmath.modular module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.uncertainties">jmath.uncertainties module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">jmath</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="jmath.html">jmath package</a> &raquo;</li>
+        
+      <li>jmath.units package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/jmath.units.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmath-units-package">
+<h1>jmath.units package<a class="headerlink" href="#jmath-units-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.units.conversion">
+<span id="jmath-units-conversion-module"></span><h2>jmath.units.conversion module<a class="headerlink" href="#module-jmath.units.conversion" title="Permalink to this headline">¶</a></h2>
+<p>Provides the standard conversion table, shared for all units</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.units.conversion.define_alias">
+<span class="sig-prename descclassname"><span class="pre">jmath.units.conversion.</span></span><span class="sig-name descname"><span class="pre">define_alias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_unit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.define_alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an alias for a unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The base level unit.</p></li>
+<li><p><strong>end_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit that is an alias for the base unit.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Would be good for this to calculate decays of the alias to so that they can revert.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.units.conversion.define_conversion">
+<span class="sig-prename descclassname"><span class="pre">jmath.units.conversion.</span></span><span class="sig-name descname"><span class="pre">define_conversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.define_conversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the conversion between two units</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert from.</p></li>
+<li><p><strong>to_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert to.</p></li>
+<li><p><strong>factor</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a><em>, </em><em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em><em>]</em>) – The factor to multiply by or a function to produce the difference.
+If a factor is passed then the reverse conversion is added by default.
+If a function is passed then the reverse conversion is not added by default.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.units.other">
+<span id="jmath-units-other-module"></span><h2>jmath.units.other module<a class="headerlink" href="#module-jmath.units.other" title="Permalink to this headline">¶</a></h2>
+<p>Defines a set of other useful units.</p>
+</div>
+<div class="section" id="module-jmath.units.si">
+<span id="jmath-units-si-module"></span><h2>jmath.units.si module<a class="headerlink" href="#module-jmath.units.si" title="Permalink to this headline">¶</a></h2>
+<p>Defines a set of SI units and their conversion factors.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jmath.units</span> <span class="k">import</span> <span class="n">si</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">voltage_drop</span> <span class="o">=</span> <span class="n">Uncertainty</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="n">si</span><span class="o">.</span><span class="n">volt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">current</span> <span class="o">=</span> <span class="n">Uncertainty</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span> <span class="o">*</span> <span class="n">si</span><span class="o">.</span><span class="n">ampere</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resistance</span> <span class="o">=</span> <span class="n">voltage_drop</span><span class="o">/</span><span class="n">current</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">resistance</span><span class="p">)</span>
+<span class="go">(30 ± 8) [Ω]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-jmath.units.units">
+<span id="jmath-units-units-module"></span><h2>jmath.units.units module<a class="headerlink" href="#module-jmath.units.units" title="Permalink to this headline">¶</a></h2>
+<p>Defines the unit class and its behaviour</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.units.units.Unit">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.units.units.</span></span><span class="sig-name descname"><span class="pre">Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.units.Unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A value with an associated unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>unit</strong> (<em>str</em>) – String identifier of unit e.g. “m”</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span><span class="o">/</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">))</span>
+<span class="go">3 [ms^(-1)]</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.units.Unit.convert_to">
+<span class="sig-name descname"><span class="pre">convert_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.units.Unit.convert_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the current unit to the given unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a>) – The type of unit to convert to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.units.Unit.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip_powers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.units.Unit.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a copy of the unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – Optional overwrite of value.</p></li>
+<li><p><strong>flip_powers</strong> – Optional flipping of powers.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.units.Unit.union">
+<span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.units.Unit.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs the union of two units.
+Ignores values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a>) – The other set to construct the union with.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.units">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jmath.units" title="Permalink to this headline">¶</a></h2>
+<p>Maths with Units</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="jmath.physics.html" class="btn btn-neutral float-left" title="jmath.physics package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Jordan Hay.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

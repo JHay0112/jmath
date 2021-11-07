@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.physics package &mdash; jmath v3.7.15
+  <title>jmath.physics package &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -43,6 +43,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="jmath.units package" href="jmath.units.html" />
     <link rel="prev" title="jmath.loud package" href="jmath.loud.html" /> 
 </head>
 
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -114,6 +115,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.physics">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -278,22 +280,28 @@ Date: 2021-06-17</p>
 Date: 2021-06-22</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysEnv.add_object">
-<span class="sig-name descname"><span class="pre">add_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><span class="pre">jmath.physics.mechanics.PhysObj</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv.add_object" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv.add_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new Physics Object to the environment</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>new_obj</strong> – Object to add to environment</p>
+<dd class="field-odd"><p><strong>new_obj</strong> (<a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><em>jmath.physics.mechanics.PhysObj</em></a>) – Object to add to environment</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysEnv.increment_time">
-<span class="sig-name descname"><span class="pre">increment_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">increment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv.increment_time" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">increment_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">increment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv.increment_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Increments the time by the given value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>increment</strong> – The amount to increase the time by</p>
+<dd class="field-odd"><p><strong>increment</strong> (<em>float</em>) – The amount to increase the time by</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,131 +310,164 @@ Date: 2021-06-22</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysEnv" title="jmath.physics.mechanics.PhysEnv"><span class="pre">jmath.physics.mechanics.PhysEnv</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><span class="pre">jmath.linearalgebra.vectors.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Creates an object with physical properties.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>env</strong> – The environment that the object exists in</p></li>
-<li><p><strong>position</strong> – The initial position of the object</p></li>
-<li><p><strong>velocity</strong> – The initial velocity of the object in metres per second</p></li>
-<li><p><strong>mass</strong> – The mass of the object in kilograms</p></li>
-<li><p><strong>charge</strong> – The electric charge of the object in coulombs</p></li>
+<li><p><strong>env</strong> (<a class="reference internal" href="#jmath.physics.mechanics.PhysEnv" title="jmath.physics.mechanics.PhysEnv"><em>jmath.physics.mechanics.PhysEnv</em></a>) – The environment that the object exists in</p></li>
+<li><p><strong>position</strong> (<a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><em>jmath.linearalgebra.vectors.Point</em></a>) – The initial position of the object</p></li>
+<li><p><strong>velocity</strong> (<a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><em>jmath.linearalgebra.vectors.Vector</em></a>) – The initial velocity of the object in metres per second</p></li>
+<li><p><strong>mass</strong> (<em>float</em>) – The mass of the object in kilograms</p></li>
+<li><p><strong>charge</strong> (<em>float</em>) – The electric charge of the object in coulombs</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.acceleration">
-<span class="sig-name descname"><span class="pre">acceleration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.acceleration" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">acceleration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.acceleration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the current acceleration on the object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.electrostatic">
-<span class="sig-name descname"><span class="pre">electrostatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><span class="pre">jmath.physics.mechanics.PhysObj</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.electrostatic" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">electrostatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.electrostatic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the force given by charge between two objects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>other</strong> – Other physics object</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><em>jmath.physics.mechanics.PhysObj</em></a>) – Other physics object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.force">
-<span class="sig-name descname"><span class="pre">force</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.force" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">force</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.force" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates all the forces currently on the object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.gravity">
-<span class="sig-name descname"><span class="pre">gravity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><span class="pre">jmath.physics.mechanics.PhysObj</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.gravity" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">gravity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.gravity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the force of gravity between two objects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>other</strong> – Other physics object</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#jmath.physics.mechanics.PhysObj" title="jmath.physics.mechanics.PhysObj"><em>jmath.physics.mechanics.PhysObj</em></a>) – Other physics object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.increment_position">
-<span class="sig-name descname"><span class="pre">increment_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.increment_position" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">increment_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.increment_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Increments the position kinematically over a time interval.
 Also updates velocity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>time</strong> – The time interval to approximate over.</p>
+<dd class="field-odd"><p><strong>time</strong> (<em>float</em>) – The time interval to approximate over.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.momentum">
-<span class="sig-name descname"><span class="pre">momentum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.momentum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">momentum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.momentum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the momentum of the object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.electrostatic_force">
-<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">electrostatic_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.electrostatic_force" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">electrostatic_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charge1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.electrostatic_force" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the electrostatic force between two charges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>charge1</strong> – The charge in coulombs</p></li>
-<li><p><strong>charge2</strong> – The other charge in coulombs</p></li>
-<li><p><strong>distance</strong> – The distance between the charges in m</p></li>
+<li><p><strong>charge1</strong> (<em>float</em>) – The charge in coulombs</p></li>
+<li><p><strong>charge2</strong> (<em>float</em>) – The other charge in coulombs</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – The distance between the charges in m</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.gravitational_force">
-<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">gravitational_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mass1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.physics.mechanics.gravitational_force" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">gravitational_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mass1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.gravitational_force" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the force of gravity between two masses</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mass1</strong> – The mass of one object in kg</p></li>
-<li><p><strong>mass2</strong> – The mass of the other object in kg</p></li>
-<li><p><strong>distance</strong> – The distance between the objects in m</p></li>
+<li><p><strong>mass1</strong> (<em>float</em>) – The mass of one object in kg</p></li>
+<li><p><strong>mass2</strong> (<em>float</em>) – The mass of the other object in kg</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – The distance between the objects in m</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.kinematic_position">
-<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">kinematic_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><span class="pre">jmath.linearalgebra.vectors.Point</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><span class="pre">jmath.linearalgebra.vectors.Point</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.kinematic_position" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">kinematic_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.kinematic_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the new position from position, velocity, acceleration, and time</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>position</strong> – The initial position.</p></li>
-<li><p><strong>velocity</strong> – The inital velocity.</p></li>
-<li><p><strong>acceleration</strong> – The acceleration.</p></li>
-<li><p><strong>time</strong> – The time to approximate over</p></li>
+<li><p><strong>position</strong> (<a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><em>jmath.linearalgebra.vectors.Point</em></a>) – The initial position.</p></li>
+<li><p><strong>velocity</strong> (<a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><em>jmath.linearalgebra.vectors.Vector</em></a>) – The inital velocity.</p></li>
+<li><p><strong>acceleration</strong> (<a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><em>jmath.linearalgebra.vectors.Vector</em></a>) – The acceleration.</p></li>
+<li><p><strong>time</strong> (<em>float</em>) – The time to approximate over</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point">jmath.linearalgebra.vectors.Point</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.kinematic_velocity">
-<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">kinematic_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.physics.mechanics.kinematic_velocity" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">kinematic_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.kinematic_velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the new velocity from velocity, acceleration, and time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>velocity</strong> – The inital velocity.</p></li>
-<li><p><strong>acceleration</strong> – The acceleration.</p></li>
-<li><p><strong>time</strong> – The time to approximate over</p></li>
+<li><p><strong>velocity</strong> (<a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><em>jmath.linearalgebra.vectors.Vector</em></a>) – The inital velocity.</p></li>
+<li><p><strong>acceleration</strong> (<a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><em>jmath.linearalgebra.vectors.Vector</em></a>) – The acceleration.</p></li>
+<li><p><strong>time</strong> (<em>float</em>) – The time to approximate over</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -473,6 +514,7 @@ Date: 2021-07-22</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="jmath.units.html" class="btn btn-neutral float-right" title="jmath.units package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="jmath.loud.html" class="btn btn-neutral float-left" title="jmath.loud package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

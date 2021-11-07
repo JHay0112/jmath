@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.cryptography package &mdash; jmath v3.7.15
+  <title>jmath.cryptography package &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -113,6 +113,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -203,16 +204,16 @@
 <p>Affine cipher and Affine cipher relevant tools.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.cryptography.affine.Affine">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.cryptography.affine.</span></span><span class="sig-name descname"><span class="pre">Affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char_set</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.cryptography.affine.Affine" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.cryptography.affine.</span></span><span class="sig-name descname"><span class="pre">Affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.cryptography.affine.Affine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Creates an affine cipher</p>
 <p>(ax + b) % len(set_length)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> – Value to multiply x by</p></li>
-<li><p><strong>b</strong> – Value to add to x</p></li>
-<li><p><strong>char_set</strong> – Ordered set (tuple) of valid characters</p></li>
+<li><p><strong>a</strong> (<em>int</em>) – Value to multiply x by</p></li>
+<li><p><strong>b</strong> (<em>int</em>) – Value to add to x</p></li>
+<li><p><strong>char_set</strong> (<em>Tuple</em><em>[</em><em>str</em><em>]</em>) – Ordered set (tuple) of valid characters</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -239,28 +240,34 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.cryptography.affine.Affine.decrypt">
-<span class="sig-name descname"><span class="pre">decrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_char</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.decrypt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">decrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.cryptography.affine.Affine.decrypt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decrypts a string of numbers as per the affine cipher</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>string</strong> – The string to be decrypted by the affine cipher, expects splits by spaces.</p></li>
-<li><p><strong>split_char</strong> – The character between encrypted values.</p></li>
+<li><p><strong>string</strong> (<em>str</em>) – The string to be decrypted by the affine cipher, expects splits by spaces.</p></li>
+<li><p><strong>split_char</strong> (<em>str</em>) – The character between encrypted values.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.cryptography.affine.Affine.encrypt">
-<span class="sig-name descname"><span class="pre">encrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_char</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.encrypt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">encrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.cryptography.affine.Affine.encrypt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encrypts a string of letters as per the affine cipher.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>string</strong> – The string to be encrypted by the affine cipher</p></li>
-<li><p><strong>split_char</strong> – The value to insert between encrypted values.</p></li>
+<li><p><strong>string</strong> (<em>str</em>) – The string to be encrypted by the affine cipher</p></li>
+<li><p><strong>split_char</strong> (<em>str</em>) – The value to insert between encrypted values.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -273,14 +280,17 @@
 <p>Tools for analysing cipher text</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.cryptography.tools.character_frequencies">
-<span class="sig-prename descclassname"><span class="pre">jmath.cryptography.tools.</span></span><span class="sig-name descname"><span class="pre">character_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_char</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.cryptography.tools.character_frequencies" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.cryptography.tools.</span></span><span class="sig-name descname"><span class="pre">character_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.cryptography.tools.character_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Records the most commonly occuring frequencies in the cipher text.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cipher_text</strong> – The text to analyse</p></li>
-<li><p><strong>split_char</strong> – The character to split items around, defaults to none.</p></li>
+<li><p><strong>cipher_text</strong> (<em>str</em>) – The text to analyse</p></li>
+<li><p><strong>split_char</strong> (<em>str</em>) – The character to split items around, defaults to none.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, int]</p>
 </dd>
 </dl>
 </dd></dl>

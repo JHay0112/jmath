@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.approximation package &mdash; jmath v3.7.15
+  <title>jmath.approximation package &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -115,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -205,18 +206,21 @@
 <p>Approximations of the results of differential equations.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.differentiation.differentiate">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">differentiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.differentiation.differentiate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">differentiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.differentiation.differentiate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Numerically differentiate the given function at a point x.
 Uses the symmetric difference quotient to approximate.
 Recurses for n-th derivative.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to numerically differentiate.</p></li>
-<li><p><strong>x</strong> – The point at which to differentiate at.</p></li>
-<li><p><strong>h</strong> – The change in x to approximate with.</p></li>
-<li><p><strong>n</strong> – Order of derivative.</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to numerically differentiate.</p></li>
+<li><p><strong>x</strong> (<em>float</em>) – The point at which to differentiate at.</p></li>
+<li><p><strong>h</strong> (<em>float</em>) – The change in x to approximate with.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Order of derivative.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a></p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -225,14 +229,14 @@ Recurses for n-th derivative.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.differentiation.second_partials_test">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">second_partials_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crit_points</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.approximation.differentiation.second_partials_test" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.differentiation.</span></span><span class="sig-name descname"><span class="pre">second_partials_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crit_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.differentiation.second_partials_test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Second Partials Test.
 Classifies the critical points of a function of two variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to classify the critical points of.</p></li>
-<li><p><strong>crit_points</strong> – The critical points of the function.</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to classify the critical points of.</p></li>
+<li><p><strong>crit_points</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em>) – The critical points of the function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -253,35 +257,76 @@ Date: 2021-07-23</p>
 <p>Euler method for approximate differntial equations</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.euler_method.euler_step">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.euler_method.</span></span><span class="sig-name descname"><span class="pre">euler_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_k</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_k</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.euler_method.euler_step" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.euler_method.</span></span><span class="sig-name descname"><span class="pre">euler_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.euler_method.euler_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the euler step function for a given function</p>
 <p>Parameters:</p>
 <p>f (function) - The derivate to approximate the integral of
 t_k (float)
 y_k (float)
 h (float) - Step size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – </p></li>
+<li><p><strong>t_k</strong> (<em>float</em>) – </p></li>
+<li><p><strong>y_k</strong> (<em>float</em>) – </p></li>
+<li><p><strong>h</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.euler_method.euler_step_interval">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.euler_method.</span></span><span class="sig-name descname"><span class="pre">euler_step_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.approximation.euler_method.euler_step_interval" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.euler_method.</span></span><span class="sig-name descname"><span class="pre">euler_step_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.euler_method.euler_step_interval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates euler step function using its own timestep</p>
 <p>f (function) - Function to approximate the integral of
 t_0 (float) - Starting t value
 y_0 (float) - Starting y value
 t_f (float) - Final t value
 n (int) - Number of steps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – </p></li>
+<li><p><strong>t_0</strong> (<em>float</em>) – </p></li>
+<li><p><strong>y_0</strong> (<em>float</em>) – </p></li>
+<li><p><strong>t_f</strong> (<em>float</em>) – </p></li>
+<li><p><strong>n</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[float, float]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.euler_method.iterate_euler_step">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.euler_method.</span></span><span class="sig-name descname"><span class="pre">iterate_euler_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.approximation.euler_method.iterate_euler_step" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.euler_method.</span></span><span class="sig-name descname"><span class="pre">iterate_euler_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.euler_method.iterate_euler_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates upon the euler step function returning a dict of t values mapped to y values</p>
 <p>f (function) - The derivate to approximate the integral of
 t_0 (float) - The starting t value
 y_0 (float) - The starting y value
 n (int) - Number of steps to do
 h (float) - Step size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – </p></li>
+<li><p><strong>t_0</strong> (<em>float</em>) – </p></li>
+<li><p><strong>y_0</strong> (<em>float</em>) – </p></li>
+<li><p><strong>n</strong> (<em>int</em>) – </p></li>
+<li><p><strong>h</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[float, float]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -290,14 +335,17 @@ h (float) - Step size</p>
 <p>Approximations of definite integrals</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.integration.discrete_trapezium_rule">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">discrete_trapezium_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.discrete_trapezium_rule" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">discrete_trapezium_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.integration.discrete_trapezium_rule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs the trapezium rule on discrete sets of data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – Data associated with the x-axis</p></li>
-<li><p><strong>y</strong> – Data associated with the y-axis</p></li>
+<li><p><strong>x</strong> (<em>Iterable</em><em>[</em><em>float</em><em>]</em>) – Data associated with the x-axis</p></li>
+<li><p><strong>y</strong> (<em>Iterable</em><em>[</em><em>float</em><em>]</em>) – Data associated with the y-axis</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -306,64 +354,76 @@ h (float) - Step size</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.integration.left_hand_rule">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">left_hand_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.left_hand_rule" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">left_hand_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.integration.left_hand_rule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Approximates area under curve with the left hand rule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to approximate the area under</p></li>
-<li><p><strong>start</strong> – The lower limit of the definite integral.</p></li>
-<li><p><strong>end</strong> – The upper limit of the definite integral.</p></li>
-<li><p><strong>divisions</strong> – The amount of divisions to use.</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to approximate the area under</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – The lower limit of the definite integral.</p></li>
+<li><p><strong>end</strong> (<em>float</em>) – The upper limit of the definite integral.</p></li>
+<li><p><strong>divisions</strong> (<em>int</em>) – The amount of divisions to use.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.integration.partition">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.approximation.integration.partition" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.integration.partition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Partitions a function, returning the start and end points of each partition</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to partition</p></li>
-<li><p><strong>start</strong> – Lower limit</p></li>
-<li><p><strong>end</strong> – Upper limit</p></li>
-<li><p><strong>divisions</strong> – Amount of divisions to cut the function into</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to partition</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – Lower limit</p></li>
+<li><p><strong>end</strong> (<em>float</em>) – Upper limit</p></li>
+<li><p><strong>divisions</strong> (<em>int</em>) – Amount of divisions to cut the function into</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Generator[float, None, None]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.integration.right_hand_rule">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">right_hand_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.right_hand_rule" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">right_hand_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.integration.right_hand_rule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Approximates area under curve with the right hand rule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to approximate the area under</p></li>
-<li><p><strong>start</strong> – The lower limit of the definite integral.</p></li>
-<li><p><strong>end</strong> – The upper limit of the definite integral.</p></li>
-<li><p><strong>divisions</strong> – The amount of divisions to use.</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to approximate the area under</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – The lower limit of the definite integral.</p></li>
+<li><p><strong>end</strong> (<em>float</em>) – The upper limit of the definite integral.</p></li>
+<li><p><strong>divisions</strong> (<em>int</em>) – The amount of divisions to use.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.integration.trapezium_rule">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">trapezium_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.integration.trapezium_rule" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.integration.</span></span><span class="sig-name descname"><span class="pre">trapezium_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.integration.trapezium_rule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Approximates area under curve with the trapezium hand rule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to approximate the area under</p></li>
-<li><p><strong>start</strong> – The lower limit of the definite integral.</p></li>
-<li><p><strong>end</strong> – The upper limit of the definite integral.</p></li>
-<li><p><strong>divisions</strong> – The amount of divisions to use.</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to approximate the area under</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – The lower limit of the definite integral.</p></li>
+<li><p><strong>end</strong> (<em>float</em>) – The upper limit of the definite integral.</p></li>
+<li><p><strong>divisions</strong> (<em>int</em>) – The amount of divisions to use.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
@@ -374,43 +434,52 @@ h (float) - Step size</p>
 <p>Newton’s method for approximating the roots of equations.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.newton_method.newton_method">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_prime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">5e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.newton_method.newton_method" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_prime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.newton_method.newton_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Newton’s Method for approximation of the root of an equation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to determine the root of.</p></li>
-<li><p><strong>f_prime</strong> – The derivative of the function to determine the root of.</p></li>
-<li><p><strong>x_0</strong> – The starting point for determining the root from.</p></li>
-<li><p><strong>threshold</strong> – The threshold error to approximate the root to.</p></li>
-<li><p><strong>max_iter</strong> – The maximum iterations to apply.</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to determine the root of.</p></li>
+<li><p><strong>f_prime</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The derivative of the function to determine the root of.</p></li>
+<li><p><strong>x_0</strong> (<em>float</em>) – The starting point for determining the root from.</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – The threshold error to approximate the root to.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em>) – The maximum iterations to apply.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.newton_method.newton_sqrt">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><span class="pre">jmath.uncertainties.Uncertainty</span></a></span></span><a class="headerlink" href="#jmath.approximation.newton_method.newton_sqrt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.newton_method.newton_sqrt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses Newton’s Method to compute square roots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n</strong> – The number to approximate the square root of.</p>
+<dd class="field-odd"><p><strong>n</strong> (<em>float</em>) – The number to approximate the square root of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.approximation.newton_method.newton_step">
-<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_prime</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.approximation.newton_method.newton_step" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.approximation.newton_method.</span></span><span class="sig-name descname"><span class="pre">newton_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_prime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.approximation.newton_method.newton_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a single iteration of Newton’s Method</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to determine the root of.</p></li>
-<li><p><strong>f_prime</strong> – The derivative of the function to determine the root of.</p></li>
-<li><p><strong>x_0</strong> – The starting point for determining the root from.</p></li>
+<li><p><strong>f</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to determine the root of.</p></li>
+<li><p><strong>f_prime</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The derivative of the function to determine the root of.</p></li>
+<li><p><strong>x_0</strong> (<em>float</em>) – The starting point for determining the root from.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.abstract package &mdash; jmath v3.7.15
+  <title>jmath.abstract package &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -115,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -222,11 +223,11 @@ For example the comparison operator for a min heap is the min function.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.children_of">
-<span class="sig-name descname"><span class="pre">children_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.children_of" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">children_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.children_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the locations of the children of a node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>index</strong> – The index of to find the children of</p>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index of to find the children of</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -244,11 +245,11 @@ For example the comparison operator for a min heap is the min function.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.parent_of">
-<span class="sig-name descname"><span class="pre">parent_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.parent_of" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">parent_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.parent_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the location of the parent of a node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>index</strong> – The index to calculate the parent of</p>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index to calculate the parent of</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -278,22 +279,22 @@ For example the comparison operator for a min heap is the min function.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.sift_down">
-<span class="sig-name descname"><span class="pre">sift_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.sift_down" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sift_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.sift_down" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a sift down operation on a given index</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>index</strong> – The index to perform the sift down operation on</p>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index to perform the sift down operation on</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap.sift_up">
-<span class="sig-name descname"><span class="pre">sift_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.sift_up" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sift_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap.sift_up" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a sift up operation on a given index</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>index</strong> – The index to perform the sift up operation on</p>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index to perform the sift up operation on</p>
 </dd>
 </dl>
 </dd></dl>
@@ -342,36 +343,36 @@ With two or more arguments, return the smallest argument.</p>
 <p>List data types.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.BiNode">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">BiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><span class="pre">jmath.abstract.lists.BiNode</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><span class="pre">jmath.abstract.lists.BiNode</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">BiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.lists.Node</span></code></a></p>
 <p>Node that can refer to objects in front and behind it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> – Data stored by the node.</p></li>
-<li><p><strong>next</strong> – Reference to next piece node of the list.</p></li>
-<li><p><strong>prev</strong> – Reference to previous node in the list.</p></li>
+<li><p><strong>data</strong> (<em>Any</em>) – Data stored by the node.</p></li>
+<li><p><strong>next</strong> (<a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><em>BiNode</em></a>) – Reference to next piece node of the list.</p></li>
+<li><p><strong>prev</strong> (<a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><em>BiNode</em></a>) – Reference to previous node in the list.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.BiNode.append">
-<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><span class="pre">jmath.abstract.lists.BiNode</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode.append" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends a node to the back of this node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>node</strong> – Node to be appended.</p>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><em>jmath.abstract.lists.BiNode</em></a>) – Node to be appended.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.BiNode.prepend">
-<span class="sig-name descname"><span class="pre">prepend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><span class="pre">jmath.abstract.lists.BiNode</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode.prepend" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prepend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode.prepend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepends a node to the front of this node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>node</strong> – Node to be prepended.</p>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#jmath.abstract.lists.BiNode" title="jmath.abstract.lists.BiNode"><em>jmath.abstract.lists.BiNode</em></a>) – Node to be prepended.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -404,11 +405,11 @@ With two or more arguments, return the smallest argument.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.LinkedList.append">
-<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><span class="pre">jmath.abstract.lists.Node</span></a></span></span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.append" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends a node to the end of the list. O(1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> – The data to be appended.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>) – The data to be appended.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -421,25 +422,25 @@ With two or more arguments, return the smallest argument.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.LinkedList.extend">
-<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.abstract.lists.LinkedList" title="jmath.abstract.lists.LinkedList"><span class="pre">jmath.abstract.lists.LinkedList</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.extend" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.extend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extends list. O(1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>list</strong> – List to be appended onto this list.</p>
+<dd class="field-odd"><p><strong>list</strong> (<a class="reference internal" href="#jmath.abstract.lists.LinkedList" title="jmath.abstract.lists.LinkedList"><em>jmath.abstract.lists.LinkedList</em></a>) – List to be appended onto this list.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.LinkedList.insert">
-<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><span class="pre">jmath.abstract.lists.Node</span></a></span></span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.insert" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.insert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inserts data at the specified index into the list. O(index) operation.
 Negative indices other than -1 unsupported.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – Index for data to be inserted at.</p></li>
-<li><p><strong>data</strong> – Data to be inserted.</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index for data to be inserted at.</p></li>
+<li><p><strong>data</strong> (<em>Any</em>) – Data to be inserted.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -453,32 +454,37 @@ Negative indices other than -1 unsupported.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.LinkedList.list">
-<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.LinkedList.list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an equivalent Python List.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Any]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.MultiNode">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">MultiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">set</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">MultiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Node that refers to a set of adjoining nodes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> – The data value associated with the node.</p></li>
-<li><p><strong>nodes</strong> – Set of neighbours this node is attached to.</p></li>
+<li><p><strong>data</strong> (<em>Any</em>) – The data value associated with the node.</p></li>
+<li><p><strong>nodes</strong> (<em>set</em>) – Set of neighbours this node is attached to.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.MultiNode.append">
-<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.abstract.lists.MultiNode" title="jmath.abstract.lists.MultiNode"><span class="pre">jmath.abstract.lists.MultiNode</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode.append" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends a node to the set of nodes related to this node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>node</strong> – Node to be appended.</p>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#jmath.abstract.lists.MultiNode" title="jmath.abstract.lists.MultiNode"><em>jmath.abstract.lists.MultiNode</em></a>) – Node to be appended.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -487,24 +493,24 @@ Negative indices other than -1 unsupported.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.Node">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><span class="pre">jmath.abstract.lists.Node</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.Node" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Node of a list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> – Data stored by the node.</p></li>
-<li><p><strong>next</strong> – Reference to next piece node of the list.</p></li>
+<li><p><strong>data</strong> (<em>Any</em>) – Data stored by the node.</p></li>
+<li><p><strong>next</strong> (<a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><em>Node</em></a>) – Reference to next piece node of the list.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.lists.Node.append">
-<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><span class="pre">jmath.abstract.lists.Node</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.Node.append" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.Node.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends a node to the back of this node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>node</strong> – Node to be appended.</p>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><em>jmath.abstract.lists.Node</em></a>) – Node to be appended.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -522,16 +528,26 @@ Negative indices other than -1 unsupported.</p>
 <p>Queue Abstract Data Type</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.queues.Queue.dequeue">
-<span class="sig-name descname"><span class="pre">dequeue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#jmath.abstract.queues.Queue.dequeue" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dequeue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.queues.Queue.dequeue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns and removes the first queue item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.queues.Queue.enqueue">
-<span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.queues.Queue.enqueue" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.queues.Queue.enqueue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enqueues a piece of data onto the queue.</p>
 <dl class="simple">
 <dt>data</dt><dd><p>The piece of data to enqueue.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -555,17 +571,22 @@ Negative indices other than -1 unsupported.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.stacks.Stack.pop">
-<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#jmath.abstract.stacks.Stack.pop" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.stacks.Stack.pop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes and returns the top item from the stack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.abstract.stacks.Stack.push">
-<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.stacks.Stack.push" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.stacks.Stack.push" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a new item on top of the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>item</strong> – The item to be added to the stack</p>
+<dd class="field-odd"><p><strong>item</strong> (<em>Any</em>) – The item to be added to the stack</p>
 </dd>
 </dl>
 </dd></dl>

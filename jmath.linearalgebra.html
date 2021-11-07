@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.linearalgebra package &mdash; jmath v3.7.15
+  <title>jmath.linearalgebra package &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -114,6 +114,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -204,14 +205,14 @@
 <p>Line defined by vectors and point.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.linearalgebra.lines.Line">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.lines.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.lines.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.lines.Vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.lines.Line" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.lines.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.lines.Line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Defines a line from direction and point vectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>point</strong> – Position vector for line.</p></li>
-<li><p><strong>vector</strong> – Direction vector for line.</p></li>
+<li><p><strong>point</strong> (<em>jmath.linearalgebra.lines.Point</em>) – Position vector for line.</p></li>
+<li><p><strong>vector</strong> (<em>jmath.linearalgebra.lines.Vector</em>) – Direction vector for line.</p></li>
 </ul>
 </dd>
 </dl>
@@ -223,15 +224,15 @@
 <p>Plane defined by vectors and point.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.linearalgebra.planes.Plane">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.planes.</span></span><span class="sig-name descname"><span class="pre">Plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.planes.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.planes.Vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">jmath.linearalgebra.planes.Vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.planes.Plane" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.planes.</span></span><span class="sig-name descname"><span class="pre">Plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.planes.Plane" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Defines a plane</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>point</strong> – Point on the plane.</p></li>
-<li><p><strong>vector1</strong> – Direction vector.</p></li>
-<li><p><strong>vector2</strong> – Direction vector.</p></li>
+<li><p><strong>point</strong> (<em>jmath.linearalgebra.planes.Point</em>) – Point on the plane.</p></li>
+<li><p><strong>vector1</strong> (<em>jmath.linearalgebra.planes.Vector</em>) – Direction vector.</p></li>
+<li><p><strong>vector2</strong> (<em>jmath.linearalgebra.planes.Vector</em>) – Direction vector.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -246,21 +247,24 @@
 <p>Vector Objects</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Point">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.vectors.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Point" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.vectors.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.vectors.Vector</span></code></a></p>
 <p>Points based on vector framework. Can be thought of as a vector from origin.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>components</strong> – Coordinates in n-space</p>
+<dd class="field-odd"><p><strong>components</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Coordinates in n-space</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Point.on_line">
-<span class="sig-name descname"><span class="pre">on_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.lines.Line" title="jmath.linearalgebra.lines.Line"><span class="pre">jmath.linearalgebra.lines.Line</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Point.on_line" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">on_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Point.on_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines whether a point is on a line, returns bool.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>line</strong> – Line to determine if on</p>
+<dd class="field-odd"><p><strong>line</strong> (<a class="reference internal" href="#jmath.linearalgebra.lines.Line" title="jmath.linearalgebra.lines.Line"><em>jmath.linearalgebra.lines.Line</em></a>) – Line to determine if on</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -269,12 +273,12 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.vectors.</span></span><span class="sig-name descname"><span class="pre">Vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.linearalgebra.vectors.</span></span><span class="sig-name descname"><span class="pre">Vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>n-dimensional Vectors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>components</strong> – Scalar vector components</p>
+<dd class="field-odd"><p><strong>components</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Scalar vector components</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -302,48 +306,69 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.angle_between">
-<span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.angle_between" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the angle (in radians) between two vectors to 5 d.p.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate angle between.</p>
+<dd class="field-odd"><p><strong>vector</strong> (<a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><em>jmath.linearalgebra.vectors.Vector</em></a>) – Vector or line to calculate angle between.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.magnitude">
-<span class="sig-name descname"><span class="pre">magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.magnitude" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.magnitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the vector magnitude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.negative">
-<span class="sig-name descname"><span class="pre">negative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.negative" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">negative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.negative" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a vector of the same magnitude pointing in the opposite direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.projection">
-<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#jmath.linearalgebra.lines.Line" title="jmath.linearalgebra.lines.Line"><span class="pre">jmath.linearalgebra.lines.Line</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#jmath.linearalgebra.planes.Plane" title="jmath.linearalgebra.planes.Plane"><span class="pre">jmath.linearalgebra.planes.Plane</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.projection" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns projection of current vector onto the passed vector or line.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>vector</strong> – Vector or line to calculate the projection onto.</p>
+<dd class="field-odd"><p><strong>vector</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><em>jmath.linearalgebra.vectors.Vector</em></a><em>, </em><a class="reference internal" href="#jmath.linearalgebra.lines.Line" title="jmath.linearalgebra.lines.Line"><em>jmath.linearalgebra.lines.Line</em></a><em>, </em><a class="reference internal" href="#jmath.linearalgebra.planes.Plane" title="jmath.linearalgebra.planes.Plane"><em>jmath.linearalgebra.planes.Plane</em></a><em>]</em>) – Vector or line to calculate the projection onto.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.exceptions.VectorsNotSameSize" title="jmath.exceptions.VectorsNotSameSize"><strong>VectorsNotSameSize</strong></a> – If the vectors are not the same size this error will be raised.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.linearalgebra.vectors.Vector.unit">
-<span class="sig-name descname"><span class="pre">unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector"><span class="pre">jmath.linearalgebra.vectors.Vector</span></a></span></span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.unit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.linearalgebra.vectors.Vector.unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a unit vector in the same direction as the vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

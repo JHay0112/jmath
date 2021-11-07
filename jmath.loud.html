@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.loud package &mdash; jmath v3.7.15
+  <title>jmath.loud package &mdash; jmath v4.0.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v3.7.15
+                v4.0.0
 
               </div>
             
@@ -114,6 +114,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -204,11 +205,11 @@
 <p>Loud Graph related functions</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.loud.graphs.prufer_solver">
-<span class="sig-prename descclassname"><span class="pre">jmath.loud.graphs.</span></span><span class="sig-name descname"><span class="pre">prufer_solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.graphs.prufer_solver" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.loud.graphs.</span></span><span class="sig-name descname"><span class="pre">prufer_solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.graphs.prufer_solver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loudly builds a graph from a prufer sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sequence</strong> – The prufer sequence to solve.</p>
+<dd class="field-odd"><p><strong>sequence</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – The prufer sequence to solve.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -219,28 +220,31 @@
 <p>Loud implementation of modular functions</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.loud.modular.gcd">
-<span class="sig-prename descclassname"><span class="pre">jmath.loud.modular.</span></span><span class="sig-name descname"><span class="pre">gcd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#jmath.loud.modular.gcd" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.loud.modular.</span></span><span class="sig-name descname"><span class="pre">gcd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.modular.gcd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loud recursive implementation of the Euclidean Algorithm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> – A number to find the gcd of with b</p></li>
-<li><p><strong>b</strong> – A number to find the gcd of with a</p></li>
-<li><p><strong>i</strong> – Number of iterations of algorithm, default is 1</p></li>
+<li><p><strong>a</strong> (<em>int</em>) – A number to find the gcd of with b</p></li>
+<li><p><strong>b</strong> (<em>int</em>) – A number to find the gcd of with a</p></li>
+<li><p><strong>i</strong> (<em>int</em>) – Number of iterations of algorithm, default is 1</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.loud.modular.modular_inverse_brute_force">
-<span class="sig-prename descclassname"><span class="pre">jmath.loud.modular.</span></span><span class="sig-name descname"><span class="pre">modular_inverse_brute_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#jmath.loud.modular.modular_inverse_brute_force" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.loud.modular.</span></span><span class="sig-name descname"><span class="pre">modular_inverse_brute_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.modular.modular_inverse_brute_force" title="Permalink to this definition">¶</a></dt>
 <dd><p>Brute force modular inverse finder</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> – The number to find the modular inverse of</p></li>
-<li><p><strong>b</strong> – The size of the modular set to find the inverse in</p></li>
+<li><p><strong>a</strong> (<em>int</em>) – The number to find the modular inverse of</p></li>
+<li><p><strong>b</strong> (<em>int</em>) – The size of the modular set to find the inverse in</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -258,24 +262,24 @@
 <p>Loud implementations of prime functions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.loud.primes.primality">
-<span class="sig-prename descclassname"><span class="pre">jmath.loud.primes.</span></span><span class="sig-name descname"><span class="pre">primality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.primes.primality" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.loud.primes.</span></span><span class="sig-name descname"><span class="pre">primality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.primes.primality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that a number is prime.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n</strong> – The number to check if it is prime</p>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – The number to check if it is prime</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="jmath.loud.primes.relative_primality">
-<span class="sig-prename descclassname"><span class="pre">jmath.loud.primes.</span></span><span class="sig-name descname"><span class="pre">relative_primality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.primes.relative_primality" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">jmath.loud.primes.</span></span><span class="sig-name descname"><span class="pre">relative_primality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.loud.primes.relative_primality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that a number is relatively prime to another number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> – The number to check the relative primality of</p></li>
-<li><p><strong>b</strong> – The number to check the relative primality with respect to</p></li>
+<li><p><strong>a</strong> (<em>int</em>) – The number to check the relative primality of</p></li>
+<li><p><strong>b</strong> (<em>int</em>) – The number to check the relative primality with respect to</p></li>
 </ul>
 </dd>
 </dl>

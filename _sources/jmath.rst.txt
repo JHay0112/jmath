@@ -14,6 +14,7 @@ Subpackages
    jmath.linearalgebra
    jmath.loud
    jmath.physics
+   jmath.units
 
 Submodules
 ----------
