@@ -32,6 +32,12 @@ class UnitSpace:
     def __setitem__(self, item: str, new_value: 'Unit'):
         self.units[item] = new_value
 
+    def __getattr__(self, item: str) -> 'Unit':
+        return self.units[item]
+
+    def __setattr__(self, item: str, new_value: 'Unit'):
+        self.units[item] = new_value
+
     def define_alias(self, base_unit: Union['Unit', str], end_unit: 'Unit'):
         """
             Defines an alias from unit to another.
