@@ -78,7 +78,7 @@ for prefix, factor in prefixes.items():
 
 for unit, name in unit_names.items():
     # Special names
-    si[name] = Unit(unit, si)
+    si.define_alias(name, si[unit])
 
 # Names
 

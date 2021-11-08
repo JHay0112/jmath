@@ -32,7 +32,7 @@ class UnitSpace:
     def __setitem__(self, item: str, new_value: 'Unit'):
         self.units[item] = new_value
 
-    def define_alias(self, base_unit: 'Unit', end_unit: 'Unit'):
+    def define_alias(self, base_unit: Union['Unit', str], end_unit: 'Unit'):
         """
             Defines an alias from unit to another.
 
@@ -44,29 +44,34 @@ class UnitSpace:
             end_unit
                 The unit to end at.
         """
-        base_unit = base_unit.copy(1)
-        end_unit = end_unit.copy(1)
+        if type(base_unit).__name__ == "Unit":
+            # For units
+            base_unit = base_unit.copy(1)
+            end_unit = end_unit.copy(1)
 
-        # Add to alias table
-        self.alias_table[base_unit] = end_unit
+            # Add to alias table
+            self.alias_table[base_unit] = end_unit
 
-        # Simple alias decay cases
-        # For each sub unit of the base unit
-        for unit, power in base_unit.units.items():
-            # Create copies
-            new_end_unit = end_unit.copy()
-            # Invert
-            new_end_unit.units[unit] = -power
-            
-            # Create a case in alias table going back to the base units
-            # Make sure it's not already in the table before doing more work
-            # We don't want to overwrite other aliases
-            if new_end_unit not in self.alias_table:
-                # Create the base unit
-                new_base_unit = base_unit.copy()
-                new_base_unit.units.pop(unit)
-                # Now alias
-                self.alias_table[new_end_unit] = new_base_unit
+            # Simple alias decay cases
+            # For each sub unit of the base unit
+            for unit, power in base_unit.units.items():
+                # Create copies
+                new_end_unit = end_unit.copy()
+                # Invert
+                new_end_unit.units[unit] = -power
+                
+                # Create a case in alias table going back to the base units
+                # Make sure it's not already in the table before doing more work
+                # We don't want to overwrite other aliases
+                if new_end_unit not in self.alias_table:
+                    # Create the base unit
+                    new_base_unit = base_unit.copy()
+                    new_base_unit.units.pop(unit)
+                    # Now alias
+                    self.alias_table[new_end_unit] = new_base_unit
+        elif isinstance(base_unit, str):
+            # Creating a human alias
+            self.units[base_unit] = end_unit
 
     def alias(self, unit: 'Unit') -> Optional['Unit']:
         """
