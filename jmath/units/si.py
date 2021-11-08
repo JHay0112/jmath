@@ -46,14 +46,29 @@ prefixes = {
 
 # Units
 
-unit_names = [
-    "m", "s", "g", "A", "K",
-    "mol", "cd", "N", "J", "C",
-    "Pa", "W", "V", "F", "Ω",
-    "S", "Wb", "T", "H"
-]
+unit_names = {
+    "m": "metre",
+    "s": "second",
+    "g": "gram",
+    "A": "ampere",
+    "K": "kelvin",
+    "mol": "mole", 
+    "cd": "candela", 
+    "N": "newton",
+    "J": "joule",
+    "C": "coulomb",
+    "Pa": "pascal", 
+    "W": "watt",
+    "V": "volt",
+    "F": "farad",
+    "Ω": "ohm",
+    "S": "siemens",
+    "Wb": "weber",
+    "T": "tesla",
+    "H": "henry"
+}
 
-units = {unit: Unit(unit, si) for unit in unit_names}
+units = {unit: Unit(unit, si) for unit in unit_names.keys()}
 
 # Conversion
 for prefix, factor in prefixes.items():
@@ -61,27 +76,31 @@ for prefix, factor in prefixes.items():
         combo = prefix + name
         si.define_conversion(Unit(combo, si), unit, factor)
 
+for unit, name in unit_names.items():
+    # Special names
+    si[name] = Unit(unit, si)
+
 # Names
 
-metre = units["m"]
-second = units["s"]
-kilogram = Unit("kg", si)
-ampere = units["A"]
-kelvin = units["K"]
-mole = units["mol"]
-candela = units["cd"]
-newton = units["N"]
-joule = units["J"]
-coulomb = units["C"]
-pascal = units["Pa"]
-watt = units["W"]
-volt = units["V"]
-farad = units["F"]
-ohm = units["Ω"]
-siemens = units["S"]
-weber = units["Wb"]
-tesla = units["T"]
-henry = units["H"]
+metre = si["m"]
+second = si["s"]
+kilogram = si["kg"]
+ampere = si["A"]
+kelvin = si["K"]
+mole = si["mol"]
+candela = si["cd"]
+newton = si["N"]
+joule = si["J"]
+coulomb = si["C"]
+pascal = si["Pa"]
+watt = si["W"]
+volt = si["V"]
+farad = si["F"]
+ohm = si["Ω"]
+siemens = si["S"]
+weber = si["Wb"]
+tesla = si["T"]
+henry = si["H"]
 
 # Standard Forms
 
