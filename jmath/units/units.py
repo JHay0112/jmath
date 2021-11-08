@@ -5,7 +5,7 @@
 # - Imports
 
 from typing import Union
-from .conversion import conversion_table, alias_table
+from .conversion import universal, UnitSpace
 from ..uncertainties import Uncertainty
 from ..exceptions import NoConversion
 
@@ -20,6 +20,8 @@ class Unit:
 
         unit
             String identifier of unit e.g. "m" 
+        unit_space
+            The unit space the unit exists in.
 
         Examples
         --------
@@ -28,9 +30,7 @@ class Unit:
         3 [ms^(-1)]   
     '''
 
-    def __init__(self, unit: str = None):
-
-        global conversion_table
+    def __init__(self, unit: str = None, unit_space: UnitSpace = universal):
         
         self.value = 1
         
@@ -38,6 +38,8 @@ class Unit:
             self.units = {unit: 1}
         else:
             self.units = {}
+
+        self.unit_space = unit_space
 
     def __repr__(self):
         """Programming Representation."""
@@ -131,8 +133,6 @@ class Unit:
                 The other set to construct the union with.
         """
 
-        global alias_table
-
         # Place holder unit
         new_unit = Unit()
         
@@ -155,8 +155,9 @@ class Unit:
         new_unit.units = units
 
         # Check for alias
-        if new_unit.copy(1) in alias_table:
-            new_unit = new_unit.value * alias_table[new_unit.copy(1)]
+        alias = self.unit_space.alias(new_unit.copy(1))
+        if alias is not None:
+            new_unit = new_unit.value * alias
 
         return new_unit
 
@@ -276,27 +277,4 @@ class Unit:
                 The type of unit to convert to.    
         """
 
-        global conversion_table
-
-        # Trivial conversion case
-        if self.units == other.units:
-            return self
-
-        new_unit = Unit()
-
-        # Convert numeric value
-        try:
-            new_unit.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
-        except KeyError:
-            raise NoConversion(self, other)
-
-        # Check if units have got into one another
-        # Hacky solution but it will do
-        while isinstance(new_unit.value, Unit):
-            new_unit.value = new_unit.value.value
-
-        # Convert unit value
-        new_unit.units = other.units
-
-        # Incase used in formula
-        return new_unit
+        return self.unit_space.convert(self, other)
