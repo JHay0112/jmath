@@ -6,7 +6,6 @@
 # - Imports
 
 from typing import Callable, Union, Optional, TYPE_CHECKING
-from ..uncertainties import Uncertainty
 from ..exceptions import NoConversion
 
 # - Types
@@ -152,7 +151,7 @@ class UnitSpace:
 
         # Check if units have got into one another
         # Hacky solution but it will do
-        while not isinstance(new_unit.value, (float, int, Uncertainty)):
+        while type(new_unit.value).__name__ == "Unit":
             new_unit.value = new_unit.value.value
 
         # Incase used in formula
