@@ -6,6 +6,7 @@
 # - Imports
 
 from typing import Callable, Union, Optional, TYPE_CHECKING
+from ..uncertainties import Uncertainty
 from ..exceptions import NoConversion
 
 # - Types
@@ -151,7 +152,7 @@ class UnitSpace:
 
         # Check if units have got into one another
         # Hacky solution but it will do
-        while isinstance(new_unit.value, Unit):
+        while not isinstance(new_unit.value, (float, int, Uncertainty)):
             new_unit.value = new_unit.value.value
 
         # Incase used in formula
@@ -163,3 +164,5 @@ universal = UnitSpace()
 # For compatibility
 conversion_table = universal.conversion_table
 alias_table = universal.alias_table
+define_conversion = universal.define_conversion
+define_alias = universal.define_alias
