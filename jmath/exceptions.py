@@ -40,7 +40,7 @@ class OutOfRange(Exception):
         self.message = f"'{num_input}' outside of range '{lower_bound}' to '{upper_bound}' inclusive. {message}"
         super().__init__(self.message)
 
-class NoUnitConversion(Exception):
+class NoConversion(Exception):
     """
         Exception thrown if there is no way to convert between two given units.
         
