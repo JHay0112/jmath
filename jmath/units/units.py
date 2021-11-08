@@ -7,6 +7,7 @@
 from typing import Union
 from .conversion import conversion_table, alias_table
 from ..uncertainties import Uncertainty
+from ..exceptions import NoConversion
 
 # - Classes
 
@@ -284,7 +285,10 @@ class Unit:
         new_unit = Unit()
 
         # Convert numeric value
-        new_unit.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
+        try:
+            new_unit.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
+        except KeyError:
+            raise NoConversion(self, other)
 
         # Check if units have got into one another
         # Hacky solution but it will do
