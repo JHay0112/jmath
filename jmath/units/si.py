@@ -80,6 +80,9 @@ for unit, name in unit_names.items():
     # Special names
     si.define_alias(name, si[unit])
 
+# Special case for kg
+si.define_alias("kilogram", si["kg"])
+
 # Names
 
 metre = si["m"]
@@ -104,9 +107,9 @@ henry = si["H"]
 
 # Standard Forms
 
-displacement = metre
-velocity = metre/second
-acceleration = metre/(second**2)
+si.displacement = metre
+si.velocity = metre/second
+si.acceleration = metre/(second**2)
 
 # Aliases
 
