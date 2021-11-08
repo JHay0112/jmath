@@ -4,7 +4,11 @@
 
 # - Imports
 
-from .units import Unit
+from typing import TypeVar
+
+# - Typing
+
+Unit = TypeVar("Unit")
 
 # - Classes
 
@@ -54,6 +58,6 @@ class NoConversion(Exception):
         message
             Appended additional message
     """
-    def __init__(self, from_unit: Unit, to_unit: Unit, message: str = ""):
+    def __init__(self, from_unit: "Unit", to_unit: "Unit", message: str = ""):
         self.message = f"No conversion from '{from_unit}' to '{to_unit}'. {message}"
         super().__init__(self.message)

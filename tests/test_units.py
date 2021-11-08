@@ -6,6 +6,7 @@
 
 from ..jmath.units import Unit, define_conversion, define_alias
 from ..jmath.uncertainties import Uncertainty
+from ..jmath.exceptions import NoConversion
 from .tools import repeat, random_integer
 
 # - Testing
@@ -66,3 +67,16 @@ def test_uncertain_units():
     unit = unc * Unit("m")
 
     assert str(unit) == f"({a} ± {b}) [m]"
+
+def test_failed_conversion():
+    """Tests that an error is raised if two units can't convert."""
+    a = Unit("no_convert_a")
+    b = Unit("no_convert_b")
+    
+    try:
+        a.convert_to(b)
+    except NoConversion:
+        assert True
+    else:
+        assert False
+    
