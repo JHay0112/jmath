@@ -24,6 +24,13 @@ class UnitSpace:
 
         self.conversion_table = {}
         self.alias_table = {}
+        self.units = {}
+
+    def __getitem__(self, item: str) -> 'Unit':
+        return self.units[item]
+
+    def __setitem__(self, item: str, new_value: 'Unit'):
+        self.units[item] = new_value
 
     def define_alias(self, base_unit: 'Unit', end_unit: 'Unit'):
         """
