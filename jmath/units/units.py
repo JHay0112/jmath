@@ -7,7 +7,6 @@
 from typing import Union
 from .conversion import universal, UnitSpace
 from ..uncertainties import Uncertainty
-from ..exceptions import NoConversion
 
 # - Classes
 
