@@ -20,6 +20,28 @@ def annotate(func: Callable) -> Callable:
 
         func
             The wrapped function to process.
+
+        Examples
+        --------
+
+        >>> from jmath import Unit, units
+        >>> from jmath.units import si
+        >>> # Setup custom units
+        >>> gram = Unit("g")
+        >>> units.define_conversion(si.kilogram, gram, 1000)
+        >>> # Example function
+        >>> # Expects mass in kilograms, returns energy in joules as annotated
+        >>> @units.annotate
+        ... def calc_energy(mass: si.kilogram) -> si.joules:
+        ...     print(mass)
+        ...     return mass/1e15
+        >>> input_mass = 3 * gram
+        >>> print(input_mass)
+        3 [g]
+        >>> energy = calc_energy(input_mass)
+        0.003 [kg]
+        >>> print(energy)
+        0.27 [J]
     """
 
     @wraps(func)
