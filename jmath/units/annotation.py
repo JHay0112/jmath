@@ -11,7 +11,7 @@ from .units import Unit
 
 # - Functions
 
-def annotation(func: Callable) -> Callable:
+def annotate(func: Callable) -> Callable:
     """
         Converts the units of a function to those specified in function annotations.
 
