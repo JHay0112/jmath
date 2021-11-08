@@ -39,6 +39,7 @@ class Unit:
             self.units = {}
 
         self.unit_space = unit_space
+        self.unit_space[unit] = self
 
     def __repr__(self):
         """Programming Representation."""
