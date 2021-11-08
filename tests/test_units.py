@@ -4,7 +4,7 @@
 
 # - Imports
 
-from ..jmath.units import Unit, define_conversion, define_alias
+from ..jmath.units import Unit, define_conversion, define_alias, annotate
 from ..jmath.uncertainties import Uncertainty
 from ..jmath.exceptions import NoConversion
 from .tools import repeat, random_integer
@@ -79,4 +79,29 @@ def test_failed_conversion():
         assert True
     else:
         assert False
+
+@repeat
+def test_annotations():
+    """Tests that annotated functions behave as expected."""
     
+    # Setup units
+    a = Unit("a")
+    b = Unit("b")
+    c = Unit("c")
+    # And conversions
+    define_conversion(a, b, random_integer(1, 100))
+    define_conversion(c, a, random_integer(1, 100))
+
+    # Multiplier
+    coeffecient = random_integer(1, 100)
+
+    # Create an annotated function
+    @annotate
+    def test(x: a) -> c:
+        return coeffecient*x
+
+    # Call it
+    output = test(b)
+    
+    # b has been converted to a and then to c
+    assert (b.convert_to(a) * coeffecient).convert_to(c) == output
