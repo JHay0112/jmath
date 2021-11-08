@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.units package &mdash; jmath v4.0.0
+  <title>jmath.units package &mdash; jmath v4.1.0
  documentation</title>
   
 
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                v4.0.0
+                v4.1.0
 
               </div>
             
@@ -108,6 +108,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">jmath.units package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.annotation">jmath.units.annotation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.conversion">jmath.units.conversion module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.other">jmath.units.other module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.si">jmath.units.si module</a></li>
@@ -199,6 +200,45 @@
 <h1>jmath.units package<a class="headerlink" href="#jmath-units-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.units.annotation">
+<span id="jmath-units-annotation-module"></span><h2>jmath.units.annotation module<a class="headerlink" href="#module-jmath.units.annotation" title="Permalink to this headline">¶</a></h2>
+<p>Provides functions to allow for annotation of functions to enforce units.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.units.annotation.annotate">
+<span class="sig-prename descclassname"><span class="pre">jmath.units.annotation.</span></span><span class="sig-name descname"><span class="pre">annotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.annotation.annotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the units of a function to those specified in function annotations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>Callable</em>) – The wrapped function to process.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Callable</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jmath</span> <span class="k">import</span> <span class="n">Unit</span><span class="p">,</span> <span class="n">units</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jmath.units</span> <span class="k">import</span> <span class="n">si</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Setup custom units</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gram</span> <span class="o">=</span> <span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">units</span><span class="o">.</span><span class="n">define_conversion</span><span class="p">(</span><span class="n">si</span><span class="o">.</span><span class="n">kilogram</span><span class="p">,</span> <span class="n">gram</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Expects mass in kilograms, returns energy in joules as annotated</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@units</span><span class="o">.</span><span class="n">annotate</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">calc_energy</span><span class="p">(</span><span class="n">mass</span><span class="p">:</span> <span class="n">si</span><span class="o">.</span><span class="n">kilogram</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">si</span><span class="o">.</span><span class="n">joules</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">mass</span><span class="o">/</span><span class="mf">1e15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_mass</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">gram</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">input_mass</span><span class="p">)</span>
+<span class="go">3 [g]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">energy</span> <span class="o">=</span> <span class="n">calc_energy</span><span class="p">(</span><span class="n">input_mass</span><span class="p">)</span>
+<span class="go">0.003 [kg]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+<span class="go">0.27 [J]</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 <div class="section" id="module-jmath.units.conversion">
 <span id="jmath-units-conversion-module"></span><h2>jmath.units.conversion module<a class="headerlink" href="#module-jmath.units.conversion" title="Permalink to this headline">¶</a></h2>

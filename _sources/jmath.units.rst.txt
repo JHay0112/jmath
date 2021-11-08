@@ -4,6 +4,14 @@ jmath.units package
 Submodules
 ----------
 
+jmath.units.annotation module
+-----------------------------
+
+.. automodule:: jmath.units.annotation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.units.conversion module
 -----------------------------
 

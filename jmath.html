@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath package &mdash; jmath v4.0.0
+  <title>jmath package &mdash; jmath v4.1.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.0.0
+                v4.1.0
 
               </div>
             
@@ -268,6 +268,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jmath.units.html">jmath.units package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.annotation">jmath.units.annotation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.conversion">jmath.units.conversion module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.other">jmath.units.other module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.si">jmath.units.si module</a></li>
@@ -535,8 +536,23 @@
 </div>
 <div class="section" id="module-jmath.exceptions">
 <span id="jmath-exceptions-module"></span><h2>jmath.exceptions module<a class="headerlink" href="#module-jmath.exceptions" title="Permalink to this headline">¶</a></h2>
-<p>jmath/exceptions.py</p>
 <p>Defines exceptions for jmath.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="jmath.exceptions.NoConversion">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">NoConversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.NoConversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown if there is no way to convert between two given units.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_unit</strong> (<a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert from.</p></li>
+<li><p><strong>to_unit</strong> (<a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert to.</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – Appended additional message</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py exception">
 <dt class="sig sig-object py" id="jmath.exceptions.OutOfRange">
 <em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">OutOfRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.OutOfRange" title="Permalink to this definition">¶</a></dt>
