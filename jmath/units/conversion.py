@@ -43,6 +43,17 @@ class UnitSpace:
             # Get it from items
             return self.units[item]
 
+    def __setattr__(self, item: str, new_value: 'Unit'):
+        """Set Attribute of Object."""
+        if type(new_value).__name__ == "Unit":
+            # If not an attribute then add to units
+            # Ensure unit space is set correctly
+            new_value.unit_space = self
+            self.units[item] = new_value
+        else:
+            # Else call setattribute
+            super().__setattr__(item, new_value)
+
     def define_alias(self, base_unit: Union['Unit', str], end_unit: 'Unit'):
         """
             Defines an alias from unit to another.
