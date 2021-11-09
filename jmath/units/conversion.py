@@ -87,7 +87,7 @@ class UnitSpace:
                 # Create a case in alias table going back to the base units
                 # Make sure it's not already in the table before doing more work
                 # We don't want to overwrite other aliases
-                if new_end_unit not in self.alias_table:
+                if new_end_unit.unit_str() not in self.alias_table:
                     # Create the base unit
                     new_base_unit = base_unit.copy()
                     new_base_unit.units.pop(unit)
