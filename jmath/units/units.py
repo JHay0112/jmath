@@ -79,10 +79,6 @@ class Unit:
             # Show value + unit_str
             return f"{self.value} [{unit_str}]"
 
-    def __hash__(self):
-        """Hashing based on string representation."""
-        return hash(str(self))
-
     def __abs__(self):
         """Returns absolute value."""
         return abs(self.value)
