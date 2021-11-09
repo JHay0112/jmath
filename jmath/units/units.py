@@ -172,6 +172,8 @@ class Unit:
                 # If zero then remove
                 if new_power == 0:
                     units.pop(unit)
+                else:
+                    units[unit] = new_power
         # New units constructed
         # Replace in the placeholder unit
         new_unit.units = units

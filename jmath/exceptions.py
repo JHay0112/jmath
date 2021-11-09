@@ -59,5 +59,5 @@ class NoConversion(Exception):
             Appended additional message
     """
     def __init__(self, from_unit: "Unit", to_unit: "Unit", message: str = ""):
-        self.message = f"No conversion from '{from_unit}' to '{to_unit}'. {message}"
+        self.message = f"No conversion from '{from_unit.unit_str()}' to '{to_unit.unit_str()}'. {message}"
         super().__init__(self.message)
