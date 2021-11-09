@@ -60,7 +60,7 @@ class Unit:
         # If not in unit space
         if self.unit_str() not in self.unit_space.units.keys():
             # Then add it
-            self.unit_space[self.unit_str()] = self
+            self.unit_space[self.unit_str()] = self.copy(1)
 
     def __repr__(self):
         """Programming Representation."""
