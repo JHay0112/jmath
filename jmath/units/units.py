@@ -46,7 +46,7 @@ class Unit:
         """The Unitspace in which the Unit Exists."""
         if self._unit_space is None:
             # If none has been set
-            self._unit_space = universal
+            self.unit_space = universal
 
         return self._unit_space
 
@@ -113,7 +113,7 @@ class Unit:
                 Optional flipping of powers.
         """
         # Placeholder unit
-        new_unit = Unit()
+        new_unit = Unit(unit_space = self.unit_space)
         # If value is not none then write new value
         if value is not None:
             new_unit.value = value

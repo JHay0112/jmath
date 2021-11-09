@@ -74,7 +74,7 @@ units = {unit: Unit(unit, si) for unit in unit_names.keys()}
 for prefix, factor in prefixes.items():
     for name, unit in units.items():
         combo = prefix + name
-        si.define_conversion(Unit(combo), unit, factor)
+        si.define_conversion(Unit(combo, si), unit, factor)
 
 for unit, name in unit_names.items():
     # Special names
