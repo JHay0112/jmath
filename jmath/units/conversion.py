@@ -41,6 +41,8 @@ class UnitSpace:
             return self.__getattribute__(item)
         except AttributeError:
             # Get it from items
+            if type(item).__name__ == "Unit":
+                item = item.unit_str()
             return self.units[item]
 
     def __setattr__(self, item: str, new_value: 'Unit'):
@@ -129,7 +131,10 @@ class UnitSpace:
                 If a function is passed then the reverse conversion is not added by default.
         """
 
-        global conversion_table
+        if from_unit.unit_str() not in self.units.keys():
+            self.units[from_unit.unit_str()] = from_unit
+        if to_unit.unit_str() not in self.units.keys():
+            self.units[to_unit.unit_str()] = to_unit
 
         # If factor is float/int then make a lambda
         if not callable(factor):

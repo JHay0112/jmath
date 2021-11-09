@@ -29,7 +29,7 @@ class Unit:
         3 [ms^(-1)]   
     '''
 
-    def __init__(self, unit: str = None, unit_space: UnitSpace = universal):
+    def __init__(self, unit: str = None, unit_space: UnitSpace = None):
         
         self.value = 1
         
@@ -38,8 +38,29 @@ class Unit:
         else:
             self.units = {}
 
+        self._unit_space = None
         self.unit_space = unit_space
-        self.unit_space[unit] = self
+
+    @property
+    def unit_space(self):
+        """The Unitspace in which the Unit Exists."""
+        if self._unit_space is None:
+            # If none has been set
+            self._unit_space = universal
+
+        return self._unit_space
+
+    @unit_space.setter
+    def unit_space(self, new_unit_space: UnitSpace):
+        """Set a unitspace"""
+        
+        # Set new unit space
+        self._unit_space = new_unit_space
+
+        # If not in unit space
+        if self.unit_str() not in self.unit_space.units.keys():
+            # Then add it
+            self.unit_space[self.unit_str()] = self
 
     def __repr__(self):
         """Programming Representation."""
@@ -50,17 +71,7 @@ class Unit:
         """String representation."""
 
         # Produce a string of the units
-        unit_str = ""
-
-        for unit, power in self.units.items():
-            if power < 0:
-                unit_str += f"{unit}^({power})"
-            elif power > 1:
-                unit_str += f"{unit}^{power} "
-            else:
-                unit_str += f"{unit}"
-
-        unit_str.strip()
+        unit_str = self.unit_str()
 
         if isinstance(self.value, Uncertainty):
             # Special uncertainty display
@@ -120,6 +131,22 @@ class Unit:
 
         # Return
         return new_unit
+
+    def unit_str(self) -> str:
+        """Produces a string describing the unit."""
+        unit_str = ""
+
+        for unit, power in self.units.items():
+            if power < 0:
+                unit_str += f"{unit}^({power})"
+            elif power > 1:
+                unit_str += f"{unit}^{power} "
+            else:
+                unit_str += f"{unit}"
+
+        unit_str.strip()
+
+        return unit_str
 
     def union(self, other: "Unit") -> "Unit":
         """
