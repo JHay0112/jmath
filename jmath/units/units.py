@@ -38,7 +38,6 @@ class Unit:
         else:
             self.units = {}
 
-        self._unit_space = None
         self.unit_space = unit_space
 
     @property
@@ -46,7 +45,7 @@ class Unit:
         """The Unitspace in which the Unit Exists."""
         if self._unit_space is None:
             # If none has been set
-            self.unit_space = universal
+            self._unit_space = universal
 
         return self._unit_space
 
@@ -60,7 +59,7 @@ class Unit:
         # If not in unit space
         if self.unit_str() not in self.unit_space.units.keys():
             # Then add it
-            self.unit_space[self.unit_str()] = self.copy(1)
+            self.unit_space[self.unit_str()] = self
 
     def __repr__(self):
         """Programming Representation."""

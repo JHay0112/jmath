@@ -74,7 +74,7 @@ class UnitSpace:
             end_unit = end_unit.copy(1)
 
             # Add to alias table
-            self.alias_table[base_unit] = end_unit
+            self.alias_table[base_unit.unit_str()] = end_unit
 
             # Simple alias decay cases
             # For each sub unit of the base unit
@@ -92,7 +92,7 @@ class UnitSpace:
                     new_base_unit = base_unit.copy()
                     new_base_unit.units.pop(unit)
                     # Now alias
-                    self.alias_table[new_end_unit] = new_base_unit
+                    self.alias_table[new_end_unit.unit_str()] = new_base_unit
         elif isinstance(base_unit, str):
             # Creating a human alias
             self.units[base_unit] = end_unit
@@ -107,7 +107,7 @@ class UnitSpace:
             unit
                 The unit to find the alias of.
         """
-        unit = unit.copy(1)
+        unit = unit.unit_str()
 
         if unit in self.alias_table:
             return self.alias_table[unit]
@@ -152,10 +152,10 @@ class UnitSpace:
         from_unit = from_unit.copy(1)
 
         # Add to conversion table
-        if from_unit not in self.conversion_table:
-            self.conversion_table[from_unit] = {to_unit: func}
+        if from_unit.unit_str() not in self.conversion_table:
+            self.conversion_table[from_unit.unit_str()] = {to_unit.unit_str(): func}
         else:
-            self.conversion_table[from_unit][to_unit] = func
+            self.conversion_table[from_unit.unit_str()][to_unit.unit_str()] = func
 
     def convert(self, from_unit: 'Unit', to_unit: 'Unit') -> Optional['Unit']:
         '''
@@ -184,9 +184,9 @@ class UnitSpace:
 
         # Convert numeric value
         try:
-            new_unit.value = self.conversion_table[from_unit.copy(1)][to_unit.copy(1)](from_unit.value)
+            new_unit.value = self.conversion_table[from_unit.unit_str()][to_unit.unit_str()](from_unit.value)
         except KeyError:
-            raise NoConversion(to_unit, from_unit)
+            raise NoConversion(from_unit, to_unit)
 
         # Check if units have got into one another
         # Hacky solution but it will do
