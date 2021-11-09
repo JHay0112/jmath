@@ -27,16 +27,21 @@ class UnitSpace:
         self.units = {}
 
     def __getitem__(self, item: str) -> 'Unit':
+        """Get Item from Units."""
         return self.units[item]
 
     def __setitem__(self, item: str, new_value: 'Unit'):
+        """Set Item in Units."""
         self.units[item] = new_value
 
     def __getattr__(self, item: str) -> 'Unit':
-        return self.units[item]
-
-    def __setattr__(self, item: str, new_value: 'Unit'):
-        self.units[item] = new_value
+        """Get Attributes of Object."""
+        try:
+            # Get it the normal way
+            return self.__getattribute__(item)
+        except AttributeError:
+            # Get it from items
+            return self.units[item]
 
     def define_alias(self, base_unit: Union['Unit', str], end_unit: 'Unit'):
         """
