@@ -177,7 +177,7 @@ class Unit:
         new_unit.units = units
 
         # Check for alias
-        alias = self.unit_space.alias(new_unit.copy(1))
+        alias = self.unit_space.alias(new_unit)
         if alias is not None:
             new_unit = new_unit.value * alias
 
