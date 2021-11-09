@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.units package &mdash; jmath v4.1.0
+  <title>jmath.units package &mdash; jmath v4.2.0
  documentation</title>
   
 
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                v4.1.0
+                v4.2.0
 
               </div>
             
@@ -110,7 +110,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.annotation">jmath.units.annotation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.conversion">jmath.units.conversion module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.other">jmath.units.other module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jmath-units-other-module">jmath.units.other module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.si">jmath.units.si module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units.units">jmath.units.units module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-jmath.units">Module contents</a></li>
@@ -242,21 +242,92 @@
 </div>
 <div class="section" id="module-jmath.units.conversion">
 <span id="jmath-units-conversion-module"></span><h2>jmath.units.conversion module<a class="headerlink" href="#module-jmath.units.conversion" title="Permalink to this headline">¶</a></h2>
-<p>Provides the standard conversion table, shared for all units</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="jmath.units.conversion.define_alias">
-<span class="sig-prename descclassname"><span class="pre">jmath.units.conversion.</span></span><span class="sig-name descname"><span class="pre">define_alias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_unit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.define_alias" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines an alias for a unit</p>
+<p>Unit Spaces.
+For management of unit conversions and aliases.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="jmath.units.conversion.UnitSpace">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.units.conversion.</span></span><span class="sig-name descname"><span class="pre">UnitSpace</span></span><a class="headerlink" href="#jmath.units.conversion.UnitSpace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Management for units and unit conversions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.conversion.UnitSpace.alias">
+<span class="sig-name descname"><span class="pre">alias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.UnitSpace.alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces the alias of a unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to find the alias of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit">Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.conversion.UnitSpace.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_unit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.UnitSpace.convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a unit to another unit if possible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>base_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The base level unit.</p></li>
-<li><p><strong>end_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit that is an alias for the base unit.</p></li>
+<li><p><strong>from_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert from</p></li>
+<li><p><strong>to_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="jmath.html#jmath.exceptions.NoConversion" title="jmath.exceptions.NoConversion"><strong>NoConversion</strong></a> – Raises the no conversion error if there is no way to conver the unit.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit">Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.conversion.UnitSpace.define_alias">
+<span class="sig-name descname"><span class="pre">define_alias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_unit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.UnitSpace.define_alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an alias from unit to another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_unit</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a><em>, </em><em>str</em><em>]</em>) – The unit to start at.</p></li>
+<li><p><strong>end_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to end at.</p></li>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
-<p>Would be good for this to calculate decays of the alias to so that they can revert.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.conversion.UnitSpace.define_conversion">
+<span class="sig-name descname"><span class="pre">define_conversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.UnitSpace.define_conversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the conversion between two units</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert from.</p></li>
+<li><p><strong>to_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to convert to.</p></li>
+<li><p><strong>factor</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a><em>, </em><em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em><em>]</em>) – The factor to multiply by or a function to produce the difference.
+If a factor is passed then the reverse conversion is added by default.
+If a function is passed then the reverse conversion is not added by default.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.units.conversion.define_alias">
+<span class="sig-prename descclassname"><span class="pre">jmath.units.conversion.</span></span><span class="sig-name descname"><span class="pre">define_alias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_unit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.conversion.define_alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an alias from unit to another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_unit</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a><em>, </em><em>str</em><em>]</em>) – The unit to start at.</p></li>
+<li><p><strong>end_unit</strong> (<a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>Unit</em></a>) – The unit to end at.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -277,9 +348,8 @@ If a function is passed then the reverse conversion is not added by default.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-jmath.units.other">
-<span id="jmath-units-other-module"></span><h2>jmath.units.other module<a class="headerlink" href="#module-jmath.units.other" title="Permalink to this headline">¶</a></h2>
-<p>Defines a set of other useful units.</p>
+<div class="section" id="jmath-units-other-module">
+<h2>jmath.units.other module<a class="headerlink" href="#jmath-units-other-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-jmath.units.si">
 <span id="jmath-units-si-module"></span><h2>jmath.units.si module<a class="headerlink" href="#module-jmath.units.si" title="Permalink to this headline">¶</a></h2>
@@ -299,12 +369,15 @@ If a function is passed then the reverse conversion is not added by default.</p>
 <p>Defines the unit class and its behaviour</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.units.units.Unit">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.units.units.</span></span><span class="sig-name descname"><span class="pre">Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.units.Unit" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.units.units.</span></span><span class="sig-name descname"><span class="pre">Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.units.Unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A value with an associated unit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>unit</strong> (<em>str</em>) – String identifier of unit e.g. “m”</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>unit</strong> (<em>str</em>) – String identifier of unit e.g. “m”</p></li>
+<li><p><strong>unit_space</strong> (<a class="reference internal" href="#jmath.units.conversion.UnitSpace" title="jmath.units.conversion.UnitSpace"><em>jmath.units.conversion.UnitSpace</em></a>) – The unit space the unit exists in.</p></li>
+</ul>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -351,6 +424,23 @@ Ignores values.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="jmath.units.units.Unit.unit_space">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">unit_space</span></span><a class="headerlink" href="#jmath.units.units.Unit.unit_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Unitspace in which the Unit Exists.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.units.units.Unit.unit_str">
+<span class="sig-name descname"><span class="pre">unit_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.units.units.Unit.unit_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a string describing the unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
