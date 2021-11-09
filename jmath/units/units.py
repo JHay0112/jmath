@@ -38,7 +38,7 @@ class Unit:
         else:
             self.units = {}
 
-        self.unit_space = unit_space
+        self._unit_space = unit_space
 
     @property
     def unit_space(self):
