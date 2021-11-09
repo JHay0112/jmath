@@ -181,7 +181,6 @@ class UnitSpace:
             return from_unit
 
         new_unit = to_unit.copy(1)
-        print(new_unit.unit_space)
 
         # Convert numeric value
         try:
