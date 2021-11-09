@@ -178,20 +178,16 @@ class UnitSpace:
 
         # Trivial conversion case
         if from_unit.units == to_unit.units:
-            return self
+            return from_unit
 
         new_unit = to_unit.copy(1)
+        print(new_unit.unit_space)
 
         # Convert numeric value
         try:
             new_unit.value = self.conversion_table[from_unit.unit_str()][to_unit.unit_str()](from_unit.value)
         except KeyError:
             raise NoConversion(from_unit, to_unit)
-
-        # Check if units have got into one another
-        # Hacky solution but it will do
-        while type(new_unit.value).__name__ == "Unit":
-            new_unit.value = new_unit.value.value
 
         # Incase used in formula
         return new_unit

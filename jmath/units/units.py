@@ -135,7 +135,7 @@ class Unit:
             if power < 0:
                 unit_str += f"{unit}^({power})"
             elif power > 1:
-                unit_str += f"{unit}^{power} "
+                unit_str += f"{unit}^{power}"
             else:
                 unit_str += f"{unit}"
 
@@ -156,7 +156,7 @@ class Unit:
         """
 
         # Place holder unit
-        new_unit = Unit()
+        new_unit = Unit(unit_space = self.unit_space)
         
         # Construct mix of dicts
         # Copy own dict
