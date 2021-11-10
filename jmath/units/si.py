@@ -15,75 +15,104 @@
 # - Imports
 
 from .units import Unit
-from .conversion import define_alias, define_conversion
+from .conversion import UnitSpace
 
 # - Main
 
-# Base Units
+# Unit space
 
-metre = Unit("m")
-second = Unit("s")
-kilogram = Unit("kg")
-ampere = Unit("A")
-kelvin = Unit("K")
-mole = Unit("mol")
-candela = Unit("cd")
+si = UnitSpace()
 
-# Derived Units
+# Prefixes
 
-newton = Unit("N")
-define_alias(kilogram * metre / (second ** 2), newton)
+prefixes = {
+    "Y": 1e24,
+    "Z": 1e21,
+    "E": 1e18,
+    "P": 1e15,
+    "T": 1e12,
+    "G": 1e9,
+    "M": 1e6,
+    "k": 1e3,
+    "m": 1e-3,
+    "μ": 1e-6,
+    "n": 1e-9,
+    "p": 1e-12,
+    "f": 1e-15,
+    "a": 1e-18,
+    "z": 1e-21,
+    "y": 1e-24
+}
 
-joule = Unit("J")
+# Units
 
-coulomb = Unit("C")
-define_alias(ampere * second, coulomb)
+unit_names = {
+    "m": "metre",
+    "s": "second",
+    "g": "gram",
+    "A": "ampere",
+    "K": "kelvin",
+    "mol": "mole", 
+    "cd": "candela", 
+    "N": "newton",
+    "J": "joule",
+    "C": "coulomb",
+    "Pa": "pascal", 
+    "W": "watt",
+    "V": "volt",
+    "F": "farad",
+    "Ω": "ohm",
+    "S": "siemens",
+    "Wb": "weber",
+    "T": "tesla",
+    "H": "henry"
+}
 
-pascal = Unit("Pa")
-define_alias(newton/(metre ** 2), pascal)
+units = {unit: Unit(unit, si) for unit in unit_names.keys()}
 
-watt = Unit("W")
-define_alias(joule/second, watt)
+# Conversion
+for prefix, factor in prefixes.items():
+    for name, unit in units.items():
+        combo = prefix + name
+        si.define_conversion(Unit(combo, si), unit, factor)
 
-volt = Unit("V")
-define_alias(watt/ampere, volt)
+for unit, name in unit_names.items():
+    # Special names
+    si.define_alias(name, si[unit])
 
-farad = Unit("F")
-define_alias(coulomb/volt, farad)
-
-ohm = Unit("Ω")
-define_alias(ampere * ohm, volt)
-define_alias(volt/ampere, ohm)
-
-siemens = Unit("S")
-define_alias(ampere/volt, siemens)
-
-weber = Unit("Wb")
-define_alias(volt * second, weber)
-
-tesla = Unit("T")
-define_alias(weber/(metre**2), tesla)
-
-henry = Unit("H")
-define_alias(weber/ampere, henry)
+# Special case for kg
+si.kilogram = si.kg
 
 # Standard Forms
 
-displacement = metre
+si.displacement = si.metre
+si.velocity = si.metre/si.second
+si.acceleration = si.metre/(si.second**2)
 
-velocity = metre/second
+# Aliases
 
-acceleration = metre/(second**2)
+si.define_alias(si.kilogram * si.metre / (si.second ** 2), si.newton)
+si.define_alias(si.ampere * si.second, si.coulomb)
+si.define_alias(si.newton/(si.metre ** 2), si.pascal)
+si.define_alias(si.joule/si.second, si.watt)
+si.define_alias(si.watt/si.ampere, si.volt)
+si.define_alias(si.coulomb/si.volt, si.farad)
+si.define_alias(si.ampere * si.ohm, si.volt)
+si.define_alias(si.newton * si.metre/si.coulomb, si.volt)
+si.define_alias(si.volt/si.ampere, si.ohm)
+si.define_alias(si.ampere/si.volt, si.siemens)
+si.define_alias(si.volt * si.second, si.weber)
+si.define_alias(si.weber/(si.metre**2), si.tesla)
+si.define_alias(si.weber/si.ampere, si.henry)
 
 # Base Constants
 
-c = 3.000e8 * metre/second
-h = 6.626e-34 * joule*second
-e = 1.602e-19 * coulomb
-k = 1.381e-23 * joule/kelvin
-N = 6.022e23 / mole
+c = 3.000e8 * si.metre/si.second
+h = 6.626e-34 * si.joule*si.second
+e = 1.602e-19 * si.coulomb
+k = 1.381e-23 * si.joule/si.kelvin
+N = 6.022e23 / si.mole
 
-# Unit conversions
+# Conversions
 
-# Mass to energy
-define_conversion(kilogram, joule, c**2)
+si.define_conversion(si.kilogram, si.joule, c**2)

@@ -5,7 +5,7 @@
 # - Imports
 
 from typing import Union
-from .conversion import conversion_table, alias_table
+from .conversion import universal, UnitSpace
 from ..uncertainties import Uncertainty
 
 # - Classes
@@ -19,6 +19,8 @@ class Unit:
 
         unit
             String identifier of unit e.g. "m" 
+        unit_space
+            The unit space the unit exists in.
 
         Examples
         --------
@@ -27,9 +29,7 @@ class Unit:
         3 [ms^(-1)]   
     '''
 
-    def __init__(self, unit: str = None):
-
-        global conversion_table
+    def __init__(self, unit: str = None, unit_space: UnitSpace = None):
         
         self.value = 1
         
@@ -37,6 +37,29 @@ class Unit:
             self.units = {unit: 1}
         else:
             self.units = {}
+
+        self._unit_space = unit_space
+
+    @property
+    def unit_space(self):
+        """The Unitspace in which the Unit Exists."""
+        if self._unit_space is None:
+            # If none has been set
+            self._unit_space = universal
+
+        return self._unit_space
+
+    @unit_space.setter
+    def unit_space(self, new_unit_space: UnitSpace):
+        """Set a unitspace"""
+        
+        # Set new unit space
+        self._unit_space = new_unit_space
+
+        # If not in unit space
+        if self.unit_str() not in self.unit_space.units.keys():
+            # Then add it
+            self.unit_space[self.unit_str()] = self
 
     def __repr__(self):
         """Programming Representation."""
@@ -47,17 +70,7 @@ class Unit:
         """String representation."""
 
         # Produce a string of the units
-        unit_str = ""
-
-        for unit, power in self.units.items():
-            if power < 0:
-                unit_str += f"{unit}^({power})"
-            elif power > 1:
-                unit_str += f"{unit}^{power} "
-            else:
-                unit_str += f"{unit}"
-
-        unit_str.strip()
+        unit_str = self.unit_str()
 
         if isinstance(self.value, Uncertainty):
             # Special uncertainty display
@@ -65,10 +78,6 @@ class Unit:
         else:
             # Show value + unit_str
             return f"{self.value} [{unit_str}]"
-
-    def __hash__(self):
-        """Hashing based on string representation."""
-        return hash(str(self))
 
     def __abs__(self):
         """Returns absolute value."""
@@ -99,7 +108,7 @@ class Unit:
                 Optional flipping of powers.
         """
         # Placeholder unit
-        new_unit = Unit()
+        new_unit = Unit(unit_space = self.unit_space)
         # If value is not none then write new value
         if value is not None:
             new_unit.value = value
@@ -118,6 +127,22 @@ class Unit:
         # Return
         return new_unit
 
+    def unit_str(self) -> str:
+        """Produces a string describing the unit."""
+        unit_str = ""
+
+        for unit, power in self.units.items():
+            if power < 0:
+                unit_str += f"{unit}^({power})"
+            elif power > 1:
+                unit_str += f"{unit}^{power}"
+            else:
+                unit_str += f"{unit}"
+
+        unit_str.strip()
+
+        return unit_str
+
     def union(self, other: "Unit") -> "Unit":
         """
             Constructs the union of two units.
@@ -130,10 +155,8 @@ class Unit:
                 The other set to construct the union with.
         """
 
-        global alias_table
-
         # Place holder unit
-        new_unit = Unit()
+        new_unit = Unit(unit_space = self.unit_space)
         
         # Construct mix of dicts
         # Copy own dict
@@ -149,13 +172,16 @@ class Unit:
                 # If zero then remove
                 if new_power == 0:
                     units.pop(unit)
+                else:
+                    units[unit] = new_power
         # New units constructed
         # Replace in the placeholder unit
         new_unit.units = units
 
         # Check for alias
-        if new_unit.copy(1) in alias_table:
-            new_unit = new_unit.value * alias_table[new_unit.copy(1)]
+        alias = self.unit_space.alias(new_unit)
+        if alias is not None:
+            new_unit = new_unit.value * alias
 
         return new_unit
 
@@ -275,24 +301,4 @@ class Unit:
                 The type of unit to convert to.    
         """
 
-        global conversion_table
-
-        # Trivial conversion case
-        if self.units == other.units:
-            return self
-
-        new_unit = Unit()
-
-        # Convert numeric value
-        new_unit.value = conversion_table[self.copy(1)][other.copy(1)](self.value)
-
-        # Check if units have got into one another
-        # Hacky solution but it will do
-        while isinstance(new_unit.value, Unit):
-            new_unit.value = new_unit.value.value
-
-        # Convert unit value
-        new_unit.units = other.units
-
-        # Incase used in formula
-        return new_unit
+        return self.unit_space.convert(self, other)
