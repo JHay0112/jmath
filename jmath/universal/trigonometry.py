@@ -4,7 +4,7 @@
 
 # - Imports
 
-from ..units import Unit
+from ..units import Unit, annotate, other, si
 from ..uncertainties import Uncertainty
 from .tools import generic_function, Supported
 import math
@@ -13,8 +13,8 @@ from functools import wraps
 
 # - Functions
 
-@wraps(generic_function)
-def sin(input: Supported) -> Supported:
+@annotate
+def sin(input: other.radian) -> Supported:
     '''
         Computes the sine of the input.
 
@@ -24,4 +24,4 @@ def sin(input: Supported) -> Supported:
         input
             Value to compute sine of
     '''
-    return generic_function(input, math.sin)
+    return generic_function(math.sin, input)
