@@ -29,7 +29,7 @@ def generic_function(func: Callable[[float], float], input: Supported) -> Suppor
     if isinstance(input, Unit):
         # Units
         # Return function applied to unit value
-        return func(input.value) * input.copy(1)
+        return generic_function(func, input.value) * input.copy(1)
     elif isinstance(input, Uncertainty):
         # Uncertainties
         return input.apply(func)
