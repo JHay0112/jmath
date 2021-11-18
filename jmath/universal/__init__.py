@@ -7,3 +7,5 @@
 __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 
 # - Defaults
+
+from .trigonometry import sin, asin, cos, acos, tan, atan
