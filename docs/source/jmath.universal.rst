@@ -4,6 +4,22 @@ jmath.universal package
 Submodules
 ----------
 
+jmath.universal.logarithms module
+---------------------------------
+
+.. automodule:: jmath.universal.logarithms
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jmath.universal.natural module
+------------------------------
+
+.. automodule:: jmath.universal.natural
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.universal.tools module
 ----------------------------
 
