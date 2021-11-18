@@ -19,7 +19,7 @@
 
     when in the jmath root directory.
 
-    Documentation is automatically built by a workflow in github and published to https://jordanhay.com/jmath
+    Documentation is automatically built by a workflow in github and published to https://jmath.jordanhay.com/
         
 '''
 
