@@ -82,7 +82,7 @@ class Uncertainty:
         except ZeroDivisionError:
             return 0
 
-    def apply(self, func: Callable[[float], float]) -> "Uncertainty":
+    def apply(self, func: Callable[[float], float], *args) -> "Uncertainty":
         """
             Applies a mathematical function to the value using the bruteforce method to calculate the new uncertainty.
 
@@ -91,11 +91,13 @@ class Uncertainty:
 
             func
                 The function to apply.
+            args
+                Additional arguments to send to the function.
         """
         # Apply function to the value
-        val = func(self.value)
+        val = func(self.value, *args)
         # Apply the function to the value plus the uncertainty and then take away the new val
-        unc = func(self.value + self.uncertainty) - val
+        unc = func(self.value + self.uncertainty, *args) - val
 
         return Uncertainty(val, unc)
 
