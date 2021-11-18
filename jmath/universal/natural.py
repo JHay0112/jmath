@@ -1,25 +1,19 @@
 '''
-    Functions related to Euler's Constant, ln/log, exp.
+    Natural functions associated with Euler's constant e.
+
+    Notes
+    -----
+
+    log is from logarithms.py
 '''
 
 # - Imports
 
 from .tools import generic_function, Supported
+from .logarithms import log
 import math
 
 # - Functions
-
-def log(value: Supported) -> Supported:
-    """
-        Calculates the natural log of a number.
-
-        Parameters
-        ----------
-
-        value
-            The value to compute the natural log of.
-    """
-    return generic_function(math.log, value)
 
 def exp(value: Supported) -> Supported:
     """
