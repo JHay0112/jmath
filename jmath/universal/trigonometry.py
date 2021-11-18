@@ -11,27 +11,27 @@ import math
 # - Functions
 
 @annotate
-def sin(input: other.radian) -> Supported:
+def sin(value: other.radian) -> Supported:
     '''
-        Computes the sine of the input.
+        Computes the sine of the value.
 
         Parameters
         ----------
 
-        input
+        value
             Value (in radians) to compute the sine of.
     '''
-    return generic_function(math.sin, input)
+    return generic_function(math.sin, value)
 
 @annotate
-def asin(input: Supported) -> other.radian:
+def asin(value: Supported) -> other.radian:
     '''
-        Computes the inverse sine of the input.
+        Computes the inverse sine of the value.
 
         Parameters
         ----------
 
-        input
+        value
             Value to compute the inverse sine of.
 
         Returns
@@ -40,30 +40,30 @@ def asin(input: Supported) -> other.radian:
         Unit
             Radians
     '''
-    return generic_function(math.asin, input)
+    return generic_function(math.asin, value)
 
 @annotate
-def cos(input: other.radian) -> Supported:
+def cos(value: other.radian) -> Supported:
     '''
-        Computes the cosine of the input.
+        Computes the cosine of the value.
 
         Parameters
         ----------
 
-        input
+        value
             Value (in radians) to compute the cosine of
     '''
-    return generic_function(math.cos, input)
+    return generic_function(math.cos, value)
 
 @annotate
-def acos(input: Supported) -> other.radian:
+def acos(value: Supported) -> other.radian:
     '''
-        Computes the inverse cosine of the input.
+        Computes the inverse cosine of the value.
 
         Parameters
         ----------
 
-        input
+        value
             Value to compute the inverse cosine of.
 
         Returns
@@ -72,30 +72,30 @@ def acos(input: Supported) -> other.radian:
         Unit
             Radians
     '''
-    return generic_function(math.acos, input)
+    return generic_function(math.acos, value)
 
 @annotate
-def tan(input: other.radian) -> Supported:
+def tan(value: other.radian) -> Supported:
     '''
-        Computes the tangent of the input.
+        Computes the tangent of the value.
 
         Parameters
         ----------
 
-        input
+        value
             Value (in radians) to compute the tangent of
     '''
-    return generic_function(math.tan, input)
+    return generic_function(math.tan, value)
 
 @annotate
-def atan(input: Supported) -> other.radian:
+def atan(value: Supported) -> other.radian:
     '''
-        Computes the inverse tangent of the input.
+        Computes the inverse tangent of the value.
 
         Parameters
         ----------
 
-        input
+        value
             Value to compute the inverse tangent of.
 
         Returns
@@ -104,4 +104,4 @@ def atan(input: Supported) -> other.radian:
         Unit
             Radians
     '''
-    return generic_function(math.atan, input)
+    return generic_function(math.atan, value)
