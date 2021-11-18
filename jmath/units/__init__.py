@@ -12,3 +12,4 @@ from .units import Unit
 from .conversion import universal, define_alias, define_conversion, UnitSpace
 from .annotation import annotate
 from .si import si
+from .other import other
