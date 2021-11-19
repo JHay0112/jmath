@@ -19,7 +19,7 @@ def log(value: Supported, base: float = math.e) -> Supported:
         value
             The value to compute the logarithm of.
     """
-    return generic_function(math.log, value)
+    return generic_function(math.log, value, base)
 
 def log10(value: Supported) -> Supported:
     """
@@ -31,7 +31,7 @@ def log10(value: Supported) -> Supported:
         value
             The number to calculate the log base 10 of.
     """
-    return log(value, base = 10)
+    return generic_function(math.log10, value)
 
 def log2(value: Supported) -> Supported:
     """
@@ -43,4 +43,4 @@ def log2(value: Supported) -> Supported:
         value
             The number to calculate the log base 2 of.
     """
-    return log(value, base = 2)
+    return generic_function(math.log2, value)
