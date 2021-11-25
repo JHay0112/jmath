@@ -53,7 +53,7 @@ def test_conversion():
     coeffecient = random_integer()
     define_conversion(a, b, coeffecient)
 
-    assert a.convert_to(b).value, 16 == (a*coeffecient).value
+    assert a.convert_to(b).value == (a*coeffecient).value
     assert b.convert_to(a).value == (b/coeffecient).value
     assert round(a.convert_to(b).convert_to(a), 15) == a
     assert round(b.convert_to(a).convert_to(b), 15) == b

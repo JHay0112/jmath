@@ -185,9 +185,12 @@ class Unit:
 
         return new_unit
 
-    def __eq__(self, other: "Unit") -> bool:
+    def __eq__(self, other: Union["Unit", float, int]) -> bool:
         """Equality comparison."""
-        return (self.value == other.value) and (self.units == other.units)
+        if isinstance(other, (int, float)):
+            return self.value == other
+        else:
+            return (self.value == other.value) and (self.units == other.units)
 
     def __lt__(self, other: "Unit") -> bool:
         """Less than comparison."""

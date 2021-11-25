@@ -83,6 +83,9 @@ def annotate(func: Callable) -> Callable:
                 else:
                     # None so assume true
                     return_value *= unit
+            elif isinstance(return_value, Unit):
+                # If it is a unit but no return is defined, strip the unit
+                return_value = return_value.value
         # Return value
         return return_value
 

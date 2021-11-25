@@ -19,7 +19,7 @@
 
     when in the jmath root directory.
 
-    Documentation is automatically built by a workflow in github and published to https://jordanhay.com/jmath
+    Documentation is automatically built by a workflow in github and published to https://jmath.jordanhay.com/
         
 '''
 
@@ -34,3 +34,4 @@ from .linearalgebra import Vector, Point, Line
 from .modular import extended_gcd, modular_inverse
 from .approximation import differentiate, trapezium_rule
 from .units import Unit, si
+from .universal import *

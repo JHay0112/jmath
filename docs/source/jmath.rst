@@ -15,6 +15,7 @@ Subpackages
    jmath.loud
    jmath.physics
    jmath.units
+   jmath.universal
 
 Submodules
 ----------

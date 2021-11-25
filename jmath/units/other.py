@@ -5,31 +5,33 @@
 # - Imports
 
 from .units import Unit
-from .conversion import define_conversion, define_alias
-from .si import joule, kelvin, metre, second, kilogram, c, e
+from .conversion import UnitSpace
+from .si import si, c, e
 from math import pi
 
 # - Main
 
+other = UnitSpace()
+
 # Angles
-radian = Unit("rad")
-degree = Unit("°")
-define_conversion(radian, degree, 180/pi)
+other.radian = Unit("rad")
+other.degree = Unit("°")
+other.define_conversion(other.radian, other.degree, 180/pi)
 
 # Temperature
-centigrade = Unit("°C")
-define_conversion(centigrade, kelvin, lambda x: x + 273.15)
-define_conversion(kelvin, centigrade, lambda x: x - 273.15)
+other.centigrade = Unit("°C")
+other.define_conversion(other.centigrade, si.kelvin, lambda x: x + 273.15)
+other.define_conversion(si.kelvin, other.centigrade, lambda x: x - 273.15)
 
 # Physics
 # -- Light Speed
-lightspeed = Unit("c")
-define_conversion(lightspeed, metre/second, c)
+other.lightspeed = Unit("c")
+other.define_conversion(other.lightspeed, si.metre/si.second, c)
 # -- Electron Volts
-electron_volt = Unit("eV")
-define_conversion(electron_volt, joule, e)
+other.electron_volt = Unit("eV")
+other.define_conversion(other.electron_volt, si.joule, e)
 # -- Electron Volt Mass Energy
-electron_volt_mass = electron_volt/(lightspeed**2)
-define_conversion(electron_volt_mass, electron_volt, 1)
-define_conversion(electron_volt_mass, kilogram, e/(c**2))
-define_conversion(electron_volt_mass, joule, e)
+other.electron_volt_mass = other.electron_volt/(other.lightspeed**2)
+other.define_conversion(other.electron_volt_mass, other.electron_volt, 1)
+other.define_conversion(other.electron_volt_mass, si.kilogram, e/(c**2))
+other.define_conversion(other.electron_volt_mass, si.joule, e)
