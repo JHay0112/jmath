@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.physics package &mdash; jmath v4.2.2
+  <title>jmath.physics package &mdash; jmath v4.3.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.2.2
+                v4.3.0
 
               </div>
             
@@ -116,6 +116,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.universal.html">jmath.universal package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -209,7 +210,7 @@ Date: 2021-06-22</p>
 <p>Tools for circuit analysis</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.circuits.Circuit">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><a class="headerlink" href="#jmath.physics.circuits.Circuit" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><a class="headerlink" href="#jmath.physics.circuits.Circuit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="jmath.html#jmath.discrete.Graph" title="jmath.discrete.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Graph</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.circuits.Circuit.add_components">
@@ -228,7 +229,7 @@ Date: 2021-06-22</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.circuits.Component">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Component" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Component" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="jmath.html#jmath.discrete.Node" title="jmath.discrete.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Node</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.circuits.Component.connect">
@@ -241,19 +242,19 @@ Date: 2021-06-22</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.circuits.DCSupply">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">DCSupply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.DCSupply" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">DCSupply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.DCSupply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.physics.circuits.Component" title="jmath.physics.circuits.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.physics.circuits.Component</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.circuits.Loop">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Loop" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="jmath.html#jmath.discrete.Loop" title="jmath.discrete.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Loop</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.circuits.Resistor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Resistor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resistance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Resistor" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.physics.circuits.</span></span><span class="sig-name descname"><span class="pre">Resistor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resistance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.circuits.Resistor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.physics.circuits.Component" title="jmath.physics.circuits.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.physics.circuits.Component</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.physics.circuits.Resistor.power">
@@ -273,7 +274,7 @@ Date: 2021-06-17</p>
 <p>Tools for mechanical systems</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysEnv">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysEnv</span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysEnv</span></span><a class="headerlink" href="#jmath.physics.mechanics.PhysEnv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Creates an environment for physical objects</p>
 <p>Author: Jordan Hay
@@ -310,7 +311,7 @@ Date: 2021-06-22</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.physics.mechanics.</span></span><span class="sig-name descname"><span class="pre">PhysObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Creates an object with physical properties.</p>
 <dl class="field-list simple">

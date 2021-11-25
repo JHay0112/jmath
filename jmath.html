@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath package &mdash; jmath v4.2.2
+  <title>jmath package &mdash; jmath v4.3.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.2.2
+                v4.3.0
 
               </div>
             
@@ -108,6 +108,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.universal.html">jmath.universal package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
@@ -270,10 +271,20 @@
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.annotation">jmath.units.annotation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.conversion">jmath.units.conversion module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#jmath-units-other-module">jmath.units.other module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.other">jmath.units.other module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.si">jmath.units.si module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units.units">jmath.units.units module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.units.html#module-jmath.units">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jmath.universal.html">jmath.universal package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmath.universal.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.universal.html#module-jmath.universal.hyperbolic">jmath.universal.hyperbolic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.universal.html#module-jmath.universal.logarithms">jmath.universal.logarithms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.universal.html#module-jmath.universal.natural">jmath.universal.natural module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.universal.html#module-jmath.universal.tools">jmath.universal.tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.universal.html#module-jmath.universal.trigonometry">jmath.universal.trigonometry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.universal.html#module-jmath.universal">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -287,7 +298,7 @@
 <p>Complex form of points.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.complex.Complex">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.complex.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.complex.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.complex.Complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Point" title="jmath.linearalgebra.vectors.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.linearalgebra.vectors.Point</span></code></a></p>
 <p>Complex numbers based on vectors.</p>
 <dl class="field-list simple">
@@ -352,7 +363,7 @@
 <p>Discrete mathematical tools.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.discrete.Graph">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><a class="headerlink" href="#jmath.discrete.Graph" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><a class="headerlink" href="#jmath.discrete.Graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Graph object defined by a set of nodes.</p>
 <dl class="py method">
@@ -436,7 +447,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.discrete.Loop">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.discrete.Graph" title="jmath.discrete.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.discrete.Graph</span></code></a></p>
 <p>A sub-graph structure generated by Graph.loops(), represents a distinct path around the graph.</p>
 <dl class="field-list simple">
@@ -470,7 +481,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.discrete.Node">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.discrete.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.discrete.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Node of a graph.</p>
 <dl class="field-list simple">
@@ -539,7 +550,7 @@
 <p>Defines exceptions for jmath.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="jmath.exceptions.NoConversion">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">NoConversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.NoConversion" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">NoConversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_unit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.NoConversion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown if there is no way to convert between two given units.</p>
 <dl class="field-list simple">
@@ -555,7 +566,7 @@
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="jmath.exceptions.OutOfRange">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">OutOfRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.OutOfRange" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">OutOfRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.OutOfRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown for values that are not within expected bounds.</p>
 <dl class="field-list simple">
@@ -572,14 +583,14 @@
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="jmath.exceptions.VectorsNotSameSize">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">VectorsNotSameSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Operation</span> <span class="pre">invalid</span> <span class="pre">for</span> <span class="pre">vectors</span> <span class="pre">of</span> <span class="pre">different</span> <span class="pre">sizes.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.VectorsNotSameSize" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">VectorsNotSameSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Operation</span> <span class="pre">invalid</span> <span class="pre">for</span> <span class="pre">vectors</span> <span class="pre">of</span> <span class="pre">different</span> <span class="pre">sizes.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.VectorsNotSameSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown for operations on vectors of different sizes</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="jmath.exceptions.ZeroDistance">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">ZeroDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Invalid</span> <span class="pre">operation!</span> <span class="pre">Zero</span> <span class="pre">distance</span> <span class="pre">between</span> <span class="pre">objects.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.ZeroDistance" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.exceptions.</span></span><span class="sig-name descname"><span class="pre">ZeroDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Invalid</span> <span class="pre">operation!</span> <span class="pre">Zero</span> <span class="pre">distance</span> <span class="pre">between</span> <span class="pre">objects.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.exceptions.ZeroDistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown for calculations with zero distance between objects.</p>
 </dd></dl>
@@ -629,7 +640,7 @@ Returns g, m, n such that gcd(a, b) = g = m*a + n*b</p>
 <p>Provides a class to deal with values with associated uncertainty.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">Uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.uncertainties.</span></span><span class="sig-name descname"><span class="pre">Uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A value with an associated uncertainty.</p>
 <dl class="field-list simple">
@@ -674,11 +685,14 @@ Returns g, m, n such that gcd(a, b) = g = m*a + n*b</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.uncertainties.Uncertainty.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.apply" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.uncertainties.Uncertainty.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies a mathematical function to the value using the bruteforce method to calculate the new uncertainty.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>func</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to apply.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to apply.</p></li>
+<li><p><strong>args</strong> – Additional arguments to send to the function.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a></p>
@@ -746,7 +760,7 @@ Returns g, m, n such that gcd(a, b) = g = m*a + n*b</p>
 <div><p>$ sphinx-apidoc -o ./docs/source/ ./jmath –force</p>
 </div></blockquote>
 <p>when in the jmath root directory.</p>
-<p>Documentation is automatically built by a workflow in github and published to <a class="reference external" href="https://jordanhay.com/jmath">https://jordanhay.com/jmath</a></p>
+<p>Documentation is automatically built by a workflow in github and published to <a class="reference external" href="https://jmath.jordanhay.com/">https://jmath.jordanhay.com/</a></p>
 </div>
 </div>
 </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.abstract package &mdash; jmath v4.2.2
+  <title>jmath.abstract package &mdash; jmath v4.3.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.2.2
+                v4.3.0
 
               </div>
             
@@ -116,6 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.universal.html">jmath.universal package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -206,7 +207,7 @@
 <p>Implementation of Heap types</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.heaps.BinaryHeap">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">BinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">BinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.BinaryHeap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Implementation of a Generic Binary Heap</p>
 <dl class="py attribute">
@@ -240,7 +241,7 @@ For example the comparison operator for a min heap is the min function.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">compare</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">compare</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -303,7 +304,7 @@ For example the comparison operator for a min heap is the min function.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.heaps.MaxBinaryHeap">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">MaxBinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.MaxBinaryHeap" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">MaxBinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.MaxBinaryHeap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.abstract.heaps.BinaryHeap" title="jmath.abstract.heaps.BinaryHeap"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.heaps.BinaryHeap</span></code></a></p>
 <p>Binary Heap with maximum value stored at root.</p>
 <dl class="py method">
@@ -321,7 +322,7 @@ With two or more arguments, return the largest argument.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.heaps.MinBinaryHeap">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">MinBinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.MinBinaryHeap" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.heaps.</span></span><span class="sig-name descname"><span class="pre">MinBinaryHeap</span></span><a class="headerlink" href="#jmath.abstract.heaps.MinBinaryHeap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.abstract.heaps.BinaryHeap" title="jmath.abstract.heaps.BinaryHeap"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.heaps.BinaryHeap</span></code></a></p>
 <p>Binary Heap with minimum value stored at root.</p>
 <dl class="py method">
@@ -343,7 +344,7 @@ With two or more arguments, return the smallest argument.</p>
 <p>List data types.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.BiNode">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">BiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">BiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.BiNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.abstract.lists.Node" title="jmath.abstract.lists.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.lists.Node</span></code></a></p>
 <p>Node that can refer to objects in front and behind it.</p>
 <dl class="field-list simple">
@@ -381,7 +382,7 @@ With two or more arguments, return the smallest argument.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.DoubleLinkedList">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">DoubleLinkedList</span></span><a class="headerlink" href="#jmath.abstract.lists.DoubleLinkedList" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">DoubleLinkedList</span></span><a class="headerlink" href="#jmath.abstract.lists.DoubleLinkedList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.abstract.lists.LinkedList" title="jmath.abstract.lists.LinkedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.lists.LinkedList</span></code></a></p>
 <p>Double Linked List implementation.</p>
 <dl class="py attribute">
@@ -394,7 +395,7 @@ With two or more arguments, return the smallest argument.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.LinkedList">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">LinkedList</span></span><a class="headerlink" href="#jmath.abstract.lists.LinkedList" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">LinkedList</span></span><a class="headerlink" href="#jmath.abstract.lists.LinkedList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Linked List abstract data type.</p>
 <dl class="py attribute">
@@ -467,7 +468,7 @@ Negative indices other than -1 unsupported.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.MultiNode">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">MultiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">MultiNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.MultiNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Node that refers to a set of adjoining nodes</p>
 <dl class="field-list simple">
@@ -493,7 +494,7 @@ Negative indices other than -1 unsupported.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.lists.Node">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.Node" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.lists.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.abstract.lists.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Node of a list.</p>
 <dl class="field-list simple">
@@ -523,7 +524,7 @@ Negative indices other than -1 unsupported.</p>
 <p>Queue data types.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.queues.Queue">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.queues.</span></span><span class="sig-name descname"><span class="pre">Queue</span></span><a class="headerlink" href="#jmath.abstract.queues.Queue" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.queues.</span></span><span class="sig-name descname"><span class="pre">Queue</span></span><a class="headerlink" href="#jmath.abstract.queues.Queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#jmath.abstract.lists.LinkedList" title="jmath.abstract.lists.LinkedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">jmath.abstract.lists.LinkedList</span></code></a></p>
 <p>Queue Abstract Data Type</p>
 <dl class="py method">
@@ -560,7 +561,7 @@ Negative indices other than -1 unsupported.</p>
 <p>Stack Abstract Data Type</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.abstract.stacks.Stack">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.stacks.</span></span><span class="sig-name descname"><span class="pre">Stack</span></span><a class="headerlink" href="#jmath.abstract.stacks.Stack" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.abstract.stacks.</span></span><span class="sig-name descname"><span class="pre">Stack</span></span><a class="headerlink" href="#jmath.abstract.stacks.Stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Stack Abstract Data Type</p>
 <dl class="py method">

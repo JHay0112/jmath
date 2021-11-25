@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.cryptography package &mdash; jmath v4.2.2
+  <title>jmath.cryptography package &mdash; jmath v4.3.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.2.2
+                v4.3.0
 
               </div>
             
@@ -114,6 +114,7 @@
 <li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.universal.html">jmath.universal package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
@@ -204,7 +205,7 @@
 <p>Affine cipher and Affine cipher relevant tools.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.cryptography.affine.Affine">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">jmath.cryptography.affine.</span></span><span class="sig-name descname"><span class="pre">Affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.cryptography.affine.Affine" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.cryptography.affine.</span></span><span class="sig-name descname"><span class="pre">Affine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.cryptography.affine.Affine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Creates an affine cipher</p>
 <p>(ax + b) % len(set_length)</p>
@@ -222,19 +223,19 @@
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="jmath.cryptography.affine.Affine.a">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.a" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.a" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value that x is multiplied by in the encryption process.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="jmath.cryptography.affine.Affine.b">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.b" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.b" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value that x is added to in the encryption process.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="jmath.cryptography.affine.Affine.char_set">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">char_set</span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.char_set" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">char_set</span></span><a class="headerlink" href="#jmath.cryptography.affine.Affine.char_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ordered set of unique characters to used in the cipher.</p>
 </dd></dl>
 

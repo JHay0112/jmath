@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jmath.universal package &mdash; jmath v4.3.0
+ documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/styles.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="jmath.units package" href="jmath.units.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/jmath.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v4.3.0
+
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="jmath.html">jmath package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="jmath.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jmath.abstract.html">jmath.abstract package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.approximation.html">jmath.approximation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.cryptography.html">jmath.cryptography package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.graphics.html">jmath.graphics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.linearalgebra.html">jmath.linearalgebra package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.loud.html">jmath.loud package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.physics.html">jmath.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jmath.units.html">jmath.units package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">jmath.universal package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.universal.hyperbolic">jmath.universal.hyperbolic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.universal.logarithms">jmath.universal.logarithms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.universal.natural">jmath.universal.natural module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.universal.tools">jmath.universal.tools module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.universal.trigonometry">jmath.universal.trigonometry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-jmath.universal">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.complex">jmath.complex module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.discrete">jmath.discrete module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.exceptions">jmath.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.modular">jmath.modular module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.uncertainties">jmath.uncertainties module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">jmath</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="jmath.html">jmath package</a> &raquo;</li>
+        
+      <li>jmath.universal package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/jmath.universal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmath-universal-package">
+<h1>jmath.universal package<a class="headerlink" href="#jmath-universal-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jmath.universal.hyperbolic">
+<span id="jmath-universal-hyperbolic-module"></span><h2>jmath.universal.hyperbolic module<a class="headerlink" href="#module-jmath.universal.hyperbolic" title="Permalink to this headline">¶</a></h2>
+<p>Hyperbolic functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.hyperbolic.acosh">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.hyperbolic.</span></span><span class="sig-name descname"><span class="pre">acosh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.hyperbolic.acosh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the inverse hyberbolic cosine of a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to compute the inverse hyberbolic cosine of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.hyperbolic.asinh">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.hyperbolic.</span></span><span class="sig-name descname"><span class="pre">asinh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.hyperbolic.asinh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the inverse hyberbolic sine of a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to compute the inverse hyberbolic sine of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.hyperbolic.atanh">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.hyperbolic.</span></span><span class="sig-name descname"><span class="pre">atanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.hyperbolic.atanh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the inverse hyberbolic tangent of a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to compute the inverse hyberbolic tangent of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.hyperbolic.cosh">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.hyperbolic.</span></span><span class="sig-name descname"><span class="pre">cosh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.hyperbolic.cosh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the hyberbolic cosine of a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to compute the hyberbolic cosine of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.hyperbolic.sinh">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.hyperbolic.</span></span><span class="sig-name descname"><span class="pre">sinh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.hyperbolic.sinh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the hyberbolic sine of a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to compute the hyberbolic sine of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.hyperbolic.tanh">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.hyperbolic.</span></span><span class="sig-name descname"><span class="pre">tanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.hyperbolic.tanh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the hyberbolic tangent of a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to compute the hyberbolic tangent of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.universal.logarithms">
+<span id="jmath-universal-logarithms-module"></span><h2>jmath.universal.logarithms module<a class="headerlink" href="#module-jmath.universal.logarithms" title="Permalink to this headline">¶</a></h2>
+<p>Logarithmic Functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.logarithms.log">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.logarithms.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.718281828459045</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.logarithms.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates logarithm of a number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The value to compute the logarithm of.</p></li>
+<li><p><strong>base</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.logarithms.log10">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.logarithms.</span></span><span class="sig-name descname"><span class="pre">log10</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.logarithms.log10" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the log base 10 of a number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to calculate the log base 10 of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.logarithms.log2">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.logarithms.</span></span><span class="sig-name descname"><span class="pre">log2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.logarithms.log2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the log base 2 of a number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The number to calculate the log base 2 of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.universal.natural">
+<span id="jmath-universal-natural-module"></span><h2>jmath.universal.natural module<a class="headerlink" href="#module-jmath.universal.natural" title="Permalink to this headline">¶</a></h2>
+<p>Natural functions associated with Euler’s constant e.</p>
+<p class="rubric">Notes</p>
+<p>log is from logarithms.py</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.natural.exp">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.natural.</span></span><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.natural.exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the exponential (e^x) of a number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – The value to calculate the exponential of.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.universal.tools">
+<span id="jmath-universal-tools-module"></span><h2>jmath.universal.tools module<a class="headerlink" href="#module-jmath.universal.tools" title="Permalink to this headline">¶</a></h2>
+<p>Provides tools for creating universal functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.tools.generic_function">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.tools.</span></span><span class="sig-name descname"><span class="pre">generic_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.tools.generic_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a function with generic cases for special objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em>) – The function to apply.</p></li>
+<li><p><strong>args</strong> – Arguments to send to the function</p></li>
+<li><p><strong>input</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[float, int, <a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty">jmath.uncertainties.Uncertainty</a>, <a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">jmath.units.units.Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.universal.trigonometry">
+<span id="jmath-universal-trigonometry-module"></span><h2>jmath.universal.trigonometry module<a class="headerlink" href="#module-jmath.universal.trigonometry" title="Permalink to this headline">¶</a></h2>
+<p>Trigonometric Functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.trigonometry.acos">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.trigonometry.</span></span><span class="sig-name descname"><span class="pre">acos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.trigonometry.acos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the inverse cosine of the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – Value to compute the inverse cosine of.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Radians</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">Unit</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.trigonometry.asin">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.trigonometry.</span></span><span class="sig-name descname"><span class="pre">asin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.trigonometry.asin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the inverse sine of the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – Value to compute the inverse sine of.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Radians</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">Unit</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.trigonometry.atan">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.trigonometry.</span></span><span class="sig-name descname"><span class="pre">atan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.trigonometry.atan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the inverse tangent of the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>, </em><a class="reference internal" href="jmath.html#jmath.uncertainties.Uncertainty" title="jmath.uncertainties.Uncertainty"><em>jmath.uncertainties.Uncertainty</em></a><em>, </em><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit"><em>jmath.units.units.Unit</em></a><em>]</em>) – Value to compute the inverse tangent of.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Radians</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="jmath.units.html#jmath.units.units.Unit" title="jmath.units.units.Unit">Unit</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.trigonometry.cos">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.trigonometry.</span></span><span class="sig-name descname"><span class="pre">cos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.trigonometry.cos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cosine of the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – Value (in radians) to compute the cosine of</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.trigonometry.sin">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.trigonometry.</span></span><span class="sig-name descname"><span class="pre">sin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.trigonometry.sin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the sine of the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – Value (in radians) to compute the sine of.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jmath.universal.trigonometry.tan">
+<span class="sig-prename descclassname"><span class="pre">jmath.universal.trigonometry.</span></span><span class="sig-name descname"><span class="pre">tan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.universal.trigonometry.tan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the tangent of the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – Value (in radians) to compute the tangent of</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jmath.universal">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jmath.universal" title="Permalink to this headline">¶</a></h2>
+<p>Standard maths functions that are also compatible with jmath structures.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="jmath.units.html" class="btn btn-neutral float-left" title="jmath.units package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Jordan Hay.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
