@@ -193,10 +193,10 @@ class PhysObj:
         # F = ma -> a = F/m
         return self.force() / self.mass
 
-    def increment_position(self, time: float = 0.1):
+    def update_position(self, time: float = 0.1):
         """
             Increments the position kinematically over a time interval.
-            Also updates velocity.
+            DOES NOT update velocity.
 
             Parameters
             ----------
@@ -205,6 +205,18 @@ class PhysObj:
                 The time interval to approximate over.
         """
         self.position = kinematic_position(self.position, self.velocity, self.acceleration(), time)
+
+    def update_velocity(self, time: float = 0.1):
+        """
+            Updates the velocity kinematically over a time interval.
+            DOES NOT update position.
+
+            Parameters
+            ----------
+
+            time
+                The time interval to approximate over.
+        """
         self.velocity = kinematic_velocity(self.velocity, self.acceleration(), time)
 
     @__non_zero_distance
