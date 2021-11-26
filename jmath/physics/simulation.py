@@ -114,7 +114,7 @@ class GraphEnv(Canvas, PhysEnv):
 
                 object.update_position(time_interval)
 
-                if self.width < object.position[0] or object.position[0] < 0 or self.height < object.position[1] or object.position[1] < 0:
+                if self.width < object.shape.x or object.shape.x < 0 or self.height < object.shape.y or object.shape.y < 0:
                     self.canvas.delete(object.shape.canvas_obj)
                     self.objects.remove(object)
                 else:
