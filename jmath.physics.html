@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.physics package &mdash; jmath v4.3.0
+  <title>jmath.physics package &mdash; jmath v4.3.1
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.3.0
+                v4.3.1
 
               </div>
             
@@ -376,10 +376,21 @@ Date: 2021-06-22</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.increment_position">
-<span class="sig-name descname"><span class="pre">increment_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.increment_position" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.momentum">
+<span class="sig-name descname"><span class="pre">momentum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.momentum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the momentum of the object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.update_position">
+<span class="sig-name descname"><span class="pre">update_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.update_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Increments the position kinematically over a time interval.
-Also updates velocity.</p>
+DOES NOT update velocity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>time</strong> (<em>float</em>) – The time interval to approximate over.</p>
@@ -388,12 +399,13 @@ Also updates velocity.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.momentum">
-<span class="sig-name descname"><span class="pre">momentum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.momentum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the momentum of the object</p>
+<dt class="sig sig-object py" id="jmath.physics.mechanics.PhysObj.update_velocity">
+<span class="sig-name descname"><span class="pre">update_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.physics.mechanics.PhysObj.update_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the velocity kinematically over a time interval.
+DOES NOT update position.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>float</em>) – The time interval to approximate over.</p>
 </dd>
 </dl>
 </dd></dl>
