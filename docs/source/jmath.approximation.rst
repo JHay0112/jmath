@@ -4,6 +4,14 @@ jmath.approximation package
 Submodules
 ----------
 
+jmath.approximation.autodiff module
+-----------------------------------
+
+.. automodule:: jmath.approximation.autodiff
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.approximation.differentiation module
 ------------------------------------------
 
