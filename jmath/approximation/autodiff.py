@@ -16,7 +16,7 @@ from typing import Union, Callable
 '''
 diff_map = {
     op.add: (1, 1),
-    op.sub: (1, 1),
+    op.sub: (1, -1),
     op.mul: (
         lambda x, y: y, 
         lambda x, y: x
@@ -69,7 +69,11 @@ class Function:
         '''Evaluate the function.'''
 
         if len(inputs) == 0:
-            # Use existing values
+            # Call inner functions
+            for var in self.vars:
+                if var.output_of is not None:
+                    var.output_of()
+            # Use var values
             inputs = tuple(var.value for var in self.vars)
             # Now execute the function
             self.output.value = self.func(*inputs)
@@ -88,16 +92,21 @@ class Function:
                     input.output.input_of.add(self)
             # Let's return the function for use
             return self
-        else:
-            # Normal call
-            # We need to find the root functions and set their variables before setting ours
-            for i, var in enumerate(self.vars):
-                if var.output_of is not None:
-                    var.output_of(*inputs)
-                else:
-                    var.value = inputs[i]
 
-            return self()
+    def diff_wrt(self, var: Variable) -> 'Function':
+        '''
+            Produces the partial differential of the function with respect to the specified variable.
+
+            Parameters
+            ----------
+
+            var
+                The variable to differentiate with repsect to.
+        '''
+        # Get index of variable for THIS function
+        index = self.vars.index(var)
+        # Now use diff map to get the diff of this function
+        diff_func = diff_map(self.func)
 
 # - Definitions
 
