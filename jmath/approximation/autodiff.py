@@ -45,12 +45,6 @@ class Variable:
         self.input_of = set()
         self.value = None
 
-    def __radd__(self, other):
-
-        if isinstance(other, Variable):
-            other.log(op.add, other, self)
-        self.log(op.add, other, self)
-
     def differentiate(self):
         '''Differentiate the Variable'''
         return 1
@@ -67,78 +61,45 @@ class Function:
     '''
     def __init__(self, func: Callable):
 
-        self.inputs = []
+        self.vars = []
         self.func = func
         self.output = Variable(self)
-
-    def input(self, *inputs: Variable):
-        '''
-            Registers a new input borrowed by the Function.
-            Production order determines input order on Function use.
-
-            Parameters
-            ----------
-
-            inputs
-                The inputs to register
-        '''
-        if isinstance(inputs[0], (list, tuple)):
-            inputs = inputs[0]
-        for input in inputs:
-            input.input_of.add(self)
-            self.inputs.append(input)
 
     def __call__(self, *inputs: Union[int, float, Uncertainty, Variable, 'Function']) -> Union[int, float, Uncertainty, 'Function']:
         '''Evaluate the function.'''
 
         if len(inputs) == 0:
-            # Called with no inputs
-            # Thus we need to pass the variable inputs
-            inputs = tuple([input.value for input in self.inputs])
-            assert None not in inputs
-            return self.func(*inputs)
+            # Use existing values
+            inputs = tuple(var.value for var in self.vars)
+            # Now execute the function
+            self.output.value = self.func(*inputs)
+            return self.output.value
         elif all(isinstance(input, (Variable, Function)) for input in inputs):
             # If all inputs are functions/variables
             # Clear current inputs
-            self.inputs = []
+            self.vars = []
             # Then let's register the inputs
             for input in inputs:
                 if isinstance(input, Variable):
-                    self.input(input)
+                    self.vars.append(input)
+                    input.input_of.add(self)
                 elif isinstance(input, Function):
-                    self.input(input.output)
+                    self.vars.append(input.output)
+                    input.output.input_of.add(self)
             # Let's return the function for use
             return self
-
-        # Else we have a non-empty, non-variable input
-        # Incase a tuple is mistakenly passed.
-        if isinstance(inputs[0], tuple):
-            inputs = inputs[0]
-
-        # Function must just have been called normally
-        # Now iterate through the inputs
-        # Setting variables where appropriate
-        for i, input in enumerate(inputs):
-            if isinstance(self.inputs[i], Variable):
-                self.inputs[i].value = input
-
-        # Now call self with updated inputs
-        return self()
-
-    def differentiate(self, with_respect_to: int) -> Union['Function', Callable]:
-
-        diff = self.diffs[with_respect_to]
-
-        if isinstance(diff, Function):
-            def diff_out(*args):
-                return diff(*args) * diff.differentiate(with_respect_to)(*args)
         else:
-            def diff_out(*args):
-                return diff
-            
-        return diff_out
+            # Normal call
+            # We need to find the root functions and set their variables before setting ours
+            for i, var in enumerate(self.vars):
+                if var.output_of is not None:
+                    var.output_of(*inputs)
+                else:
+                    var.value = inputs[i]
+
+            return self()
 
 # - Definitions
 
-add = Function(op.add)(Variable(), Variable())
-mul = Function(op.mul)(Variable(), Variable())
+add = Function(op.add)
+mul = Function(op.mul)
