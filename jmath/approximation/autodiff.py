@@ -11,18 +11,32 @@ from typing import Union, Callable, Tuple
 # - Typing
 
 Supported = Union[int, float, Uncertainty, 'Function', 'Variable']
+Numeric = Union[int, float, Uncertainty]
 
 # - Classes
 
-class Variable:
+class Function:
     '''
-        Allows a function to be applied to a variable input.
-    '''
-    def __init__(self):
+        Automatic Differentiation Function Object
 
-        self.output_of = None
-        self.input_of = set()
-        self.value = None
+        Parameters
+        -----------
+
+        func
+            Represented function.
+        diff
+            Tuple of partial derivatives of the function.
+    '''
+    def __init__(self, func: Callable, diff: Tuple[Callable]):
+
+        self.inputs = []
+        self.func = func
+        self.diff = diff
+
+        # Check if diff is not a tuple
+        if not isinstance(diff, tuple):
+            # If not then we shall make it one
+            self.diff = (diff,)
 
     def __add__(self, other: Supported) -> 'Function':
 
@@ -31,7 +45,9 @@ class Variable:
             return self
         elif isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            return Function(lambda x: x + other, lambda x: 1)
+            f = Function(lambda x: x + other, lambda x: 1)
+            f.register(self)
+            return f
         else:
             # Variable case
             return Function(op.add, (lambda x, y: 1, lambda x, y: 1))
@@ -68,7 +84,9 @@ class Variable:
             return self
         elif isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            return Function(lambda x: other * x, lambda x, y: other)
+            f = Function(lambda x: other * x, lambda x, y: other)
+            f.register(self)
+            return f
         else:
             # Variable case
             return Function(op.mul, (lambda x, y: y, lambda x, y: x))
@@ -101,83 +119,47 @@ class Variable:
             # Variable case
             return Function(op.rtruediv, (lambda x, y: 1/y, lambda x, y: -x/(y**2)))
 
-class Function(Variable):
-    '''
-        A Differentiable Function.
-
-        Parameters
-        ----------
-
-        func
-            The callable function to be represented.
-        diff
-            A tuple of functions produced upon differentiation with respect to the function variables.
-    '''
-    def __init__(self, func: Callable, diff: Tuple[Callable]):
-
-        self.vars = []
-        self.func = func
-        self.diff = diff
-        self.output = Variable()
-        self.output.output_of = self
-
-        # Check if diff is not a tuple
-        if not isinstance(diff, tuple):
-            # If not then we shall make it one
-            self.diff = (diff,)
-
-    def __call__(self, *inputs: Union[int, float, Uncertainty, Variable, 'Function']) -> Union[int, float, Uncertainty, 'Function']:
-        '''Evaluate the function.'''
-
-        if len(inputs) == 0:
-            # Call inner functions
-            for var in self.vars:
-                if var.output_of is not None:
-                    var.output_of()
-            # Use var values
-            inputs = tuple(var.value for var in self.vars)
-            # Now execute the function
-            self.output.value = self.func(*inputs)
-            return self.output.value
-        elif all(isinstance(input, (Variable, Function)) for input in inputs):
-            # If all inputs are functions/variables
-            # Clear current inputs
-            self.vars = []
-            # Then let's register the inputs
-            for input in inputs:
-                if isinstance(input, Variable):
-                    self.vars.append(input)
-                    input.input_of.add(self)
-                elif isinstance(input, Function):
-                    self.vars.append(input.output)
-                    input.output.input_of.add(self)
-            # Let's return the function for use
-            return self
-        else:
-            # Real inputs
-            # Evaluate the function
-            return self.func(*inputs)
-
-    def differentiate(self, var: Variable) -> 'Function':
+    def register(self, *inputs: 'Function', clear: bool = True):
         '''
-            Produces the partial differential of the function with respect to the specified variable.
+            Registers inputs to the function.
 
             Parameters
             ----------
 
-            var
-                The variable to differentiate with repsect to.
+            inputs
+                Args, the functions to register as inputs. 
+            clear
+                Clear function inputs before registering.
         '''
-        # Derivative produced
+        if clear:
+            self.inputs = []
+        for input in inputs:
+            self.inputs.append(input)
+
+    def differentiate(self, wrt: 'Variable') -> Callable:
+        '''
+            Differentiates the function with respect to a variable.
+
+            Parameters
+            ----------
+
+            wrt
+                The variable to differentiate with respect to.
+        '''
+        # The differentiated function
         func = 0
-        # Go down each 'branch'
-        for i, input_var in enumerate(self.vars):
-            branch = self.diff[i]
-            # Check if it is 'owned' by a function
-            if input_var.output_of is not None:
-                # Then derive that function by the same variable and add it
-                func += branch * input_var.output_of.differentiate(var)
-            else:
-                func = branch
-        
+        # Move across inputs
+        for i, input in enumerate(self.inputs):
+            # Get respective derivative
+            partial = Function(self.diff[i], lambda x: 1)
+            func += partial * input.differentiate(wrt)
+
         return func
+
+class Variable(Function):
+    '''
+        Variables for function differentiation.
+    '''
+    def __init__(self):
+
+        super().__init__(lambda x: x, lambda x: 1)
