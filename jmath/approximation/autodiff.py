@@ -24,19 +24,19 @@ class Function:
 
         func
             Represented function.
-        diff
+        diffs
             Tuple of partial derivatives of the function.
     '''
-    def __init__(self, func: Callable, diff: Tuple[Callable]):
+    def __init__(self, func: Callable, diffs: Tuple[Callable]):
 
-        self.inputs = []
+        self.inputs = ()
         self.func = func
-        self.diff = diff
+        self.diffs = diffs
 
         # Check if diff is not a tuple
-        if not isinstance(self.diff, tuple):
+        if not isinstance(self.diffs, tuple):
             # If not then we shall make it one
-            self.diff = (self.diff,)
+            self.diffs = (self.diffs,)
 
     def __call__(self):
 
@@ -52,7 +52,7 @@ class Function:
             elif isinstance(input, (int, float, Uncertainty)):
                 # Const case
                 input.append(input)
-            else:
+            elif isinstance(input, Function):
                 # Function case
                 inputs.append(input())
 
@@ -123,6 +123,20 @@ class Function:
             f.register(self, other)
             return f
 
+    def __pow__(self, power: Union[int, float, Uncertainty]) -> 'Function':
+
+        if power == 1:
+            f = Function(lambda x: x, 1)
+            f.register(self)
+            return f
+        elif power == 0:
+            return 1
+        else:
+            # Non-trivial case
+            f = Function(lambda x: x**power, lambda x: power*x**(power - 1))
+            f.register(self)
+            return f
+
     def __rmul__(self, other: Supported) -> 'Function':
 
         return self * other
@@ -159,7 +173,7 @@ class Function:
             f.register(self, other)
             return f
 
-    def register(self, *inputs: 'Function', clear: bool = True):
+    def register(self, *inputs: 'Function'):
         '''
             Registers inputs to the function.
 
@@ -168,13 +182,8 @@ class Function:
 
             inputs
                 Args, the functions to register as inputs. 
-            clear
-                Clear function inputs before registering.
         '''
-        if clear:
-            self.inputs = []
-        for input in inputs:
-            self.inputs.append(input)
+        self.inputs = inputs
 
     def differentiate(self, wrt: 'Variable') -> 'Function':
         '''
@@ -191,7 +200,8 @@ class Function:
         # Move across inputs
         for i, input in enumerate(self.inputs):
             # Get respective derivative
-            partial = Function(self.diff[i], 1)
+            partial = Function(self.diffs[i], 1)
+            partial.register(*self.inputs)
             func += partial * input.differentiate(wrt)
 
         return func
@@ -204,6 +214,8 @@ class Variable(Function):
 
         super().__init__(lambda x: x, 1)
         self.value = 0
+        self.inputs = None
+        self.diffs = None
 
     def differentiate(self, wrt: 'Variable') -> int:
         
