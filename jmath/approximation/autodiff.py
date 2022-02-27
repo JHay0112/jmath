@@ -34,9 +34,29 @@ class Function:
         self.diff = diff
 
         # Check if diff is not a tuple
-        if not isinstance(diff, tuple):
+        if not isinstance(self.diff, tuple):
             # If not then we shall make it one
-            self.diff = (diff,)
+            self.diff = (self.diff,)
+
+    def __call__(self):
+
+        if not(isinstance(self.func, Callable)):
+            return self.func
+
+        # Input collection
+        inputs = []
+        for input in self.inputs:
+            if isinstance(input, Variable):
+                # Variable case
+                inputs.append(input.value)
+            elif isinstance(input, (int, float, Uncertainty)):
+                # Const case
+                input.append(input)
+            else:
+                # Function case
+                inputs.append(input())
+
+        return self.func(*tuple(inputs))
 
     def __add__(self, other: Supported) -> 'Function':
 
@@ -45,12 +65,14 @@ class Function:
             return self
         elif isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            f = Function(lambda x: x + other, lambda x: 1)
+            f = Function(lambda x: x + other, 1)
             f.register(self)
             return f
         else:
             # Variable case
-            return Function(op.add, (lambda x, y: 1, lambda x, y: 1))
+            f = Function(op.add, (1, 1))
+            f.register(self, other)
+            return f
 
     def __radd__(self, other: Supported) -> 'Function':
 
@@ -63,19 +85,27 @@ class Function:
             return self
         elif isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            return Function(lambda x: x - other, lambda x: 1)
+            f = Function(lambda x: x - other, 1)
+            f.register(self)
+            return f
         else:
             # Variable case
-            return Function(op.sub, (lambda x, y: 1, lambda x, y: -1))
+            f = Function(op.sub, (1, -1))
+            f.register(self, other)
+            return f
 
     def __rsub__(self, other: Supported) -> 'Function':
 
         if isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            return Function(lambda x: other - x, lambda x: -1)
+            f = Function(lambda x: other - x, -1)
+            f.register(self)
+            return f
         else:
             # Variable case
-            return Function(op.sub, (lambda x, y: 1, lambda x, y: -1))
+            f = Function(op.sub, (1, -1))
+            f.register(self, other)
+            return f
 
     def __mul__(self, other: Supported) -> 'Function':
 
@@ -84,12 +114,14 @@ class Function:
             return self
         elif isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            f = Function(lambda x: other * x, lambda x, y: other)
+            f = Function(lambda x: other * x, other)
             f.register(self)
             return f
         else:
             # Variable case
-            return Function(op.mul, (lambda x, y: y, lambda x, y: x))
+            f = Function(op.mul, (lambda x, y: y, lambda x, y: x))
+            f.register(self, other)
+            return f
 
     def __rmul__(self, other: Supported) -> 'Function':
 
@@ -105,19 +137,27 @@ class Function:
             raise ZeroDivisionError
         elif isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            return Function(lambda x: x/other, lambda x: 1/other)
+            f = Function(lambda x: x/other, 1/other)
+            f.register(self)
+            return f
         else:
             # Variable case
-            return Function(op.truediv, (lambda x, y: 1/y, lambda x, y: -x/(y**2)))
+            f = Function(op.truediv, (lambda x, y: 1/y, lambda x, y: -x/(y**2)))
+            f.register(self, other)
+            return f
 
     def __rtruediv__(self, other: Supported) -> 'Function':
 
         if isinstance(other, (int, float, Uncertainty)):
             # Numeric case
-            return Function(lambda x: other/x, lambda x: -other/(x**2))
+            f = Function(lambda x: other/x, lambda x: -other/(x**2))
+            f.register(self)
+            return f
         else:
             # Variable case
-            return Function(op.rtruediv, (lambda x, y: 1/y, lambda x, y: -x/(y**2)))
+            f = Function(op.rtruediv, (lambda x, y: 1/y, lambda x, y: -x/(y**2)))
+            f.register(self, other)
+            return f
 
     def register(self, *inputs: 'Function', clear: bool = True):
         '''
@@ -136,7 +176,7 @@ class Function:
         for input in inputs:
             self.inputs.append(input)
 
-    def differentiate(self, wrt: 'Variable') -> Callable:
+    def differentiate(self, wrt: 'Variable') -> 'Function':
         '''
             Differentiates the function with respect to a variable.
 
@@ -151,7 +191,7 @@ class Function:
         # Move across inputs
         for i, input in enumerate(self.inputs):
             # Get respective derivative
-            partial = Function(self.diff[i], lambda x: 1)
+            partial = Function(self.diff[i], 1)
             func += partial * input.differentiate(wrt)
 
         return func
@@ -162,4 +202,12 @@ class Variable(Function):
     '''
     def __init__(self):
 
-        super().__init__(lambda x: x, lambda x: 1)
+        super().__init__(lambda x: x, 1)
+        self.value = 0
+
+    def differentiate(self, wrt: 'Variable') -> int:
+        
+        if wrt == self:
+            return 1
+        else:
+            return 0
