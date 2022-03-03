@@ -21,7 +21,7 @@ def sin(value: other.radian) -> Supported:
         value
             Value (in radians) to compute the sine of.
     '''
-    return generic_function(math.sin, value)
+    return generic_function(math.sin, value, derivative = cos)
 
 @annotate
 def asin(value: Supported) -> other.radian:
@@ -53,7 +53,7 @@ def cos(value: other.radian) -> Supported:
         value
             Value (in radians) to compute the cosine of
     '''
-    return generic_function(math.cos, value)
+    return generic_function(math.cos, value, derivative = lambda x: -1 * sin(x))
 
 @annotate
 def acos(value: Supported) -> other.radian:

@@ -24,19 +24,19 @@ class Function:
 
         func
             Represented function.
-        diffs
-            Tuple of partial derivatives of the function.
+        derivatives
+            Tuple of partial derivatives of the function with respect to function variables.
     '''
-    def __init__(self, func: Callable, diffs: Tuple[Callable]):
+    def __init__(self, func: Callable, derivatives: Tuple[Callable]):
 
         self.inputs = ()
         self.func = func
-        self.diffs = diffs
+        self.derivatives = derivatives
 
         # Check if diff is not a tuple
-        if not isinstance(self.diffs, tuple):
+        if not isinstance(self.derivatives, tuple):
             # If not then we shall make it one
-            self.diffs = (self.diffs,)
+            self.derivatives = (self.derivatives,)
 
     def __call__(self):
 
@@ -200,7 +200,7 @@ class Function:
         # Move across inputs
         for i, input in enumerate(self.inputs):
             # Get respective derivative
-            partial = Function(self.diffs[i], 1)
+            partial = Function(self.derivatives[i], None)
             partial.register(*self.inputs)
             func += partial * input.differentiate(wrt)
 
@@ -215,7 +215,7 @@ class Variable(Function):
         super().__init__(lambda x: x, 1)
         self.value = 0
         self.inputs = None
-        self.diffs = None
+        self.derivatives = None
 
     def differentiate(self, wrt: 'Variable') -> int:
         

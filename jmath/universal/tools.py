@@ -4,19 +4,20 @@
 
 # - Imports
 
-from typing import Union, Callable
+from email.mime import nonmultipart
+from typing import Union, Callable, Tuple
 from ..uncertainties import Uncertainty
 from ..units import Unit
 from ..approximation.autodiff import Variable, Function
 
 # - Typing
 
-Supported = Union[float, int, Uncertainty, Unit, Variable]
+Supported = Union[float, int, Uncertainty, Unit, Variable, Function]
 Numeric = Union[float, int]
 
 # - Functions
 
-def generic_function(func: Callable[[Numeric], Numeric], input: Supported, *args) -> Union[Supported, Function]:
+def generic_function(func: Callable[[Numeric], Numeric], input: Supported, *args, derivative: Callable = None) -> Union[Supported, Function]:
     """
         Applies a function with generic cases for special objects.
         
@@ -27,6 +28,8 @@ def generic_function(func: Callable[[Numeric], Numeric], input: Supported, *args
             The function to apply.
         args
             Arguments to send to the function
+        derivatives
+            The partial derivatives of the function with respect to its variables
     """
 
     if isinstance(input, Unit):
@@ -36,14 +39,15 @@ def generic_function(func: Callable[[Numeric], Numeric], input: Supported, *args
     elif isinstance(input, Uncertainty):
         # Uncertainties
         return input.apply(func, *args)
-    elif isinstance(input, Variable):
-        # Auto-diff Variables
+    elif isinstance(input, (Function, Variable)):
+        # Auto-diff Variables/Functions
+        # Check that there is a derivative
+        if derivative is None:
+            return NotImplemented
         # Build auto-diff function
-        auto_func = Function(func)
-        # Register variable as input
-        auto_func.input(input)
-        # Return the function
-        return auto_func
+        f = Function(func, derivative)
+        f.register(input)
+        return f
     else:
         # Anything else
         return func(input, *args)
