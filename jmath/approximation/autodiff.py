@@ -5,6 +5,7 @@
 # - Imports
 
 import operator as op
+import inspect
 from ..uncertainties import Uncertainty
 from typing import Union, Callable, Tuple
 
@@ -242,3 +243,32 @@ class Variable(Function):
             return 1
         else:
             return 0
+
+# - Functions
+
+def analyse(f: Callable) -> Function:
+    '''
+        Automatically analyses the given function and produces a Function object.
+
+        Parameters
+        ----------
+
+        f
+            The function to analyse
+
+        Returns
+        -------
+
+        Function
+            A differentiable function object representing the given function.
+    '''
+    # Get the list of parameters from the function
+    names = inspect.getargspec(f)[0]
+    # Convert these into variables for the function
+    vars = tuple(Variable(name) for name in names)
+    # Pass these to the function
+    f = f(*vars)
+    # Register the input variables
+    f.register(*vars)
+    # And return
+    return f
