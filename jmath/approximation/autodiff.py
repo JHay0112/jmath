@@ -214,7 +214,7 @@ class Function:
         # Move across inputs
         for i, input in enumerate(self.inputs):
             # Get respective derivative
-            partial = Function(self.derivatives[i], None)
+            partial = self.derivatives[i](*self.inputs)
             partial.register(*self.inputs)
             func += partial * input.differentiate(wrt)
 
