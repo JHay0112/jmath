@@ -46,19 +46,13 @@ class Function:
 
         # Input collection
         inputs = []
-        # Assigned variables collection
-        assigned = {}
         # Start computing inputs
         for input in self.inputs:
             if isinstance(input, Variable):
                 # Variable case
                 # Check if the variable has been assigned a value
-                if input.id in assigned.keys():
-                    inputs.append(assigned[input.id])
-                elif input.id in kwargs.keys():
-                    # Else does kwargs have the value?
-                    assigned[input.id] = kwargs[input.id]
-                    inputs.append(assigned[input.id])
+                if input.id in kwargs.keys():
+                    inputs.append(kwargs[input.id])
                 else:
                     # There is no value for the variable???
                     # Throw a value error
