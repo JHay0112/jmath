@@ -38,23 +38,36 @@ class Function:
             # If not then we shall make it one
             self.derivatives = (self.derivatives,)
 
-    def __call__(self):
+    def __call__(self, **kwargs):
 
         if not(isinstance(self.func, Callable)):
             return self.func
 
         # Input collection
         inputs = []
+        # Assigned variables collection
+        assigned = {}
+        # Start computing inputs
         for input in self.inputs:
             if isinstance(input, Variable):
                 # Variable case
-                inputs.append(input.value)
+                # Check if the variable has been assigned a value
+                if input.id in assigned.keys():
+                    inputs.append(assigned[input.id])
+                elif input.id in kwargs.keys():
+                    # Else does kwargs have the value?
+                    assigned[input.id] = kwargs[input.id]
+                    inputs.append(assigned[input.id])
+                else:
+                    # There is no value for the variable???
+                    # Throw a value error
+                    raise KeyError(f"Variable '{input.id}' was not assigned a value on function call!")
             elif isinstance(input, (int, float, Uncertainty)):
                 # Const case
                 input.append(input)
             elif isinstance(input, Function):
                 # Function case
-                inputs.append(input())
+                inputs.append(input(**kwargs))
 
         return self.func(*tuple(inputs))
 
@@ -185,7 +198,7 @@ class Function:
         '''
         self.inputs = inputs
 
-    def differentiate(self, wrt: 'Variable') -> 'Function':
+    def differentiate(self, wrt: Union['Variable', str]) -> 'Function':
         '''
             Differentiates the function with respect to a variable.
 
@@ -209,17 +222,23 @@ class Function:
 class Variable(Function):
     '''
         Variables for function differentiation.
+
+        Parameters
+        ----------
+
+        id
+            Unique identifier string.
     '''
-    def __init__(self):
+    def __init__(self, id = None):
 
         super().__init__(lambda x: x, 1)
-        self.value = 0
+        self.id = id
         self.inputs = None
         self.derivatives = None
 
     def differentiate(self, wrt: 'Variable') -> int:
         
-        if wrt == self:
+        if wrt == self or wrt == self.id:
             return 1
         else:
             return 0
