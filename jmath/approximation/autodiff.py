@@ -4,8 +4,10 @@
 
 # - Imports
 
+from decimal import Clamped
 import operator as op
 import inspect
+import string
 from ..uncertainties import Uncertainty
 from typing import Union, Callable, Tuple
 
@@ -30,7 +32,7 @@ class Function:
     '''
     def __init__(self, func: Callable, derivatives: Tuple[Callable]):
 
-        self.inputs = ()
+        self.inputs = None
         self.func = func
         self.derivatives = derivatives
 
@@ -41,7 +43,7 @@ class Function:
 
     def __call__(self, **kwargs):
 
-        if not(isinstance(self.func, Callable)):
+        if not isinstance(self.func, Callable):
             return self.func
 
         # Input collection
@@ -208,8 +210,11 @@ class Function:
         # Move across inputs
         for i, input in enumerate(self.inputs):
             # Get respective derivative
-            partial = self.derivatives[i](*self.inputs)
-            partial.register(*self.inputs)
+            partial = self.derivatives[i]
+            if isinstance(partial, Callable):
+                partial = analyse(partial)
+            if isinstance(partial, Function):
+                partial.register(*self.inputs)
             func += partial * input.differentiate(wrt)
 
         return func
@@ -266,3 +271,11 @@ def analyse(f: Callable) -> Function:
     f.register(*vars)
     # And return
     return f
+
+# - Main
+
+# Define all english letters as 'Variable's
+# This code is very silly
+# I'm not sure it should stay here
+for letter in string.ascii_lowercase:
+    globals()[letter] = Variable(letter)
