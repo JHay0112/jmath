@@ -277,5 +277,5 @@ def analyse(f: Callable) -> Function:
 # Define all english letters as 'Variable's
 # This code is very silly
 # I'm not sure it should stay here
-for letter in string.ascii_lowercase:
+for letter in string.ascii_letters:
     globals()[letter] = Variable(letter)
