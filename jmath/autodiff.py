@@ -4,11 +4,10 @@
 
 # - Imports
 
-from decimal import Clamped
 import operator as op
 import inspect
 import string
-from ..uncertainties import Uncertainty
+from .uncertainties import Uncertainty
 from typing import Union, Callable, Tuple
 
 # - Typing

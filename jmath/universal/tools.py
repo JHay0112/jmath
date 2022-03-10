@@ -4,11 +4,10 @@
 
 # - Imports
 
-from email.mime import nonmultipart
-from typing import Union, Callable, Tuple
+from typing import Union, Callable
 from ..uncertainties import Uncertainty
 from ..units import Unit
-from ..approximation.autodiff import Variable, Function
+from ..autodiff import Variable, Function
 
 # - Typing
 
