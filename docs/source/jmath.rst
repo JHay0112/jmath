@@ -20,6 +20,14 @@ Subpackages
 Submodules
 ----------
 
+jmath.autodiff module
+---------------------
+
+.. automodule:: jmath.autodiff
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.complex module
 --------------------
 
