@@ -29,6 +29,7 @@ class Function:
             Represented function.
         derivatives
             Tuple of partial derivatives of the function with respect to function variables.
+            Note that derivatives may be numeric values or functions with built-in operations and Functions.
     '''
     def __init__(self, func: Callable, derivatives: Tuple[Callable]):
 
