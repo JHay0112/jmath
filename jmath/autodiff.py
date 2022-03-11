@@ -8,7 +8,7 @@ import operator as op
 import inspect
 import string
 from .uncertainties import Uncertainty
-from typing import Union, Callable, Tuple
+from typing import Any, Union, Callable, Tuple
 
 # - Typing
 
@@ -211,8 +211,7 @@ class Function:
             # Get respective derivative
             partial = self.derivatives[i]
             if isinstance(partial, Callable):
-                partial = analyse(partial)
-            if isinstance(partial, Function):
+                partial = Function(partial, 0)
                 partial.register(*self.inputs)
             func += partial * input.differentiate(wrt)
 
@@ -230,14 +229,18 @@ class Variable(Function):
     '''
     def __init__(self, id = None):
 
-        super().__init__(lambda x: x, 1)
+        super().__init__(lambda x: x, None)
         self.id = id
         self.inputs = None
         self.derivatives = None
 
+    def __call__(self, input: Any) -> Any:
+
+        return input
+
     def differentiate(self, wrt: 'Variable') -> int:
         
-        if wrt == self or wrt == self.id:
+        if ((wrt == self) or (wrt == self.id and self.id is not None)):
             return 1
         else:
             return 0
