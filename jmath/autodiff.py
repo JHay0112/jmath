@@ -59,6 +59,7 @@ class Function:
         elif self.func == op.add:
             return f"{params[0]}+{params[1]}"
 
+        # Standard function
         return f"{self.func.__name__}{str(params)[:-2]})"
 
     def __call__(self, **kwargs):
