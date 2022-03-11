@@ -212,8 +212,7 @@ class Function:
             # Get respective derivative
             partial = self.derivatives[i]
             if isinstance(partial, FunctionType):
-                partial = Function(partial, 0)
-                partial.register(*self.inputs)
+                partial = partial(*self.inputs)
             func += partial * input.differentiate(wrt)
 
         return func
