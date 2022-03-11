@@ -7,6 +7,7 @@
 import operator as op
 import inspect
 import string
+from types import FunctionType
 from .uncertainties import Uncertainty
 from typing import Any, Union, Callable, Tuple
 
@@ -210,7 +211,7 @@ class Function:
         for i, input in enumerate(self.inputs):
             # Get respective derivative
             partial = self.derivatives[i]
-            if isinstance(partial, Callable):
+            if isinstance(partial, FunctionType):
                 partial = Function(partial, 0)
                 partial.register(*self.inputs)
             func += partial * input.differentiate(wrt)
@@ -227,7 +228,7 @@ class Variable(Function):
         id
             Unique identifier string.
     '''
-    def __init__(self, id = None):
+    def __init__(self, id: str = None):
 
         super().__init__(lambda x: x, None)
         self.id = id
