@@ -42,6 +42,25 @@ class Function:
             # If not then we shall make it one
             self.derivatives = (self.derivatives,)
 
+    def __str__(self):
+
+        # Get parameters
+        params = tuple()
+        if self.inputs is not None:
+            params = tuple(str(input) for input in self.inputs)
+
+        # Cases for operations
+        if self.func == op.mul:
+            return f"{params[0]}*{params[1]}"
+        elif self.func == op.truediv:
+            return f"{params[0]}/{params[1]}"
+        elif self.func == op.sub:
+            return f"{params[0]}-{params[1]}"
+        elif self.func == op.add:
+            return f"{params[0]}+{params[1]}"
+
+        return f"{self.func.__name__}{str(params)[:-2]})"
+
     def __call__(self, **kwargs):
 
         if not isinstance(self.func, Callable):
@@ -234,6 +253,10 @@ class Variable(Function):
         self.id = id
         self.inputs = None
         self.derivatives = None
+
+    def __str__(self):
+
+        return self.id
 
     def __call__(self, input: Any) -> Any:
 
