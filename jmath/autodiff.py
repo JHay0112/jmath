@@ -7,6 +7,7 @@
 import operator as op
 import inspect
 import string
+from functools import wraps
 from types import FunctionType
 from .uncertainties import Uncertainty
 from typing import Any, Union, Callable, Tuple
@@ -237,6 +238,10 @@ class Function:
             func += partial * input.differentiate(wrt)
 
         return func
+
+    @wraps(differentiate)
+    def d(self, wrt: Union['Variable', str]) -> 'Function':
+        return self.differentiate(wrt)
 
 class Variable(Function):
     '''
