@@ -135,7 +135,7 @@ class Function:
             return f
         else:
             # Variable case
-            f = Function(op.sub, (1, -1))
+            f = Function(op.sub, (-1, 1))
             f.register(self, other)
             return f
 
@@ -144,6 +144,8 @@ class Function:
         if other == 1:
             # Special case
             return self
+        elif other == 0:
+            return 0
         elif isinstance(other, (int, float, Uncertainty)):
             # Numeric case
             f = Function(lambda x: other * x, other)
@@ -154,6 +156,12 @@ class Function:
             f = Function(op.mul, (lambda x, y: y, lambda x, y: x))
             f.register(self, other)
             return f
+
+    def __neg__(self) -> 'Function':
+
+        f = Function(op.neg, -1)
+        f.register(self)
+        return f
 
     def __pow__(self, power: Union[int, float, Uncertainty]) -> 'Function':
 

@@ -53,7 +53,7 @@ def cos(value: other.radian) -> Supported:
         value
             Value (in radians) to compute the cosine of
     '''
-    return generic_function(math.cos, value, derivative = lambda x: -1 * sin(x))
+    return generic_function(math.cos, value, derivative = lambda x: -sin(x))
 
 @annotate
 def acos(value: Supported) -> other.radian:
