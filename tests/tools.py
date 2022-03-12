@@ -21,7 +21,7 @@ def repeat(func):
 
     return inner
 
-def random_integer(min: int = -100, max: int = 100) -> int:
+def random_integer(min: int = -100, max: int = 100, non_zero = False) -> int:
     """
         Generates a random integer. Wrapper of random.randint.
 
@@ -33,8 +33,12 @@ def random_integer(min: int = -100, max: int = 100) -> int:
         max
             The maximum value int to produce.
     """
-
-    return randint(min, max)
+    r = 0
+    while r == 0:
+        r = randint(min, max)
+        if not non_zero:
+            break
+    return r
 
 def random_integers(length: int):
     """
