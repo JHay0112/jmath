@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; jmath v4.3.1
+  <title>Index &mdash; jmath v4.4.0
  documentation</title>
   
 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                v4.3.1
+                v4.4.0
 
               </div>
             
@@ -217,6 +217,8 @@
 </li>
       <li><a href="jmath.units.html#jmath.units.conversion.UnitSpace.alias">alias() (jmath.units.conversion.UnitSpace method)</a>
 </li>
+      <li><a href="jmath.html#jmath.autodiff.analyse">analyse() (in module jmath.autodiff)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector.angle_between">angle_between() (jmath.linearalgebra.vectors.Vector method)</a>
@@ -305,6 +307,8 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jmath.html#jmath.autodiff.Function.d">d() (jmath.autodiff.Function method)</a>
+</li>
       <li><a href="jmath.physics.html#jmath.physics.circuits.DCSupply">DCSupply (class in jmath.physics.circuits)</a>
 </li>
       <li><a href="jmath.cryptography.html#jmath.cryptography.affine.Affine.decrypt">decrypt() (jmath.cryptography.affine.Affine method)</a>
@@ -326,7 +330,13 @@
       <li><a href="jmath.abstract.html#jmath.abstract.queues.Queue.dequeue">dequeue() (jmath.abstract.queues.Queue method)</a>
 </li>
       <li><a href="jmath.approximation.html#jmath.approximation.differentiation.differentiate">differentiate() (in module jmath.approximation.differentiation)</a>
+
+      <ul>
+        <li><a href="jmath.html#jmath.autodiff.Function.differentiate">(jmath.autodiff.Function method)</a>
 </li>
+        <li><a href="jmath.html#jmath.autodiff.Variable.differentiate">(jmath.autodiff.Variable method)</a>
+</li>
+      </ul></li>
       <li><a href="jmath.approximation.html#jmath.approximation.integration.discrete_trapezium_rule">discrete_trapezium_rule() (in module jmath.approximation.integration)</a>
 </li>
       <li><a href="jmath.abstract.html#jmath.abstract.lists.DoubleLinkedList">DoubleLinkedList (class in jmath.abstract.lists)</a>
@@ -364,6 +374,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jmath.physics.html#jmath.physics.mechanics.PhysObj.force">force() (jmath.physics.mechanics.PhysObj method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jmath.html#jmath.autodiff.Function">Function (class in jmath.autodiff)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -495,6 +509,13 @@
 </li>
       </ul></li>
       <li>
+    jmath.autodiff
+
+      <ul>
+        <li><a href="jmath.html#module-jmath.autodiff">module</a>
+</li>
+      </ul></li>
+      <li>
     jmath.complex
 
       <ul>
@@ -564,6 +585,8 @@
         <li><a href="jmath.linearalgebra.html#module-jmath.linearalgebra.vectors">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     jmath.loud
 
@@ -571,8 +594,6 @@
         <li><a href="jmath.loud.html#module-jmath.loud">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     jmath.loud.graphs
 
@@ -746,6 +767,8 @@
 </li>
       <li><a href="jmath.abstract.html#jmath.abstract.lists.LinkedList.list">list() (jmath.abstract.lists.LinkedList method)</a>
 </li>
+      <li><a href="jmath.universal.html#jmath.universal.logarithms.ln">ln() (in module jmath.universal.logarithms)</a>
+</li>
       <li><a href="jmath.universal.html#jmath.universal.logarithms.log">log() (in module jmath.universal.logarithms)</a>
 </li>
   </ul></td>
@@ -809,6 +832,8 @@
         <li><a href="jmath.approximation.html#module-jmath.approximation.integration">jmath.approximation.integration</a>
 </li>
         <li><a href="jmath.approximation.html#module-jmath.approximation.newton_method">jmath.approximation.newton_method</a>
+</li>
+        <li><a href="jmath.html#module-jmath.autodiff">jmath.autodiff</a>
 </li>
         <li><a href="jmath.html#module-jmath.complex">jmath.complex</a>
 </li>
@@ -991,6 +1016,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="jmath.html#jmath.complex.Complex.real">real() (jmath.complex.Complex method)</a>
 </li>
+      <li><a href="jmath.html#jmath.autodiff.Function.register">register() (jmath.autodiff.Function method)</a>
+</li>
       <li><a href="jmath.html#jmath.uncertainties.Uncertainty.rel_uncertainty">rel_uncertainty() (jmath.uncertainties.Uncertainty method)</a>
 </li>
       <li><a href="jmath.html#jmath.discrete.Graph.relationships">relationships() (jmath.discrete.Graph method)</a>
@@ -1079,10 +1106,12 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector">Vector (class in jmath.linearalgebra.vectors)</a>
+      <li><a href="jmath.html#jmath.autodiff.Variable">Variable (class in jmath.autodiff)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector">Vector (class in jmath.linearalgebra.vectors)</a>
+</li>
       <li><a href="jmath.html#jmath.exceptions.VectorsNotSameSize">VectorsNotSameSize</a>
 </li>
   </ul></td>

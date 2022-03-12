@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath.abstract package &mdash; jmath v4.3.1
+  <title>jmath.abstract package &mdash; jmath v4.4.0
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.3.1
+                v4.4.0
 
               </div>
             
@@ -120,6 +120,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.autodiff">jmath.autodiff module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.complex">jmath.complex module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.discrete">jmath.discrete module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jmath.html#module-jmath.exceptions">jmath.exceptions module</a></li>
@@ -230,11 +231,8 @@ For example the comparison operator for a min heap is the min function.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index of to find the children of</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>An iterable containing the indices of the child nodes</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>An iterable containing the indices of the child nodes</p>
 </dd>
 </dl>
 </dd></dl>
@@ -252,11 +250,8 @@ For example the comparison operator for a min heap is the min function.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index to calculate the parent of</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>The index of the parent node or None if it does not have a parent</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>The index of the parent node or None if it does not have a parent</p>
 </dd>
 </dl>
 </dd></dl>
@@ -412,11 +407,8 @@ With two or more arguments, return the smallest argument.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>data</strong> (<em>Any</em>) – The data to be appended.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Returns the node object created in the append.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Returns the node object created in the append.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -444,11 +436,8 @@ Negative indices other than -1 unsupported.</p>
 <li><p><strong>data</strong> (<em>Any</em>) – Data to be inserted.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Returns the node object created in the insertion process.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Returns the node object created in the insertion process.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -459,7 +448,7 @@ Negative indices other than -1 unsupported.</p>
 <dd><p>Returns an equivalent Python List.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>List[Any]</p>
+<dd class="field-odd"><p><em>List</em>[<em>Any</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -533,7 +522,7 @@ Negative indices other than -1 unsupported.</p>
 <dd><p>Returns and removes the first queue item.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Any</p>
+<dd class="field-odd"><p><em>Any</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -576,7 +565,7 @@ Negative indices other than -1 unsupported.</p>
 <dd><p>Removes and returns the top item from the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Any</p>
+<dd class="field-odd"><p><em>Any</em></p>
 </dd>
 </dl>
 </dd></dl>
