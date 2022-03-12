@@ -4,6 +4,14 @@ jmath.universal package
 Submodules
 ----------
 
+jmath.universal.hyperbolic module
+---------------------------------
+
+.. automodule:: jmath.universal.hyperbolic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 jmath.universal.logarithms module
 ---------------------------------
 

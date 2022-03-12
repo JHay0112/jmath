@@ -19,7 +19,7 @@ def cosh(value: Supported) -> Supported:
         value   
             The number to compute the hyberbolic cosine of.
     """
-    return generic_function(math.cosh, value)
+    return generic_function(math.cosh, value, derivative = sinh)
 
 def acosh(value: Supported) -> Supported:
     """
@@ -43,7 +43,7 @@ def sinh(value: Supported) -> Supported:
         value   
             The number to compute the hyberbolic sine of.
     """
-    return generic_function(math.sinh, value)
+    return generic_function(math.sinh, value, derivative = cosh)
 
 def asinh(value: Supported) -> Supported:
     """

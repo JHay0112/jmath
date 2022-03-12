@@ -25,4 +25,4 @@ def exp(value: Supported) -> Supported:
         value
             The value to calculate the exponential of.
     """
-    return generic_function(math.exp, value)
+    return generic_function(math.exp, value, derivative = exp)

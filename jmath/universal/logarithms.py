@@ -21,6 +21,18 @@ def log(value: Supported, base: float = math.e) -> Supported:
     """
     return generic_function(math.log, value, base)
 
+def ln(value: Supported) -> Supported:
+    """
+        Calculates the natural logarithm of a number.
+
+        Parameters
+        ----------
+
+        value
+            The value to compute the natural logarithm of.
+    """
+    return generic_function(math.log, value, derivative = lambda x: 1/x)
+
 def log10(value: Supported) -> Supported:
     """
         Calculates the log base 10 of a number.
