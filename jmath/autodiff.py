@@ -1,5 +1,20 @@
 '''
     Automatic Differentiation
+
+    Examples
+    --------
+
+    >>> from jmath.autodiff import x, y
+    >>> f = 6*x*y*2 + y + 9
+    >>> f_prime = f.d(x)
+    >>> f_prime(x = 2, y = 1)
+    6
+
+    >>> from jmath.autodiff import x, y
+    >>> f = x*y
+    >>> grad_f = f.d(x, y)
+    >>> grad_f(x = 3, y = 2)
+    Vector(2, 3)
 '''
 
 # - Imports
@@ -285,9 +300,12 @@ class Variable(Function):
 
         return self.id
 
-    def __call__(self, input: Any) -> Any:
+    def __call__(self, input: Any = None, **kwargs) -> Any:
 
-        return input
+        if input is not None:
+            return input
+        else:
+            return kwargs[self.id]
 
     def differentiate(self, wrt: 'Variable') -> int:
         
