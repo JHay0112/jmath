@@ -93,6 +93,13 @@ class Vector:
 
         return inner
 
+    def __call__(self, *args, **kwargs) -> 'Vector':
+        """Call vector of functions."""
+        results = []
+        for component in self.components:
+            results.append(component(*args, **kwargs))
+        return Vector(results)
+
     def __eq__(self, vector: "Vector") -> bool:
         """Tests equality of vectors"""
         if isinstance(vector, Vector) or isinstance(vector, Point):
