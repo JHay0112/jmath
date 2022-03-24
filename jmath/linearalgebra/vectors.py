@@ -235,7 +235,17 @@ class Vector:
             wrt
                 The variables to differentiate with respect to.
         '''
-        return Vector([comp.d(*wrt) for comp in self.components])
+        results = []
+        for component in self.components:
+            # Check if is callable
+            if isinstance(component, Callable):
+                # Then differentiate it
+                results.append(component.d(*wrt))
+            else:
+                # Non-differentiable
+                # So just append a zero
+                results.append(0)
+        return Vector(results)
 
     def d(self, *wrt) -> 'Vector':
         '''
