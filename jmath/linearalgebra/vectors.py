@@ -93,6 +93,17 @@ class Vector:
 
         return inner
 
+    def __call__(self, *args, **kwargs) -> 'Vector':
+        """Call vector of functions."""
+        results = []
+        for component in self.components:
+            # Only call callable functions
+            if isinstance(component, Callable):
+                results.append(component(*args, **kwargs))
+            else:
+                results.append(component)
+        return Vector(results)
+
     def __eq__(self, vector: "Vector") -> bool:
         """Tests equality of vectors"""
         if isinstance(vector, Vector) or isinstance(vector, Point):
@@ -213,6 +224,34 @@ class Vector:
             vector = vector.vector
 
         return round(math.acos((self @ vector)/(self.magnitude() * vector.magnitude())), 5)
+    
+    def differentiate(self, *wrt) -> 'Vector':
+        '''
+            Differentiate functions in vector with respect to a variable.
+
+            Parameters
+            ----------
+
+            wrt
+                The variables to differentiate with respect to.
+        '''
+        results = []
+        for component in self.components:
+            # Check if is callable
+            if isinstance(component, Callable):
+                # Then differentiate it
+                results.append(component.d(*wrt))
+            else:
+                # Non-differentiable
+                # So just append a zero
+                results.append(0)
+        return Vector(results)
+
+    def d(self, *wrt) -> 'Vector':
+        '''
+            Differentiate short hand.
+        '''
+        return self.differentiate(*wrt)
 
 class Point(Vector):
     """

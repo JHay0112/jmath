@@ -1,5 +1,20 @@
 '''
     Automatic Differentiation
+
+    Examples
+    --------
+
+    >>> from jmath.autodiff import x, y
+    >>> f = 6*x*y*2 + y + 9
+    >>> f_prime = f.d(x)
+    >>> f_prime(x = 2, y = 1)
+    6
+
+    >>> from jmath.autodiff import x, y
+    >>> f = x*y
+    >>> grad_f = f.d(x, y)
+    >>> grad_f(x = 3, y = 2)
+    Vector(2, 3)
 '''
 
 # - Imports
@@ -10,11 +25,12 @@ import string
 from functools import wraps
 from types import FunctionType
 from .uncertainties import Uncertainty
+from .linearalgebra import Vector
 from typing import Any, Union, Callable, Tuple
 
 # - Typing
 
-Supported = Union[int, float, Uncertainty, 'Function', 'Variable']
+Supported = Union[int, float, Uncertainty, 'Function', 'Variable', Vector]
 Numeric = Union[int, float, Uncertainty]
 
 # - Classes
@@ -63,7 +79,10 @@ class Function:
         # Standard function
         return f"{self.func.__name__}{str(params)[:-2]})"
 
-    def __call__(self, **kwargs):
+    def __call__(self, *args, **kwargs):
+
+        if len(args) != 0:
+            raise AttributeError("Inputs must be assigned to a variable e.g. f(x = 3) rather than f(3)!")
 
         if not isinstance(self.func, Callable):
             return self.func
@@ -225,7 +244,7 @@ class Function:
         '''
         self.inputs = inputs
 
-    def differentiate(self, wrt: Union['Variable', str]) -> 'Function':
+    def differentiate(self, *wrt: Union['Variable', str]) -> Union['Function', Vector]:
         '''
             Differentiates the function with respect to a variable.
 
@@ -235,6 +254,15 @@ class Function:
             wrt
                 The variable to differentiate with respect to.
         '''
+        if len(wrt) == 1:
+            # Single differential case
+            wrt = wrt[0]
+        else:
+            # Multiple case
+            results = []
+            for var in wrt:
+                results.append(self.differentiate(var))
+            return Vector(results)
         # The differentiated function
         func = 0
         # Move across inputs
@@ -248,8 +276,8 @@ class Function:
         return func
 
     @wraps(differentiate)
-    def d(self, wrt: Union['Variable', str]) -> 'Function':
-        return self.differentiate(wrt)
+    def d(self, *wrt: Union['Variable', str]) -> 'Function':
+        return self.differentiate(*wrt)
 
 class Variable(Function):
     '''
@@ -272,9 +300,12 @@ class Variable(Function):
 
         return self.id
 
-    def __call__(self, input: Any) -> Any:
+    def __call__(self, input: Any = None, **kwargs) -> Any:
 
-        return input
+        if input is not None:
+            return input
+        else:
+            return kwargs[self.id]
 
     def differentiate(self, wrt: 'Variable') -> int:
         

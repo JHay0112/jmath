@@ -50,7 +50,7 @@ def test_conversion():
     """Tests that unit conversion happens as expected."""
     a = Unit("a")
     b = Unit("b")
-    coeffecient = random_integer()
+    coeffecient = random_integer(non_zero = True)
     define_conversion(a, b, coeffecient)
 
     assert a.convert_to(b).value == (a*coeffecient).value
