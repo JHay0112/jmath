@@ -97,7 +97,11 @@ class Vector:
         """Call vector of functions."""
         results = []
         for component in self.components:
-            results.append(component(*args, **kwargs))
+            # Only call callable functions
+            if isinstance(component, Callable):
+                results.append(component(*args, **kwargs))
+            else:
+                results.append(component)
         return Vector(results)
 
     def __eq__(self, vector: "Vector") -> bool:
