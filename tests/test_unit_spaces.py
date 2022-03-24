@@ -31,7 +31,7 @@ def test_conversion_leak():
     space = UnitSpace()
     space.a = Unit("a")
     space.b = Unit("b")
-    space.define_conversion(space.a, space.b, random_integer())
+    space.define_conversion(space.a, space.b, random_integer(non_zero = True))
     assert space.a == space.a.convert_to(space.b).convert_to(space.a)
     assert universal.units == {}
 
