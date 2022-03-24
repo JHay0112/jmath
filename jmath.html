@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>jmath package &mdash; jmath v4.4.0
+  <title>jmath package &mdash; jmath v4.4.1
  documentation</title>
   
 
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                v4.4.0
+                v4.4.1
 
               </div>
             
@@ -297,6 +297,21 @@
 <div class="section" id="module-jmath.autodiff">
 <span id="jmath-autodiff-module"></span><h2>jmath.autodiff module<a class="headerlink" href="#module-jmath.autodiff" title="Permalink to this headline">¶</a></h2>
 <p>Automatic Differentiation</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jmath.autodiff</span> <span class="k">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f_prime</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">d</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f_prime</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jmath.autodiff</span> <span class="k">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grad_f</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grad_f</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">Vector(2, 3)</span>
+</pre></div>
+</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="jmath.autodiff.Function">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jmath.autodiff.</span></span><span class="sig-name descname"><span class="pre">Function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivatives</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.autodiff.Function" title="Permalink to this definition">¶</a></dt>
@@ -313,28 +328,28 @@ Note that derivatives may be numeric values or functions with built-in operation
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.autodiff.Function.d">
-<span class="sig-name descname"><span class="pre">d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.autodiff.Function.d" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">wrt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.autodiff.Function.d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Differentiates the function with respect to a variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>wrt</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#jmath.autodiff.Variable" title="jmath.autodiff.Variable"><em>jmath.autodiff.Variable</em></a><em>, </em><em>str</em><em>]</em>) – The variable to differentiate with respect to.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#jmath.autodiff.Function" title="jmath.autodiff.Function">jmath.autodiff.Function</a></p>
+<dd class="field-even"><p><em>Union</em>[<a class="reference internal" href="#jmath.autodiff.Function" title="jmath.autodiff.Function">jmath.autodiff.Function</a>, <a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jmath.autodiff.Function.differentiate">
-<span class="sig-name descname"><span class="pre">differentiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.autodiff.Function.differentiate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">differentiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">wrt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jmath.autodiff.Function.differentiate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Differentiates the function with respect to a variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>wrt</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#jmath.autodiff.Variable" title="jmath.autodiff.Variable"><em>jmath.autodiff.Variable</em></a><em>, </em><em>str</em><em>]</em>) – The variable to differentiate with respect to.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#jmath.autodiff.Function" title="jmath.autodiff.Function">jmath.autodiff.Function</a></p>
+<dd class="field-even"><p><em>Union</em>[<a class="reference internal" href="#jmath.autodiff.Function" title="jmath.autodiff.Function">jmath.autodiff.Function</a>, <a class="reference internal" href="jmath.linearalgebra.html#jmath.linearalgebra.vectors.Vector" title="jmath.linearalgebra.vectors.Vector">jmath.linearalgebra.vectors.Vector</a>]</p>
 </dd>
 </dl>
 </dd></dl>
