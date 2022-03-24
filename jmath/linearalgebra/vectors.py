@@ -220,6 +220,24 @@ class Vector:
             vector = vector.vector
 
         return round(math.acos((self @ vector)/(self.magnitude() * vector.magnitude())), 5)
+    
+    def differentiate(self, *wrt) -> 'Vector':
+        '''
+            Differentiate functions in vector with respect to a variable.
+
+            Parameters
+            ----------
+
+            wrt
+                The variables to differentiate with respect to.
+        '''
+        return Vector([comp.d(*wrt) for comp in self.components])
+
+    def d(self, *wrt) -> 'Vector':
+        '''
+            Differentiate short hand.
+        '''
+        return self.differentiate(*wrt)
 
 class Point(Vector):
     """

@@ -30,7 +30,7 @@ from typing import Any, Union, Callable, Tuple
 
 # - Typing
 
-Supported = Union[int, float, Uncertainty, 'Function', 'Variable']
+Supported = Union[int, float, Uncertainty, 'Function', 'Variable', Vector]
 Numeric = Union[int, float, Uncertainty]
 
 # - Classes
